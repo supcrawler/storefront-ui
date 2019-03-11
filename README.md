@@ -1,10 +1,9 @@
-
 # Storefront UI
+
 **This project is on the early stages of development. Not ready to use.**
 
-Highly customizable and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team.
 
-![](https://i.ibb.co/7ScVptN/123.png)
+Highly customizable and elegant UI framework for eCommerce (and not only) based on Vue.js and [Google Retail UX Playbook](https://services.google.com/fh/files/events/pdf_retail_ux_playbook.pdf). Made with ❤️ by [Vue Storefront](https://github.com/DivanteLtd/vue-storefront) team.
 
 # What makes it unique?
 
@@ -18,14 +17,10 @@ Full customization and great developer experience are our primar focuses. You ca
 - Component design customization with props.
 - Possibility to compose your own components from partials (markup/Vue instance/SCSS)
 
-Read about [code design concepts](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) behind Storefront UI.
-
-![](https://i.ibb.co/VHTcyrw/1234.png)
 # Design
 
 You can find the stunning designs we are using for Storefront UI components [here](https://www.figma.com/file/hrwE3VsMBHgdJoS86rVr4W/Desktop-%26-Mobile-Vue-Storefront?node-id=99%3A0)
 
-![](https://i.ibb.co/7SKbz5K/123457.png)
 # How to try it?
 
 Storefront UI is not ready to use in projects yet. We plan to release it as a library before the end of April 2019.
