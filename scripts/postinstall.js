@@ -1,19 +1,15 @@
 var fs = require("fs");
-var path = require("path");
-const currentDir = path.dirname(__dirname);
 
-if (currentDir.includes("node_modules")) {
-  fs.appendFile(
-    "../../../sfui.scss",
-    `/* Here you can override global SCSS variables */
-  
-  // global override excluding scoped components
-  // $button-padding: 5px !default;
-  // global override including scoped componentss
-  // $button-padding: 50px;
-    `,
-    err => {
-      if (err) throw err;
-    }
-  );
-}
+fs.appendFile(
+  "../../../sfui.scss",
+  `/* Here you can override global SCSS variables */
+
+// global override excluding scoped components
+// $button-padding: 5px !default;
+// global override including scoped components
+// $button-padding: 50px;
+  `,
+  err => {
+    if (err) throw err;
+  }
+);
