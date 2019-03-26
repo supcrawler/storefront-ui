@@ -4,7 +4,6 @@ import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
 import SfButton from "../components/atoms/SfButton/SfButton.vue";
-import SfCategoryTile from "../components/molecules/SfCategoryTile/SfCategoryTile.vue";
 
 storiesOf("Button", module)
   .add("with text", () => ({
@@ -24,8 +23,3 @@ storiesOf("Button", module)
     template: '<sf-button @click="action">😀 😎 👍 💯</sf-button>',
     methods: { action: action("clicked") }
   }));
-
-storiesOf("CategoryTile", module).add("with text and image", () => ({
-  components: { SfCategoryTile },
-  template: '<sf-category-tile"></sf-category-tile>'
-}));
