@@ -16,7 +16,7 @@ Full customization and great developer experience are our primar focuses. You ca
 - Seamless upgrades
 - High-level global customization can be done through SCSS variables
 - Component content customization with slots.
-- Component design customization with props.
+- Component design customization with pure css BEM classes instead of countless props.
 - Possibility to compose your own components from partials (markup/Vue instance/SCSS)
 - Implementation of [Atomic Design](http://bradfrost.com/blog/post/atomic-web-design/) (with limit to atoms, molecules and organisms)
 
@@ -32,14 +32,12 @@ You can find the stunning designs we are using for Storefront UI components [her
 
 # How to try it?
 
-Storefront UI is not ready to use in projects yet. We plan to release it as a library before the end of April 2019.
+Storefront UI is not ready to use in projects yet. We plan to release working version before the end of April 2019.
 If you want to play with components anyway there are two options:
 
-1. Copy the repo and play with them in `App.vue`
-2. Build the lib and install it as local NPM package. Then you can just install it as a plugin:
 
 ```js
-import StorefrontUI from "storefront-ui";
+import StorefrontUI from "@storefrontui/vue";
 
 Vue.use(StorefrontUI);
 ```
