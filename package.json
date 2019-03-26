@@ -1,6 +1,6 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.5",
+  "version": "0.0.1",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -11,12 +11,11 @@
     "postinstall": "node scripts/postinstall.js"
   },
   "dependencies": {
-    "@snowdog/alpaca-components": "^0.1.2-alpha.0",
-    "vue": "^2.6.8"
+    "vue": "^2.6.8",
+    "alpaca-components": "git+https://github.com/SnowdogApps/alpaca-storybook.git"
   },
   "files": [
-    "dist/*",
-    "scripts/*"
+    "dist/*"
   ],
   "devDependencies": {
     "@storybook/addon-actions": "^5.0.1",
