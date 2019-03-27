@@ -1,13 +1,11 @@
 language: node_js
-node_js:
-  - "10"
 
 cache:
   yarn: true
   directories:
     - node_modules
 
-script:
+install:
   - yarn
 
 jobs:
@@ -16,7 +14,9 @@ jobs:
     - script:
         - yarn lint
         - yarn build
+      node_js: "10"
 
     - stage: Tests
     - script: yarn test:unit
-      name: "Unit Tests"
+      name: "Unit Tests NodeJS 10"
+      node_js: "10"
