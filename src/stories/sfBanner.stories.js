@@ -1,5 +1,12 @@
-<template>
-  <div id="app">
+import { storiesOf } from "@storybook/vue";
+import { action } from "@storybook/addon-actions";
+import { linkTo } from "@storybook/addon-links";
+
+import SfBanner from "../components/molecules/SfBanner/SfBanner.vue";
+
+export default storiesOf("Banner", module).add("few banners", () => ({
+  components: { SfBanner },
+  template: `
     <div style="display: flex; flex-wrap: wrap; justify-content: space-between">
       <SfBanner style="margin-bottom: 30px; justify-content: center;">
         <template slot="title">
@@ -16,7 +23,7 @@
           shop now
         </template>
       </SfBanner>
-      <SfBanner style="width: 48%; align-items: flex-start;">
+      <SfBanner style="width: 48%; align-items: flex-start; background-image: url('./img/Banner1.png');">
         <template slot="title">
           ECO SANDALS
         </template>
@@ -46,24 +53,5 @@
           shop now
         </template>
       </SfBanner>
-    </div>
-  </div>
-</template>
-
-<script lang="ts">
-import Vue from "vue";
-import SfButton from "./components/atoms/SfButton/SfButton.vue";
-import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
-
-export default Vue.extend({
-  name: "app",
-  components: {
-    SfBanner
-  }
-});
-</script>
-
-<style lang="scss">
-@import "./css/variables.scss";
-@import "./css/globals.scss";
-</style>
+    </div>`
+}));
