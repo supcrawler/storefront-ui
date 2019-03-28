@@ -1,7 +1,7 @@
 import { shallowMount } from "@vue/test-utils";
-import SfCircleButton from "@/components/atoms/SfCircleButton/SfCircleButton.vue";
+import SfComponent from "@/components/template/SfComponent.vue";
 
-describe("SfCircleButton.vue", () => {
+describe("SfComponent.vue", () => {
   // DOM Element render check, you can replace with with root component
   // it("renders a button", () => {
   //   const component = shallowMount(SfComponent);
@@ -10,7 +10,7 @@ describe("SfCircleButton.vue", () => {
 
   // Default slot check, you can replace `default` with any other
   it("renders default prop text when passed", () => {
-    const component = shallowMount(SfCircleButton);
+    const component = shallowMount(SfComponent);
     expect(component).toBeDefined();
   });
 });
