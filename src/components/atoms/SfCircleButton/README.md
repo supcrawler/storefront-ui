@@ -6,7 +6,6 @@
 
 <!-- Just paste HTML template. It's much better description than any other code -->
 
-
 ````html
 <b></b>
 ````
@@ -41,6 +40,3 @@
 
 - absolute link to component folder
 - link to storybook
-- template import `@storefrontui/vue/SfComponent.html`
-- instance import `@storefrontui/vue/SfComponent.js`
-- scss import `@storefrontui/vue/SfComponent.scss`
