@@ -1,17 +1,25 @@
 <template>
   <div id="app">
-    <SfAlert class="sf-alert--warning" message="zaczekaj"></SfAlert>
+    <SfBanner
+      title="Lorem ipsum"
+      subtitle="Lorem ipsum"
+      button-text="Lorem ipsum"
+    >
+      <template slot="call-to-action">
+        Example
+      </template>
+    </SfBanner>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
+import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
 
 export default Vue.extend({
   name: "app",
   components: {
-    SfAlert
+    SfBanner
   }
 });
 </script>
