@@ -1,11 +1,12 @@
 import { storiesOf } from "@storybook/vue";
 
-import SfBanner from "./SfBanner.vue";
+import SfBanner from "../components/molecules/SfBanner/SfBanner.vue";
 const slotConfig = {
-  titleSlot: "<b>Custom HTML</b>",
-  subtitleSlot: "<b>Custom HTML</b>",
-  descriptionSlot: "<b>Custom HTML</b>",
-  CTASlot: "<b>Custom HTML</b>"
+  titleSlot: "ECO SANDALS",
+  subtitleSlot: "Summer shoes",
+  descriptionSlot:
+    "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort.",
+  buttonSlot: "shop now"
 };
 
 const template = (className = "", slotConfig, bannerImage = "Banner1.png") => `
@@ -20,8 +21,8 @@ const template = (className = "", slotConfig, bannerImage = "Banner1.png") => `
     <template slot="description">
       ${slotConfig.descriptionSlot}
     </template>
-    <template slot="call-to-action">
-      ${slotConfig.CTASlot}
+    <template slot="button">
+      ${slotConfig.buttonSlot}
     </template>
   </SfBanner>
 </div>`;
@@ -47,7 +48,28 @@ export default storiesOf("Banner", module)
     components: { SfBanner },
     template: template("sf-banner--right", slotConfig)
   }))
-  .add("with slots", () => ({
+  .add("with slot: all", () => ({
     components: { SfBanner },
     template: template("", slotConfig)
+  }))
+  .add("with slot: without description", () => ({
+    components: { SfBanner },
+    template: template("", {
+      ...slotConfig,
+      descriptionSlot: ""
+    })
+  }))
+  .add("with slot: without button", () => ({
+    components: { SfBanner },
+    template: template("", {
+      ...slotConfig,
+      buttonSlot: ""
+    })
+  }))
+  .add("with slot: without subtitle", () => ({
+    components: { SfBanner },
+    template: template("", {
+      ...slotConfig,
+      subtitleSlot: ""
+    })
   }));
