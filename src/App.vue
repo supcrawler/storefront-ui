@@ -1,15 +1,18 @@
 <template>
   <div id="app">
-    Put examples here
+    <SfAlert class="sf-alert--warning"></SfAlert>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
+import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
 
 export default Vue.extend({
   name: "app",
-  components: {}
+  components: {
+    SfAlert
+  }
 });
 </script>
 

@@ -40,6 +40,3 @@
 
 - absolute link to component folder
 - link to storybook
-- template import `@storefrontui/vue/SfComponent.html`
-- instance import `@storefrontui/vue/SfComponent.js`
-- scss import `@storefrontui/vue/SfComponent.scss`
