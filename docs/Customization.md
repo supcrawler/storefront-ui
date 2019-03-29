@@ -21,7 +21,7 @@ In short words every component exposes 2 ways of standard customization
   subtitle="Lorem ipsum"
   button-text="Lorem ipsum"
  >
-   <template v-slot:title>
+   <template name="title">
      <h1> Hello from custom title!</h1>
    </template>
  </SfBanner>
