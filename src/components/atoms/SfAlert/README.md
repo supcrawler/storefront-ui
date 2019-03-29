@@ -1,6 +1,6 @@
 # SfAlert
 
-Component for displaying in-app messages.
+Component for display alerts
 <!-- Write about general purpose of the component. Include screenshot (to be replaced with a live example once we migrate to vuepress) -->
 
 ## HTML Template
