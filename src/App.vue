@@ -1,29 +1,30 @@
 <template>
   <div id="app">
-    <SfAlert type="warning" message="message"></SfAlert>
-    <SfAlert
-      icon="https://findicons.com/files/icons/1743/ecqlipse/128/attachment.png"
-      type="info"
-      message="message"
+    <SfBanner
+      title="Lorem ipsum"
+      subtitle="Lorem ipsum"
+      button-text="Lorem ipsum"
     >
-    </SfAlert>
-    <SfAlert :icon="false" type="alert" message="message"> </SfAlert>
+      <template slot="call-to-action">
+        Example
+      </template>
+    </SfBanner>
+    <SfCircleButton></SfCircleButton>
+    <SfButton></SfButton>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
+import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
+import SfCircleButton from "./components/atoms/SfCircleButton/SfCircleButton.vue";
 
 export default Vue.extend({
   name: "app",
-  data() {
-    return {
-      b: "a"
-    };
-  },
   components: {
-    SfAlert
+    SfCircleButton,
+    SfButton,
+    SfBanner
   }
 });
 </script>
