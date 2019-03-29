@@ -1,0 +1,57 @@
+@import '../../../css/variables';
+
+$sf-alert-padding: 0.625rem !default;
+
+$sf-alert__text-font-size: 0.875rem !default;
+$sf-alert__text-margin: 0 !default;
+
+$sf-alert__icon-padding-right: 0.625rem !default;
+$sf-alert__icon-size: 20px !default;
+
+$sf-alert__background-color--info: $c-yellow-secondary !default;
+$sf-alert__color--info: $c-yellow-primary !default;
+
+$sf-alert__background-color--warning: $c-pink-secondary !default;
+$sf-alert__color--warning: $c-pink-primary !default;
+
+$sf-alert__background-color--alert: $c-blue-secondary !default;
+$sf-alert__color--alert: $c-blue-primary !default;
+
+.sf-alert {
+    display: flex;
+    align-items: center;
+    padding: $sf-alert-padding;
+    
+    &__text {
+        font-size: $sf-alert__text-font-size;
+        margin: $sf-alert__text-margin;
+    }
+    
+    &__icon {
+        display: flex;
+        align-items: center;
+        padding-right: $sf-alert__icon-padding-right;
+
+        svg {
+            height: $sf-alert__icon-size;
+            width: $sf-alert__icon-size;
+        }
+    }
+
+    &--info {
+        background-color: $sf-alert__background-color--info;
+        color: $sf-alert__color--info;
+        fill: $sf-alert__color--info;
+     
+    }
+    &--alert {
+        background-color: $sf-alert__background-color--alert;
+        color: $sf-alert__color--alert;
+        fill: $sf-alert__color--alert;
+    }
+    &--warning {
+        background-color: $sf-alert__background-color--warning;
+        color: $sf-alert__color--warning;
+        fill: $sf-alert__color--warning;
+    }
+}
