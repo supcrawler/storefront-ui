@@ -1,0 +1,19 @@
+<div class="sf-alert">
+    <slot>
+        <div class="sf-alert__icon" v-if="displayIcon">
+            <slot name="icon" :icon="icon">
+               <img :src="icon" alt="" v-if="icon">
+               <template v-else>
+                    <img src="../../../assets/alert-alert.svg" alt="" v-if="type === 'alert'">
+                    <img src="../../../assets/alert-info.svg" alt="" v-if="type === 'info'">
+                    <img src="../../../assets/alert-warning.svg" alt="" v-if="type === 'warning'">
+               </template>
+            </slot>
+        </div>    
+        <slot name="message" :message="message">
+            <p class="sf-alert__text"  v-if="message">
+                {{ message }}
+            </p>
+        </slot>
+    </slot>
+</div>

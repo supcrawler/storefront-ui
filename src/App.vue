@@ -1,30 +1,36 @@
 <template>
   <div id="app">
-    <SfBanner
-      title="Lorem ipsum"
-      subtitle="Lorem ipsum"
-      button-text="Lorem ipsum"
+    <SfAlert
+      class="sf-alert--warning"
+      message="wiadomość przez propsa i slote-scope"
     >
-      <template slot="call-to-action">
-        Example
-      </template>
-    </SfBanner>
-    <SfCircleButton></SfCircleButton>
-    <SfButton></SfButton>
+    </SfAlert>
+    <SfAlert
+      class="sf-alert--info"
+      message="wiadomość przez propsa i slote-scope"
+    >
+    </SfAlert>
+    <SfAlert
+      class="sf-alert--alert"
+      message="wiadomość przez propsa i slote-scope"
+    >
+    </SfAlert>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
-import SfCircleButton from "./components/atoms/SfCircleButton/SfCircleButton.vue";
+import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
 
 export default Vue.extend({
   name: "app",
+  data() {
+    return {
+      b: "a"
+    };
+  },
   components: {
-    SfCircleButton,
-    SfButton,
-    SfBanner
+    SfAlert
   }
 });
 </script>
