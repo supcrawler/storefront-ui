@@ -33,5 +33,6 @@ export default Vue.extend({
 </script>
 
 <style lang="scss">
-@import "./css/styles.scss";
+@import "./css/variables.scss";
+@import "./css/globals.scss";
 </style>
