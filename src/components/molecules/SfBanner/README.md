@@ -44,7 +44,7 @@ Banner with Title, Subtitle and call to action button
 - `title` - banner Title 
 - `subtitle` - banner Subtitle 
 - `description` - banner description
-- `buttonText` - button text
+- `button` - button text
 
 ## Slots
 
