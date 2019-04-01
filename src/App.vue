@@ -1,22 +1,19 @@
 <template>
   <div id="app">
-    <sf-banner
-      title="Lorem ipsum"
-      subtitle="Lorem ipsum,"
-      button-text="Lorem ipsum"
+    <SfAlert type="warning" message="message"></SfAlert>
+    <SfAlert
+      icon="https://findicons.com/files/icons/1743/ecqlipse/128/attachment.png"
+      type="info"
+      message="message"
     >
-      <template v-slot:subtitle="{ subtitle }">
-        Example replaced content {{ b }} {{ subtitle }}
-      </template>
-    </sf-banner>
-    <sf-header />
+    </SfAlert>
+    <SfAlert :icon="false" type="alert" message="message"> </SfAlert>
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SfBanner from "./components/molecules/SfBanner/SfBanner.vue";
-import SfHeader from "./components/organisms/SfHeader/SfHeader.vue";
+import SfAlert from "./components/atoms/SfAlert/SfAlert.vue";
 
 export default Vue.extend({
   name: "app",
@@ -26,12 +23,12 @@ export default Vue.extend({
     };
   },
   components: {
-    SfBanner,
-    SfHeader
+    SfAlert
   }
 });
 </script>
 
 <style lang="scss">
-@import "./css/all.scss";
+@import "./css/variables.scss";
+@import "./css/globals.scss";
 </style>
