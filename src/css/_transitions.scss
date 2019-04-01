@@ -1,0 +1,21 @@
+.fade {
+  @include transition-fade();
+}
+.slide {
+  @include transition-slide();
+}
+.slide-inverse {
+  @include transition-slide("right");
+}
+.collapse {
+  @include transition-slide("bottom");
+}
+.collapse-inverse {
+  @include transition-slide("top");
+}
+.fade-slide {
+  @include transition-slide-fade();
+}
+.fade-collapse {
+  @include transition-slide-fade("bottom");
+}
