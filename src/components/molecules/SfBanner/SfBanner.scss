@@ -32,8 +32,6 @@ $banner__description-color: $c-dark-primary !default;
 $banner__call-to-action-font-size: 0.875rem !default;
 $banner__call-to-action-background-color: $c-dark-primary !default;
 
-$banner--secondary__button-color: $c-text-on-dark !default;
-$banner--secondary__button-background-color: $c-green-primary !default;
 
 .sf-banner {
   display: flex;
@@ -114,10 +112,11 @@ $banner--secondary__button-background-color: $c-green-primary !default;
   &--left {
     align-items: flex-start;
   }
-  &--secondary {
+  &--right {
+    text-align: right;
+
     .sf-banner__button {
-      color: $banner--secondary__button-color;
-      background-color: $banner--secondary__button-background-color;
+      margin-left: auto;
     }
   }
 }
