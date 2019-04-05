@@ -1,17 +1,18 @@
 <template>
   <div id="app">
-    <SfButton>a</SfButton>
+    <Playground />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from "vue";
-import SfButton from "./components/atoms/SfButton/SfButton.vue";
+// If you don;t have this file run `yarn` cmd to create it
+import Playground from "./Playground.vue";
 
 export default Vue.extend({
   name: "app",
   components: {
-    SfButton
+    Playground
   }
 });
 </script>
