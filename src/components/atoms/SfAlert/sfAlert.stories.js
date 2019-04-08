@@ -1,5 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
+import notes from "./README.md";
 import SfAlert from "./SfAlert.vue";
 
 storiesOf("Alert", module)
@@ -33,6 +34,7 @@ storiesOf("Alert", module)
     `
     }),
     {
+      notes,
       info: true
     }
   )
@@ -55,16 +57,18 @@ storiesOf("Alert", module)
         }
       },
       template: `
-      <SfAlert 
-        :message="message" 
-        :icon="icon">
-        <div slot="icon" v-html="icon"></div>
-        <div slot="message" v-html="messśage"></div>
-        <div v-html="main"></div>
+      <SfAlert>
+        <template slot="icon">
+          <img src="https://img.icons8.com/material/4ac144/256/camera.png" />
+        </template>
+        <template slot="message">
+          <p>Custom message</p>
+        </div>
       </SfAlert>
     `
     }),
     {
+      notes,
       info: true,
       knobs: {
         escapeHTML: false
