@@ -37,32 +37,30 @@ storiesOf("Alert", module)
     }
   )
   .add(
-    "[slot] Icon",
+    "Slots (custom html)",
     () => ({
       components: { SfAlert },
+      props: {
+        message: {
+          default: text("message (slot)", "<h1>slot <i>message</i></h1>")
+        },
+        icon: {
+          default: text(
+            "icon (slot)",
+            `<img src="https://img.icons8.com/material/4ac144/256/camera.png" />`
+          )
+        },
+        main: {
+          default: text("default (slot)", "")
+        }
+      },
       template: `
-      <SfAlert message="Message prop">
+      <SfAlert>
         <template slot="icon">
-          <img src="assets/storybook/added_to_cart.svg"/>
+          <img src="https://img.icons8.com/material/4ac144/256/camera.png" />
         </template>
-      </SfAlert>
-    `
-    }),
-    {
-      info: true,
-      knobs: {
-        escapeHTML: false
-      }
-    }
-  )
-  .add(
-    "[slot] Message",
-    () => ({
-      components: { SfAlert },
-      template: `
-      <SfAlert icon="/assets/profile.svg">
         <template slot="message">
-          <h2>Custom message</h2>
+          <p>Custom message</p>
         </div>
       </SfAlert>
     `
