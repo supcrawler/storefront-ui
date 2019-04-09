@@ -8,43 +8,43 @@ describe("SfBanner.vue", () => {
   });
 
   it("renders title slot text when passed", () => {
-    const title = "HelloWorld";
+    const msg = "HelloWorld";
     const component = shallowMount(SfBanner, {
       slots: {
-        title
+        title: msg
       }
     });
-    expect(component.find(".sf-banner").text()).toContain(title);
+    expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
   it("renders subtitle slot text when passed", () => {
-    const subtitle = "HelloWorld";
+    const msg = "HelloWorld";
     const component = shallowMount(SfBanner, {
       slots: {
-        subtitle
+        subtitle: msg
       }
     });
-    expect(component.find(".sf-banner").text()).toContain(subtitle);
+    expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
   it("renders description slot text when passed", () => {
-    const description = "HelloWorld";
+    const msg = "HelloWorld";
     const component = shallowMount(SfBanner, {
       slots: {
-        description
+        description: msg
       }
     });
-    expect(component.find(".sf-banner").text()).toContain(description);
+    expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
   it("renders button prop text when passed", () => {
-    const buttonText = "HelloWorld";
+    const msg = "HelloWorld";
     const component = shallowMount(SfBanner, {
       propsData: {
-        buttonText
+        "buttonText": msg
       }
     });
-    expect(component.find(".sf-banner__button").text()).toContain(buttonText);
+    expect(component.find(".sf-banner").text()).toContain(msg);
   });
 
   it("renders call to action slot text when passed", () => {
@@ -54,7 +54,8 @@ describe("SfBanner.vue", () => {
         "call-to-action": msg
       }
     });
-    expect(component.find(".sf-banner__button").exists()).toBe(false);
-    expect(component.find(".testSlot").exists()).toBe(true);
+    expect(component.find(".sf-banner__button").exists()).toBe(false)
+    expect(component.find('.testSlot').exists()).toBe(true)
   });
+  
 });

@@ -1,18 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
-import { configure, addDecorator, addParameters } from "@storybook/vue";
-import { withInfo } from "storybook-addon-vue-info";
-
-import styles from "../../src/css/all.scss";
+import { configure } from "@storybook/vue";
 
 const req = require.context("../../src/", true, /.stories.js$/);
-
-addDecorator(withInfo);
-
-addParameters({
-  options: {
-    brandTitle: "StorefrontUI"
-  }
-});
 
 function loadStories() {
   req.keys().forEach(filename => req(filename));
