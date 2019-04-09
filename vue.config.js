@@ -19,7 +19,7 @@ module.exports = {
           transformPath(targePath) {
             return targePath.split("/").slice(-1)[0];
           },
-          transform(content) {
+          transform(content, path) {
             return content
               .toString()
               .replace(
@@ -28,15 +28,7 @@ module.exports = {
               );
           }
         },
-        {
-          from: "src/css",
-          to: "css",
-          transform(content) {
-            return content
-              .toString()
-              .replace("../../sfui.scss", "../../../../../sfui.scss");
-          }
-        }
+        { from: "src/css", to: "css" }
       ])
     ]
   }

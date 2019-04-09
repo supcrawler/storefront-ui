@@ -1,5 +1,7 @@
 import { storiesOf } from "@storybook/vue";
-import notes from "./README.md";
+import { action } from "@storybook/addon-actions";
+import { linkTo } from "@storybook/addon-links";
+
 import SfHeader from "./SfHeader.vue";
 
 export default storiesOf("Header", module)
@@ -11,7 +13,7 @@ export default storiesOf("Header", module)
       <img src="arrow_right.svg" alt="arrow" slot="right"/>
     </sf-header>`,
     methods: {}
-  }), { notes })
+  }))
   .add("mobile with text", () => ({
     components: { SfHeader },
     template: `
@@ -20,4 +22,4 @@ export default storiesOf("Header", module)
       <template slot="middle">Women</template>
     </sf-header>`,
     methods: {}
-  }), { notes });
+  }));
