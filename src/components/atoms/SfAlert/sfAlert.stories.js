@@ -1,6 +1,5 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import notes from "./README.md";
 import SfAlert from "./SfAlert.vue";
 
 storiesOf("Alert", module)
@@ -34,43 +33,39 @@ storiesOf("Alert", module)
     `
     }),
     {
-      notes,
       info: true
     }
   )
   .add(
-    "[slot] Icon",
+    "Slots (custom html)",
     () => ({
       components: { SfAlert },
+      props: {
+        message: {
+          default: text("message (slot)", "<h1>slot <i>message</i></h1>")
+        },
+        icon: {
+          default: text(
+            "icon (slot)",
+            `<img src="https://img.icons8.com/material/4ac144/256/camera.png" />`
+          )
+        },
+        main: {
+          default: text("default (slot)", "")
+        }
+      },
       template: `
-      <SfAlert message="Message prop">
+      <SfAlert>
         <template slot="icon">
-          <img src="assets/storybook/added_to_cart.svg"/>
+          <img src="https://img.icons8.com/material/4ac144/256/camera.png" />
         </template>
-      </SfAlert>
-    `
-    }),
-    {
-      info: true,
-      knobs: {
-        escapeHTML: false
-      }
-    }
-  )
-  .add(
-    "[slot] Message",
-    () => ({
-      components: { SfAlert },
-      template: `
-      <SfAlert icon="/assets/profile.svg">
         <template slot="message">
-          <span>Custom message <b>with custom HTML</b></span>
+          <p>Custom message</p>
         </div>
       </SfAlert>
     `
     }),
     {
-      notes,
       info: true,
       knobs: {
         escapeHTML: false
