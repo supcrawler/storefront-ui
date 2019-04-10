@@ -2,9 +2,9 @@ import { storiesOf } from "@storybook/vue";
 import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
-import SfButton from "./../../../src/components/atoms/SfButton/SfButton.vue";
+import SfButton from "./../../src/components/atoms/SfButton/SfButton.vue";
 
-export default storiesOf("Utilities/Transitions", module)
+export default storiesOf("Transitions", module)
   .add("fade in-out", () => ({
     components: { SfButton },
     template: `
@@ -17,7 +17,7 @@ export default storiesOf("Utilities/Transitions", module)
       </transition>
     </div>`,
     data: () => ({
-      show: false
+      show: true
     })
   }))
   .add("slide left", () => ({
@@ -32,7 +32,7 @@ export default storiesOf("Utilities/Transitions", module)
       </transition>
     </div>`,
     data: () => ({
-      show: false
+      show: true
     })
   }))
   .add("slide right", () => ({
@@ -47,7 +47,7 @@ export default storiesOf("Utilities/Transitions", module)
       </transition>
     </div>`,
     data: () => ({
-      show: false
+      show: true
     })
   }))
   .add("collapse top", () => ({
@@ -62,7 +62,7 @@ export default storiesOf("Utilities/Transitions", module)
       </transition>
     </div>`,
     data: () => ({
-      show: false
+      show: true
     })
   }))
   .add("collapse bottom", () => ({
@@ -77,7 +77,7 @@ export default storiesOf("Utilities/Transitions", module)
       </transition>
     </div>`,
     data: () => ({
-      show: false
+      show: true
     })
   }))
   .add("fade in slide out", () => ({
@@ -92,7 +92,7 @@ export default storiesOf("Utilities/Transitions", module)
       </transition>
     </div>`,
     data: () => ({
-      show: false
+      show: true
     })
   }))
   .add("fade in collapse out", () => ({
@@ -107,6 +107,6 @@ export default storiesOf("Utilities/Transitions", module)
       </transition>
     </div>`,
     data: () => ({
-      show: false
+      show: true
     })
   }));
