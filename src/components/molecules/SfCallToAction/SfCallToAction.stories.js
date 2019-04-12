@@ -1,5 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { withKnobs, text } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfCallToAction from "./SfCallToAction.vue";
 
@@ -10,14 +10,8 @@ export default storiesOf("CallToAction", module)
     () => ({
       components: { SfCallToAction },
       props: {
-        title: {
-          default: text("title (prop)", "Title prop")
-        },
-        description: {
-          default: text(
-            "description (prop)",
-            "Description prop lorem ipsum dolor sit amet"
-          )
+        message: {
+          default: text("message (prop)", "Message prop")
         },
         buttonText: {
           default: text("buttonText (prop)", "ButtonText prop")
@@ -25,9 +19,8 @@ export default storiesOf("CallToAction", module)
       },
       template: `
       <SfCallToAction
-        :title="title"
+        :message="message"
         :button-text="buttonText"
-        :description="description"
       />
     `
     }),
@@ -37,46 +30,14 @@ export default storiesOf("CallToAction", module)
     }
   )
   .add(
-    "CSS Modifiers",
-    () => ({
-      components: { SfCallToAction },
-      props: {
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "sf-call-to-action--secondary",
-              "sf-call-to-action--light"
-            ],
-            "null",
-            "CSS-Modifiers"
-          )
-        }
-      },
-      template: `
-      <SfCallToAction
-        title="Title prop"
-        description="Description prop lorem ipsum dolor sit amet"
-        button-text="ButtonText prop"
-        :class="customClass"
-      />
-    `
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "[slot] title",
+    "[slot] message",
     () => ({
       components: { SfCallToAction },
       template: `
       <SfCallToAction
         button-text="Check out"
-        description="Description prop lorem ipsum dolor sit amet"
       >
-        <template #title>
+        <template #message>
           <h1> Lorem ipsum </h1>
         </template>
       </SfCallToAction>
@@ -87,33 +48,12 @@ export default storiesOf("CallToAction", module)
     }
   )
   .add(
-    "[slot] description",
+    "[slot] call-to-action",
     () => ({
       components: { SfCallToAction },
       template: `
       <SfCallToAction
-        title="Title prop"
-        button-text="Check out"
-      >
-        <template #description>
-          <p> Description slot lorem ipsum dolor sit amet</p>
-        </template>
-      </SfCallToAction>
-    `
-    }),
-    {
-      info: true
-    }
-  )
-
-  .add(
-    "[slot] action",
-    () => ({
-      components: { SfCallToAction },
-      template: `
-      <SfCallToAction
-        title="Title prop"
-        description="Description prop lorem ipsum dolor sit amet"
+        message="Message prop"
       >
         <template #action>
           <button>Custom CTA</button>
