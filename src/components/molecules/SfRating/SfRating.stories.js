@@ -4,7 +4,7 @@ import { withKnobs, number, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfRating from "./SfRating.vue";
 
-storiesOf("Atoms|Rating", module)
+storiesOf("Rating", module)
   .addDecorator(withKnobs)
   .add(
     "Props",

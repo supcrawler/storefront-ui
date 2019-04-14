@@ -7,10 +7,7 @@ export default {
     },
     type: {
       type: String,
-      default: "alert",
-      validator: function(value) {
-        return ["alert", "warning", "info"].indexOf(value) !== -1;
-      }
+      default: "alert"
     }
   },
   computed: {
