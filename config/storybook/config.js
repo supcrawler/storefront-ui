@@ -1,9 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { configure, addDecorator, addParameters } from "@storybook/vue";
-import { setDefaults, withInfo } from "storybook-addon-vue-info";
-import theme from "./theme";
+import { withInfo } from "storybook-addon-vue-info";
 
-import "../../src/css/all.scss";
+import styles from "../../src/css/all.scss";
 
 const req = require.context("../../src/", true, /.stories.js$/);
 
@@ -11,20 +10,11 @@ addDecorator(withInfo);
 
 addParameters({
   options: {
-    brandTitle: "StorefrontUI",
-    showPanel: true,
-    isToolshown: true,
-    theme,
-    sortStoriesByKind: true
+    brandTitle: "StorefrontUI"
   }
-});
-setDefaults({
-  summary: `- Check **Knobs** tab on Props story to play with compomnent props and CSS modifiers story to play with CSS modifiers.
-  - Check **Notes** tab for documentation`
 });
 
 function loadStories() {
-  require("./home/home.js");
   req.keys().forEach(filename => req(filename));
 }
 
