@@ -38,7 +38,8 @@ storiesOf("Molecules|Banner", module)
               "sf-banner--bottom",
               "sf-banner--secondary"
             ],
-            "null"
+            "null",
+            "CSS-Modifiers"
           )
         }
       },

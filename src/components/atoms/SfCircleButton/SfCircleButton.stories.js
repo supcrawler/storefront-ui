@@ -19,7 +19,8 @@ storiesOf("Atoms|CircleButton", module)
           default: select(
             "CSS Modifier",
             ["null", "sf-circle-button--small", "sf-circle-button--secondary"],
-            "null"
+            "null",
+            "CSS-Modifiers"
           )
         }
       },

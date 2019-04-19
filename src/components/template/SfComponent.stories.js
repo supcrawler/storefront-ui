@@ -28,7 +28,8 @@
 //         :
 //       >
 //         Hello Button<
-//       /SfComponent>`
+//       /SfComponent>`,
+//       methods: { action: action("clicked") }
 //     }),
 //     {
 //       info: true,
