@@ -3,15 +3,11 @@ import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfCallToAction",
   props: {
-    title: {
+    message: {
       type: String,
       default: ""
     },
     buttonText: {
-      type: String,
-      default: ""
-    },
-    description: {
       type: String,
       default: ""
     }
