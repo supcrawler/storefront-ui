@@ -6,7 +6,7 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 storiesOf("Atoms|CircleButton", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Props",
     () => ({
       props: {
         icon: {
@@ -14,17 +14,32 @@ storiesOf("Atoms|CircleButton", module)
         },
         alt: {
           default: text("alt (prop)", "Home")
-        },
+        }
+      },
+      components: { SfCircleButton },
+      template: "<sf-circle-button :icon='icon' :alt='alt'/>"
+    }),
+    {
+      info: true,
+      notes
+    }
+  )
+  .add(
+    "CSS Modifiers",
+    () => ({
+      props: {
         customClass: {
           default: select(
             "CSS Modifier",
             ["null", "sf-circle-button--small", "sf-circle-button--secondary"],
-            "null"
+            "null",
+            "CSS-Modifiers"
           )
         }
       },
       components: { SfCircleButton },
-      template: `<sf-circle-button :icon="icon" :alt="alt" :class="customClass" />`
+      template:
+        "<sf-circle-button icon='assets/storybook/home.svg' :class='customClass'/>>"
     }),
     {
       info: true,
