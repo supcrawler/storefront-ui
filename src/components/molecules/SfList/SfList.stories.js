@@ -2,9 +2,9 @@
 import { storiesOf } from "@storybook/vue";
 
 import SfList from "./SfList.vue";
-import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
+import SfMenuItem from "../SfMenuItem/SfMenuItem.vue";
 
-storiesOf("Organisms|[WIP]List", module)
+storiesOf("Molecules|List", module)
   .add(
     "Basic",
     () => ({
@@ -24,22 +24,20 @@ storiesOf("Organisms|[WIP]List", module)
     () => ({
       components: { SfList, SfMenuItem },
       template: `
-  <div style="width: 300px">
     <SfList>
       <SfListItem>
         <SfMenuItem
-          label="Lorem ipsum"
+          title="Lorem ipsum"
           count="30"
         />
       </SfListItem>
       <SfListItem>
         <SfMenuItem
-          label="Dolor sit amet"
+          title="Dolor sit amet"
           count="30"
         />
       </SfListItem>
-    </SfList>
-  </div>`
+    </SfList>`
     }),
     {
       info: true

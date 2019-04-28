@@ -10,8 +10,8 @@ export default storiesOf("Molecules|MenuItem", module)
     () => ({
       components: { SfMenuItem },
       props: {
-        label: {
-          default: text("label (prop)", "label prop")
+        title: {
+          default: text("title (prop)", "Title prop")
         },
         count: {
           default: text("count (prop)", "30")
@@ -20,7 +20,7 @@ export default storiesOf("Molecules|MenuItem", module)
       template: `
       <div style="width: 300px">
         <SfMenuItem
-          :label="label"
+          :title="title"
           :count="count"
         />
       </div>

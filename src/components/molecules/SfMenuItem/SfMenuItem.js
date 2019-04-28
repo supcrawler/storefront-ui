@@ -1,7 +1,7 @@
 export default {
   name: "SfMenuItem",
   props: {
-    label: {
+    title: {
       type: String,
       default: ""
     },
