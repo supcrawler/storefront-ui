@@ -9,14 +9,14 @@ describe("SfMenuItem.vue", () => {
 
   it("renders correct count prop", () => {
     const countText = "10 item(s)";
-    const labelText = "Example title";
+    const titleText = "Example title";
     const component = shallowMount(SfMenuItem, {
       propsData: {
-        label: labelText,
+        title: titleText,
         count: countText
       }
     });
-    expect(component.find(".sf-menu-item__label").text()).toMatch(labelText);
+    expect(component.find(".sf-menu-item__title").text()).toMatch(titleText);
     expect(component.find(".sf-menu-item__count").text()).toMatch(countText);
   });
 
