@@ -1,8 +1,8 @@
+docs/.vuepress/dist
+
 .DS_Store
 node_modules
 /dist
-/src/Playground.vue
-storybook_static
 
 # local env files
 .env.local

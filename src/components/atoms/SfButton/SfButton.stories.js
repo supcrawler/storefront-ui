@@ -1,31 +1,18 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
+import { action } from "@storybook/addon-actions";
+import { linkTo } from "@storybook/addon-links";
 
 import SfButton from "./SfButton.vue";
 
-storiesOf("Atoms|Button", module)
-  .addDecorator(withKnobs)
-  .add(
-    "Basic",
-    () => ({
-      components: { SfButton },
-      props: {
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-button--secondary", "sf-button--full-width"],
-            "null"
-          )
-        }
-      },
-      template: `
-      <SfButton :class="customClass">Hello world</SfButton>
-    `
-    }),
-    {
-      info: {
-        summary: "Button component. Place desired content into it's slot."
-      }
-    }
-  );
+storiesOf("Button", module)
+  .add("with text", () => ({
+    components: { SfButton },
+    template: '<sf-button @click="action">Hello Button</sf-button>',
+    methods: { action: action("clicked") }
+  }))
+  .add("with some emoji", () => ({
+    components: { SfButton },
+    template: '<sf-button @click="action">😀 😎 👍 💯</sf-button>',
+    methods: { action: action("clicked") }
+  }));

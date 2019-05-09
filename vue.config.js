@@ -19,43 +19,16 @@ module.exports = {
           transformPath(targePath) {
             return targePath.split("/").slice(-1)[0];
           },
-          transform(content) {
-            const patternForComponents = new RegExp(
-              "@/components/(.*?)/(.*?)/"
-            );
-            const patternForInternalComponents = new RegExp(
-              "@/components/(.*?)/(.*?)/_internal/"
-            );
+          transform(content, path) {
             return content
               .toString()
               .replace(
                 "@import '../../../css/variables';",
                 "@import './css/variables';"
-              )
-              .replace("@/utilities", "./utilities")
-              .replace(patternForInternalComponents, "./")
-              .replace(patternForComponents, "./")
-              .replace("/assets", "./assets");
+              );
           }
         },
-        {
-          from: "src/css",
-          to: "css",
-          transform(content) {
-            return content
-              .toString()
-              .replace("../../sfui.scss", "../../../../../sfui.scss");
-          }
-        },
-        {
-          from: "src/utilities",
-          to: "utilities",
-          ignore: ["**/*.stories.js"]
-        },
-        {
-          from: "public/assets",
-          to: "assets"
-        }
+        { from: "src/css", to: "css" }
       ])
     ]
   }

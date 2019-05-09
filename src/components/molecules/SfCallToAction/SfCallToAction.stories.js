@@ -1,109 +1,40 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, select } from "@storybook/addon-knobs";
-import notes from "./README.md";
+import { withKnobs, text } from "@storybook/addon-knobs";
+
 import SfCallToAction from "./SfCallToAction.vue";
 
-storiesOf("Molecules|CallToAction", module)
+export default storiesOf("CallToAction", module)
   .addDecorator(withKnobs)
-  .add(
-    "Props",
-    () => ({
-      components: { SfCallToAction },
-      props: {
-        title: {
-          default: text("title (prop)", "Title prop")
-        },
-        description: {
-          default: text(
-            "description (prop)",
-            "Description prop lorem ipsum dolor sit amet"
-          )
-        },
-        buttonText: {
-          default: text("buttonText (prop)", "ButtonText prop")
-        },
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "sf-call-to-action--secondary",
-              "sf-call-to-action--light"
-            ],
-            "null"
-          )
-        }
+  .add("Props", () => ({
+    components: { SfCallToAction },
+    props: {
+      message: {
+        default: text("message (prop)", "Message prop")
       },
-      template: `
+      buttonText: {
+        default: text("buttonText (prop)", "ButtonText prop")
+      }
+    },
+    template: `
       <SfCallToAction
-        :title="title"
+        :message="message"
         :button-text="buttonText"
-        :description="description"
-        :class="customClass"
       />
     `
-    }),
-    {
-      notes,
-      info: true
-    }
-  )
-  .add(
-    "[slot] title",
-    () => ({
-      components: { SfCallToAction },
-      template: `
+  }))
+  .add("Slots (custom markup)", () => ({
+    components: { SfCallToAction },
+    template: `
       <SfCallToAction
-        button-text="Check out"
-        description="Description prop lorem ipsum dolor sit amet"
-      >
-        <template #title>
-          <h1> Lorem ipsum </h1>
-        </template>
-      </SfCallToAction>
-    `
-    }),
-    {
-      info: true
-    }
-  )
-  .add(
-    "[slot] description",
-    () => ({
-      components: { SfCallToAction },
-      template: `
-      <SfCallToAction
-        title="Title prop"
+        message="How cool are those?"
         button-text="Check out"
       >
-        <template #description>
-          <p> Description slot lorem ipsum dolor sit amet</p>
+        <template #title="{ title }">
+          <h1> {{ title }} </h1>
         </template>
-      </SfCallToAction>
-    `
-    }),
-    {
-      info: true
-    }
-  )
-
-  .add(
-    "[slot] action",
-    () => ({
-      components: { SfCallToAction },
-      template: `
-      <SfCallToAction
-        title="Title prop"
-        description="Description prop lorem ipsum dolor sit amet"
-      >
-        <template #action>
+        <template #call-to-action>
           <button>Custom CTA</button>
         </template>
-      </SfCallToAction>
+      </SfBanner>
     `
-    }),
-    {
-      notes,
-      info: true
-    }
-  );
+  }));
