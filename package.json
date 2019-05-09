@@ -1,6 +1,6 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.1-aplha.15",
+  "version": "0.0.1-aplha.11",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -14,7 +14,8 @@
   "dependencies": {
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
     "node-sass": "^4.11.0",
-    "sass-loader": "^7.1.0"
+    "sass-loader": "^7.1.0",
+    "vue": "^2.6.8"
   },
   "files": [
     "dist/*",
@@ -55,6 +56,9 @@
     "vue": "^2.6.x"
   },
   "main": "./dist/storefront-ui.common.js",
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
   "lint-staged": {
     "*.{js,vue}": [
       "vue-cli-service lint",

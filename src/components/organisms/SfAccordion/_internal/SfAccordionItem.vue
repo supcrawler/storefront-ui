@@ -4,9 +4,9 @@
       <slot name="label" />
     </span>
     <transition name="fade">
-      <span v-if="isOpen">
+      <template v-if="isOpen">
         <slot name="content" />
-      </span>
+      </template>
     </transition>
   </div>
 </template>
