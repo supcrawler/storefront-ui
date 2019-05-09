@@ -27,7 +27,7 @@ export default {
         return this.current;
       },
       set(value) {
-        this.$emit("update:current", value);
+        this.$emit("change:current", value);
       }
     },
     listOfPageNumbers() {

@@ -1,4 +1,5 @@
 import { storiesOf } from "@storybook/vue";
+import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
 import SfPagination from "./SfPagination.vue";
@@ -11,17 +12,22 @@ const vm = {
       visiblePageNumbers: 5,
       numberOfPages: 12
     };
+  },
+  methods: {
+    setCurrentPage(page) {
+      this.page = page;
+    }
   }
 };
 
-storiesOf("Molecules|Pagination", module)
+export default storiesOf("Pagination", module)
   .add(
-    "Basic",
+    "Props",
     () => ({
       ...vm,
       template: `
-    <sf-pagination
-      :current.sync="page"
+    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
+      :current="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers"/>`
     }),
@@ -34,8 +40,8 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <sf-pagination
-      :current.sync="page"
+    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
+      :current="page"
       :total="numberOfPages + 1"
       :visible="visiblePageNumbers - 1">
       <template slot="prev">prev</template>
@@ -50,8 +56,8 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <sf-pagination
-      :current.sync="page"
+    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
+      :current="page"
       :total="numberOfPages + 1"
       :visible="visiblePageNumbers - 1">
       <template slot="next">next</template>
@@ -61,21 +67,15 @@ storiesOf("Molecules|Pagination", module)
       info: true
     }
   )
-  .add(
-    "[slot] number",
-    () => ({
-      ...vm,
-      template: `
-    <sf-pagination
-      :current.sync="page"
+  .add("[slot] number", () => ({
+    ...vm,
+    template: `
+    <sf-pagination @change:current="(page) => { setCurrentPage(page) }"
+      :current="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
-      <template v-slot:number="{ number }">
+      <template v-slot="{ number }">
         [{{ number }}]
       </template>
     </sf-pagination>`
-    }),
-    {
-      info: true
-    }
-  );
+  }));

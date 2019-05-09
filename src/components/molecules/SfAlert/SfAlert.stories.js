@@ -3,10 +3,10 @@ import { withKnobs, text, select } from "@storybook/addon-knobs";
 import notes from "./README.md";
 import SfAlert from "./SfAlert.vue";
 
-storiesOf("Molecules|Alert", module)
+storiesOf("Alert", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Props",
     () => ({
       components: { SfAlert },
       props: {
@@ -45,7 +45,7 @@ storiesOf("Molecules|Alert", module)
       template: `
       <SfAlert message="Message prop">
         <template slot="icon">
-          <img src="assets/storybook/doge.svg" style="height: 25px; margin-right: 10px;"/>
+          <img src="assets/storybook/added_to_cart.svg"/>
         </template>
       </SfAlert>
     `
@@ -63,7 +63,7 @@ storiesOf("Molecules|Alert", module)
     () => ({
       components: { SfAlert },
       template: `
-      <SfAlert>
+      <SfAlert icon="/assets/profile.svg">
         <template slot="message">
           <span>Custom message <b>with custom HTML</b></span>
         </div>
