@@ -1,6 +1,6 @@
 import { storiesOf } from "@storybook/vue";
 
-import SfFilterItem from "./_internal/SfFilterItem.vue";
+import SfFilter from "./SfFilter.vue";
 import SfList from "@/components/organisms/SfList/SfList.vue";
 
 import { withKnobs, text, select } from "@storybook/addon-knobs";
@@ -10,7 +10,7 @@ export default storiesOf("Molecules|[WIP] Filter", module)
   .add(
     "Basic",
     () => ({
-      components: { SfFilterItem },
+      components: { SfFilter },
       props: {
         title: {
           default: text("label (prop)", "Label prop")
@@ -24,7 +24,7 @@ export default storiesOf("Molecules|[WIP] Filter", module)
       },
       template: `
       <div style="width: 300px">
-        <SfFilterItem
+        <SfFilter
           :color="color"
           :label="title"
           :count="count"
@@ -35,14 +35,14 @@ export default storiesOf("Molecules|[WIP] Filter", module)
     {
       info: {
         summary:
-          "This component should be used for filtering products on listings."
+          "This component should be used for filtering products on listings"
       }
     }
   )
   .add(
     "As grouped lists",
     () => ({
-      components: { SfFilterItem, SfList },
+      components: { SfFilter, SfList },
       props: {
         title: {
           default: text("label (prop)", "Label prop")
@@ -66,13 +66,13 @@ export default storiesOf("Molecules|[WIP] Filter", module)
         <span v-else>No filter active </span>
         <SfList>
           <SfListItem>
-            <SfFilterItem :group.sync="filters.collection" label="Summer fly" value="summer-fly" count="10" />
+            <SfFilter :group.sync="filters.collection" label="Summer fly" value="summer-fly" count="10" />
           </SfListItem>
           <SfListItem>
-            <SfFilterItem :group.sync="filters.collection" label="Best 2018" value="best-2018" count="23" />
+            <SfFilter :group.sync="filters.collection" label="Best 2018" value="best-2018" count="23" />
           </SfListItem>
           <SfListItem>
-            <SfFilterItem :group.sync="filters.collection" label="Your choice" value="your-choice" count="54" />
+            <SfFilter :group.sync="filters.collection" label="Your choice" value="your-choice" count="54" />
           </SfListItem>
         </SfList>
 
@@ -81,25 +81,28 @@ export default storiesOf("Molecules|[WIP] Filter", module)
         <span v-else>No filter active </span>
         <SfList>
           <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="Red" value="red" color="#990611" />
+            <SfFilter :group.sync="filters.color" label="Red" value="red" color="#990611" />
           </SfListItem>
           <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="Yellow" value="yellow" color="#DCA742" />
+            <SfFilter :group.sync="filters.color" label="Yellow" value="yellow" color="#DCA742" />
           </SfListItem>
           <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="Black" value="black" color="black" />
+            <SfFilter :group.sync="filters.color" label="Black" value="black" color="black" />
           </SfListItem>
           <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="Blue" value="blue" color="#004F97" />
+            <SfFilter :group.sync="filters.color" label="Blue" value="blue" color="#004F97" />
           </SfListItem>
           <SfListItem>
-            <SfFilterItem :group.sync="filters.color" label="White" value="white" color="white" />
+            <SfFilter :group.sync="filters.color" label="White" value="white" color="white" />
           </SfListItem>
         </SfList>
       </div>
     `
     }),
     {
-      info: true
+      info: {
+        summary:
+          '`group` property is used to associate multiple filters with one value. Only one of the filters can be active at the time per one value passed to `group`. Pass synced group prop (e.g.`:group.sync="filters.color"`) and it\'s  value will equal clicked filter `value` property.  Check code for details.'
+      }
     }
   );
