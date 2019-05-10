@@ -1,0 +1,9 @@
+@import '../../../css/variables';
+
+.sf-select {  
+  border: 1px solid #F1F2F3;
+  &--active{
+    border-color: transparent;
+    box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
+  }
+}
