@@ -27,7 +27,6 @@
     "public/assets"
   ],
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.0.11",
     "@babel/core": "^7.4.4",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
