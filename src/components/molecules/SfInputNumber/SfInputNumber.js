@@ -177,7 +177,7 @@ export default {
         }
       }
       this.currentValue = val;
-      this.$emit("input", val);
+      this.$emit("change", val);
     },
 
     increase() {
