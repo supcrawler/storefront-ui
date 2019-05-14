@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
+import { action } from "@storybook/addon-actions";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 import SfButton from "./SfButton.vue";
@@ -7,7 +8,18 @@ import SfButton from "./SfButton.vue";
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "[slot] default",
+    () => ({
+      components: { SfButton },
+      template: '<sf-button @click="action">Hello Button</sf-button>',
+      methods: { action: action("clicked") }
+    }),
+    {
+      info: true
+    }
+  )
+  .add(
+    "CSS Modifiers",
     () => ({
       components: { SfButton },
       props: {
@@ -15,7 +27,8 @@ storiesOf("Atoms|Button", module)
           default: select(
             "CSS Modifier",
             ["null", "sf-button--secondary", "sf-button--full-width"],
-            "null"
+            "null",
+            "CSS-Modifiers"
           )
         }
       },
@@ -24,8 +37,6 @@ storiesOf("Atoms|Button", module)
     `
     }),
     {
-      info: {
-        summary: "Button component. Place desired content into it's slot."
-      }
+      info: true
     }
   );
