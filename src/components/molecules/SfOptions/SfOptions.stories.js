@@ -49,10 +49,7 @@ storiesOf("Molecules|Options", module)
     }),
     {
       notes,
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfOptions from "@storefrontui/vue/dist/SfOptions.vue"</code></pre>`
-      }
+      info: true
     }
   )
   .add(

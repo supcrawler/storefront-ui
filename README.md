@@ -60,12 +60,6 @@ Ideas behind Storefront UI and [Alpaca](https://github.com/SnowdogApps/alpaca-st
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
 
-# Roadmap 
+# State of components 
 
-- Category page components (April) - Done
-- Product Page components (May) (alpha release)
-- Homepage, form elements and a11y (June) 
-- Last polishments and focus on documentation (June/July) (beta release)
-
-Want to help and make it even faster? Grab an issue and become part of our amazing community ;)
-
+TBD in a few days once we have current ones docummented.

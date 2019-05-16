@@ -39,9 +39,7 @@ storiesOf("Molecules|Sidebar", module)
     {
       info: {
         summary:
-          "`SfSidebar` will add `overflow: hidden` CSS property to body once instantiated. This is why you should always use `v-if`." +
-          `<h2> Usage </h2>
-          <pre><code>import SfSidebar from "@storefrontui/vue/dist/SfSidebar.vue"</code></pre>`
+          "`SfSidebar` will add `overflow: hidden` CSS property to body once instantiated. This is why you should always use `v-if`"
       },
       notes
     }

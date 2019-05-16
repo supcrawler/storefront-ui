@@ -35,10 +35,7 @@ storiesOf("Molecules|Alert", module)
     }),
     {
       notes,
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfAlert from "@storefrontui/vue/dist/SfAlert.vue"</code></pre>`
-      }
+      info: true
     }
   )
   .add(
