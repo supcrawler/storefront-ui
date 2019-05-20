@@ -23,10 +23,7 @@ storiesOf("Atoms|Price", module)
     }),
     {
       info: {
-        summary: `<p>Component for displaying product price.</p>
-        <h2> Usage </h2>
-        <pre><code>import SfPrice from "@storefrontui/vue/dist/SfPrice.vue"</code></pre>
-        `
+        summary: "Component to display product price."
       },
       notes
     }

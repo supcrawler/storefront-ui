@@ -33,10 +33,13 @@ export default {
         this.updateSelected(val);
       }
     },
+    multiple: function() {
+      return this.isMultiple();
+    }
   },
   methods: {
     clicked() {
-      if (this.isMultiple()) {
+      if (this.multiple) {
         if (!Array.isArray(this.selected)) {
           this.selected = [];
         }

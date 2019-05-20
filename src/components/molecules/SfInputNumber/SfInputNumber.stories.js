@@ -79,14 +79,10 @@ storiesOf("Molecules|InputNumber", module)
          :name="name"
          :placeholder="placeholder"
          :disabled="disabled"
-         :required="required" 
-         />`
+         :required="required" />`
     }),
     {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfInputNumber from "@storefrontui/vue/dist/SfInputNumber.vue"</code></pre>`
-      },
+      info: true,
       notes
     }
   )

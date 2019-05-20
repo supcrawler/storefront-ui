@@ -45,10 +45,7 @@ storiesOf("Molecules|CallToAction", module)
     }),
     {
       notes,
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfCallToAction from "@storefrontui/vue/dist/SfCallToAction.vue"</code></pre>`
-      }
+      info: true
     }
   )
   .add(

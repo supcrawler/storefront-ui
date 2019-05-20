@@ -16,10 +16,7 @@ storiesOf("Organisms|List", module)
     </SfList>`
     }),
     {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfList from "@storefrontui/vue/dist/SfList.vue"</code></pre>`
-      }
+      info: true
     }
   )
   .add(

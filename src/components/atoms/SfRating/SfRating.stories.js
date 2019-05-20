@@ -21,10 +21,7 @@ storiesOf("Atoms|Rating", module)
       template: '<SfRating :score="rating" :max="max"/>'
     }),
     {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfRating from "@storefrontui/vue/dist/SfRating.vue"</code></pre>`
-      },
+      info: true,
       notes
     }
   )
