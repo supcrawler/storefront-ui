@@ -1,6 +1,6 @@
 {
   "name": "@storefrontui/vue",
-  "version": "0.0.2-aplha.1",
+  "version": "0.0.2-aplha.0",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build --target lib --name storefront-ui ./src/index.js",
@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "@snowdog/alpaca-components": "^0.3.0-alpha.5",
+    "sass-loader": "^7.1.0",
     "webpack-dev-middleware": "3.6.0"
   },
   "resolutions": {
@@ -26,7 +27,6 @@
     "public/assets"
   ],
   "devDependencies": {
-    "@storybook/addon-a11y": "^5.0.11",
     "@babel/core": "^7.4.4",
     "@storybook/addon-actions": "^5.0.11",
     "@storybook/addon-knobs": "^5.0.11",
