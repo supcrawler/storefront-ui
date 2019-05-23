@@ -1,8 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { configure, addDecorator, addParameters } from "@storybook/vue";
-import { withA11y } from '@storybook/addon-a11y';
 import { setDefaults, withInfo } from "storybook-addon-vue-info";
-
 import theme from "./theme";
 
 import "../../src/css/all.scss";
@@ -10,7 +8,6 @@ import "../../src/css/all.scss";
 const req = require.context("../../src/", true, /.stories.js$/);
 
 addDecorator(withInfo);
-addDecorator(withA11y);
 
 addParameters({
   options: {
