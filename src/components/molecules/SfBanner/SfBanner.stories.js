@@ -6,7 +6,7 @@ import SfBanner from "./SfBanner.vue";
 storiesOf("Molecules|Banner", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Props",
     () => ({
       components: { SfBanner },
       props: {
@@ -27,19 +27,6 @@ storiesOf("Molecules|Banner", module)
         },
         image: {
           default: text("image (prop)", "assets/storybook/Banner1.png")
-        },
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            [
-              "null",
-              "sf-banner--left",
-              "sf-banner--top",
-              "sf-banner--bottom",
-              "sf-banner--secondary"
-            ],
-            "null"
-          )
         }
       },
       template: `
@@ -50,16 +37,47 @@ storiesOf("Molecules|Banner", module)
         :button-text="buttonText"
         :background="background"
         :image="image"
-        :class="customClass"
       />
     `
     }),
     {
       notes,
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfBanner from "@storefrontui/vue/dist/SfBanner.vue"</code></pre>`
-      }
+      info: true
+    }
+  )
+  .add(
+    "CSS Modifiers",
+    () => ({
+      components: { SfBanner },
+      props: {
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            [
+              "null",
+              "sf-banner--left",
+              "sf-banner--top",
+              "sf-banner--bottom",
+              "sf-banner--secondary"
+            ],
+            "null",
+            "CSS-Modifiers"
+          )
+        }
+      },
+      template: `
+      <SfBanner
+        title="Title prop"
+        description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
+        subtitle="Subtitle prop"
+        button-text="Button Text"
+        background="#e1e3e2"
+        :class="customClass"
+      />
+    `
+    }),
+    {
+      info: true
     }
   )
   .add(

@@ -1,5 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 // import { storiesOf } from "@storybook/vue";
+// import { action } from "@storybook/addon-actions";
 // import { withKnobs, text, select } from "@storybook/addon-knobs";
 // import notes from "./README.md"
 // import SfComponent from "./SfComponent.vue";
@@ -28,7 +29,8 @@
 //         :
 //       >
 //         Hello Button<
-//       /SfComponent>`
+//       /SfComponent>`,
+//       methods: { action: action("clicked") }
 //     }),
 //     {
 //       info: true,
