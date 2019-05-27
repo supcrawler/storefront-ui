@@ -6,7 +6,7 @@ import SfAlert from "./SfAlert.vue";
 storiesOf("Molecules|Alert", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Props",
     () => ({
       components: { SfAlert },
       props: {
@@ -35,10 +35,7 @@ storiesOf("Molecules|Alert", module)
     }),
     {
       notes,
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfAlert from "@storefrontui/vue/dist/SfAlert.vue"</code></pre>`
-      }
+      info: true
     }
   )
   .add(
@@ -48,7 +45,7 @@ storiesOf("Molecules|Alert", module)
       template: `
       <SfAlert message="Message prop">
         <template slot="icon">
-          <img src="assets/storybook/doge.svg" style="height: 25px; margin-right: 10px;"/>
+          <img src="assets/storybook/added_to_cart.svg"/>
         </template>
       </SfAlert>
     `
@@ -66,7 +63,7 @@ storiesOf("Molecules|Alert", module)
     () => ({
       components: { SfAlert },
       template: `
-      <SfAlert>
+      <SfAlert icon="/assets/profile.svg">
         <template slot="message">
           <span>Custom message <b>with custom HTML</b></span>
         </div>
