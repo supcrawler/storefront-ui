@@ -6,7 +6,7 @@ export default {
       default: ""
     },
     mobileNavIcon: {
-      type: [String, Boolean],
+      type: String,
       default: "/assets/chevron_right.svg"
     },
     count: {
