@@ -1,0 +1,26 @@
+<div class="sf-checkbox">
+  <input
+    :id="id"
+    :name="name"
+    type="checkbox"
+    class="sf-checkbox__field"
+    :value="true"
+    v-model="isChecked"
+    :disabled="disabled" />
+  <!-- @slot Custom checkbox label markup (binds `checked` boolean) -->
+  <slot name="label" :checked="isChecked">
+    <label :for="id" class="sf-checkbox__label">
+      <span class="sf-checkbox__icon">
+        <!-- @slot Custom checked icon image markup -->
+        <slot name="icon">
+          <img
+            class="sf-checkbox__icon-svg"
+            src="/assets/check.svg"
+            alt="Check icon" />
+        </slot>
+      </span>
+      <!-- @slot Custom checkbox label text (binds `checked` boolean) -->
+      <slot :checked="isChecked" />
+    </label>
+  </slot>
+</div>
