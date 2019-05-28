@@ -112,16 +112,8 @@ describe("${PrefixComponentName}.vue", () => {
       content: `// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
+import notes from "./README.md"
 import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
-import { generateStorybookTable } from "@/helpers";
-
-// use this to documment scss vars
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$component-size", "1.438rem", "size of checkmark"],
-  ]
-};
 
 // storiesOf("Component", module)
 //   .addDecorator(withKnobs)
@@ -141,22 +133,20 @@ const scssTableConfig = {
 //           )
 //         }
 //       },
-//       components: { ${PrefixComponentName} },
-//       template: \`<${PrefixComponentName}
+//       components: { SfComponent },
+//       template: \`<SfComponent
 //         :class="customClass"
+//         :
 //       >
-//       /${PrefixComponentName}>\`
+//         Hello Button<
+//       /SfComponent>\`
 //     }),
 //     {
-//      info: {
-//        summary: \`<p>Component for simple group of radio buttons, pass an array get selected value via v-model.</p>
-//        <h2> Usage </h2>
-//        <pre><code>import ${PrefixComponentName} from "@storefrontui/vue/dist/${PrefixComponentName}.vue"</code></pre>
-//        \${generateStorybookTable(scssTableConfig, "SCSS variables")}
-//        \`
-//      }
-//    }   
-// );`
+//       info: true,
+//       notes
+//     }
+//   );
+        `
     },
     {
       fileName: `${PrefixComponentName}.vue`,
