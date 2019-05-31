@@ -1,45 +1,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
+import notes from "./README.md";
 import SfAlert from "./SfAlert.vue";
-
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$sf-alert-padding", "0.625rem", "padding of alert"],
-    ["$sf-alert-font-size", "0.875rem", "alert font-size"],
-    ["$sf-alert__text-margin", "0", "alert text margin"],
-    ["$sf-alert__text-font-size", "0.875rem", "font-size of alert text"],
-    ["$sf-alert__icon-padding-right", "0.625rem", "padding around alert icon"],
-    [
-      "$sf-alert--info-background-color",
-      "$c-yellow-secondary",
-      "color for alert background"
-    ],
-    ["$sf-alert--info-color", "$c-yellow-primary", "color for text and icon"],
-    [
-      "$sf-alert--warning-background-color",
-      "$c-pink-secondary",
-      "color for alert background"
-    ],
-    ["sf-alert--warning-color", "$c-pink-primary", "color for text and icon"],
-    [
-      "$sf-alert--alert-background-color",
-      "$c-blue-secondary",
-      "color for alert background"
-    ],
-    ["$sf-alert--alert-color", "$c-blue-primary", "color for text and icon"]
-  ]
-};
-
-const cssTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    [".sf-alert--info", "sets yellow color for alert"],
-    [".sf-alert--warning", "sets pink color for alert"],
-    [".sf-alert--alert", "sets blue color for alert"]
-  ]
-};
 
 storiesOf("Molecules|Alert", module)
   .addDecorator(withKnobs)
@@ -72,12 +34,10 @@ storiesOf("Molecules|Alert", module)
     `
     }),
     {
+      notes,
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfAlert from "@storefrontui/vue/dist/SfAlert.vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
-        `
+        <pre><code>import SfAlert from "@storefrontui/vue/dist/SfAlert.vue"</code></pre>`
       }
     }
   )
@@ -95,6 +55,7 @@ storiesOf("Molecules|Alert", module)
     }),
     {
       info: true,
+      notes,
       knobs: {
         escapeHTML: false
       }
@@ -113,6 +74,7 @@ storiesOf("Molecules|Alert", module)
     `
     }),
     {
+      notes,
       info: true,
       knobs: {
         escapeHTML: false
