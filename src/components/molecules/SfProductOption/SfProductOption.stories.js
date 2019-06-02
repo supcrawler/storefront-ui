@@ -23,6 +23,7 @@ export default storiesOf("Molecules|ProductOption", module)
           <SfProductOption
             :color="color"
             :label="label"
+            value="filter_val"
           />
       </div>
     `
