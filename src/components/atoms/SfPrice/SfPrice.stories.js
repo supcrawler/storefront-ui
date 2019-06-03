@@ -10,11 +10,11 @@ storiesOf("Atoms|Price", module)
     "Basic",
     () => ({
       props: {
-        specialPrice: {
-          default: text("specialPrice (prop)", "$50.00")
-        },
         regularPrice: {
-          default: text("regularPrice (prop)", "$100.00")
+          default: text("regularPrice (prop)", "$3,99")
+        },
+        specialPrice: {
+          default: text("specialPrice (prop)", "$3,59")
         }
       },
       components: { SfPrice },
@@ -23,10 +23,7 @@ storiesOf("Atoms|Price", module)
     }),
     {
       info: {
-        summary: `<p>Component for displaying product price.</p>
-        <h2> Usage </h2>
-        <pre><code>import SfPrice from "@storefrontui/vue/dist/SfPrice.vue"</code></pre>
-        `
+        summary: "Component to display product price."
       },
       notes
     }

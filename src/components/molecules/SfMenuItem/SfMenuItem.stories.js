@@ -27,9 +27,6 @@ export default storiesOf("Molecules|[WIP]MenuItem", module)
     `
     }),
     {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfMenuItem from "@storefrontui/vue/dist/SfMenuItem.vue"</code></pre>`
-      }
+      info: true
     }
   );

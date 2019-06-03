@@ -26,10 +26,7 @@ storiesOf("Molecules|Pagination", module)
       :visible="visiblePageNumbers"/>`
     }),
     {
-      info: {
-        summary: `<h2> Usage </h2>
-        <pre><code>import SfPagination from "@storefrontui/vue/dist/SfPagination.vue"</code></pre>`
-      }
+      info: true
     }
   )
   .add(

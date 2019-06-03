@@ -9,9 +9,6 @@ storiesOf("Organisms|MegaMenu", module).add(
     template: "<sf-mega-menu>Hello Mega-Menu</sf-mega-menu>"
   }),
   {
-    info: {
-      summary: `<h2> Usage </h2>
-      <pre><code>import SfMegaMenu from "@storefrontui/vue/dist/SfMegaMenu.vue"</code></pre>`
-    }
+    info: true
   }
 );
