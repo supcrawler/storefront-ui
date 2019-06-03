@@ -7,38 +7,8 @@ import {
   boolean,
   select
 } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
+import notes from "./README.md";
 import SfCounter from "./SfCounter.vue";
-
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$counter-background", "$c-white", "background of counter"],
-    ["$counter-color", "$c-dark-primary", "color of counter"],
-    ["$counter-width", "3.7rem", "width of counter"],
-    ["$counter-border", "none", "border of counter"],
-    [
-      "$counter--large-width",
-      "$counter-width * 2",
-      "double the width of counter"
-    ]
-  ]
-};
-
-const cssTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [[".sf-counter--large", "double the default width"]]
-};
-
-const eventTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    [
-      "change",
-      "triggered when native input is changed and validated,returns the new number value"
-    ]
-  ]
-};
 
 storiesOf("Molecules|Counter", module)
   .addDecorator(withKnobs)
@@ -109,18 +79,15 @@ storiesOf("Molecules|Counter", module)
          :name="name"
          :placeholder="placeholder"
          :disabled="disabled"
-         :required="required"
+         :required="required" 
          />`
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import SfCounter from "@storefrontui/vue/dist/SfCounter.vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
-        ${generateStorybookTable(eventTableConfig, "Events")}
-        `
-      }
+        <pre><code>import SfCounter from "@storefrontui/vue/dist/SfCounter.vue"</code></pre>`
+      },
+      notes
     }
   )
   .add(
@@ -133,7 +100,8 @@ storiesOf("Molecules|Counter", module)
        </SfCounter>`
     }),
     {
-      info: true
+      info: true,
+      notes
     }
   )
   .add(
@@ -146,6 +114,7 @@ storiesOf("Molecules|Counter", module)
        </SfCounter>`
     }),
     {
-      info: true
+      info: true,
+      notes
     }
   );
