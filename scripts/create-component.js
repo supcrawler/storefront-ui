@@ -48,6 +48,26 @@ function createComponent(folder, componentName) {
 
   const files = [
     {
+      fileName: "README.md",
+      content: `# ${PrefixComponentName}
+
+## Events
+
+- \`event\` - description
+
+
+## CSS Modifiers
+
+- \`classname\` - description
+
+
+## SCSS variables
+
+- \`variablename\` (defaultvalue) - description
+        
+        `
+    },
+    {
       fileName: `${PrefixComponentName}.html`,
       content: `<div class="${joinedComponentName}"></div>`
     },
@@ -55,7 +75,8 @@ function createComponent(folder, componentName) {
       fileName: `${PrefixComponentName}.js`,
       content: `export default {
   name: "${PrefixComponentName}"
-};`
+};
+        `
     },
     {
       fileName: `${PrefixComponentName}.scss`,
@@ -70,7 +91,8 @@ function createComponent(folder, componentName) {
 //   &--modifier {
 
 //   }
-// }`
+// }        
+        `
     },
     {
       fileName: `${PrefixComponentName}.spec.ts`,
@@ -82,34 +104,18 @@ describe("${PrefixComponentName}.vue", () => {
     const component = shallowMount(${PrefixComponentName});
     expect(component.contains(".${joinedComponentName}")).toBe(true);
   });
-});`
+});
+        `
     },
     {
       fileName: `${PrefixComponentName}.stories.js`,
       content: `// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
-import { generateStorybookTable } from "@/helpers";
-
+import notes from "./README.md"
 import ${PrefixComponentName} from "./${PrefixComponentName}.vue";
 
-// use this to document scss vars
-const scssTableConfig = {
-  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["$component-size", "1.438rem", "size of checkmark"]
-  ]
-};
-
-// use this to document events
-const eventsTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["input", "event emited when option is selected"]
-  ]
-};
-
-// storiesOf("${PrefixComponentName}", module)
+// storiesOf("Component", module)
 //   .addDecorator(withKnobs)
 //   .add(
 //     "[slot] default",
@@ -127,29 +133,27 @@ const eventsTableConfig = {
 //           )
 //         }
 //       },
-//       components: { ${PrefixComponentName} },
-//       template: \`<${PrefixComponentName}
+//       components: { SfComponent },
+//       template: \`<SfComponent
 //         :class="customClass"
+//         :
 //       >
-//       </${PrefixComponentName}>\`
+//         Hello Button<
+//       /SfComponent>\`
 //     }),
 //     {
-//      info: {
-//        summary: \`<p>Component description.</p>
-//        <h2>Usage</h2>
-//        <pre><code>import ${PrefixComponentName} from "@storefrontui/vue/dist/${PrefixComponentName}.vue"</code></pre>
-//        \${generateStorybookTable(scssTableConfig, "SCSS variables")}
-//        \${generateStorybookTable(eventsTableConfig, "Events")}
-//        \`
-//      }
-//    }
-// );`
+//       info: true,
+//       notes
+//     }
+//   );
+        `
     },
     {
       fileName: `${PrefixComponentName}.vue`,
       content: `<script src="./${PrefixComponentName}.js"></script>
 <template lang="html" src="./${PrefixComponentName}.html"></template>
-<style lang="scss" src="./${PrefixComponentName}.scss"></style>`
+<style lang="scss" src="./${PrefixComponentName}.scss"></style>
+        `
     }
   ];
 
