@@ -1,7 +1,7 @@
 <div class="sf-loader">
-  <transition name="fade" mode="out-in">
-    <slot v-if="!loading"></slot>
-    <div v-else class="sf-loader__overlay">
+  <slot></slot>
+  <transition name="fade">
+    <div class="sf-loader__overlay" v-if="loading">
       <slot name="loader">
           <svg
             width="38"
