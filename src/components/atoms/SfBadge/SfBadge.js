@@ -1,3 +1,4 @@
 export default {
-  name: "SfBadge"
+  name: "SfBadge",
 };
+        

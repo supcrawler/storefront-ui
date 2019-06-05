@@ -7,3 +7,4 @@ describe("SfLoader.vue", () => {
     expect(component.contains(".sf-loader")).toBe(true);
   });
 });
+        
