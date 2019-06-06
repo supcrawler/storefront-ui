@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfProperty from "./SfProperty.vue";
+import SfProperty from "@/components/molecules/SfProperty/SfProperty.vue";
 
 describe("SfProperty.vue", () => {
   it("renders a div with correct class", () => {
