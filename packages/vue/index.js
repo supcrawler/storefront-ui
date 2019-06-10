@@ -8,6 +8,7 @@ import SfLoader from "./dist/SfLoader.vue";
 import SfPrice from "./dist/SfPrice.vue";
 import SfProperty from "./dist/SfProperty.vue";
 import SfRating from "./dist/SfRating.vue";
+import SfIcon from "./dist/SfIcon.vue";
 
 import SfAlert from "./dist/SfAlert.vue";
 import SfBanner from "./dist/SfBanner.vue";
@@ -28,6 +29,7 @@ import SfAccordion from "./dist/SfAccordion.vue";
 import SfCarousel from "./dist/SfCarousel.vue";
 import SfList from "./dist/SfList.vue";
 import SfMegaMenu from "./dist/SfMegaMenu.vue";
+import SfTopBar from "./dist/SfTopBar.vue";
 
 export {
   SfArrow,
@@ -39,6 +41,7 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
+  SfIcon,
   SfAlert,
   SfBanner,
   SfCallToAction,
@@ -56,5 +59,6 @@ export {
   SfAccordion,
   SfCarousel,
   SfList,
-  SfMegaMenu
-};
+  SfMegaMenu,
+  SfTopBar
+ };
