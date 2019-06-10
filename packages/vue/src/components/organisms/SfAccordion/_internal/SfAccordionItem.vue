@@ -35,6 +35,8 @@ export default {
 };
 </script>
 
-<style lang="scss">
-@import "~@storefrontui/shared/styles/components/SfAccordionItem.scss";
+<style>
+.sf-accordion__label:hover {
+  cursor: pointer;
+}
 </style>
