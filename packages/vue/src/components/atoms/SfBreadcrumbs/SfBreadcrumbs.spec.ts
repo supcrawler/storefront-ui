@@ -2,8 +2,10 @@ import { shallowMount } from "@vue/test-utils";
 import SfBreadcrumbs from "./SfBreadcrumbs.vue";
 
 const propsData = {
-  breadcrumbs: [{ text: "HelloWorld" }]
-};
+  breadcrumbs: [
+    { text: "HelloWorld" }
+  ]
+}
 
 describe("SfBreadcrumbs.vue", () => {
   it("renders a nav", () => {
