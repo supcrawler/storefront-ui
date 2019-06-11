@@ -1,5 +1,3 @@
 <script src="./SfFilterItem.js" />
 <template lang="html" src="./SfFilterItem.html"></template>
-<style lang="scss">
-@import "~@storefrontui/shared/styles/components/SfFilterItem.scss";
-</style>
+<style lang="scss" src="./SfFilterItem.scss"></style>

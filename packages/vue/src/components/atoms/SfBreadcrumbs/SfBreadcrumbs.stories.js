@@ -9,26 +9,20 @@ import SfBreadcrumbs from "./SfBreadcrumbs.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$breadcrumbs__item-separator", "|", "Separator between breadcrumb items"],
     [
-      "$breadcrumbs__item-padding",
-      ".75rem",
-      "Space between breadcrumbs and separator"
+      "$breadcrumbs__item-separator", "|", "Separator between breadcrumb items"
     ],
     [
-      "$breadcrumbs__item-color",
-      "$c-gray-primary",
-      "Default color breadcrumb items"
+      "$breadcrumbs__item-padding", ".75rem", "Space between breadcrumbs and separator"
     ],
     [
-      "$breadcrumbs__link-color",
-      "$c-dark-primary",
-      "Color for breadcrumb links"
+      "$breadcrumbs__item-color", "$c-gray-primary", "Default color breadcrumb items"
     ],
     [
-      "$breadcrumbs__item-separator-color",
-      "$breadcrumbs__link-color",
-      "Breadcrumbs separator color"
+      "$breadcrumbs__link-color", "$c-dark-primary", "Color for breadcrumb links"
+    ],
+    [
+      "$breadcrumbs__item-separator-color", "$breadcrumbs__link-color", "Breadcrumbs separator color"
     ]
   ]
 };
@@ -37,32 +31,32 @@ const data = () => {
   return {
     breadcrumbs: [
       {
-        text: "Home",
+        text: 'Home',
         route: {
-          link: "#home"
+          link: '#home'
         }
       },
       {
-        text: "Category",
+        text: 'Category',
         route: {
-          link: "#category"
+          link: '#category'
         }
       },
       {
-        text: "Pants",
+        text: 'Pants',
         route: {
-          link: "#pants"
+          link: '#pants'
         }
       }
     ]
-  };
-};
+  }
+}
 
 const methods = {
-  click(route) {
-    alert(JSON.stringify(route, null, 2));
+  click (route) {
+    alert(JSON.stringify(route, null, 2))
   }
-};
+}
 
 storiesOf("Atoms|Breadcrumbs", module)
   .addDecorator(withKnobs)

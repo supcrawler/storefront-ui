@@ -1,0 +1,27 @@
+@import '../../../css/variables';
+// TEST
+.row {
+  display: flex;
+  margin: auto;
+  max-width: 600px;
+  @media (max-width: 480px){
+    display: block;
+  }
+  background-color: #F2F;
+}
+// TEST
+.sf-sticky {
+  background-color: gray;
+  width: 100%;
+  &--sticky{
+    position: fixed;
+    top: 0;
+    background-color: yellow;
+  }
+  &--bound{
+    position: absolute;
+    top: auto;
+    bottom: 0;
+    background-color: greenyellow;
+  }
+}

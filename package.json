@@ -1,6 +1,5 @@
 {
-  "name": "root",
-  "private": "true",
+  "name": "@storefrontui/packages",
   "version": "0.0.0",
   "description": "",
   "main": "index.js",
@@ -19,8 +18,5 @@
   "homepage": "https://github.com/DivanteLtd/storefront-ui#readme",
   "dependencies": {
     "lerna": "^3.0.0-rc.0"
-  },
-  "workspaces": [
-    "packages/*"
-  ]
+  }
 }
