@@ -8,7 +8,6 @@ import SfLoader from "./dist/SfLoader.html";
 import SfPrice from "./dist/SfPrice.html";
 import SfProperty from "./dist/SfProperty.html";
 import SfRating from "./dist/SfRating.html";
-import SfIcon from "./dist/SfIcon.html";
 
 import SfAlert from "./dist/SfAlert.html";
 import SfBanner from "./dist/SfBanner.html";
@@ -29,7 +28,7 @@ import SfAccordion from "./dist/SfAccordion.html";
 import SfCarousel from "./dist/SfCarousel.html";
 import SfList from "./dist/SfList.html";
 import SfMegaMenu from "./dist/SfMegaMenu.html";
-import SfTopBar from "./dist/SfTopBar.html";
+import SfTopBar from './dist/SfTopBar.html';
 
 export {
   SfArrow,
@@ -41,7 +40,6 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
-  SfIcon,
   SfAlert,
   SfBanner,
   SfCallToAction,
@@ -61,4 +59,4 @@ export {
   SfList,
   SfMegaMenu,
   SfTopBar
-};
+ };
