@@ -1,4 +1,5 @@
-@import '../variables';
+@import '../../../css/variables';
+@import '@/utilities/transitions/transitions.scss';
 
 $loader__spinner-color: $c-accent-primary;
 $loader__overlay-color: white;
