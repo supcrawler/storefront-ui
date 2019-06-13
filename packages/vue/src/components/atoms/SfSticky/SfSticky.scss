@@ -1,0 +1,13 @@
+@import '../../../css/variables';
+.sf-sticky{
+  width: 100%;
+}
+.sf-sticky--sticky{
+  position: fixed;
+  top: 0;
+}
+.sf-sticky--bound{
+  position: absolute;
+  top: auto;
+  bottom: 0;
+}
