@@ -31,15 +31,9 @@ $radio__container-background-color--checked: $c-light-primary !default;
       cursor: pointer;
   }
 
-  &__content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    &__label {
+  &__label {
       height: 100%;
       line-height: $radio__checkmark-size;
-    }
   }
 
   &--checked {
