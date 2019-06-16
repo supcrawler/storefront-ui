@@ -30,7 +30,7 @@ const scssTableConfig = {
   ]
 };
 
-storiesOf("Molecules|SearchBar", module)
+storiesOf("Atoms|SearchBar", module)
   .addDecorator(withKnobs)
   .add(
     "Props",
