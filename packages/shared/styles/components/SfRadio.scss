@@ -9,30 +9,12 @@ $radio__checkmark-margin: 0.625rem !default;
 
 $radio__container-align-items: flex-start !default;
 $radio__container-background-color--checked: $c-light-primary !default;
-$radio__container__content__description-color: $c-dark-primary !default;
-$radio__container__content__description-size: $font-size-extra-small-desktop !default;
 
 .sf-radio {
   &__container {
     display: flex;
     align-items: $radio__container-align-items;
     padding: $radio__checkmark-margin 0;
-
-    &__content {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    
-        &__label {
-          height: 100%;
-          line-height: $radio__checkmark-size;
-        }
-
-        &__description {
-            font-size: $radio__container__content__description-size;
-            color: $radio__container__content__description-color;
-        }
-      }
   }
 
   &__input {
@@ -47,6 +29,11 @@ $radio__container__content__description-size: $font-size-extra-small-desktop !de
       margin: 0 $radio__checkmark-margin;
       box-sizing: border-box;
       cursor: pointer;
+  }
+
+  &__label {
+      height: 100%;
+      line-height: $radio__checkmark-size;
   }
 
   &--checked {
