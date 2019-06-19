@@ -2,7 +2,6 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
-import { icons } from "@/assets/icons";
 import SfIcon from "./SfIcon.vue";
 
 const tableHeaderConfig = ["NAME", "DEFAULT"];
@@ -37,18 +36,6 @@ const colors = [
   ["blue-secondary", "$c-blue-secondary"]
 ];
 
-const iconsList = (() => {
-  //TODO: Get icon svg files all in black color as default.
-  const needInverted = ["add_to_cart", "added_to_cart", "check", "close"];
-
-  return Object.keys(icons).map(icon => [
-    icon,
-    `<img alt="${icon}" src="assets/${icon}.svg" ${
-      needInverted.includes(icon) ? 'style="filter:invert(1);"' : ""
-    }/>`
-  ]);
-})();
-
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
@@ -68,7 +55,7 @@ const cssTableConfig = {
 storiesOf("Atoms|Icon", module)
   .addDecorator(withKnobs)
   .add(
-    "Props",
+    "Basic",
     () => ({
       props: {
         customClass: {
@@ -102,7 +89,7 @@ storiesOf("Atoms|Icon", module)
     {
       info: {
         summary: `
-        <p>Component for rendering icon from SVG path(s) or icon name from our icons list.</p>
+        <p>Component for rendering SVG path as icon.</p>
         <h2> Usage </h2>
         <pre><code>import SfIcon from "@storefrontui/vue/dist/SfIcon.vue"</code></pre>
         <h3>SCSS variables</h3>
@@ -121,43 +108,6 @@ storiesOf("Atoms|Icon", module)
           "`$sf-icon-colors` - map of icon colors"
         )}   
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
-        `
-      }
-    }
-  )
-  .add(
-    "[path] - Icons list",
-    () => ({
-      props: {
-        path: {
-          default: text("path (prop)", "add_to_cart")
-        },
-        color: {
-          default: text("color (prop)", "pink-primary")
-        },
-        size: {
-          default: text("size (prop)", "sm")
-        }
-      },
-      components: { SfIcon },
-      template: `<sf-icon
-        :path="path"
-        :color="color"
-        :size="size"
-      />`
-    }),
-    {
-      info: {
-        summary: `
-        <p>Choose an icon from this list and pass it as path for rendering.</p>
-        <h2> Icons list </h2>
-        ${generateStorybookTable(
-          {
-            tableHeadConfig: tableHeaderConfig,
-            tableBodyConfig: iconsList
-          },
-          "`path` - icon name or SVG path(s)"
-        )}
         `
       }
     }

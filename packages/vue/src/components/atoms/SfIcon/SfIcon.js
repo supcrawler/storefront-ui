@@ -1,20 +1,15 @@
-import { icons } from "@/assets/icons";
-
 const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 const RGB_REGEX = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
 const SF_SIZES = ["xxs", "xs", "sm", "md", "lg", "xl", "xxl", "xl3", "xl4"];
-const SF_ICONS = Object.keys(icons);
 
 export default {
   name: "SfIcon",
   props: {
     /**
-     * Icon SVG path(s)
-     * It can be single SVG path (string) or array of SVG paths or icon name
-     * from our icons list (such as 'added_to_cart`)
+     * Icon SVG path
      */
     path: {
-      type: [String, Array],
+      type: String,
       default: ""
     },
     /**
@@ -52,16 +47,6 @@ export default {
     },
     iconSize() {
       return this.isSFSizes ? `sf-icon--size-${this.size.trim()}` : "";
-    },
-    isSFIcons() {
-      return SF_ICONS.includes(this.path.trim());
-    },
-    iconPaths() {
-      return this.isSFIcons
-        ? icons[this.path]
-        : Array.isArray(this.path)
-        ? this.path
-        : [this.path];
     }
   },
   mounted() {
