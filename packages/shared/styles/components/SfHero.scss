@@ -3,7 +3,7 @@
 
 $carousel-mobile-breakpoint: $mobile-max;
 
-.sf-carousel{
+.sf-hero{
   position: relative;
 
   &__slides{
@@ -24,7 +24,13 @@ $carousel-mobile-breakpoint: $mobile-max;
     }
   }
 
-  @media screen and (min-width: $carousel-mobile-breakpoint){
-    padding: 0 130px;
+  &__pagination{
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+
+    //   .sf-pagination__item--current {
+    //       color: red;
+    //   }
   }
 }
