@@ -26,14 +26,14 @@ storiesOf("Organisms|Carousel", module)
             height: "300px",
             "background-color": "#5ECE7B"
           },
-          settings: {
+          options: {
             perView: 4
           }
         };
       },
       template: `
       <div style="max-width: 1140px">
-        <SfCarousel :settings="settings">
+        <SfCarousel :options="options">
           <SfCarouselItem>
             <div :style="style">1</div>
           </SfCarouselItem>
@@ -66,7 +66,7 @@ storiesOf("Organisms|Carousel", module)
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfCarousel } from "@storefrontui/vue"</code></pre>
+        <pre><code>import SfCarousel from "@storefrontui/vue/dist/SfCarousel.vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

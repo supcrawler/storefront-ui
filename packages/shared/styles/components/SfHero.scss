@@ -1,0 +1,54 @@
+@import '../variables';
+@import '~@glidejs/glide/src/assets/sass/glide.core';
+
+$carousel-mobile-breakpoint: $mobile-max;
+
+.sf-hero{
+  position: relative;
+
+  &__slides{
+    margin: 0;
+  }
+
+  &__controls{
+    display: none;
+
+    @media screen and (min-width: $carousel-mobile-breakpoint){
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate3d(0, -50%, 0);
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+
+  &__bullets{
+      position: absolute;
+      bottom: 16px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-content: center;
+    //   .sf-pagination__item--current {
+    //       color: red;
+    //   }
+  }
+
+  &__bullet {
+    border-radius: 50%;
+    background: $c-gray-primary;
+    width: 8px;
+    height: 8px;
+    margin: 4px;
+    cursor: pointer;
+  }
+
+  &__bullet-active {
+    background: $c-green-secondary;
+    width: 10px;
+    height: 10px;
+    margin: 3px;
+  }
+}
