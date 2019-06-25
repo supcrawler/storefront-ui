@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
-import SfBreadcrumbs from "./SfBreadcrumbs.vue";
+import SfCharacteristic from "./SfCharacteristic.vue";
 
 // use this to document scss vars
 const scssTableConfig = {
@@ -28,7 +28,7 @@ const scssTableConfig = {
     [
       "$breadcrumbs__item-separator-color",
       "$breadcrumbs__link-color",
-      "Breadcrumbs separator color"
+      "Characteristic separator color"
     ]
   ]
 };
@@ -64,7 +64,7 @@ const methods = {
   }
 };
 
-storiesOf("Atoms|Breadcrumbs", module)
+storiesOf("Atoms|Characteristic", module)
   .addDecorator(withKnobs)
 
   .add(
@@ -72,9 +72,9 @@ storiesOf("Atoms|Breadcrumbs", module)
     () => ({
       data,
       methods,
-      components: { SfBreadcrumbs },
+      components: { SfCharacteristic },
       template: `
-        <SfBreadcrumbs
+        <SfCharacteristic
           :breadcrumbs="breadcrumbs"
           @click="click"
         />`
@@ -88,7 +88,7 @@ storiesOf("Atoms|Breadcrumbs", module)
         <p>
           Indicate the current page’s
           location within a navigational hierarchy,
-          called by <code>&lt;SfBreadcrumbs&gt;</code>.
+          called by <code>&lt;SfCharacteristic&gt;</code>.
         </p>
         <p>
           You <b>must</b> pass an array of objects (breadcrumbs) with the format:
@@ -108,7 +108,7 @@ storiesOf("Atoms|Breadcrumbs", module)
           on breadcrumbs nav.
         </p>
         <h2>Usage</h2>
-        <pre><code>import { SfBreadcrumbs } from "@storefrontui/vue"</code></pre>
+        <pre><code>import SfCharacteristic from "@storefrontui/vue/dist/SfCharacteristic.vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

@@ -35,7 +35,6 @@ import SfList from "./src/components/organisms/SfList/SfList.vue";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
-import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
 
 export {
   SfArrow,
@@ -71,6 +70,5 @@ export {
   SfCarousel,
   SfList,
   SfMegaMenu,
-  SfTopBar,
-  SfHero
+  SfTopBar
 };
