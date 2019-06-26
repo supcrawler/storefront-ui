@@ -16,6 +16,7 @@ $c-blue-secondary: #F5F7FA !default;
 $c-black: #000000 !default;
 $c-white: #FFFFFF !default;
 
+
 // Accent
 $c-accent-primary: $c-green-primary !default;
 $c-accent-secondary: $c-green-secondary !default;
@@ -33,32 +34,5 @@ $c-bg-primary: $c-light-primary !default;
 $c-bg-secondary: $c-light-secondary !default;
 
 // Border
+
 $c-border: $c-light-primary;
-
-// Theme colors
-$primary: $c-green-primary !default;
-$secondary: $c-dark-primary !default;
-$info: $c-blue-primary !default;
-$success: $c-green-primary !default;
-$warning: $c-yellow-primary !default;
-$danger: $c-pink-primary !default;
-$light: $c-light-primary !default;
-$dark: $c-dark-primary !default;
-
-// Map colors palette
-$colors: () !default;
-$colors: map-merge(
-  (
-    'primary': $primary,
-    'secondary': $secondary,
-    'info': $info,
-    'success': $success,
-    'warning': $warning,
-    'danger': $danger,
-    'light': $light,
-    'dark': $dark,
-    'white': $c-white,
-    'black': $c-black
-  ),
-  $colors
-);
