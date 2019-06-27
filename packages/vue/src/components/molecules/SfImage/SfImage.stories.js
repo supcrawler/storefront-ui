@@ -8,19 +8,16 @@ import SfImage from "./SfImage.vue";
 // use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["image__overlay-justify-content", "center", "size of checkmark"],
-    ["$image__overlay-align-items", "center", "size of checkmark"],
-    [
-      "$image__overlay-background-color",
-      "rgba(29, 31, 34, 0.8)",
-      "size of checkmark"
-    ],
-    ["$image__overlay-color", "$c-white", "size of checkmark"]
-  ]
+  tableBodyConfig: [["$component-size", "1.438rem", "size of checkmark"]]
 };
 
-storiesOf("Molecules|Image", module)
+// use this to document events
+const eventsTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [["input", "event emited when option is selected"]]
+};
+
+storiesOf("Molecules|[WIP] Image", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
@@ -40,50 +37,20 @@ storiesOf("Molecules|Image", module)
       },
       components: { SfImage },
       template: `<SfImage
-        src="assets/storybook/product_thumb.png"
+        style="width: 162px"
+        src="https://source.unsplash.com/random/300x300"
         alt="angelina_trn"
-        transition="slide-left"
-      />`
-    }),
-    {
-      info: {
-        summary: `<h2>Usage</h2>
-       <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
-       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-       `
-      }
-    }
-  )
-  .add(
-    "[slot] default",
-    () => ({
-      props: {
-        editableProp: {
-          default: text("(prop) propname")
-        },
-        customClass: {
-          default: select(
-            "CSS Modifier",
-            ["null", "sf-image--modifier"],
-            "null",
-            "CSS-Modifiers"
-          )
-        }
-      },
-      components: { SfImage },
-      template: `<SfImage
-        src="assets/storybook/product_thumb.png"
-        alt="angelina_trn"
-        transition="slide-left"
       >
         angelina_trn
       </SfImage>`
     }),
     {
       info: {
-        summary: `<h2>Usage</h2>
+        summary: `<p>Component description.</p>
+       <h2>Usage</h2>
        <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(eventsTableConfig, "Events")}
        `
       }
     }
