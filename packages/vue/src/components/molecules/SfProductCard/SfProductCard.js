@@ -1,6 +1,5 @@
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
-import SfPrice from "@/components/atoms/SfPrice/SfPrice.vue";
-import SfRating from "@/components/atoms/SfRating/SfRating.vue";
+import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
+import SfRating from "../../atoms/SfRating/SfRating.vue";
 
 export default {
   name: "SfProductCard",
@@ -20,19 +19,10 @@ export default {
     price: {
       type: [Object, Boolean],
       default: false
-    },
-    wishlistIcon: {
-      type: [String, Array],
-      default: "heart"
-    },
-    onWishList: {
-      type: [Boolean],
-      default: false
     }
   },
   components: {
     SfPrice,
-    SfRating,
-    SfIcon
-  },
+    SfRating
+  }
 };
