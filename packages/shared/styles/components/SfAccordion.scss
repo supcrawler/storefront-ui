@@ -1,0 +1,23 @@
+.sf-accordion {
+  &-item__header {
+    padding: 1rem 2rem;
+    background-color: #f2f2f2;
+    font-weight: 900;
+    cursor: pointer;
+    text-transform: uppercase;
+    display: flex;
+    justify-content: space-between;
+  }
+  &-item__content {
+    display: none;
+    color: #1d1f22;
+    font-size: 16px;
+    cursor: pointer;
+    &--show {
+      display: block;
+    }
+    > * {
+      padding: 1rem 2rem;
+    }
+  }
+}
