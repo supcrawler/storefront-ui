@@ -16,8 +16,10 @@
       </div>
     </div>
 
-    <SfSection :heading="{ title: 'You may also like' }">
-      <SfCarousel>
+    <div class="responsive-section">
+      <h2>Match it with</h2>
+      <div class="responsive-section__content">
+        <SfCarousel>
           <SfCarouselItem v-for="i in 6" :key="i">
             <SfProductCard
               title="Cream Beach Bag"
@@ -26,12 +28,30 @@
             />
           </SfCarouselItem>
         </SfCarousel>
-    </SfSection>
+      </div>
+    </div>
+    <div class="responsive-section">
+      <h2>You may also like</h2>
+      <div class="responsive-section__content">
+        <SfCarousel>
+          <SfCarouselItem v-for="i in 6" :key="i">
+            <SfProductCard
+              title="Cream Beach Bag"
+              :price="{ regularPrice: '10,99 $' }"
+              :rating="{ max: 5, score: 4 }"
+            />
+          </SfCarouselItem>
+        </SfCarousel>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
-import { SfCarousel, SfProductCard, SfPrice, SfRating, SfSection } from "../../../../index.js"
+import SfCarousel from "@/components/organisms/SfCarousel/SfCarousel.vue";
+import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
+import SfPrice from "@/components/atoms/SfPrice/SfPrice.vue";
+import SfRating from "@/components/atoms/SfRating/SfRating.vue";
 
 export default {
   data() {
@@ -40,7 +60,6 @@ export default {
   components: {
     SfCarousel,
     SfProductCard,
-    SfSection,
     SfPrice,
     SfRating
   }
@@ -74,4 +93,10 @@ export default {
   }
 }
 
+.responsive-section {
+  h2 {
+    text-align: center;
+  }
+  padding: $spacer-extra-big 0;
+}
 </style>
