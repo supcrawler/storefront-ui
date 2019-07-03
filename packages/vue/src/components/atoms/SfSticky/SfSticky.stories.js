@@ -4,7 +4,7 @@ import { withKnobs } from "@storybook/addon-knobs";
 
 import SfSticky from "./SfSticky.vue";
 
-storiesOf("Molecules|Sticky", module)
+storiesOf("Atoms|Sticky", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
@@ -59,7 +59,7 @@ storiesOf("Molecules|Sticky", module)
     {
       info: {
         summary: `<h2>Usage</h2>
-       <pre><code>import { SfSticky } from "@storefrontui/vue"</code></pre>`
+       <pre><code>import SfSticky from "@storefrontui/vue/dist/SfSticky.vue"</code></pre>`
       }
     }
   );
