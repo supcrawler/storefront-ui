@@ -1,9 +1,3 @@
-<div class="sf-accordion">
-  <!--@slot Default slot for multiple SfAccordionItem elements-->
-  <slot>
-    <SfAccordionItem v-for="(item, index) of items" v-bind:key="index"
-        :headerText="item.header"
-        :contentItems="item.content">
-    </SfAccordionItem>
-  </slot>
+<div>
+  <slot></slot>
 </div>
