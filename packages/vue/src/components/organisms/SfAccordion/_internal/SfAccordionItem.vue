@@ -36,5 +36,5 @@ export default {
 </script>
 
 <style lang="scss">
-@import "~@storefrontui/shared/styles/components/SfAccordion.scss";
+@import "~@storefrontui/shared/styles/components/SfAccordionItem.scss";
 </style>

@@ -1,10 +1,5 @@
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
-
 export default {
   name: "SfAlert",
-  components: {
-    SfIcon
-  },
   props: {
     /**
      * Message that will be displayed in Alert.
@@ -29,11 +24,10 @@ export default {
     }
   },
   computed: {
-    hasIconSrc() {
-      return this.icon && typeof this.icon === "string";
-    },
     iconSrc() {
-      return typeof this.icon === "string" ? this.icon : "";
+      return typeof this.icon === "string"
+        ? this.icon
+        : `/assets/alert-${this.type}.svg`;
     }
   }
 };

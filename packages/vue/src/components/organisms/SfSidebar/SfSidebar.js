@@ -1,5 +1,4 @@
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
 
 export default {
   name: "SfSidebar",
@@ -42,7 +41,6 @@ export default {
     }
   },
   components: {
-    SfCircleIcon,
-    SfIcon
+    SfCircleIcon
   }
 };
