@@ -34,3 +34,7 @@ export default {
   }
 };
 </script>
+
+<style lang="scss">
+@import "~@storefrontui/shared/styles/components/SfAccordionItem.scss";
+</style>
