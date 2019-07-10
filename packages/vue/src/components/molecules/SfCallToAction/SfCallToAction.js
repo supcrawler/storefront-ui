@@ -14,14 +14,6 @@ export default {
     description: {
       type: String,
       default: ""
-    },
-    background: {
-      type: String,
-      default: ""
-    },
-    image: {
-      type: String,
-      default: ""
     }
   },
   components: {

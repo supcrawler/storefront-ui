@@ -89,7 +89,7 @@ const scssTableConfig = {
   ]
 };
 
-storiesOf("Organisms|Hero", module)
+storiesOf("Organisms|SfHero", module)
   .addDecorator(withKnobs)
   .add(
     "Basic",
