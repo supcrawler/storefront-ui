@@ -1,7 +1,7 @@
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 
 export default {
-  name: "SfHeroItem",
+  name: "SfHeroItemItem",
   props: {
     /** Hero item title */
     title: {
