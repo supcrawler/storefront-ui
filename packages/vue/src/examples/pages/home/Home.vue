@@ -1,18 +1,30 @@
 <template>
   <div id="home">
+    <!-- SfHero -->
     <SfHero>
       <SfHeroItem
-        v-for="(hero, i) in heroes"
-        :key="i"
-        :title="hero.title"
-        :subtitle="hero.subtitle"
-        :buttonText="hero.buttonText"
-        :background="hero.background"
-        :image="hero.image"
-        :class="hero.className"
+        title="Colorful summer dresses are already in store"
+        subtitle="SUMMER COLLECTION 2019"
+        buttonText="Learn more"
+        background="#eceff1"
+        image="assets/storybook/homepage/bannerH.png"
+      ></SfHeroItem>
+      <SfHeroItem
+        title="Colorful summer dresses are already in store"
+        subtitle="SUMMER COLLECTION 2019"
+        buttonText="Learn more"
+        background="#efebe9"
+        image="assets/storybook/homepage/bannerA.png"
+        class="sf-hero-item--position-bg-top-left sf-hero-item--align-right"
+      ></SfHeroItem>
+      <SfHeroItem
+        title="Colorful summer dresses are already in store"
+        subtitle="SUMMER COLLECTION 2019"
+        buttonText="Learn more"
+        background="#fce4ec"
+        image="assets/storybook/homepage/bannerB.png"
       ></SfHeroItem>
     </SfHero>
-    <!-- TODO: create SfGrid, SfBannersGrid? -->
     <div class="banners-grid">
       <div class="banners-grid__row">
         <div class="banners-grid__col">
@@ -103,12 +115,75 @@
       }"
     >
       <SfCarousel :settings="{ gap: 0 }" class="carousel">
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
+        <SfCarouselItem>
           <SfProductCard
-            :title="product.title"
-            :image="product.image"
-            :price="product.price"
-            :rating="product.rating"
+            title="Cream Beach Bag"
+            image="assets/storybook/homepage/productA.png"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+            class="product-card"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            image="assets/storybook/homepage/productB.png"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+            class="product-card"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            image="assets/storybook/homepage/productC.png"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+            class="product-card"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            image="assets/storybook/homepage/productA.png"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+            class="product-card"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            image="assets/storybook/homepage/productB.png"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+            class="product-card"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            image="assets/storybook/homepage/productC.png"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+            class="product-card"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            image="assets/storybook/homepage/productA.png"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
+            class="product-card"
+          />
+        </SfCarouselItem>
+        <SfCarouselItem>
+          <SfProductCard
+            title="Cream Beach Bag"
+            image="assets/storybook/homepage/productB.png"
+            :price="{ regularPrice: '50.00 $' }"
+            :rating="{ max: 5, score: 4 }"
             class="product-card"
           />
         </SfCarouselItem>
@@ -120,7 +195,6 @@
         subtitle: '#YOURLOOK'
       }"
     >
-      <!-- TODO: create SfGrid, SfImagesGrid? -->
       <div class="images-grid">
         <div class="images-grid__row">
           <div class="images-grid__col">
@@ -180,97 +254,16 @@
   </div>
 </template>
 <script>
-import {
-  SfHero,
-  SfBanner,
-  SfCallToAction,
-  SfSection,
-  SfCarousel,
-  SfProductCard,
-  SfImage
-} from "@storefrontui/vue";
+import SfHero from "@/components/organisms/SfHero/SfHero.vue";
+import SfBanner from "@/components/molecules/SfBanner/SfBanner.vue";
+import SfCallToAction from "@/components/molecules/SfCallToAction/SfCallToAction.vue";
+import SfSection from "@/components/molecules/SfSection/SfSection.vue";
+import SfCarousel from "@/components/organisms/SfCarousel/SfCarousel.vue";
+import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
+import SfImage from "@/components/molecules/SfImage/SfImage.vue";
 
 export default {
   name: "Home",
-  data() {
-    return {
-      heroes: [
-        {
-          title: "Colorful summer dresses are already in store",
-          subtitle: "SUMMER COLLECTION 2019",
-          buttonText: "Learn more",
-          background: "#eceff1",
-          image: "assets/storybook/homepage/bannerH.png"
-        },
-        {
-          title: "Colorful summer dresses are already in store",
-          subtitle: "SUMMER COLLECTION 2019",
-          buttonText: "Learn more",
-          background: "#efebe9",
-          image: "assets/storybook/homepage/bannerA.png",
-          className:
-            "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
-        },
-        {
-          title: "Colorful summer dresses are already in store",
-          subtitle: "SUMMER COLLECTION 2019",
-          buttonText: "Learn more",
-          background: "#fce4ec",
-          image: "assets/storybook/homepage/bannerB.png"
-        }
-      ],
-      products: [
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regularPrice: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regularPrice: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
-          price: { regularPrice: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regularPrice: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regularPrice: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
-          price: { regularPrice: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regularPrice: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regularPrice: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        }
-      ]
-    };
-  },
   components: {
     SfHero,
     SfBanner,
@@ -282,6 +275,18 @@ export default {
   }
 };
 </script>
+<style lang="scss">
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+body {
+  box-sizing: border-box;
+}
+</style>
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
@@ -464,7 +469,6 @@ export default {
   }
 }
 
-// full custom banner component, need more attention
 .app-banner {
   min-height: 420px;
   background-position: 100%;
@@ -504,6 +508,7 @@ export default {
 
   /deep/ &__content {
     margin: $spacer-extra-big 0;
+
     @media screen and (min-width: $desktop-min) {
       margin: $spacer-extra-big * 2 0;
     }
