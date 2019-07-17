@@ -10,13 +10,8 @@ storiesOf("Examples|Pages|Home", module)
     "Home",
     () => ({
       components: { Home },
-      props: {
-        bannerGrid: {
-          default: select("Banner Grid", [1, 2, 3, 4], 3)
-        }
-      },
       template: `
-      <Home :bannerGrid="bannerGrid"/>
+      <Home />
     `
     }),
     {
