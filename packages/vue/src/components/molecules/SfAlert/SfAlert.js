@@ -9,10 +9,7 @@ export default {
     /**
      * Message that will be displayed in Alert.
      */
-    message: {
-      type: String,
-      default: ""
-    },
+    message: String,
     /**
      * Show/hide icon or pass different URL.
      */

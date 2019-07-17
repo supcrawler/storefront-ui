@@ -1,5 +1,5 @@
 <template>
-  <div class="sf-accordion__item">
+  <div>
     <span class="sf-accordion__label" @click="isOpen = !isOpen">
       <slot name="label" />
     </span>
