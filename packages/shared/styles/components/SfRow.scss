@@ -1,17 +1,14 @@
 @import '../variables';
 
-$sf-row-spacer-y: $spacer-extra-big!default;
-$sf-row-spacer-x: $spacer-extra-big!default;
-
 .sf-row {
   @media screen and (min-width: $desktop-min){
     display: flex;
-    margin: $sf-row-spacer-y 0;
+    margin: 40px 0;
   }
 }
 
 .sf-row-column{
-  margin-top: $sf-row-spacer-y / 2;
+  margin-top: $spacer-big;
   @media screen and (min-width: $desktop-min){
     flex: 1;
     display: flex;
@@ -20,7 +17,7 @@ $sf-row-spacer-x: $spacer-extra-big!default;
   }
   & + & {
     @media screen and (min-width: $desktop-min) {
-      margin-left: $sf-row-spacer-x;
+      margin-left: $spacer-extra-big;
     }
   }
   & > * {
