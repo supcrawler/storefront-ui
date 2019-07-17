@@ -3,7 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
-import SfGrid from "./SfGrid.vue";
+import SfRow from "./SfRow.vue";
 
 // use this to document scss vars
 const scssTableConfig = {
@@ -17,7 +17,7 @@ const eventsTableConfig = {
   tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
-// storiesOf("Organisms|Grid", module)
+// storiesOf("Organisms|Row", module)
 //   .addDecorator(withKnobs)
 //   .add(
 //     "[slot] default",
@@ -29,23 +29,23 @@ const eventsTableConfig = {
 //         customClass: {
 //           default: select(
 //             "CSS Modifier",
-//             ["null", "sf-grid--modifier"],
+//             ["null", "sf-row--modifier"],
 //             "null",
 //             "CSS-Modifiers"
 //           )
 //         }
 //       },
-//       components: { SfGrid },
-//       template: `<SfGrid
+//       components: { SfRow },
+//       template: `<SfRow
 //         :class="customClass"
 //       >
-//       </SfGrid>`
+//       </SfRow>`
 //     }),
 //     {
 //       info: {
 //         summary: `<p>Component description.</p>
 //        <h2>Usage</h2>
-//        <pre><code>import { SfGrid } from "@storefrontui/vue"</code></pre>
+//        <pre><code>import { SfRow } from "@storefrontui/vue"</code></pre>
 //        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
 //        ${generateStorybookTable(eventsTableConfig, "Events")}`
 //       }
