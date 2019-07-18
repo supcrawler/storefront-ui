@@ -1,35 +1,93 @@
 <template>
   <div id="home">
-    <!-- SfHero -->
     <SfHero>
       <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="SUMMER COLLECTION 2019"
-        buttonText="Learn more"
-        background="#eceff1"
-        image="assets/storybook/homepage/bannerH.png"
-      ></SfHeroItem>
-      <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="SUMMER COLLECTION 2019"
-        buttonText="Learn more"
-        background="#efebe9"
-        image="assets/storybook/homepage/bannerA.png"
-        class="sf-hero-item--position-bg-top-left sf-hero-item--align-right"
-      ></SfHeroItem>
-      <SfHeroItem
-        title="Colorful summer dresses are already in store"
-        subtitle="SUMMER COLLECTION 2019"
-        buttonText="Learn more"
-        background="#fce4ec"
-        image="assets/storybook/homepage/bannerB.png"
+        v-for="(hero, i) in heroes"
+        :key="i"
+        :title="hero.title"
+        :subtitle="hero.subtitle"
+        :buttonText="hero.buttonText"
+        :background="hero.background"
+        :image="hero.image"
+        :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <div class="banners-grid">
-      <div class="banners-grid__row">
-        <div class="banners-grid__col">
+    <div class="banner-grid" v-if="bannerGrid === 1">
+      <SfRow>
+        <SfRowColumn>
           <SfBanner
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+            title="ECO SANDALS"
+            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerB.png"
+            class="sf-banner--left"
+          />
+        </SfRowColumn>
+      </SfRow>
+      <SfRow>
+        <SfRowColumn>
+          <SfBanner
+            title="ECO SANDALS"
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerC.png"
+            class="sf-banner--left"
+          />
+        </SfRowColumn>
+        <SfRowColumn>
+          <SfBanner
+            title="ECO SANDALS"
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerG.png"
+            class="sf-banner--left"
+          />
+        </SfRowColumn>
+      </SfRow>
+    </div>
+    <div class="banner-grid" v-if="bannerGrid === 2">
+      <SfRow>
+        <SfRowColumn>
+          <SfBanner
+            title="ECO SANDALS"
+            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerA.png"
+          />
+        </SfRowColumn>
+      </SfRow>
+      <SfRow>
+        <SfRowColumn>
+          <SfBanner
+            title="ECO SANDALS"
+            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerB.png"
+            class="sf-banner--left"
+          />
+        </SfRowColumn>
+      </SfRow>
+      <SfRow>
+        <SfRowColumn>
+          <SfBanner
+            title="ECO SANDALS"
+            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerC.png"
+          />
+        </SfRowColumn>
+      </SfRow>
+    </div>
+    <div class="banner-grid" v-if="bannerGrid === 3">
+      <SfRow>
+        <SfRowColumn>
+          <SfBanner
+            descriptio
+            n="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="Shop now"
             image="assets/storybook/homepage/bannerF.png"
             class="sf-banner--left sf-banner--top banner banner--coctail"
@@ -48,8 +106,8 @@
               </p>
             </template>
           </SfBanner>
-        </div>
-        <div class="banners-grid__col banners-grid__col--big">
+        </SfRowColumn>
+        <SfRowColumn>
           <SfBanner
             button-text="Shop now"
             image="assets/storybook/homepage/bannerE.png"
@@ -69,10 +127,10 @@
               </p>
             </template>
           </SfBanner>
-        </div>
-        <div class="banners-grid__col">
-          <div class="banners-grid__row banners-grid__row--vertical">
-            <div class="banners-grid__col">
+        </SfRowColumn>
+        <SfRowColumn>
+          <SfRow>
+            <SfRowColumn>
               <SfBanner
                 image="assets/storybook/homepage/bannerC.png"
                 class="sf-banner--left banner--full banner"
@@ -84,8 +142,10 @@
                   <h1 class="banner__title">The office life</h1>
                 </template>
               </SfBanner>
-            </div>
-            <div class="banners-grid__col">
+            </SfRowColumn>
+          </SfRow>
+          <SfRow>
+            <SfRowColumn>
               <SfBanner
                 image="assets/storybook/homepage/bannerG.png"
                 class="sf-banner--left banner--full banner"
@@ -97,11 +157,59 @@
                   <h1 class="banner__title">Eco sandals</h1>
                 </template>
               </SfBanner>
-            </div>
-          </div>
-        </div>
-      </div>
+            </SfRowColumn>
+          </SfRow>
+        </SfRowColumn>
+      </SfRow>
     </div>
+    <div class="banner-grid" v-if="bannerGrid === 4">
+      <SfRow>
+        <SfRowColumn>
+          <SfBanner
+            title="ECO SANDALS"
+            description="The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
+            subtitle="Summer shoes"
+            button-text="SHOP NOW"
+            image="assets/storybook/homepage/bannerF.png"
+            class="sf-banner--left"
+          />
+        </SfRowColumn>
+        <SfRowColumn>
+          <SfRow>
+            <SfRowColumn>
+              <SfBanner
+                title="ECO SANDALS"
+                subtitle="Summer shoes"
+                button-text="SHOP NOW"
+                image="assets/storybook/homepage/bannerI.png"
+                class="sf-banner--left"
+              />
+            </SfRowColumn>
+            <SfRowColumn>
+              <SfBanner
+                title="ECO SANDALS"
+                subtitle="Summer shoes"
+                button-text="SHOP NOW"
+                image="assets/storybook/homepage/bannerJ.png"
+                class="sf-banner--left"
+              />
+            </SfRowColumn>
+          </SfRow>
+          <SfRow>
+            <SfRowColumn>
+              <SfBanner
+                title="ECO SANDALS"
+                subtitle="Summer shoes"
+                button-text="SHOP NOW"
+                image="assets/storybook/homepage/bannerA.png"
+                class="sf-banner--left"
+              />
+            </SfRowColumn>
+          </SfRow>
+        </SfRowColumn>
+      </SfRow>
+    </div>
+
     <SfCallToAction
       title="Subscribe to Newsletters"
       button-text="Subscribe"
@@ -115,75 +223,12 @@
       }"
     >
       <SfCarousel :settings="{ gap: 0 }" class="carousel">
-        <SfCarouselItem>
+        <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productA.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productB.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productC.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productA.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productB.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productC.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productA.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
-            class="product-card"
-          />
-        </SfCarouselItem>
-        <SfCarouselItem>
-          <SfProductCard
-            title="Cream Beach Bag"
-            image="assets/storybook/homepage/productB.png"
-            :price="{ regularPrice: '50.00 $' }"
-            :rating="{ max: 5, score: 4 }"
+            :title="product.title"
+            :image="product.image"
+            :price="product.price"
+            :rating="product.rating"
             class="product-card"
           />
         </SfCarouselItem>
@@ -195,32 +240,30 @@
         subtitle: '#YOURLOOK'
       }"
     >
-      <div class="images-grid">
-        <div class="images-grid__row">
-          <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.png"
-              >maria_trn</SfImage
-            >
-          </div>
-          <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.png"
-              >katherina_trn</SfImage
-            >
-          </div>
-        </div>
-        <div class="images-grid__row">
-          <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.png"
-              >angelina_trn</SfImage
-            >
-          </div>
-          <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.png"
-              >julia_trn</SfImage
-            >
-          </div>
-        </div>
-      </div>
+      <SfRow style="justify-content: center;">
+        <SfRowColumn style="flex: 0 1 470px;">
+          <SfImage src="assets/storybook/homepage/imageA.png"
+            >maria_trn</SfImage
+          >
+        </SfRowColumn>
+        <SfRowColumn style="flex: 0 1 470px;">
+          <SfImage src="assets/storybook/homepage/imageB.png"
+            >katherina_trn</SfImage
+          >
+        </SfRowColumn>
+      </SfRow>
+      <SfRow style="justify-content: center;">
+        <SfRowColumn style="flex: 0 1 470px;">
+          <SfImage src="assets/storybook/homepage/imageC.png"
+            >angelina_trn</SfImage
+          >
+        </SfRowColumn>
+        <SfRowColumn style="flex: 0 1 470px;">
+          <SfImage src="assets/storybook/homepage/imageD.png"
+            >julia_trn</SfImage
+          >
+        </SfRowColumn>
+      </SfRow>
     </SfSection>
     <SfBanner
       image="assets/storybook/homepage/bannerD.png"
@@ -254,16 +297,105 @@
   </div>
 </template>
 <script>
-import SfHero from "@/components/organisms/SfHero/SfHero.vue";
-import SfBanner from "@/components/molecules/SfBanner/SfBanner.vue";
-import SfCallToAction from "@/components/molecules/SfCallToAction/SfCallToAction.vue";
-import SfSection from "@/components/molecules/SfSection/SfSection.vue";
-import SfCarousel from "@/components/organisms/SfCarousel/SfCarousel.vue";
-import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
-import SfImage from "@/components/molecules/SfImage/SfImage.vue";
+import {
+  SfHero,
+  SfBanner,
+  SfCallToAction,
+  SfSection,
+  SfCarousel,
+  SfProductCard,
+  SfImage,
+  SfRow
+} from "@storefrontui/vue";
 
 export default {
   name: "Home",
+  props: {
+    bannerGrid: {
+      type: Number,
+      default: 3
+    }
+  },
+  data() {
+    return {
+      debugMode: false,
+      heroes: [
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#eceff1",
+          image: "assets/storybook/homepage/bannerH.png"
+        },
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#efebe9",
+          image: "assets/storybook/homepage/bannerA.png",
+          className:
+            "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
+        },
+        {
+          title: "Colorful summer dresses are already in store",
+          subtitle: "SUMMER COLLECTION 2019",
+          buttonText: "Learn more",
+          background: "#fce4ec",
+          image: "assets/storybook/homepage/bannerB.png"
+        }
+      ],
+      products: [
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productC.png",
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productA.png",
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        },
+        {
+          title: "Cream Beach Bag",
+          image: "assets/storybook/homepage/productB.png",
+          price: { regularPrice: "50.00 $" },
+          rating: { max: 5, score: 4 }
+        }
+      ]
+    };
+  },
   components: {
     SfHero,
     SfBanner,
@@ -271,20 +403,24 @@ export default {
     SfSection,
     SfCarousel,
     SfProductCard,
-    SfImage
+    SfImage,
+    SfRow
+  },
+  mounted: function() {
+    if (this.debugMode) {
+      document.body.classList.add("debug");
+    }
   }
 };
 </script>
-<style lang="scss">
-*,
-*::before,
-*::after {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit;
-}
-body {
-  box-sizing: border-box;
+<style>
+.debug *:not(g):not(path) {
+  color: hsla(210, 100%, 100%, 0.9) !important;
+  background: hsla(210, 100%, 50%, 0.5) !important;
+  outline: solid 0.25rem hsla(210, 100%, 100%, 0.5) !important;
+
+  box-shadow: none !important;
+  filter: none !important;
 }
 </style>
 <style lang="scss" scoped>
@@ -302,54 +438,6 @@ body {
   }
 }
 
-.banners-grid {
-  margin: $spacer-big 0;
-
-  @media screen and (min-width: $desktop-min) {
-    margin: $spacer-extra-big 0;
-    display: flex;
-  }
-
-  &__row {
-    @media screen and (min-width: $desktop-min) {
-      display: flex;
-    }
-
-    &--vertical {
-      width: 100%;
-      flex-direction: column;
-
-      .banners-grid {
-        &__col {
-          &:not(:first-child) {
-            margin-left: 0;
-            margin-top: $spacer;
-
-            @media screen and (min-width: $desktop-min) {
-              margin-top: $spacer-extra-big;
-            }
-          }
-        }
-      }
-    }
-  }
-  &__col {
-    display: flex;
-    flex: 1 1 330px;
-
-    &:not(:first-child) {
-      margin-top: $spacer;
-
-      @media screen and (min-width: $desktop-min) {
-        margin-top: 0;
-        margin-left: $spacer-extra-big;
-      }
-    }
-    &--big {
-      flex: 1 1 500px;
-    }
-  }
-}
 .banner {
   width: 100%;
   min-height: 144px;
@@ -415,7 +503,9 @@ body {
     }
   }
 }
-
+.banner-grid {
+  margin: $spacer-extra-big 0;
+}
 .newsletter {
   margin: $spacer-big 0;
 
@@ -443,32 +533,7 @@ body {
     box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
 }
-
-.images-grid {
-  &__row {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    &:not(:first-child) {
-      margin-top: $spacer;
-      @media screen and (min-width: $desktop-min) {
-        margin-top: $spacer-big;
-      }
-    }
-  }
-
-  &__col {
-    flex: 0 1 470px;
-
-    &:not(:first-child) {
-      margin-left: $spacer;
-      @media screen and (min-width: $desktop-min) {
-        margin-left: $spacer-big;
-      }
-    }
-  }
-}
-
+// full custom banner component, need more attention
 .app-banner {
   min-height: 420px;
   background-position: 100%;
@@ -498,6 +563,7 @@ body {
     }
   }
 }
+
 .sf-section {
   margin: $spacer-extra-big 0;
   padding: 0;
@@ -508,7 +574,6 @@ body {
 
   /deep/ &__content {
     margin: $spacer-extra-big 0;
-
     @media screen and (min-width: $desktop-min) {
       margin: $spacer-extra-big * 2 0;
     }
