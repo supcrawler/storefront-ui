@@ -82,19 +82,16 @@ storiesOf("Molecules|Banner", module)
       components: { SfBanner },
       props: {
         title: {
-          default: text("title (prop)", "Eco Sandals")
+          default: text("title (prop)", "Title prop")
         },
         subtitle: {
-          default: text("subtitle (prop)", "Summer shoes")
+          default: text("subtitle (prop)", "Subtitle prop")
         },
         description: {
-          default: text(
-            "description (prop)",
-            "The collection features formal and casual comfort shoes with a Danish design focus. Made from premium leathers and comfort."
-          )
+          default: text("description (prop)", "Descriptiom prop")
         },
         buttonText: {
-          default: text("buttonText (prop)", "Shop Now")
+          default: text("buttonText (prop)", "Button text")
         },
         background: {
           default: text("background (prop)", "#e1e3e2")
