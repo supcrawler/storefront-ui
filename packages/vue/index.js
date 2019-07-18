@@ -2,6 +2,7 @@
 import SfArrow from "./src/components/atoms/SfArrow/SfArrow.vue";
 import SfBadge from "./src/components/atoms/SfBadge/SfBadge.vue";
 import SfBreadcrumbs from "./src/components/atoms/SfBreadcrumbs/SfBreadcrumbs.vue";
+import SfBullets from "./src/components/atoms/SfBullets/SfBullets.vue";
 import SfButton from "./src/components/atoms/SfButton/SfButton.vue";
 import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.vue";
 import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
@@ -16,6 +17,7 @@ import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.vue";
+import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfCharacteristic.vue";
 import SfCounter from "./src/components/molecules/SfCounter/SfCounter.vue";
 import SfFilter from "./src/components/molecules/SfFilter/SfFilter.vue";
 import SfGallery from "./src/components/molecules/SfGallery/SfGallery.vue";
@@ -28,6 +30,7 @@ import SfRadio from "./src/components/molecules/SfRadio/SfRadio.vue";
 import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
+import SfImage from "./src/components/molecules/SfImage/SfImage.vue";
 
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.vue";
@@ -35,10 +38,12 @@ import SfList from "./src/components/organisms/SfList/SfList.vue";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
+import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
 
 export {
   SfArrow,
   SfBadge,
+  SfBullets,
   SfButton,
   SfBreadcrumbs,
   SfCheckbox,
@@ -53,6 +58,7 @@ export {
   SfAlert,
   SfBanner,
   SfCallToAction,
+  SfCharacteristic,
   SfCounter,
   SfFilter,
   SfGallery,
@@ -70,5 +76,7 @@ export {
   SfCarousel,
   SfList,
   SfMegaMenu,
-  SfTopBar
+  SfTopBar,
+  SfHero,
+  SfImage
 };
