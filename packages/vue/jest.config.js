@@ -16,7 +16,7 @@ module.exports = {
   testURL: "http://localhost/",
   globals: {
     "ts-jest": {
-      babelConfig: false
+      babelConfig: true
     }
   }
 };

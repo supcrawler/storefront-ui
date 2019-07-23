@@ -1,5 +1,3 @@
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
 export default {
   name: "SfMenuItem",
   props: {
@@ -9,14 +7,11 @@ export default {
     },
     mobileNavIcon: {
       type: [String, Boolean],
-      default: "chevron_right"
+      default: "/assets/chevron_right.svg"
     },
     count: {
       type: String,
       default: ""
     }
-  },
-  components: {
-    SfIcon
   }
 };

@@ -1,5 +1,3 @@
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-
 export default {
   name: "SfCounter",
 
@@ -198,8 +196,5 @@ export default {
         this.setCurrentValue(this.value);
       }
     }
-  },
-  components: {
-    SfIcon
   }
 };
