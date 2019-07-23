@@ -13,6 +13,7 @@
           <FiltersIcon />
           Filters
         </SfButton>
+        <div>Sort by: <SfSelect></SfSelect></div>
         <span class="navbar__products-count"><strong>256</strong> items</span>
       </div>
     </div>
@@ -161,16 +162,18 @@
 </template>
 
 <script>
-import SfSidebar from "@/components/organisms/SfSidebar/SfSidebar.vue";
-import SfButton from "@/components/atoms/SfButton/SfButton.vue";
-import SfList from "@/components/organisms/SfList/SfList.vue";
-import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";
-import SfFilter from "@/components/molecules/SfFilter/SfFilter.vue";
-import SfFilterItem from "@/components/molecules/SfFilter/_internal/SfFilterItem.vue";
-import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
-import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
-import SfAccordion from "@/components/organisms/SfAccordion/SfAccordion.vue";
-
+import {
+  SfSidebar,
+  SfButton,
+  SfList,
+  SfMenuItem,
+  SfFilter,
+  SfFilterItem,
+  SfProductCard,
+  SfPagination,
+  SfAccordion,
+  SfSelect
+} from "@storefrontui/vue";
 import FiltersIcon from "./components/FiltersIcon.vue";
 
 export default {
@@ -194,6 +197,7 @@ export default {
     SfPagination,
     SfMenuItem,
     SfAccordion,
+    SfSelect,
     FiltersIcon
   }
 };
