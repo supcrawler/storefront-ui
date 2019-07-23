@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfIcon from "./SfIcon.vue";
+import SfIcon from "@/components/atoms/SfIcon/SfIcon.vue";
 
 describe("SfIcon.vue", () => {
   it("renders a component", () => {
