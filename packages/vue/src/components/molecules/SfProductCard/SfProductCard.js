@@ -22,31 +22,19 @@ export default {
     },
     /**
      * Product rating
+     * It receives an object, with 2 fields: "max" as the max score standards, and "score" as the product's current score received.
      */
     rating: {
-      type: [Number, String, Boolean],
+      type: [Object, Boolean],
       default: false
     },
     /**
-     * Maximum product rating
+     * Product price
+     * It is an object including 2 fields "regularPrice" (required) and "specialPrice" (optional)
      */
-    maxRating: {
-      type: [Number, String],
-      default: 5
-    },
-    /**
-     * Product regular price
-     */
-    regularPrice: {
-      type: [Number, String],
-      default: null
-    },
-    /**
-     * Product special price
-     */
-    specialPrice: {
-      type: [Number, String],
-      default: null
+    price: {
+      type: [Object, Boolean],
+      default: false
     },
     /**
      * Wish list icon
