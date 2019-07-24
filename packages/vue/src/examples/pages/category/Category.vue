@@ -13,10 +13,21 @@
           <FiltersIcon />
           Filters
         </SfButton>
+        <div class="sort-by">
+          <span class="sort-by__label">Sort by:</span>
+          <SfSelect v-model="sortBy">
+            <SfSelectOption value="latest">Latest</SfSelectOption>
+            <SfSelectOption value="price-up"
+              >Price from low to high</SfSelectOption
+            >
+            <SfSelectOption value="price-down"
+              >Price from high to low</SfSelectOption
+            >
+          </SfSelect>
+        </div>
         <span class="navbar__products-count"><strong>256</strong> items</span>
       </div>
     </div>
-
     <div class="main">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true">
@@ -161,23 +172,25 @@
     </SfSidebar>
   </div>
 </template>
-
 <script>
-import SfSidebar from "@/components/organisms/SfSidebar/SfSidebar.vue";
-import SfButton from "@/components/atoms/SfButton/SfButton.vue";
-import SfList from "@/components/organisms/SfList/SfList.vue";
-import SfMenuItem from "@/components/molecules/SfMenuItem/SfMenuItem.vue";
-import SfFilter from "@/components/molecules/SfFilter/SfFilter.vue";
-import SfFilterItem from "@/components/molecules/SfFilter/_internal/SfFilterItem.vue";
-import SfProductCard from "@/components/molecules/SfProductCard/SfProductCard.vue";
-import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
-import SfAccordion from "@/components/organisms/SfAccordion/SfAccordion.vue";
-
+import {
+  SfSidebar,
+  SfButton,
+  SfList,
+  SfMenuItem,
+  SfFilter,
+  SfFilterItem,
+  SfProductCard,
+  SfPagination,
+  SfAccordion,
+  SfSelect
+} from "@storefrontui/vue";
 import FiltersIcon from "./components/FiltersIcon.vue";
 
 export default {
   data() {
     return {
+      sortBy: "price-up",
       isFilterSidebarOpen: false,
       filters: {
         color: [],
@@ -196,11 +209,11 @@ export default {
     SfPagination,
     SfMenuItem,
     SfAccordion,
+    SfSelect,
     FiltersIcon
   }
 };
 </script>
-
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefrontui/shared/styles/helpers/visibility";
@@ -308,6 +321,16 @@ export default {
 .filters {
   &__title:first-letter {
     text-transform: uppercase;
+  }
+}
+.sort-by {
+  display: flex;
+  margin-left: $spacer-extra-big;
+  margin-right: auto;
+  align-items: center;
+  font-size: $font-size-small-desktop;
+  &__label {
+    color: $c-gray-secondary;
   }
 }
 </style>
