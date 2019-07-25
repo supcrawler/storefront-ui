@@ -2,16 +2,16 @@ export default {
   name: "SfPrice",
   props: {
     /**
-     * Regular/old price value. Crossed out if `special` is provided
+     * Regular/old price value. Crossed out if `specialPrice` is provided
      */
-    regular: {
+    regularPrice: {
       type: [String, Number],
       default: null
     },
     /**
      * Special price value
      */
-    special: {
+    specialPrice: {
       type: [String, Number],
       default: null
     },
@@ -39,13 +39,13 @@ export default {
   },
   computed: {
     regularPriceAriaLabel() {
-      return `${this.ariaLabelSpecial} ${this.special}`;
+      return `${this.ariaLabelSpecial} ${this.specialPrice}`;
     },
     specialPriceAriaLabel() {
-      return `${this.ariaLabelSpecial} ${this.special}`;
+      return `${this.ariaLabelSpecial} ${this.specialPrice}`;
     },
     oldPriceAriaLabel() {
-      return `${this.ariaLabelOld} ${this.old}`;
+      return `${this.ariaLabelOld} ${this.oldPrice}`;
     }
   }
 };

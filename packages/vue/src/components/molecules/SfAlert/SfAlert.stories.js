@@ -12,35 +12,32 @@ const scssTableConfig = {
     ["$sf-alert__text-font-size", "0.875rem", "font-size of alert text"],
     ["$sf-alert__text-padding-left", "0.625rem", "alert text padding left"],
     [
-      "$sf-alert--info-color",
-      "$c-dark-primary",
-      "color for text and icon for Information alert message"
+      "$sf-alert--info-background-color",
+      "$c-yellow-secondary",
+      "color for alert background"
     ],
+    ["$sf-alert--info-color", "$c-yellow-primary", "color for text and icon"],
     [
-      "sf-alert--warning-color",
-      "#D12727",
-      "color for text and icon for Warning alert message"
+      "$sf-alert--warning-background-color",
+      "$c-pink-secondary",
+      "color for alert background"
     ],
+    ["sf-alert--warning-color", "$c-pink-primary", "color for text and icon"],
     [
-      "$sf-alert--alert-color",
-      "#0468DB",
-      "color for text and icon for Normal alert message"
+      "$sf-alert--alert-background-color",
+      "$c-blue-secondary",
+      "color for alert background"
     ],
-    [
-      "$sf-alert--success-color",
-      "#128830",
-      "color for text and icon for Success alert message"
-    ]
+    ["$sf-alert--alert-color", "$c-blue-primary", "color for text and icon"]
   ]
 };
 
 const cssTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
-    [".sf-alert--info", "to set blue color for alert message"],
-    [".sf-alert--warning", "to set red color for alert message"],
-    [".sf-alert--alert", "to set default color for alert message"],
-    [".sf-alert--success", "to set green color for alert message"]
+    [".sf-alert--info", "sets yellow color for alert"],
+    [".sf-alert--warning", "sets pink color for alert"],
+    [".sf-alert--alert", "sets blue color for alert"]
   ]
 };
 
@@ -63,12 +60,7 @@ storiesOf("Molecules|Alert", module)
           ])
         },
         type: {
-          default: select("type (prop)", [
-            "alert",
-            "warning",
-            "info",
-            "success"
-          ])
+          default: select("type (prop)", ["alert", "warning", "info"])
         }
       },
       template: `

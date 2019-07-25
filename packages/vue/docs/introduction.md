@@ -20,25 +20,7 @@ it is not suitable for production!
 Expect things to be broken and APIs to possibly change. 
 
 
-## How to test StorefrontUI standalone
-
-- checkout the repository and branch you want to test from https://github.com/DivanteLtd/storefront-ui
-- install dependencies
-```bash
-yarn install
-```
-- change into directory
-```bash
-cd ./packages/vue/
-```
-- start Storybook Server
-
-```bash
-yarn storybook:serve
-```
-
-
-## How to test StorefrontUI on your own Application?
+## How to test StorefrontUI?
 
 **Right now StorefrontUI is working only with Nuxt and Vue CLI!**
 
