@@ -11,8 +11,8 @@ describe("SfPrice.vue", () => {
     const spPrice = "$3,59";
     const component = shallowMount(SfPrice, {
       propsData: {
-        regular: regPrice,
-        special: spPrice
+        regularPrice: regPrice,
+        specialPrice: spPrice
       }
     });
     expect(
@@ -25,8 +25,8 @@ describe("SfPrice.vue", () => {
     const spPrice = 3.59;
     const component = shallowMount(SfPrice, {
       propsData: {
-        regular: regPrice,
-        special: spPrice
+        regularPrice: regPrice,
+        specialPrice: spPrice
       }
     });
     expect(
@@ -37,18 +37,18 @@ describe("SfPrice.vue", () => {
   it("renders an old price via slot", () => {
     const component = shallowMount(SfPrice, {
       slots: {
-        old: "<span class='old'>text</span>"
+        oldPrice: "<span class='oldPrice'>text</span>"
       }
     });
-    expect(component.contains(".old")).toBe(true);
+    expect(component.contains(".oldPrice")).toBe(true);
   });
   it("renders a special price via slot", () => {
     const component = shallowMount(SfPrice, {
       slots: {
-        special: "<ins class='special'>text</ins>"
+        specialPrice: "<ins class='specialPrice'>text</ins>"
       }
     });
     expect(component.find(".sf-price__special").exists()).toBe(false);
-    expect(component.contains(".special")).toBe(true);
+    expect(component.contains(".specialPrice")).toBe(true);
   });
 });
