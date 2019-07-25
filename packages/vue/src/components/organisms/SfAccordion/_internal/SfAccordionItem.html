@@ -5,7 +5,9 @@
     :class="isOpen ? 'sf-accordion-item__header-wrapper--open' : 'sf-accordion-item__header-wrapper--close'"
   >
     <slot name="header" v-bind="{isOpen, header}">
-      <div class="sf-accordion-item__header">{{ header }}</div>
+      <div class="sf-accordion-item__header">
+        {{ header }}
+      </div>
     </slot>
     <img
       v-if="$parent.showChevron"
@@ -18,7 +20,7 @@
       class="sf-accordion-item__content-wrapper"
       v-if="isOpen"
     >
-      <slot name="content" v-bind="{items: contentItems, handler: onContentItemClick}">
+      <slot name="content" v-bind="{contentItems}">
         <div class="sf-accordion-item__content">
           <div
             v-for="item of contentItems"
