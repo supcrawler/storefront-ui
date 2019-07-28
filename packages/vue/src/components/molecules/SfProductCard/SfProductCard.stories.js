@@ -1,7 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { generateStorybookTable } from "@/helpers";
-import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, object } from "@storybook/addon-knobs";
 import SfProductCard from "./SfProductCard.vue";
 
 const scssTableConfig = {
@@ -43,17 +43,11 @@ storiesOf("Molecules|ProductCard", module)
         title: {
           default: text("title (prop)", "Product name")
         },
-        regularPrice: {
-          default: text("regularPrice (prop)", "$10,99")
-        },
-        specialPrice: {
-          default: text("specialPrice (prop)", "$5,99")
-        },
-        maxRating: {
-          default: number("minRating (prop)", 5)
+        price: {
+          default: object("price (prop)", { regularPrice: "$10,99" })
         },
         rating: {
-          default: number("maxRating (prop)", 4)
+          default: object("rating (prop)", { max: 5, score: 4 })
         },
         wishlistIcon: {
           default: text("wishlistIcon (prop)", "heart")
@@ -72,10 +66,8 @@ storiesOf("Molecules|ProductCard", module)
       template: `<SfProductCard
         :image="image"
         :title="title"
-        :regular-price="regularPrice"
-        :special-price="specialPrice"
+        :price="price"
         :rating="rating"
-        :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
         :onWishlistIcon="onWishlistIcon"
         :onWishlistColor="onWishlistColor"
