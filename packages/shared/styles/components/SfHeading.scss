@@ -2,10 +2,11 @@
 
 $heading--border-color: #F1F2F4 !default;
 $heading--underline-subtitle-color: #A3A5AD !default;
+$heading--mobile-breakpoint: $mobile-max !default;
 
 .sf-heading {
     text-align: left;
-  @media screen and (min-width: $desktop-min){
+  @media screen and (min-width: $heading--mobile-breakpoint){
     text-align: center;
   }
   &__title {
@@ -22,7 +23,7 @@ $heading--underline-subtitle-color: #A3A5AD !default;
     padding-bottom: 10px;
     border-bottom: 1px solid $heading--border-color;
 
-    @media screen and (min-width: $desktop-min) {
+    @media screen and (min-width: $heading--mobile-breakpoint) {
       display: block;
       padding-bottom: 0;
       border: 0;
