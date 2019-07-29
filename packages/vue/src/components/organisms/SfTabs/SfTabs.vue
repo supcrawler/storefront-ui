@@ -1,6 +1,5 @@
 <script src="./SfTabs.js"></script>
 <template lang="html" src="./SfTabs.html"></template>
 <style lang="scss">
-@import '../../../utilities/transitions/transitions.scss';
-@import '~@storefrontui/shared/styles/components/SfTabs.scss';
+@import "~@storefrontui/shared/styles/components/SfTabs.scss";
 </style>
