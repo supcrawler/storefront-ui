@@ -1,6 +1,6 @@
 @import '../variables';
 
-$select-color-primary: $c-light-primary !default;
+$select-color-primary: $c-green-primary !default;
 $select-color-secondary: $c-light-primary !default;
 
 $select-font-size: $font-size-big-mobile !default;
@@ -8,8 +8,8 @@ $select-font-family: $body-font-family-secondary !default;
 
 $select-option-padding: 0.75rem 1.875rem;
 
-//$select-color-primary: $c-green-primary;
-//$select-color-secondary: $c-light-primary;
+$select-color-primary: $c-green-primary;
+$select-color-secondary: $c-light-primary;
 
 $select-option-font-size: $font-size-big-mobile;
 $select-option-font-family: $body-font-family-secondary;
@@ -20,8 +20,17 @@ $select-option-font-family: $body-font-family-secondary;
   padding: $select-option-padding;
   user-select: none;
   &--active{
-    //color: #FFF;
+    color: #FFF;
     background-color: $select-color-primary;
+    &:after{
+      flex: 0 0 7px;
+      height: 14px;
+      margin-left: auto;
+      border: 0px solid #FFF;
+      border-width: 0px 2px 2px 0px;
+      transform: rotate(45deg) translateX(calc(-7px / 2));
+      content: "";
+    }
   }
   &:hover{
     outline: 1px solid $select-color-primary;
@@ -31,7 +40,7 @@ $select-option-font-family: $body-font-family-secondary;
 .sf-select {
   position: relative;
   user-select: none;
-  white-space: nowrap;
+
   &:focus{
     outline: 0;
   }
@@ -66,14 +75,14 @@ $select-option-font-family: $body-font-family-secondary;
   &--bordered{
 
     .sf-select__selected{
-      border: 1px solid $select-color-primary;
+      border: 1px solid $select-color-secondary;
     }
   }
 
   &--underlined{
 
     .sf-select__selected{
-      border-bottom: 1px solid $select-color-primary;
+      border-bottom: 1px solid $select-color-secondary;
     }
   }
 }

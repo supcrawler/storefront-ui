@@ -6,6 +6,8 @@ import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 
 import Glide from "@glidejs/glide";
 
+const BULLETS_POSITION = ["top", "bottom"];
+
 Vue.component("SfHeroItem", SfHeroItem);
 
 export default {
