@@ -30,7 +30,6 @@ import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.html";
 import SfList from "./src/components/organisms/SfList/SfList.html";
 import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.html";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.html";
-import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.html";
 
 export {
   SfArrow,
@@ -61,6 +60,5 @@ export {
   SfCarousel,
   SfList,
   SfMegaMenu,
-  SfTopBar,
-  SfStoreLocator
+  SfTopBar
 };

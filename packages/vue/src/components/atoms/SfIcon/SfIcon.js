@@ -1,4 +1,4 @@
-import { icons } from "@/assets/icons";
+import { icons } from "../../../assets/icons";
 
 const HEX_REGEX = /^#([A-Fa-f0-9]{6}|[A-Fa-f0-9]{3})$/;
 const RGB_REGEX = /rgb\((\d{1,3}), (\d{1,3}), (\d{1,3})\)/;
@@ -29,7 +29,7 @@ export default {
     /**
      * Custom color of the icon
      * It can be according to our standard colors, or `#fff` or `rgb(255,255,255)` or nothing.
-     * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `green-primary`, `green-secondary`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
+     * Standard colors: `primary`, `secondary`, `white`, `black`, `accent`, `gray-primary`, `gray-secondary`, `light-primary`, `light-secondary`, `pink-primary`, `pink-secondary`, `yellow-primary`, `yellow-secondary`, `blue-primary`, `blue-secondary`.
      */
     color: {
       type: String,
