@@ -14,7 +14,7 @@ storiesOf("Molecules|Select", module)
     () => ({
       data() {
         return {
-          selected: "amber"
+          selected: "s"
         };
       },
       components: { SfSelect, SfProductOption },
@@ -29,31 +29,33 @@ storiesOf("Molecules|Select", module)
       },
       template: `
       <div>
-        <p><b>Selected: {{selected}}</b></p>
         <div style="max-width: 509px">
           <SfSelect v-model="selected" :class="customClass">
-            <SfSelectOption value="amaranth">
-              <SfProductOption color="#E52B50" label="Amaranth"/>
+            <SfSelectOption value="xs">
+              XS
             </SfSelectOption>
-            <SfSelectOption value="amber">
-              <SfProductOption color="#FFBF00" label="Amber"/>
+            <SfSelectOption value="s">
+              S
             </SfSelectOption>
-            <SfSelectOption value="arctic-lime">
-              <SfProductOption color="#D0FF14" label="Arctic lime"/>
+            <SfSelectOption value="m">
+              M
             </SfSelectOption>
-            <SfSelectOption value="bluetiful">
-              <SfProductOption color="#3C69E7" label="Bluetiful"/>
+            <SfSelectOption value="l">
+              L
             </SfSelectOption>
-            <SfSelectOption value="brilliant-rose">
-              <SfProductOption color="#FF55A3" label="Brilliant rose"/>
+            <SfSelectOption value="xl">
+              XL
             </SfSelectOption>
-            <SfSelectOption value="buff">
-              <SfProductOption color="#F0DC82" label="Buff"/>
+            <SfSelectOption value="xxl">
+              XXL
             </SfSelectOption>
           </SfSelect>
         </div>
       </div>
-      `
+      `,
+      mounted: function(){
+        document.body.style="background: #F1F2F4; height: 100%";
+      }
     }),
     {
       info: true,
