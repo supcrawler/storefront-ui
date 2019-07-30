@@ -95,7 +95,7 @@
     <div class="main">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true">
-          <template v-slot:items="{ selected }">
+          <template v-slot="{ selected }">
             <SfAccordionItem
               v-for="(accordion, i) in sidebarAccordion"
               :key="i"
@@ -235,7 +235,7 @@ import {
   SfPagination,
   SfAccordion,
   SfSelect
-} from "../../../../index.js";
+} from "@storefrontui/vue";
 
 export default {
   data() {
