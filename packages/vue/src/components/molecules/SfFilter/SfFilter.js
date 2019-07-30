@@ -15,7 +15,7 @@ export default {
     }
   },
   model: {
-    event: "change",
+    event: "update:selected",
     prop: "selected"
   },
   methods: {
@@ -23,7 +23,7 @@ export default {
       return this.selected;
     },
     updateSelected: function(data) {
-      this.$emit("change", data);
+      this.$emit("update:selected", data);
     },
     isMultiple: function() {
       return this.multiple;
