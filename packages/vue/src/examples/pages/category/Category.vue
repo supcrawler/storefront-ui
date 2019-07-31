@@ -95,13 +95,13 @@
     <div class="main">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true">
-          <template v-slot="{ selected }">
+          <template v-slot:items="{ selected }">
             <SfAccordionItem
               v-for="(accordion, i) in sidebarAccordion"
               :key="i"
               :header="accordion.header"
             >
-              <template v-slot="{ handler }">
+              <template v-slot:content="{ handler }">
                 <SfList>
                   <SfListItem v-for="(item, j) in accordion.items" :key="j">
                     <div
