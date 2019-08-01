@@ -75,12 +75,12 @@ storiesOf("Organisms|Accordion", module)
       components: { SfAccordion },
       template: `
       <div style="width: 300px; padding: 1rem;">
-        <SfAccordion
+        <SfAccordion 
           :items="items"
           :multiple="multiple"
           :firstOpen="firstOpen"
-          :showChevron="showChevron"
-        />
+          :showChevron="showChevron">
+        </SfAccordion>
       </div>`
     }),
     {
@@ -158,7 +158,7 @@ storiesOf("Organisms|Accordion", module)
           :multiple="multiple"
           :firstOpen="firstOpen"
           :showChevron="showChevron">
-          <template v-slot:items="{selected}">
+          <template v-slot="{selected}">
             <SfAccordionItem :selected="selected" :contentItems="contentItemsOne">
               <template v-slot:header="{isOpen}">
                 <div :style="headerStyle">
@@ -206,7 +206,7 @@ storiesOf("Organisms|Accordion", module)
     }
   )
   .add(
-    "[slot] content",
+    "[slot] default",
     () => ({
       data() {
         return {
@@ -248,27 +248,15 @@ storiesOf("Organisms|Accordion", module)
       template: `
       <div style="width: 300px; padding: 1rem;">
         <SfAccordion :multiple="multiple" :firstOpen="firstOpen">
-          <template v-slot:items="{ selected }">
-            <SfAccordionItem :selected="selected" :header="headerOne">
-              <template #content>
-                <div v-for="item of contentItemsOne" :style="contentStyle">
-                  {{item.text}}
-                </div>
-              </template>
+          <template>
+            <SfAccordionItem :header="headerOne">
+              <div v-for="item of contentItemsOne" :style="contentStyle">{{item.text}}</div>
             </SfAccordionItem>
-            <SfAccordionItem :selected="selected" :header="headerTwo">
-              <template #content>
-                <div v-for="item of contentItemsTwo" :style="contentStyle">
-                  {{item.text}}
-                </div>
-              </template>
+            <SfAccordionItem :header="headerTwo">
+              <div v-for="item of contentItemsTwo" :style="contentStyle">{{item.text}}</div>
             </SfAccordionItem>
-            <SfAccordionItem :selected="selected" :header="headerThree">
-              <template #content>
-                <div v-for="item of contentItemsThree" :style="contentStyle">
-                  {{item.text}}
-                </div>
-              </template>
+            <SfAccordionItem :header="headerThree">
+              <div v-for="item of contentItemsThree" :style="contentStyle">{{item.text}}</div>
             </SfAccordionItem>
           </template>
         </SfAccordion>
@@ -322,7 +310,7 @@ storiesOf("Organisms|Accordion", module)
       components: { SfAccordion },
       template: `
       <div style="width: 300px; padding: 1rem;">
-        <SfAccordion
+        <SfAccordion 
           :items="items"
           :multiple="multiple"
           :firstOpen="firstOpen"
@@ -334,9 +322,9 @@ storiesOf("Organisms|Accordion", module)
     {
       info: {
         summary: `
-        <p>If user populate content through <code>items</code> array in <code>SfAccordion</code>
-        or through <code>contentItems</code> array in <code>SfAccordionItem</code>,
-        he can bind <code>v-on:click</code>.
+        <p>If user populate content through <code>items</code> array in <code>SfAccordion</code> 
+        or through <code>contentItems</code> array in <code>SfAccordionItem</code>, 
+        he can bind <code>v-on:click</code>. 
         This function gets one argument - the id of clicked content item.</p>
        <h2>Usage</h2>
        <pre><code>import { SfAccordion } from "@storefrontui/vue"</code></pre>

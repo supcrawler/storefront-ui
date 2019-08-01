@@ -1,14 +1,13 @@
 <div class="sf-accordion">
-  <!--@slot items slot for custom accordion markup (can use SfAccordionItem element) -->
-  <slot name="items" v-bind="{ selected: selectedContentItem, items }">
-    <div v-if="items">
-      <SfAccordionItem
-        v-for="(item, i) of items"
-        :key="i"
-        :header="item.header"
-        :contentItems="item.content"
-        :selected="selectedContentItem"
-      />
-    </div>
-  </slot>
+  <div v-if="items">
+    <SfAccordionItem v-for="(item, index) of items"
+      v-bind:key="index"
+      :header="item.header"
+      :contentItems="item.content"
+      :selected="selectedContentItem"
+    >
+    </SfAccordionItem>
+  </div>
+  <!--@slot slot for multiple SfAccordionItem elements-->
+  <slot v-bind="{selected:selectedContentItem}"></slot>
 </div>
