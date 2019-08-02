@@ -1,12 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  object,
-  select,
-  text,
-  number
-} from "@storybook/addon-knobs";
+import { withKnobs, object, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfSection from "./SfSection.vue";
@@ -33,20 +27,18 @@ storiesOf("Molecules|Section", module)
     "Basic",
     () => ({
       props: {
-        title: {
-          default: text("(prop) title", "Share your look")
-        },
-        subtitle: {
-          default: text("(prop) subtitle", "#YOURLOOK")
-        },
-        level: {
-          default: number("(prop) level", 2)
+        heading: {
+          default: object("Heading", {
+            title: "Share your look",
+            subtitle: "#YOURLOOK",
+            level: 2
+          })
         },
         customClass: {
           default: select(
             "CSS Modifier",
-            ["null", "sf-section--no-underline"],
-            "sf-section--no-underline",
+            ["null", "sf-section--underline"],
+            "null",
             "CSS-Modifiers"
           )
         }
@@ -83,7 +75,7 @@ storiesOf("Molecules|Section", module)
       components: { SfSection },
       template: `
       <div>
-        <SfSection :class="customClass" :title="title" :subtitle="subtitle" :level="level">
+        <SfSection :class="customClass" :heading="heading">
           <div :style="row">
             <div :style="colFirst">1</div>
             <div :style="col">2</div>
