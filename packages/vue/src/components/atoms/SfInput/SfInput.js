@@ -1,3 +1,5 @@
+import "../../../utilities/transitions/transitions.scss";
+
 export default {
   name: "SfInput",
   props: {

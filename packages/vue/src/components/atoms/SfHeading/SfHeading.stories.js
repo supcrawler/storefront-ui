@@ -58,7 +58,7 @@ storiesOf("Atoms|Heading", module)
             "CSS Modifier",
             {
               null: "null",
-              "sf-heading--underline": "sf-heading--underline",
+              "sf-heading--no-underline": "sf-heading--no-underline",
               "sf-heading--left": "sf-heading--left",
               "sf-heading--right": "sf-heading--right"
             },
@@ -114,7 +114,7 @@ storiesOf("Atoms|Heading", module)
       components: { SfHeading },
       template: `<div style="max-width: 1140px">
         <sf-heading :title="title" :subtitle="subtitle" :level="level" :class="customClass">
-          <tenplate #title="title">{{title}}</title>
+          <template v-slot:title>{{title}}</template>
         </sf-heading>
       </div>`
     }),
