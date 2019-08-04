@@ -2,7 +2,7 @@ export default {
   name: "SfSelectOption",
   props: {
     value: {
-      type: [String, Object],
+      type: String,
       default: ""
     }
   },
@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     clicked() {
-      this.$parent.$emit("update", this.indexes[JSON.stringify(this.value)]);
+      this.$parent.$emit("update", this.indexes[this.value]);
     }
   }
 };
