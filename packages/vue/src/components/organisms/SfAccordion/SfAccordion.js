@@ -5,14 +5,19 @@ Vue.component("SfAccordionItem", SfAccordionItem);
 
 export default {
   name: "SfAccordion",
-
   data() {
     return {
-      selected: ""
+      selectedContentItem: ""
     };
   },
-
   props: {
+    /**
+     * Array of items to populate the default markup
+     */
+    items: {
+      type: Array,
+      default: () => []
+    },
     /**
      * Allows to open multiple accordion items if set to "true"
      */
@@ -35,7 +40,6 @@ export default {
       default: true
     }
   },
-
   methods: {
     toggle(slotId) {
       if (!this.multiple) {
@@ -50,16 +54,16 @@ export default {
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
       }
+    },
+    openFirst() {
+      this.$children[0].isOpen = this.firstOpen;
     }
   },
-
   mounted: function() {
     this.$on("toggle", this.toggle);
     this.$on("click", id => {
-      this.selected = id;
+      this.selectedContentItem = id;
     });
-    if (this.$children.length) {
-      this.$children[0].isOpen = this.firstOpen;
-    }
+    this.openFirst();
   }
 };
