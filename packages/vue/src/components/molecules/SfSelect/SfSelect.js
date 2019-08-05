@@ -10,7 +10,7 @@ export default {
   },
   props: {
     selected: {
-      type: [String, Object],
+      type: String,
       default: ""
     }
   },
@@ -81,14 +81,13 @@ export default {
         ...slot.componentOptions.propsData,
         html: slot.elm.innerHTML
       });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
+      indexes[slot.componentOptions.propsData.value] = i;
       i++;
     });
 
     this.options = options;
     this.indexes = indexes;
-    if (typeof indexes[JSON.stringify(selected)] === "undefined") return;
-    this.index = indexes[JSON.stringify(selected)];
+    this.index = indexes[selected];
   },
   beforeDestroy: function() {
     this.$off("update", this.update);

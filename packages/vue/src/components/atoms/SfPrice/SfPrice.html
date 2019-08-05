@@ -1,6 +1,6 @@
 <div class="sf-price">
 <!--@slot Custom special price-->
-    <slot name="special" v-bind="{ special, specialPriceAriaLabel }">
+    <slot name="special" v-bind="{ special }">
       <ins
         v-if="special"
         :aria-label="specialPriceAriaLabel"
@@ -10,7 +10,7 @@
       </ins>
     </slot>
     <!--@slot Custom old price (value from regular)-->
-    <slot name="old" v-bind="{ regular, special, oldPriceAriaLabel}">
+    <slot name="old" v-bind="{ regular }">
       <span
         v-if="special"
         :aria-label="oldPriceAriaLabel"
@@ -20,7 +20,7 @@
       </span>
     </slot>
     <!--@slot Custom regular price -->
-    <slot name="regular" v-bind="{ regular, regularPriceAriaLabel }">
+    <slot name="regular" v-bind="{ regular }">
         <span
           v-if="!special"
           :aria-label="regularPriceAriaLabel"
