@@ -42,7 +42,8 @@ storiesOf("Molecules|Image", module)
       template: `<SfImage
         src="assets/storybook/product_thumb.png"
         alt="angelina_trn"
-        transition="slide-left"/>`
+        transition="slide-left"
+      />`
     }),
     {
       info: {
@@ -74,7 +75,9 @@ storiesOf("Molecules|Image", module)
         src="assets/storybook/product_thumb.png"
         alt="angelina_trn"
         transition="slide-left"
-      >angelina_trn</SfImage>`
+      >
+        angelina_trn
+      </SfImage>`
     }),
     {
       info: {
