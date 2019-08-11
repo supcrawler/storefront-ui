@@ -11,6 +11,7 @@ import SfRating from "./src/components/atoms/SfRating/SfRating.js";
 import SfIcon from "./src/components/atoms/SfIcon/SfIcon.js";
 
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.js";
+import SfAddToCart from "./src/components/molecules/SfAddToCart/SfAddToCart.js";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.js";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.js";
 import SfCounter from "./src/components/molecules/SfCounter/SfCounter.js";
@@ -23,7 +24,7 @@ import SfProductCard from "./src/components/molecules/SfProductCard/SfProductCar
 import SfProductOption from "./src/components/molecules/SfProductOption/SfProductOption.js";
 import SfRadio from "./src/components/molecules/SfRadio/SfRadio.js";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.js";
-import SfSidebar from "./src/components/molecules/SfSidebar/SfSidebar.js";
+import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.js";
 
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.js";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.js";
@@ -42,6 +43,7 @@ export {
   SfProperty,
   SfRating,
   SfIcon,
+  SfAddToCart,
   SfAlert,
   SfBanner,
   SfCallToAction,
