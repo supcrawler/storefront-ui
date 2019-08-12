@@ -14,48 +14,40 @@
     </SfHero>
     <SfBannerGrid :bannerGrid="1" class="banners">
       <template #bannerA>
-        <a href="#">
-          <SfBanner
-            subtitle="Dresses"
-            title="COCKTAIL PARTY"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left sf-banner--container-full"
-          />
-        </a>
+        <SfBanner
+          subtitle="Dresses"
+          title="COCKTAIL PARTY"
+          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+          button-text="SHOP NOW"
+          image="assets/storybook/homepage/bannerF.png"
+          class="sf-banner--left sf-banner--container-full"
+        />
       </template>
       <template #bannerB>
-        <a href="#">
-          <SfBanner
-            subtitle="Dresses"
-            title="LINEN DRESSES"
-            description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
-            button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerE.png"
-            class="sf-banner--left"
-          />
-        </a>
+        <SfBanner
+          subtitle="Dresses"
+          title="LINEN DRESSES"
+          description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
+          button-text="SHOP NOW"
+          image="assets/storybook/homepage/bannerE.png"
+          class="sf-banner--left"
+        />
       </template>
       <template #bannerC>
-        <a href="#">
-          <SfBanner
-            subtitle="T-Shirts"
-            title="THE OFFICE LIFE"
-            image="assets/storybook/homepage/bannerC.png"
-            class="sf-banner--left sf-banner--container-full"
-          />
-        </a>
+        <SfBanner
+          subtitle="T-Shirts"
+          title="THE OFFICE LIFE"
+          image="assets/storybook/homepage/bannerC.png"
+          class="sf-banner--left sf-banner--container-full"
+        />
       </template>
       <template #bannerD>
-        <a href="#">
-          <SfBanner
-            subtitle="Summer shoes"
-            title="ECO SANDALS"
-            image="assets/storybook/homepage/bannerG.png"
-            class="sf-banner--left sf-banner--container-full"
-          />
-        </a>
+        <SfBanner
+          subtitle="Summer shoes"
+          title="ECO SANDALS"
+          image="assets/storybook/homepage/bannerG.png"
+          class="sf-banner--left sf-banner--container-full"
+        />
       </template>
     </SfBannerGrid>
     <SfCallToAction
@@ -65,7 +57,11 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection title="Best Sellers">
+    <SfSection
+      :heading="{
+        title: 'Best Sellers'
+      }"
+    >
       <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -78,7 +74,12 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection title="Share Your Look" subtitle="#YOURLOOK">
+    <SfSection
+      :heading="{
+        title: 'Share Your Look',
+        subtitle: '#YOURLOOK'
+      }"
+    >
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
@@ -144,7 +145,7 @@ import {
   SfProductCard,
   SfImage,
   SfBannerGrid
-} from "../../../../index.js";
+} from "@storefrontui/vue";
 
 export default {
   name: "Home",

@@ -58,7 +58,7 @@ storiesOf("Atoms|Heading", module)
             "CSS Modifier",
             {
               null: "null",
-              "sf-heading--no-underline": "sf-heading--no-underline",
+              "sf-heading--underline": "sf-heading--underline",
               "sf-heading--left": "sf-heading--left",
               "sf-heading--right": "sf-heading--right"
             },
