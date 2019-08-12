@@ -10,7 +10,6 @@ import SfProperty from "./src/components/atoms/SfProperty/SfProperty.html";
 import SfRating from "./src/components/atoms/SfRating/SfRating.html";
 import SfIcon from "./src/components/atoms/SfIcon/SfIcon.html";
 
-import SfAddToCart from "./src/components/molecules/SfAddToCart/SfAddToCart.html";
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.html";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.html";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.html";
@@ -43,7 +42,6 @@ export {
   SfProperty,
   SfRating,
   SfIcon,
-  SfAddToCart,
   SfAlert,
   SfBanner,
   SfCallToAction,
