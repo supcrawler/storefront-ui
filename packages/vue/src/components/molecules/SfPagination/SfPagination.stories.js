@@ -52,7 +52,7 @@ const eventTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
     [
-      "update:current",
+      "change",
       "Emitted when an pagination link is clicked and page should be changed, must be listened to update the content and then update the current page number."
     ]
   ]
@@ -131,7 +131,7 @@ storiesOf("Molecules|Pagination", module)
       v-model="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
-      <template v-slot:number="{ number }">
+      <template #number="{ number }">
         [{{ number }}]
       </template>
     </sf-pagination>`

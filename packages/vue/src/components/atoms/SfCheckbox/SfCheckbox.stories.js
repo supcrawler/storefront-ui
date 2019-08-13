@@ -37,13 +37,11 @@ export default storiesOf("Atoms|Checkbox", module)
         }
       },
 
-      template: `
-        <SfCheckbox
-          :id="id"
-          :name="name"
-          :disabled="disabled"
-          v-model="status"
-          />`
+      template: `<SfCheckbox
+        :id="id"
+        :name="name"
+        :disabled="disabled"
+        v-model="status"/>`
     }),
 
     {
@@ -72,15 +70,14 @@ export default storiesOf("Atoms|Checkbox", module)
     () => ({
       ...vm,
 
-      template: `
-       <SfCheckbox
-         id="sf-checkbox-slot"
-         name="sf-checkbox-slot"
-         v-model="status">
-         <template #content>
-           Accept terms
-         </template>
-       </SfCheckbox>`
+      template: `<SfCheckbox
+        id="sf-checkbox-slot"
+        name="sf-checkbox-slot"
+        v-model="status">
+        <template #content>
+          Accept terms
+        </template>
+      </SfCheckbox>`
     }),
     {
       info: true
@@ -88,22 +85,26 @@ export default storiesOf("Atoms|Checkbox", module)
   )
 
   .add(
-    "[slot] button",
+    "[slot] icon",
     () => ({
       ...vm,
 
-      template: `
-       <SfCheckbox
-         id="sf-checkbox-slot-icon"
-         name="sf-checkbox-slot-icon"
-         v-model="status">
-         <template #content>
-           Accept terms
-         </template>
-         <template #button="{ checked }">
-           <span v-if="checked">x</span>
-         </template>
-       </SfCheckbox>`
+      template: `<SfCheckbox
+        id="sf-checkbox-slot-icon"
+        name="sf-checkbox-slot-icon"
+        v-model="status"
+        :disabled="true">
+        <template #content>
+          Accept terms
+        </template>
+        <template #icon="{ isChecked, disabled }">
+          <div style="margin-right: 10px;">
+            <span v-if="isChecked && !disabled">yes</span>
+            <span v-if="!isChecked && !disabled">no</span>
+            <span v-if="disabled">stop</span>
+          </div>
+        </template>
+      </SfCheckbox>`
     }),
     {
       info: true
