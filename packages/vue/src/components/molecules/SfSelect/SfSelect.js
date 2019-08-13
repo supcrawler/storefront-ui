@@ -1,4 +1,5 @@
 import SfSelectOption from "./_internal/SfSelectOption.vue";
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
@@ -7,6 +8,9 @@ export default {
   model: {
     prop: "selected",
     event: "change"
+  },
+  components: {
+    SfButton
   },
   props: {
     /**
@@ -26,7 +30,7 @@ export default {
   },
   data() {
     return {
-      open: true,
+      open: false,
       index: -1,
       options: [],
       indexes: {},
@@ -37,11 +41,14 @@ export default {
     index(index) {
       this.$emit("change", this.options[index].value);
     },
-    open(visible) {
-      if (visible) {
-        this.$nextTick(() => {
-          this.optionHeight = this.$slots.default[0].elm.offsetHeight;
-        });
+    open: {
+      immediate: true,
+      handler: function(visible) {
+        if (visible) {
+          this.$nextTick(() => {
+            this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+          });
+        }
       }
     }
   },
@@ -72,7 +79,7 @@ export default {
     enter() {
       this.toggle();
     },
-    toggle() {
+    toggle(event) {
       this.open = !this.open;
     },
     openHandler() {
@@ -81,9 +88,9 @@ export default {
       }
     },
     closeHandler() {
-      if (this.open) {
-        this.toggle();
-      }
+      // if (this.open) {
+      //   this.toggle();
+      // }
     }
   },
   created: function() {},
