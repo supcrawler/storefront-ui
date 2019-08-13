@@ -19,9 +19,6 @@ export default {
       default: () => []
     }
   },
-  mounted() {
-    this.$parent.$emit("accordion-item-ready");
-  },
   methods: {
     onHeaderClick() {
       this.$parent.$emit("toggle", this._uid);

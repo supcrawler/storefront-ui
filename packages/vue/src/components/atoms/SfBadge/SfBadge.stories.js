@@ -47,7 +47,9 @@ storiesOf("Atoms|Badge", module)
           )
         }
       },
-      template: `<SfBadge :class="customClass">LIMITED</SfBadge>`
+      template: `<SfBadge :class="customClass">
+      LIMITED
+</SfBadge>`
     }),
     {
       info: {
