@@ -25,9 +25,6 @@ const eventsTableConfig = {
   tableBodyConfig: [["click", "emits the index of clicked bullet"]]
 };
 
-const click = function(index) {
-  this.index = index;
-};
 storiesOf("Atoms|Bullets", module)
   .addDecorator(withKnobs)
   .add(
@@ -41,19 +38,11 @@ storiesOf("Atoms|Bullets", module)
           default: number("current", 1)
         }
       },
-      data() {
-        return {
-          index: this.current
-        };
-      },
       components: { SfBullets },
-      methods: {
-        click
-      },
       template: `<SfBullets
         :total="total"
-        :current="index"
-        @click="click"
+        :current="current"
+        @click="current = $event"
         >
       </SfBullets>`
     }),
@@ -79,19 +68,11 @@ storiesOf("Atoms|Bullets", module)
           default: number("current", 1)
         }
       },
-      data() {
-        return {
-          index: this.current
-        };
-      },
       components: { SfBullets },
-      methods: {
-        click
-      },
       template: `<SfBullets
         :total="total"
         :current="current"
-        @click="index"
+        @click="current = $event"
         >
         <template #active>
           <div style="width: 10px; height: 10px; margin: 5px; background: #9EE2B0; transform: rotate(45deg)"></div>
@@ -113,19 +94,11 @@ storiesOf("Atoms|Bullets", module)
           default: number("current", 1)
         }
       },
-      data() {
-        return {
-          index: this.current
-        };
-      },
       components: { SfBullets },
-      methods: {
-        click
-      },
       template: `<SfBullets
         :total="total"
-        :current="index"
-        @click="click"
+        :current="current"
+        @click="current = $event"
         >
         <template #inactive>
           <div style="width: 10px; height: 10px; margin: 6px; background: #E22326;"></div>

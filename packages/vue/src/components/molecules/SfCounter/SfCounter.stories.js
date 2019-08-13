@@ -74,7 +74,7 @@ storiesOf("Molecules|Counter", module)
           default: text("name (prop)")
         },
         type: {
-          default: text("type (prop)", "text")
+          default: text("type (prop)", "tel")
         },
         placeholder: {
           default: text("placeholder (prop)")
@@ -96,20 +96,21 @@ storiesOf("Molecules|Counter", module)
       },
       components: { SfCounter },
       template: `<SfCounter
-        :class="customClass"
-        v-model="value"
-        :autoFill="autoFill"
-        :min="min"
-        :max="max"
-        :step="step"
-        :precision="precision"
-        :delimiter="delimiter"
-        :thousands="thousands"
-        :type="type"
-        :name="name"
-        :placeholder="placeholder"
-        :disabled="disabled"
-        :required="required"/>`
+         :class="customClass"
+         v-model="value"
+         :autoFill="autoFill"
+         :min="min"
+         :max="max"
+         :step="step"
+         :precision="precision"
+         :delimiter="delimiter"
+         :thousands="thousands"
+         :type="type"
+         :name="name"
+         :placeholder="placeholder"
+         :disabled="disabled"
+         :required="required"
+         />`
     }),
     {
       info: {
@@ -126,9 +127,10 @@ storiesOf("Molecules|Counter", module)
     "[slot] up",
     () => ({
       components: { SfCounter },
-      template: `<SfCounter value="1">
-        <template #up>+</template>
-      </SfCounter>`
+      template: `
+       <SfCounter value="1">
+         <template #up>+</template>
+       </SfCounter>`
     }),
     {
       info: true
@@ -138,9 +140,10 @@ storiesOf("Molecules|Counter", module)
     "[slot] down",
     () => ({
       components: { SfCounter },
-      template: `<SfCounter value="1">
-        <template #down>-</template>
-      </SfCounter>`
+      template: `
+       <SfCounter value="1">
+         <template #down>-</template>
+       </SfCounter>`
     }),
     {
       info: true

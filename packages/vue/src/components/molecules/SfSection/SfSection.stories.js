@@ -33,14 +33,14 @@ storiesOf("Molecules|Section", module)
     "Basic",
     () => ({
       props: {
-        titleHeading: {
-          default: text("(prop) titleHeading", "Share your look")
+        title: {
+          default: text("(prop) title", "Share your look")
         },
-        subtitleHeading: {
-          default: text("(prop) subtitleHeading", "#YOURLOOK")
+        subtitle: {
+          default: text("(prop) subtitle", "#YOURLOOK")
         },
-        levelHeading: {
-          default: number("(prop) levelHeading", 2)
+        level: {
+          default: number("(prop) level", 2)
         },
         customClass: {
           default: select(
@@ -83,7 +83,7 @@ storiesOf("Molecules|Section", module)
       components: { SfSection },
       template: `
       <div>
-        <SfSection :class="customClass" :titleHeading="titleHeading" :subtitleHeading="subtitleHeading" :levelHeading="levelHeading">
+        <SfSection :class="customClass" :title="title" :subtitle="subtitle" :level="level">
           <div :style="row">
             <div :style="colFirst">1</div>
             <div :style="col">2</div>

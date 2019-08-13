@@ -42,6 +42,7 @@ const scssTableConfig = {
 
 storiesOf("Atoms|Button", module)
   .addDecorator(withKnobs)
+
   .add(
     "Basic",
     () => ({
@@ -65,7 +66,8 @@ storiesOf("Atoms|Button", module)
           )
         }
       },
-      template: `<SfButton :class="customClass">Hello world</SfButton>`
+      template: `
+        <SfButton :class="customClass">Hello world</SfButton>`
     }),
     {
       info: {

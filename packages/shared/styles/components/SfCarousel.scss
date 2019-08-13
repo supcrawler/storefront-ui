@@ -1,24 +1,26 @@
 @import '../variables';
-@import "~@glidejs/glide/src/assets/sass/glide.core";
+@import '~@glidejs/glide/src/assets/sass/glide.core';
 
 $carousel__controls-size: 240px !default;
 
-.sf-carousel {
+.sf-carousel{
   position: relative;
-  &__wrapper {
+
+  &__wrapper{
     max-width: 100%;
     margin: auto;
     overflow: hidden;
-    @media screen and (min-width: $desktop-min) {
+    @media screen and (min-width: $desktop-min){
       max-width: calc(100% - #{$carousel__controls-size});
     }
   }
-  &__slides {
+  &__slides{
     margin: 0;
   }
-  &__controls {
+  &__controls{
     display: none;
-    @media screen and (min-width: $desktop-min) {
+
+    @media screen and (min-width: $desktop-min){
       position: absolute;
       top: 50%;
       left: 0;
@@ -28,10 +30,12 @@ $carousel__controls-size: 240px !default;
       justify-content: space-between;
     }
   }
-  .glide {
+
+  // reset overflow for shadow
+  .glide{
     &__track,
     &__slides,
-    &__slide {
+    &__slide{
       overflow: unset;
     }
   }
