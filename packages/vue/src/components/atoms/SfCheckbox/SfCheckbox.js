@@ -32,16 +32,12 @@ export default {
      */
     id: {
       type: String,
-      default: ""
+      default: null
     },
     /**
      * Native input name attribute
      */
     name: {
-      type: String,
-      default: ""
-    },
-    label: {
       type: String,
       default: null
     },

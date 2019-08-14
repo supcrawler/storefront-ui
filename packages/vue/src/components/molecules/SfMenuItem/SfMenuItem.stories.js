@@ -29,10 +29,10 @@ const scssTableConfig = {
   ]
 };
 
-export default storiesOf("Molecules|MenuItem", module)
+export default storiesOf("Molecules|[WIP]MenuItem", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Props",
     () => ({
       components: { SfMenuItem },
       props: {
@@ -43,12 +43,14 @@ export default storiesOf("Molecules|MenuItem", module)
           default: text("count (prop)", "30")
         }
       },
-      template: `<div :style="{width: '300px'}">
+      template: `
+      <div style="width: 300px">
         <SfMenuItem
           :label="label"
           :count="count"
         />
-      </div>`
+      </div>
+    `
     }),
     {
       info: {

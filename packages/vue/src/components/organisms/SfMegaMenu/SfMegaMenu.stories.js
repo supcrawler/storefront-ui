@@ -6,7 +6,7 @@ storiesOf("Organisms|MegaMenu", module).add(
   "Basic",
   () => ({
     components: { SfMegaMenu },
-    template: "<SfMegaMenu>Hello Mega-Menu</SfMegaMenu>"
+    template: "<sf-mega-menu>Hello Mega-Menu</sf-mega-menu>"
   }),
   {
     info: {

@@ -19,8 +19,7 @@ storiesOf("Atoms|Loader", module)
     () => ({
       data() {
         return {
-          isLoading: select("isLoading (prop)", [true, false], true),
-          style: { width: "400px", height: "200px", border: "1px solid #eee" }
+          isLoading: select("isLoading (prop)", [true, false], true)
         };
       },
       created() {
@@ -31,7 +30,7 @@ storiesOf("Atoms|Loader", module)
       components: { SfLoader },
       template: `
       <!-- it adjusts to any wrapper -->
-      <div :style="style">
+      <div style="width: 400px; height: 200px; border: 1px solid #eee; padding:30px;">
         <SfLoader :loading="isLoading">
           <p>Content is loaded</p>
         </SfLoader>

@@ -36,7 +36,6 @@ const cssTableConfig = {
   ]
 };
 
-const style = {};
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
   .add(
@@ -48,15 +47,20 @@ storiesOf("Atoms|Arrow", module)
           default: options(
             "CSS Modifiers",
             {
+              null: "null",
               "sf-arrow--right": "sf-arrow--right",
               "sf-arrow--long": "sf-arrow--long"
             },
-            "",
+            "null",
             { display: "multi-select" }
           )
         }
       },
-      template: `<SfArrow :class="customClass" />`
+      template: `
+      <div :style="{padding: '1rem', 'background-color': customClass.indexOf('sf-arrow--long') ? '' : '#F1F2F3'}">
+      <SfArrow :class="customClass" />
+      </div>
+      `
     }),
     {
       info: {

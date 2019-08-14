@@ -14,27 +14,20 @@
   <div
     role="textbox"
     class="sf-select__selected sf-select-option"
-    v-html="html"></div>
-  <transition name="fade">
-    <div v-show="open" class="sf-select__overlay"></div>
-  </transition>
+    v-html="html"
+    ></div>
   <transition name="sf-select">
     <div v-show="open" class="sf-select__dropdown">
       <ul
         :id="'lbox_'+_uid"
         role="listbox"
         class="sf-select__options"
-        :style="{maxHeight}"
-      >
-        <!-- @slot -->
-        <slot />
+        :style="{maxHeight}">
+        <slot/>
       </ul>
-      <SfButton
-        @click="closeHandler"
-        class="sf-select__cancel"
-        ref="cancel">
-        Cancel
-      </SfButton>
+      <div class="sf-select__bottom">
+        <slot name="options-bottom">Check size guide <span style="width: 25px; height: 25px; border-radius: 50%; background-color: #5ECE7B; margin-left: 10px"></span></slot>
+      </div>
     </div>
   </transition>
 </div>
