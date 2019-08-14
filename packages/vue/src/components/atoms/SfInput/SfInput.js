@@ -1,3 +1,5 @@
+import "../../../utilities/transitions/transitions.scss";
+
 export default {
   name: "SfInput",
   props: {
@@ -12,6 +14,13 @@ export default {
      * Form input label
      */
     label: {
+      type: String,
+      default: null
+    },
+    /**
+     * Form input name
+     */
+    name: {
       type: String,
       default: null
     },
