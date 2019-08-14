@@ -13,7 +13,6 @@ import SfLoader from "./src/components/atoms/SfLoader/SfLoader.vue";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.vue";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.vue";
 import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
-import SfInput from "./src/components/atoms/SfInput/SfInput.vue";
 
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.vue";
@@ -57,7 +56,6 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
-  SfInput,
   SfAlert,
   SfBanner,
   SfCallToAction,
