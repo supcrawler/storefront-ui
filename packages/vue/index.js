@@ -41,7 +41,6 @@ import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
 import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
-import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
 
 export {
   SfArrow,
@@ -83,6 +82,5 @@ export {
   SfTopBar,
   SfHero,
   SfImage,
-  SfBannerGrid,
-  SfBottomNavigation
+  SfBannerGrid
 };

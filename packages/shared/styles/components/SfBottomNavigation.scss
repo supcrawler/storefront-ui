@@ -2,10 +2,7 @@
 
 
 .sf-bottom-navigation {
-  z-index: 2;
   display: flex;
-  height: 60px;
-  background: white;
   width: 100%;
   padding: 0 1rem;
   position: fixed;
@@ -14,13 +11,11 @@
   box-shadow: 0px -2px 10px rgba(154, 154, 154, 0.15);
   justify-content: space-around;
   align-items: baseline;
-  &__item {
-    opacity: 0.7;
-    &--active {
-      opacity: 1;
-    }
+  &__icon {
+    padding: 15px 0;
+    width: auto;
   }
-  &__floating-icon {
+  &__cart-icon {
     position: relative;
     top: -1.75rem;
     right: 1rem;
