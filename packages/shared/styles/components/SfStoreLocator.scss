@@ -1,0 +1,77 @@
+@import '../variables';
+@import '~leaflet/dist/leaflet.css';
+
+$sf-store-locator__font-family-primary: $body-font-family-primary !default;
+
+$sf-store-locator__list-width-desktop: 33% !default;
+$sf-store-locator__list-max-width-desktop: 26.25rem !default;
+$sf-store-locator__list-width-mobile: 100% !default;
+
+$sf-store-locator__map-width-desktop: 66% !default;
+$sf-store-locator__map-max-width-desktop: 43.75rem !default;
+$sf-store-locator__map-min-height-desktop: 34.375rem !default;
+$sf-store-locator__map-width-mobile: 100% !default;
+$sf-store-locator__map-min-height-mobile: 26.875rem !default;
+
+.sf-store-locator {
+  font-family: $sf-store-locator__font-family-primary;
+
+  &__title {
+    margin-bottom: 0.625rem;
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-flow: column-reverse nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    @media screen and (min-width: $desktop-min) {
+      flex-flow: row nowrap;
+    }
+  }
+
+  &__list {
+    width: $sf-store-locator__list-width-mobile;
+
+    @media screen and (min-width: $desktop-min) {
+      width: $sf-store-locator__list-width-desktop;
+      max-width: $sf-store-locator__list-max-width-desktop;
+      margin-right: 2.5rem;
+    }
+  }
+  &__map-wrapper {
+    width: $sf-store-locator__map-width-mobile;
+    min-height: $sf-store-locator__map-min-height-mobile;
+    position: relative;
+
+    @media screen and (min-width: $desktop-min) {
+      width: $sf-store-locator__map-width-desktop;
+      max-width: $sf-store-locator__map-max-width-desktop;
+      min-height: $sf-store-locator__map-min-height-desktop;
+    }
+
+    &-map {
+      // Workaround to known bug about min-height / height interaction in Chrome / Firefox
+      position: absolute;
+      height: 100%;
+
+      &-my-location-btn {
+        a {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          &:hover {
+             display: flex;
+          }
+        }
+      }
+    }
+
+    .sf-loader {
+      position: absolute;
+    }
+
+  }
+}
