@@ -1,13 +1,7 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { generateStorybookTable } from "@/helpers";
-import {
-  withKnobs,
-  text,
-  boolean,
-  number,
-  select
-} from "@storybook/addon-knobs";
+import { withKnobs, text, boolean, number } from "@storybook/addon-knobs";
 import SfProductCard from "./SfProductCard.vue";
 
 const scssTableConfig = {
@@ -40,7 +34,7 @@ const scssTableConfig = {
 storiesOf("Molecules|ProductCard", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Template",
     () => ({
       props: {
         image: {
@@ -58,17 +52,20 @@ storiesOf("Molecules|ProductCard", module)
         maxRating: {
           default: number("minRating (prop)", 5)
         },
-        scoreRating: {
+        rating: {
           default: number("maxRating (prop)", 4)
         },
         wishlistIcon: {
-          default: select("wishlistIcon (prop)", [false, "heart"], "heart")
+          default: text("wishlistIcon (prop)", "heart")
         },
-        isOnWishlist: {
-          default: boolean("isOnWishlist (prop)", false)
+        onWishlist: {
+          default: boolean("onWishlist (prop)", false)
         },
-        isOnWishlistIcon: {
-          default: text("isOnWishlistIcon (prop)", "heart_fill")
+        onWishlistIcon: {
+          default: text("onWishlistIcon (prop)", "heart_fill")
+        },
+        onWishlistColor: {
+          default: text("onWishlistColor (prop)", "pink-primary")
         }
       },
       components: { SfProductCard },
@@ -77,11 +74,12 @@ storiesOf("Molecules|ProductCard", module)
         :title="title"
         :regular-price="regularPrice"
         :special-price="specialPrice"
-        :score-rating="scoreRating"
+        :rating="rating"
         :max-rating="maxRating"
         :wishlistIcon="wishlistIcon"
-        :isOnWishlistIcon="isOnWishlistIcon"
-        :isOnWishlist="isOnWishlist"
+        :onWishlistIcon="onWishlistIcon"
+        :onWishlistColor="onWishlistColor"
+        :onWishlist="onWishlist"
       />`
     }),
     {

@@ -1,33 +1,74 @@
-import SfTab from "./_internal/SfTab.vue";
+import Vue from "vue";
+import SfTab, { TAB_COMPONENT_NAME } from "./_internal/SfTab.vue";
+import SfTabsNavigation from "./_internal/SfTabsNavigation.vue";
+
+Vue.component("SfTab", SfTab);
+Vue.component("SfTabsNavigation", SfTabsNavigation);
 
 export default {
   name: "SfTabs",
-  components: {
-    SfTab
+
+  provide() {
+    return {
+      changeTab: this.changeTab,
+      sharedState: this.sharedState,
+      fireEvent: this.fireEvent,
+      listenEvent: this.listenEvent
+    };
   },
+
+  model: {
+    prop: "value",
+    event: "change"
+  },
+
   props: {
-    /** Which tab should be open at the beginning  */
-    openTab: {
-      type: Number,
-      required: false
+    /**
+     * Value of selected option, this prop has v-model support
+     */
+    value: {
+      type: [Number, String],
+      default: null
     }
   },
+
+  data() {
+    return {
+      sharedState: {
+        activeTabValue: this.value,
+        tabs: []
+      }
+    };
+  },
+
+  mounted() {
+    this.setTabs();
+    this.$nextTick(() => {
+      if (!this.value) {
+        this.changeTab(this.sharedState.tabs[0].valueComputed);
+      }
+    });
+  },
+
+  updated() {
+    this.setTabs();
+  },
+
   methods: {
-    toggle(id) {
-      this.$children.forEach(child => {
-        child._uid === id
-          ? (child.isActive = !child.isActive)
-          : (child.isActive = false);
+    changeTab(tab) {
+      this.$set(this.sharedState, "activeTabValue", tab);
+      this.fireEvent("change", tab);
+    },
+    setTabs() {
+      this.sharedState.tabs = this.$children.filter(component => {
+        return component.$options.name === TAB_COMPONENT_NAME;
       });
     },
-    openChild() {
-      if (this.openTab < this.$children.length + 1) {
-        this.$children[this.openTab - 1].isActive = true;
-      }
+    fireEvent(name, value) {
+      this.$emit(name, value);
+    },
+    listenEvent(name, callback) {
+      this.$on(name, callback);
     }
-  },
-  mounted() {
-    this.$on("toggle", this.toggle);
-    if (this.openTab) this.openChild();
   }
 };

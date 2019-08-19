@@ -1,5 +1,4 @@
 import SfSelectOption from "./_internal/SfSelectOption.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
@@ -10,19 +9,9 @@ export default {
     event: "change"
   },
   props: {
-    /**
-     * Selected item value
-     */
     selected: {
-      type: [String, Object],
+      type: String,
       default: ""
-    },
-    /**
-     * Dropdown list size
-     */
-    size: {
-      type: Number,
-      default: 5
     }
   },
   data() {
@@ -30,36 +19,18 @@ export default {
       open: false,
       index: -1,
       options: [],
-      indexes: {},
-      optionHeight: 0
+      indexes: {}
     };
-  },
-  components: {
-    SfButton
   },
   watch: {
     index(index) {
       this.$emit("change", this.options[index].value);
-    },
-    open: {
-      immediate: true,
-      handler: function(visible) {
-        if (visible) {
-          this.$nextTick(() => {
-            this.optionHeight = this.$slots.default[0].elm.offsetHeight;
-          });
-        }
-      }
     }
   },
   computed: {
     html() {
       if (this.index < 0) return;
       return this.options[this.index].html;
-    },
-    maxHeight() {
-      if (!this.size) return;
-      return `${this.optionHeight * this.size}px`;
     }
   },
   methods: {
@@ -79,15 +50,18 @@ export default {
     enter() {
       this.toggle();
     },
-    toggle(event) {
-      if (event.target.contains(this.$refs.cancel.$el)) return;
+    toggle() {
       this.open = !this.open;
     },
     openHandler() {
-      this.open = true;
+      if (!this.open) {
+        this.toggle();
+      }
     },
     closeHandler() {
-      this.open = false;
+      if (this.open) {
+        this.toggle();
+      }
     }
   },
   created: function() {},
@@ -107,14 +81,13 @@ export default {
         ...slot.componentOptions.propsData,
         html: slot.elm.innerHTML
       });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = i;
+      indexes[slot.componentOptions.propsData.value] = i;
       i++;
     });
 
     this.options = options;
     this.indexes = indexes;
-    if (typeof indexes[JSON.stringify(selected)] === "undefined") return;
-    this.index = indexes[JSON.stringify(selected)];
+    this.index = indexes[selected];
   },
   beforeDestroy: function() {
     this.$off("update", this.update);

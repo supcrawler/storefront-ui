@@ -61,6 +61,7 @@ storiesOf("Organisms|Carousel", module)
           <SfCarouselItem>
             <div :style="style">8</div>
           </SfCarouselItem>
+          
         </SfCarousel>
       </div>
       `
@@ -106,11 +107,9 @@ storiesOf("Organisms|Carousel", module)
           <SfCarouselItem>
             <div :style="style">8</div>
           </SfCarouselItem>
-
-          <template v-slot:prev="{ go }">
-            <div @click="go">
-              <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
-            </div>
+          
+          <template #prev>
+            <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">&lt; PREV</span>
           </template>
 
         </SfCarousel>
@@ -159,10 +158,8 @@ storiesOf("Organisms|Carousel", module)
             <div :style="style">8</div>
           </SfCarouselItem>
 
-          <template v-slot:next="{ go }">
-            <div @click="go">
-              <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
-            </div>
+          <template #next>
+            <span style="margin: 12px; cursor: pointer; font-weight: 900; font-size: 18px;">NEXT &gt;</span>
           </template>
 
         </SfCarousel>

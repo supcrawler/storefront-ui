@@ -14,9 +14,9 @@ storiesOf("Organisms|TopBar", module)
           }
         };
       },
-      template: `<SfTopBar>
-        <template slot="center">Download our application.<a :style='style'>Find out more.</a></template>
-      </SfTopBar>`,
+      template: `<sf-top-bar>
+          <template slot="center">Download our application.<a :style='style'>Find out more.</a></template>
+        </sf-top-bar>`,
       components: {
         SfTopBar
       }
@@ -30,9 +30,11 @@ storiesOf("Organisms|TopBar", module)
   .add(
     "[slot] left",
     () => ({
-      template: `<SfTopBar>
-        <template slot="left">left content</template>
-      </SfTopBar>`,
+      template: `
+    <sf-top-bar>
+      <template slot="left">left content</template>
+    </sf-top-bar>
+    `,
       components: {
         SfTopBar
       }
@@ -44,9 +46,11 @@ storiesOf("Organisms|TopBar", module)
   .add(
     "[slot] right",
     () => ({
-      template: `<SfTopBar>
-        <template slot="right">right content</template>
-      </SfTopBar>`,
+      template: `
+    <sf-top-bar>
+      <template slot="right">right content</template>
+    </sf-top-bar>
+    `,
       components: {
         SfTopBar
       }

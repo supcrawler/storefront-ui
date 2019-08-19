@@ -52,7 +52,7 @@ const eventTableConfig = {
   tableHeadConfig: ["NAME", "DESCRIPTION"],
   tableBodyConfig: [
     [
-      "change",
+      "update:current",
       "Emitted when an pagination link is clicked and page should be changed, must be listened to update the content and then update the current page number."
     ]
   ]
@@ -75,7 +75,7 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <SfPagination
+    <sf-pagination
       v-model="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers"/>`
@@ -95,14 +95,12 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <SfPagination
+    <sf-pagination
       v-model="page"
-      :total="numberOfPages"
-      :visible="visiblePageNumbers">
-      <template #prev="{go}" >
-        <button @click="go" class="sf-pagination__button sf-pagination__button--prev">prev</button>
-      </template>
-    </SfPagination>`
+      :total="numberOfPages + 1"
+      :visible="visiblePageNumbers - 1">
+      <template slot="prev">prev</template>
+    </sf-pagination>`
     }),
     {
       info: true
@@ -113,14 +111,12 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <SfPagination
+    <sf-pagination
       v-model="page"
-      :total="numberOfPages"
-      :visible="visiblePageNumbers">
-      <template #next="{go}" >
-        <button @click="go" class="sf-pagination__button sf-pagination__button--next">next</button>
-      </template>
-    </SfPagination>`
+      :total="numberOfPages + 1"
+      :visible="visiblePageNumbers - 1">
+      <template slot="next">next</template>
+    </sf-pagination>`
     }),
     {
       info: true
@@ -131,14 +127,14 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <SfPagination
+    <sf-pagination
       v-model="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
-      <template #number="{ number, go }">
-        <button @click="go(number)" class="sf-pagination__button">[{{number}}]</button>
+      <template v-slot:number="{ number }">
+        [{{ number }}]
       </template>
-    </SfPagination>`
+    </sf-pagination>`
     }),
     {
       info: true
