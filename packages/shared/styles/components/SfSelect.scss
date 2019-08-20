@@ -1,79 +1,148 @@
 @import '../variables';
 
-$select-color-primary: $c-green-primary !default;
-$select-color-secondary: $c-light-primary !default;
-
-$select-font-size: $font-size-big-mobile !default;
-$select-font-family: $body-font-family-secondary !default;
-
 $select-option-padding: 0.75rem 1.875rem;
+$select-color-primary: $c-light-primary !default;
+$select-color-secondary: $c-dark-primary !default;
 
-$select-color-primary: $c-green-primary;
-$select-color-secondary: $c-light-primary;
-
-$select-option-font-size: $font-size-big-mobile;
-$select-option-font-family: $body-font-family-secondary;
-
-.sf-select-option {
+.sf-select-option{
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   padding: $select-option-padding;
   user-select: none;
+  & + & {
+    border-top: 1px solid $select-color-primary;
+    @media screen and (min-width: $desktop-min){
+      border-top: 0;
+    }
+  }
   &--active{
-    color: #FFF;
     background-color: $select-color-primary;
   }
   &:hover{
     outline: 1px solid $select-color-primary;
   }
 }
-
-.sf-select {
+.sf-select{
+  $this: &;
   position: relative;
-  user-select: none;
   white-space: nowrap;
+  user-select: none;
   &:focus{
     outline: 0;
   }
-
-  &__selected {
-    background-color: #FFF;
-    @at-root :focus &{}
-    &:after{
+  &__selected{
+    padding: $select-option-padding;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0;
+    &:hover{
+      outline: 0;
+    }
+    &::after{
       flex: 0 0 7px;
       height: 7px;
       margin-left: auto;
-      border: 0px solid $c-dark-primary;
+      border: 0px solid $select-color-secondary;
       border-width: 0px 2px 2px 0px;
       transform: rotate(45deg) translateX(calc(-7px / 2));
       content: "";
     }
-    &:hover{
-      outline: 0px;
-    }
   }
-
-  &__options {
-    position: absolute;
-    top: calc(100% + 20px);
-    z-index: 100;
+  &__overlay{
+    position: fixed;
+    top: 0;
+    left: 0;
     width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    @media screen and (min-width: $desktop-min){
+      display: none;
+    }
+  }
+  &__dropdown{
+    position: fixed;
+    top: auto;
+    left: 0;
+    bottom: 0;
+    z-index: 1;
+    width: 100%;
+    box-sizing: border-box;
     background-color: #FFF;
-    outline: 0;
-    box-shadow: 0px 4px 11px rgba(157, 157, 157, 0.21);
+    @media screen and (min-width: $desktop-min){
+      position: absolute;
+      top: calc(100% + #{$spacer-big});
+      bottom: auto;
+      left: 0;
+      box-shadow: 0 8px 11px rgba(0, 0, 0, 0.1);
+    }
   }
-
+  &__options{
+    padding: 0;
+    margin: 0;
+    overflow: auto;
+    list-style-type: none;
+    &::-webkit-scrollbar{
+      width: 0;
+    }
+  }
+  &__cancel{
+    box-sizing: border-box;
+    width: 100%;
+    padding: $select-option-padding;
+    border: 0;
+    background-color: $select-color-primary;
+    color: #A3A5AD;
+    font-size: 1rem;
+    text-transform: none;
+    text-align: center;
+    &:focus{
+      outline: 0;
+    }
+    &:hover{
+      background-color: $select-color-primary;
+    }
+    @media screen and (min-width: $desktop-min){
+      display: none;
+    }
+  }
   &--bordered{
-
-    .sf-select__selected{
-      border: 1px solid $select-color-secondary;
+    #{$this}__selected{
+      border: 1px solid $select-color-primary;
     }
   }
-
   &--underlined{
-
-    .sf-select__selected{
-      border-bottom: 1px solid $select-color-secondary;
+    #{$this}__selected{
+      border-bottom: 1px solid $select-color-primary;
     }
+  }
+  &-enter-active{
+    animation: sf-select--mobile .15s;
+    @media screen and (min-width:$desktop-min){
+      animation: sf-select--dekstop .15s;
+    }
+  }
+  &-leave-active{
+    animation: sf-select--mobile .15s reverse;
+    @media screen and (min-width:$desktop-min){
+      animation: sf-select--dekstop .15s reverse;
+    }
+  }
+}
+
+@keyframes sf-select--desktop{
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes sf-select--mobile{
+  0% {
+    transform: translate(0, 100%);
+  }
+  100% {
+    transform: translate(0, 0);
   }
 }
