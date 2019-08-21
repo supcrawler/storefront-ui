@@ -76,7 +76,6 @@ Those awesome people are maintaining Storefront UI. They're ensuring that it per
 - Przemek Spaczek ([@przespa](https://github.com/przespa))
 - Leonardo Matos ([@leomp12](https://github.com/leomp12))
 - Maya Shavin ([@mayashavin](https://github.com/mayashavin))
-- Gift Egwenu ([@lauragify21](https://github.com/lauragift21))
 
 and amazing [contributors](https://github.com/DivanteLtd/storefront-ui/graphs/contributors) commiting their time to make it better.
 
@@ -85,7 +84,9 @@ Thank you! There would be no Storefront UI without you
 # Supporters
 <a href="https://developers.e-com.plus/"><img src="https://developers.e-com.plus/src/assets/img/logo-dark.png" alt="e-com club" height="40px"></a>
 
-# Contributing
+# Roadmap
 
-Read [how to start](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) and become part of our amazing community ;)
+Check our [documentation](https://docs.storefrontui.io/introduction.html)
+
+Want to help and make it even faster? Read [how to start](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md) and become part of our amazing community ;)
 
