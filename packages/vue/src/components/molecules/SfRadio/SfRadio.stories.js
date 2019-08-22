@@ -99,7 +99,8 @@ storiesOf("Molecules|Radio", module)
       components: {
         SfRadio
       },
-      template: `<div>
+      template: `<div :style="{maxWidth: '710px'}">
+        <p><b>Checked: {{checked}}</b></p>
         <SfRadio v-for="(radio, key) in radios" :key="key" v-model="checked" :disabled="radio.disabled" :name="radio.name" :value="radio.value" :label="radio.label" :description="radio.description" :class="customClass"/>
       </div>`
     }),

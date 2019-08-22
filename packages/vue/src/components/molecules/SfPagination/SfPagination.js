@@ -1,8 +1,13 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import direction from "@glidejs/glide/src/components/direction";
 
 export default {
   name: "SfPagination",
+
+  model: {
+    prop: "current",
+    event: "change"
+  },
+
   props: {
     /**
      * Current page number
@@ -35,6 +40,18 @@ export default {
   },
 
   computed: {
+    currentPage: {
+      get() {
+        return this.current;
+      },
+      set(value) {
+        /**
+         * Event for current page change (`v-model`)
+         * @type {Event}
+         */
+        this.$emit("change", value);
+      }
+    },
     listOfPageNumbers() {
       return Array.from(Array(this.total), (_, i) => i + 1);
     },
@@ -52,7 +69,7 @@ export default {
         return this.listOfPageNumbers;
       }
 
-      if (this.current < this.visible - Math.floor(this.visible / 2) + 1) {
+      if (this.currentPage < this.visible - Math.floor(this.visible / 2) + 1) {
         this.showFirst = false;
         this.showLast = true;
 
@@ -60,7 +77,7 @@ export default {
       }
 
       if (
-        this.total - this.current <
+        this.total - this.currentPage <
         this.visible - Math.floor(this.visible / 2) + 1
       ) {
         this.showFirst = true;
@@ -73,34 +90,13 @@ export default {
       this.showLast = true;
 
       return this.listOfPageNumbers.slice(
-        this.current - Math.ceil(this.visible / 2),
-        this.current + Math.floor(this.visible / 2)
+        this.currentPage - Math.ceil(this.visible / 2),
+        this.currentPage + Math.floor(this.visible / 2)
       );
     },
-    go(direct) {
-      switch (direct) {
-        case "prev":
-          this.$emit("click", this.current < 2 ? 1 : this.current - 1);
-          break;
-        case "next":
-          this.$emit(
-            "click",
-            this.current > this.total - 1 ? this.total : this.current + 1
-          );
-          break;
-        default:
-          if (this.current !== direct) this.$emit("click", direct);
-      }
-    },
-    isDisabled(direct) {
-      switch (direct) {
-        case "prev":
-          return this.current < 2;
-        case "next":
-          return this.current > this.total - 1;
-        default:
-          return true;
-      }
+
+    setCurrentPage(value) {
+      this.currentPage = value;
     }
   },
   components: {

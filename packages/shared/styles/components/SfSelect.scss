@@ -70,9 +70,6 @@ $select__error-message-min-height: 0.875rem !default;
     &::after {
       color: $select-color-primary;
     }
-    &--is-selected{
-      @include move-label-up();
-    }
     &--is-active{
       @include move-label-up();
       color: $c-accent-primary;
@@ -80,7 +77,7 @@ $select__error-message-min-height: 0.875rem !default;
     &--is-required{
       &::after{
         content: " *";
-        color: $c-accent-primary;
+        color: inherit;
       }
     }
   }
@@ -106,7 +103,7 @@ $select__error-message-min-height: 0.875rem !default;
     top: auto;
     left: 0;
     bottom: 0;
-    z-index: 3;
+    z-index: 1;
     width: 100%;
     box-sizing: border-box;
     background-color: #fff;

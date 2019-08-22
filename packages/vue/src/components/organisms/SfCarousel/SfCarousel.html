@@ -10,23 +10,21 @@
     </div>
   </div>
   <div class="sf-carousel__controls">
-    <!--@slot slot for icon moving to the previous item -->
-    <slot name="prev" v-bind="{ go: () => go('prev') }">
-      <div @click="go('prev')">
+    <div @click="go('prev')">
+      <!--@slot slot for icon moving to the previous item -->
+      <slot name="prev">
         <SfArrow
           class="sf-arrow--long"
-          aria-label="previous"
-        />
-      </div>
-    </slot>
-    <!--@slot slot for icon moving to the next item -->
-    <slot name="next" v-bind="{ go: () => go('next') }">
-      <div @click="go('next')">
+          aria-label="previous"/>
+      </slot>
+    </div>
+    <div @click="go('next')">
+      <!--@slot slot for icon moving to the next item -->
+      <slot name="next">
         <SfArrow
           class="sf-arrow--long sf-arrow--right"
-          aria-label="next"
-        />
-      </div>
-    </slot>
+          aria-label="next"/>
+      </slot>
+    </div>
   </div>
 </div>

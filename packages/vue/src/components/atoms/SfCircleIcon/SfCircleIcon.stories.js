@@ -47,29 +47,22 @@ storiesOf("Atoms|CircleIcon", module)
     "Basic",
     () => ({
       props: {
-        pathIcon: {
-          default: text("pathIcon (prop)", "home")
+        icon: {
+          default: text("icon (prop)", "assets/storybook/home.svg")
         },
-        colorIcon: {
-          default: text("colorIcon (prop)", "white")
+        alt: {
+          default: text("alt (prop)", "Home")
         },
         customClass: {
           default: select(
             "CSS Modifier",
-            [
-              "null",
-              "sf-circle-icon--small",
-              "sf-circle-icon--big",
-              "sf-circle-icon--secondary"
-            ],
+            ["null", "sf-circle-icon--small", "sf-circle-icon--secondary"],
             "null"
           )
         }
       },
       components: { SfCircleIcon },
-      template: `<SfCircleIcon 
-        :pathIcon="pathIcon" 
-        :class="customClass" />`
+      template: `<sf-circle-icon :icon="icon" :alt="alt" :class="customClass" />`
     }),
     {
       info: {
@@ -87,9 +80,7 @@ storiesOf("Atoms|CircleIcon", module)
     "[slot] default",
     () => ({
       components: { SfCircleIcon },
-      template: `<SfCircleIcon>
-        <img src='assets/storybook/menu.svg'>
-      </SfCircleIcon>`
+      template: `<sf-circle-icon><img src='assets/storybook/menu.svg'></sf-circle-icon>`
     }),
     {
       info: {

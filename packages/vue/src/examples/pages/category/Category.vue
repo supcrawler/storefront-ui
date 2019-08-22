@@ -147,12 +147,7 @@
         </div>
         <SfPagination
           class="products__pagination desktop-only"
-          :current="currentPage"
-          @click="
-            page => {
-              this.currentPage = page;
-            }
-          "
+          v-model="currentPage"
           :total="4"
           :visible="5"
         />
@@ -164,44 +159,55 @@
       class="filters"
     >
       <h3 class="filters__title">Collection</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.collection"
-        :key="filter.value"
-        :label="filter.label"
-        :count="filter.count"
-      />
+      <SfFilter v-model="filters.collection">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.collection"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+        />
+      </SfFilter>
       <h3 class="filters__title">Color</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.color"
-        :key="filter.value"
-        :value="filter.value"
-        :label="filter.label"
-        :color="filter.color"
-      />
+      <SfFilter v-model="filters.color">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.color"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :color="filter.color"
+        />
+      </SfFilter>
       <h3 class="filters__title">Size</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.size"
-        :key="filter.value"
-        :value="filter.value"
-        :label="filter.label"
-        :count="filter.count"
-      />
+      <SfFilter v-model="filters.size">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.size"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+        />
+      </SfFilter>
       <h3 class="filters__title">Price</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.price"
-        :key="filter.value"
-        :value="filter.value"
-        :label="filter.label"
-        :count="filter.count"
-      />
+      <SfFilter v-model="filters.price">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.price"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+        />
+      </SfFilter>
       <h3 class="filters__title">Material</h3>
-      <SfFilter
-        v-for="filter in filtersOptions.material"
-        :key="filter.value"
-        :value="filter.value"
-        :label="filter.label"
-        :count="filter.count"
-      />
+      <SfFilter v-model="filters.material">
+        <SfFilterItem
+          v-for="(filter, i) in filtersOptions.material"
+          :key="i"
+          :value="filter.value"
+          :label="filter.label"
+          :count="filter.count"
+        />
+      </SfFilter>
       <div class="filters__buttons">
         <SfButton
           @click="isFilterSidebarOpen = false"
@@ -236,7 +242,7 @@ export default {
     return {
       currentPage: 1,
       sortBy: "price-up",
-      isFilterSidebarOpen: true,
+      isFilterSidebarOpen: false,
       filters: {
         color: [],
         collection: [],

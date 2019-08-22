@@ -1,8 +1,8 @@
 <div class="sf-characteristic">
   <!--@slot Icon. Slot content will replace SfIcon atom component-->
-  <slot name="icon" v-bind="{colorIcon, sizeIcon, pathIcon}">
+  <slot name="icon" v-bind="{color, size, iconPath}">
     <div class="sf-characteristic__icon">
-      <SfIcon :color="colorIcon" :size="sizeIcon" :path="pathIcon" />
+      <SfIcon :color="color" :size="size" :path="iconPath" />
     </div>
   </slot>
   <!--@slot Characteristic text. Slot content will replace default title and description text-->

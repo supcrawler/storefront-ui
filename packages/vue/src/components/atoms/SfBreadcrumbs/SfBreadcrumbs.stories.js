@@ -73,9 +73,11 @@ storiesOf("Atoms|Breadcrumbs", module)
       data,
       methods,
       components: { SfBreadcrumbs },
-      template: `<SfBreadcrumbs
+      template: `
+        <SfBreadcrumbs
           :breadcrumbs="breadcrumbs"
-          @click="click"/>`
+          @click="click"
+        />`
     }),
     {
       info: {

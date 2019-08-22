@@ -24,7 +24,7 @@ storiesOf("Atoms|Overlay", module)
     "Basic",
     () => ({
       components: { SfOverlay },
-      template: `<SfOverlay :visible="true"></SfOverlay>`
+      template: `<SfOverlay></SfOverlay>`
     }),
     {
       info: {

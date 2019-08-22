@@ -33,11 +33,14 @@ storiesOf("Molecules|CallToAction", module)
           )
         }
       },
-      template: `<SfCallToAction
+      template: `
+      <SfCallToAction
         :title="title"
         :button-text="buttonText"
         :description="description"
-        :class="customClass"/>`
+        :class="customClass"
+      />
+    `
     }),
     {
       info: {
@@ -50,13 +53,16 @@ storiesOf("Molecules|CallToAction", module)
     "[slot] title",
     () => ({
       components: { SfCallToAction },
-      template: `<SfCallToAction
+      template: `
+      <SfCallToAction
         button-text="Check out"
-        description="Description prop lorem ipsum dolor sit amet">
+        description="Description prop lorem ipsum dolor sit amet"
+      >
         <template #title>
           <h1> Lorem ipsum </h1>
         </template>
-      </SfCallToAction>`
+      </SfCallToAction>
+    `
     }),
     {
       info: true
@@ -66,13 +72,16 @@ storiesOf("Molecules|CallToAction", module)
     "[slot] description",
     () => ({
       components: { SfCallToAction },
-      template: `<SfCallToAction
+      template: `
+      <SfCallToAction
         title="Title prop"
-        button-text="Check out">
+        button-text="Check out"
+      >
         <template #description>
           <p> Description slot lorem ipsum dolor sit amet</p>
         </template>
-      </SfCallToAction>`
+      </SfCallToAction>
+    `
     }),
     {
       info: true
@@ -83,13 +92,16 @@ storiesOf("Molecules|CallToAction", module)
     "[slot] action",
     () => ({
       components: { SfCallToAction },
-      template: `<SfCallToAction
+      template: `
+      <SfCallToAction
         title="Title prop"
-        description="Description prop lorem ipsum dolor sit amet">
-        <template #button>
+        description="Description prop lorem ipsum dolor sit amet"
+      >
+        <template #action>
           <button>Custom CTA</button>
         </template>
-      </SfCallToAction>`
+      </SfCallToAction>
+    `
     }),
     {
       info: true
