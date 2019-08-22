@@ -26,6 +26,7 @@ $product__image-blend-mode:       darken !default;
     align-items: center;
     justify-content: center;
     display: flex;
+    z-index: 2;
     img {
       mix-blend-mode: $product__image-blend-mode;
       max-width: 100%;
@@ -55,7 +56,7 @@ $product__image-blend-mode:       darken !default;
 
   &__wishlist-icon {
     position: absolute;
-    z-index: 0;
+    z-index: 1;
     right: 20px;
     margin: 10px;
     padding: 0;
@@ -75,6 +76,7 @@ $product__image-blend-mode:       darken !default;
   &:hover {
     box-shadow: $product-card-hover-box-shadow;
     transition: 0.3s all;
+    z-index: 2;
 
     .sf-product-card__wishlist-icon {
       visibility: visible;
