@@ -2,7 +2,7 @@
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
-import { icons } from "@storefrontui/shared/icons/icons.js";
+import { icons } from "@/assets/icons";
 import SfIcon from "./SfIcon.vue";
 
 const tableHeaderConfig = ["NAME", "DEFAULT"];
@@ -25,6 +25,8 @@ const colors = [
   ["white", "$c-white"],
   ["black", "$c-black (!default)"],
   ["accent", "$c-accent-secondary"],
+  ["green-primary", "$c-green-primary"],
+  ["green-secondary", "$c-green-secondary"],
   ["gray-primary", "$c-gray-primary"],
   ["gray-secondary", "$c-gray-secondary"],
   ["light-primary", "$c-light-primary"],
@@ -95,13 +97,12 @@ storiesOf("Atoms|Icon", module)
         }
       },
       components: { SfIcon },
-      template: `<sf-icon
+      template: `<SfIcon
         :class="customClass"
         :path="path"
         :color="color"
         :size="size"
-        :viewBox="viewBox"
-      />`
+        :viewBox="viewBox"/>`
     }),
     {
       info: {
@@ -116,14 +117,14 @@ storiesOf("Atoms|Icon", module)
             tableBodyConfig: sizes
           },
           "`$sf-icon-sizes` - map of icon sizes"
-        )} 
+        )}
         ${generateStorybookTable(
           {
             tableHeadConfig: tableHeaderConfig,
             tableBodyConfig: colors
           },
           "`$sf-icon-colors` - map of icon colors"
-        )}   
+        )}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `
       }
@@ -147,12 +148,11 @@ storiesOf("Atoms|Icon", module)
         }
       },
       components: { SfIcon },
-      template: `<sf-icon
+      template: `<SfIcon
         :path="path"
         :color="color"
         :size="size"
-        :viewBox="viewBox"
-      />`
+        :viewBox="viewBox"/>`
     }),
     {
       info: {
@@ -174,7 +174,9 @@ storiesOf("Atoms|Icon", module)
     "[slot] default",
     () => ({
       components: { SfIcon },
-      template: `<sf-icon><img src='assets/empty_cart.svg' alt="Cart icon"></sf-icon>`
+      template: `<SfIcon>
+        <img src='assets/empty_cart.svg' alt="Cart icon">
+       </SfIcon>`
     }),
     {
       info: {
@@ -192,9 +194,9 @@ storiesOf("Atoms|Icon", module)
           default: text("size (prop)", "sm")
         }
       },
-      template: `<sf-icon :size="size">
+      template: `<SfIcon :size="size">
         <img src='assets/empty_cart.svg' alt="Cart icon">
-      </sf-icon>`
+      </SfIcon>`
     }),
     {
       info: {
