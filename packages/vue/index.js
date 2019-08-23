@@ -15,7 +15,6 @@ import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
 import SfInput from "./src/components/atoms/SfInput/SfInput.vue";
 
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
-import SfAddToCart from "./src/components/molecules/SfAddToCart/SfAddToCart.vue";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.vue";
 import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfCharacteristic.vue";
@@ -59,7 +58,6 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
-  SfAddToCart,
   SfInput,
   SfAlert,
   SfBanner,
