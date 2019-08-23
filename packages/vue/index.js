@@ -8,6 +8,7 @@ import SfCheckbox from "./src/components/atoms/SfCheckbox/SfCheckbox.vue";
 import SfCircleIcon from "./src/components/atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfHeading from "./src/components/atoms/SfHeading/SfHeading.vue";
 import SfIcon from "./src/components/atoms//SfIcon/SfIcon.vue";
+import SfLabel from "./src/components/atoms//SfLabel/SfLabel.vue";
 import SfLoader from "./src/components/atoms/SfLoader/SfLoader.vue";
 import SfPrice from "./src/components/atoms/SfPrice/SfPrice.vue";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.vue";
@@ -39,8 +40,6 @@ import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
 import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
-
-import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.vue";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
 import SfBottomNavigation from "./src/components/organisms/SfBottomNavigation/SfBottomNavigation.vue";
 
@@ -54,6 +53,7 @@ export {
   SfCircleIcon,
   SfHeading,
   SfIcon,
+  SfLabel,
   SfLoader,
   SfPrice,
   SfProperty,
@@ -82,7 +82,6 @@ export {
   SfMegaMenu,
   SfTopBar,
   SfHero,
-  SfStoreLocator,
   SfImage,
   SfBannerGrid,
   SfBottomNavigation

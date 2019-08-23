@@ -5,21 +5,21 @@ export default {
     /**
      * Heading title
      */
-    titleHeading: {
+    title: {
       type: String,
       default: ""
     },
     /**
      * Heading subtitle
      */
-    subtitleHeading: {
+    subtitle: {
       type: String,
       default: ""
     },
     /**
      * Heading tag level
      */
-    levelHeading: {
+    level: {
       type: Number,
       default: 2
     }

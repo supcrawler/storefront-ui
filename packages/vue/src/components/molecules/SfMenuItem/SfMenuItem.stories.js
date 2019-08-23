@@ -29,10 +29,10 @@ const scssTableConfig = {
   ]
 };
 
-export default storiesOf("Molecules|MenuItem", module)
+export default storiesOf("Molecules|[WIP]MenuItem", module)
   .addDecorator(withKnobs)
   .add(
-    "Basic",
+    "Props",
     () => ({
       components: { SfMenuItem },
       props: {
@@ -43,17 +43,19 @@ export default storiesOf("Molecules|MenuItem", module)
           default: text("count (prop)", "30")
         }
       },
-      template: `<div :style="{width: '300px'}">
+      template: `
+      <div style="width: 300px">
         <SfMenuItem
           :label="label"
           :count="count"
         />
-      </div>`
+      </div>
+    `
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfMenuItem } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfMenuItem } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         `
       }

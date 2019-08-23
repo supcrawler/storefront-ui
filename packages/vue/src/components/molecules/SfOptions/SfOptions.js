@@ -1,5 +1,10 @@
+import SfLabel from "../../atoms/SfLabel/SfLabel.vue";
+
 export default {
   name: "SfOptions",
+  components: {
+    SfLabel
+  },
   props: {
     options: {
       type: Array,

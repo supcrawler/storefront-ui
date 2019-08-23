@@ -9,18 +9,14 @@ import SfImage from "./SfImage.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    [
-      "image__overlay-justify-content",
-      "center",
-      "overlay content horizontal justify"
-    ],
-    ["$image__overlay-align-items", "center", "overlay content vertical align"],
+    ["image__overlay-justify-content", "center", "size of checkmark"],
+    ["$image__overlay-align-items", "center", "size of checkmark"],
     [
       "$image__overlay-background-color",
       "rgba(29, 31, 34, 0.8)",
-      "overlay background color"
+      "size of checkmark"
     ],
-    ["$image__overlay-color", "$c-white", "overlay content color"]
+    ["$image__overlay-color", "$c-white", "size of checkmark"]
   ]
 };
 
@@ -30,22 +26,29 @@ storiesOf("Molecules|Image", module)
     "Basic",
     () => ({
       props: {
-        src: {
-          default: text("src (prop)", "assets/storybook/product_thumb.png")
+        editableProp: {
+          default: text("(prop) propname")
         },
-        alt: {
-          default: text("alt (prop)", "angelina_trn")
+        customClass: {
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-image--modifier"],
+            "null",
+            "CSS-Modifiers"
+          )
         }
       },
       components: { SfImage },
       template: `<SfImage
-        :src="src"
-        alt="angelina_trn"/>`
+        src="assets/storybook/product_thumb.png"
+        alt="angelina_trn"
+        transition="slide-left"
+      />`
     }),
     {
       info: {
         summary: `<h2>Usage</h2>
-       <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfImage } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }
@@ -55,39 +58,31 @@ storiesOf("Molecules|Image", module)
     "[slot] default",
     () => ({
       props: {
-        src: {
-          default: text("src (prop)", "assets/storybook/product_thumb.png")
+        editableProp: {
+          default: text("(prop) propname")
         },
-        alt: {
-          default: text("alt (prop)", "angelina_trn")
-        },
-        transition: {
+        customClass: {
           default: select(
-            "transition (prop)",
-            {
-              fade: "fade",
-              "slide-left": "slide-left",
-              "slide-right": "slide-right",
-              "collapse-top": "collapse-top",
-              "collapse-bottom": "collapse-bottom",
-              "fade-slide": "fade-slide",
-              "fade-collapse": "fade-collapse"
-            },
-            "fade"
+            "CSS Modifier",
+            ["null", "sf-image--modifier"],
+            "null",
+            "CSS-Modifiers"
           )
         }
       },
       components: { SfImage },
       template: `<SfImage
-        :src="src"
-        :alt="alt"
-        :transition="transition"
-      >angelina_trn</SfImage>`
+        src="assets/storybook/product_thumb.png"
+        alt="angelina_trn"
+        transition="slide-left"
+      >
+        angelina_trn
+      </SfImage>`
     }),
     {
       info: {
         summary: `<h2>Usage</h2>
-       <pre><code>import { SfImage } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfImage } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }

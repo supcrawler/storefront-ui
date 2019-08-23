@@ -6,12 +6,12 @@ storiesOf("Organisms|MegaMenu", module).add(
   "Basic",
   () => ({
     components: { SfMegaMenu },
-    template: "<SfMegaMenu>Hello Mega-Menu</SfMegaMenu>"
+    template: "<sf-mega-menu>Hello Mega-Menu</sf-mega-menu>"
   }),
   {
     info: {
       summary: `<h2> Usage </h2>
-      <pre><code>import { SfMegaMenu } from "@storefrontui/vue"</code></pre>`
+      <pre><code>import { SfMegaMenu } from "@storefront-ui/vue"</code></pre>`
     }
   }
 );

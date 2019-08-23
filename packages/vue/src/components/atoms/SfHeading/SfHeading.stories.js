@@ -69,16 +69,14 @@ storiesOf("Atoms|Heading", module)
         }
       },
       components: { SfHeading },
-      template: `<SfHeading 
-        :title="title" 
-        :subtitle="subtitle" 
-        :level="level" 
-        :class="customClass" />`
+      template: `<div style="max-width: 1140px">
+        <sf-heading :title="title" :subtitle="subtitle" :level="level" :class="customClass" />
+      </div>`
     }),
     {
       info: {
         summary: `<h2>Usage</h2>
-       <pre><code>import { SfHeading } from "@storefrontui/vue"</code></pre>
+       <pre><code>import { SfHeading } from "@storefront-ui/vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
        `
@@ -114,9 +112,11 @@ storiesOf("Atoms|Heading", module)
         }
       },
       components: { SfHeading },
-      template: `<SfHeading :level="level" :class="customClass">
-        <template #title>{{title}}</template>
-      </SfHeading>`
+      template: `<div style="max-width: 1140px">
+        <sf-heading :title="title" :subtitle="subtitle" :level="level" :class="customClass">
+          <tenplate #title="title">{{title}}</title>
+        </sf-heading>
+      </div>`
     }),
     {
       info: true
@@ -151,9 +151,11 @@ storiesOf("Atoms|Heading", module)
         }
       },
       components: { SfHeading },
-      template: `<SfHeading :level="level" :class="customClass">
-        <template #subtitle>{{subtitle}}</template>
-      </SfHeading>`
+      template: `<div style="max-width: 1140px">
+        <sf-heading :title="title" :level="level" :class="customClass">
+          <template v-slot:subtitle>{{subtitle}}</template>
+        </sf-heading>
+      </div>`
     }),
     {
       info: true

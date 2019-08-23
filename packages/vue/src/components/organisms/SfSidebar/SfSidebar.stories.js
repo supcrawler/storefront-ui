@@ -1,10 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  select,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfSidebar from "./SfSidebar.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -33,36 +29,25 @@ storiesOf("Organisms|Sidebar", module)
         };
       },
       props: {
-        customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              null: "null",
-              "sf-sidebar--right": "sf-sidebar--right"
-            },
-            "",
-            { display: "multi-select" }
-          )
+        position: {
+          default: select("position (prop)", ["left", "right"], "left")
         },
         button: {
           default: select("button (prop)", [true, false], true)
-        },
-        overlay: {
-          default: select("overlay (prop)", [true, false], true)
         }
       },
       components: { SfSidebar, SfButton },
-      template: `<div>
-        <SfButton @click="isSidebarOpen = true">Open sidebar</SfButton>
-        <SfSidebar
-          @close="isSidebarOpen = false"
-          :visible="isSidebarOpen"
-          :overlay="overlay"
-          :button="button"
-          :class="customClass"
-        >
-          Hello World
-        </SfSidebar>
+      template: `
+      <div>
+      <SfButton @click="isSidebarOpen = true">Open sidebar</SfButton>
+      <SfSidebar
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :button="button"
+        :position="position"
+      >
+        Hello World
+      </SfSidebar>
       </div>`
     }),
     {
@@ -70,7 +55,7 @@ storiesOf("Organisms|Sidebar", module)
         summary:
           "`SfSidebar` will add `overflow: hidden` CSS property to body once instantiated. This is why you should always use `v-if`." +
           `<h2> Usage </h2>
-          <pre><code>import { SfSidebar } from "@storefrontui/vue"</code></pre>
+          <pre><code>import { SfSidebar } from "@storefront-ui/vue"</code></pre>
           ${generateStorybookTable(scssTableConfig, "SCSS variables")}
           ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
           `

@@ -11,13 +11,6 @@ export default {
   },
   props: {
     /**
-     * Select field label
-     */
-    label: {
-      type: String,
-      default: ""
-    },
-    /**
      * Selected item value
      */
     selected: {
@@ -30,27 +23,6 @@ export default {
     size: {
       type: Number,
       default: 5
-    },
-    /**
-     * Required attribute
-     */
-    required: {
-      type: Boolean,
-      default: false
-    },
-    /**
-     * Validate value of form input
-     */
-    valid: {
-      type: Boolean,
-      default: undefined
-    },
-    /**
-     * Error message value of form select. It will be appeared if `valid` is `true`.
-     */
-    errorMessage: {
-      type: String,
-      default: "This field is not correct."
     }
   },
   data() {
@@ -88,12 +60,6 @@ export default {
     maxHeight() {
       if (!this.size) return;
       return `${this.optionHeight * this.size}px`;
-    },
-    labelIsActive() {
-      return this.open;
-    },
-    labelIsSelected() {
-      return this.selected;
     }
   },
   methods: {

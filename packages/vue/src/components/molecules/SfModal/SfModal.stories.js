@@ -46,6 +46,32 @@ storiesOf("Molecules|Modal", module)
         },
         persistent: {
           default: boolean("persistent (prop)", false)
+        },
+        transitionOverlay: {
+          default: select(
+            "transitionOverlay (prop)",
+            {
+              fade: "fade",
+              "collapse-top": "collapse-top",
+              "collapse-bottom": "collapse-bottom",
+              "fade-slide": "fade-slide",
+              "fade-collapse": "fade-collapse"
+            },
+            "fade"
+          )
+        },
+        transitionModal: {
+          default: select(
+            "transitionModal (prop)",
+            {
+              fade: "fade",
+              "collapse-top": "collapse-top",
+              "collapse-bottom": "collapse-bottom",
+              "fade-slide": "fade-slide",
+              "fade-collapse": "fade-collapse"
+            },
+            "fade"
+          )
         }
       },
       template: `
@@ -57,15 +83,16 @@ storiesOf("Molecules|Modal", module)
         :cross="cross"
         :overlay="overlay"
         :persistent="persistent"
-        transitionOverlay="fade"
-        transitionModal="fade"
+        :transitionOverlay="transitionOverlay"
+        :transitionModal="transitionModal"
       >Hello World!</SfModal>
       </div>`
     }),
     {
       info: {
-        summary: `<h2>Usage</h2>
-       <pre><code>import SfModal from "@storefrontui/vue/dist/SfModal.vue"</code></pre>
+        summary: `<p>Component for modal.</p>
+       <h2>Usage</h2>
+       <pre><code>import SfModal from "@storefront-ui/vue/dist/SfModal.vue"</code></pre>
        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
        `
       }

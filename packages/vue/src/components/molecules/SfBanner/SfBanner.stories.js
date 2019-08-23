@@ -129,7 +129,8 @@ storiesOf("Molecules|Banner", module)
           )
         }
       },
-      template: `<SfBanner
+      template: `
+      <SfBanner
         :title="title"
         :description="description"
         :subtitle="subtitle"
@@ -137,12 +138,13 @@ storiesOf("Molecules|Banner", module)
         :background="background"
         :image="image"
         :class="customClass"
-      />`
+      />
+    `
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfBanner } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfBanner } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
         `
@@ -153,17 +155,20 @@ storiesOf("Molecules|Banner", module)
     "[slot] title",
     () => ({
       components: { SfBanner },
-      template: `<SfBanner
+      template: `
+      <SfBanner
         title="Title prop"
         description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.png"
+      >
         <template #title="{ title }">
-          <h1>{{ title }}</h1>
+          <h1> {{ title }} </h1>
         </template>
-      </SfBanner>`
+      </SfBanner>
+    `
     }),
     {
       info: true
@@ -173,17 +178,20 @@ storiesOf("Molecules|Banner", module)
     "[slot] subtitle",
     () => ({
       components: { SfBanner },
-      template: `<SfBanner
+      template: `
+      <SfBanner
         title="Title prop"
         description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.png"
+      >
         <template #subtitle="{ subtitle }">
-          <b>{{ subtitle }}</b>
+          <b> {{ subtitle }} </b>
         </template>
-      </SfBanner>`
+      </SfBanner>
+    `
     }),
     {
       info: true
@@ -193,17 +201,20 @@ storiesOf("Molecules|Banner", module)
     "[slot] description",
     () => ({
       components: { SfBanner },
-      template: `<SfBanner
+      template: `
+      <SfBanner
         title="Title prop"
         description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
         subtitle="Subtitle prop"
         button-text="Button Text"
         background="#e1e3e2"
-        image="assets/storybook/Banner1.png">
+        image="assets/storybook/Banner1.png"
+      >
         <template #description="{ description }">
           <b> {{ description }} </b>
         </template>
-      </SfBanner>`
+      </SfBanner>
+    `
     }),
     {
       info: true
@@ -213,7 +224,8 @@ storiesOf("Molecules|Banner", module)
     "[slot] call-to-action",
     () => ({
       components: { SfBanner },
-      template: `<SfBanner
+      template: `
+      <SfBanner
         title="Title prop"
         description="Description property filled with some random text just to show how long it can be. Then some additional text because why not."
         subtitle="Subtitle prop"
@@ -224,7 +236,8 @@ storiesOf("Molecules|Banner", module)
         <template #call-to-action>
           <button>Custom CTA</button>
         </template>
-      </SfBanner>`
+      </SfBanner>
+    `
     }),
     {
       info: true

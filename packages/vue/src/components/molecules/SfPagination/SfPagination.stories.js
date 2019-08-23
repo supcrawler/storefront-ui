@@ -75,16 +75,15 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <SfPagination
-      :current="page"
-      @click="(page)=>{this.page=page}"
+    <sf-pagination
+      v-model="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers"/>`
     }),
     {
       info: {
         summary: `<h2> Usage </h2>
-        <pre><code>import { SfPagination } from "@storefrontui/vue"</code></pre>
+        <pre><code>import { SfPagination } from "@storefront-ui/vue"</code></pre>
         ${generateStorybookTable(scssTableConfig, "SCSS variables")}
         ${generateStorybookTable(eventTableConfig, "Events")}
         `
@@ -96,15 +95,12 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <SfPagination
-      :current="page"
-      @click="(page)=>{this.page=page}"
-      :total="numberOfPages"
-      :visible="visiblePageNumbers">
-      <template #prev="{go}" >
-        <button @click="go" class="sf-pagination__button sf-pagination__button--prev">prev</button>
-      </template>
-    </SfPagination>`
+    <sf-pagination
+      v-model="page"
+      :total="numberOfPages + 1"
+      :visible="visiblePageNumbers - 1">
+      <template slot="prev">prev</template>
+    </sf-pagination>`
     }),
     {
       info: true
@@ -115,15 +111,12 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <SfPagination
-      :current="page"
-      @click="(page)=>{this.page=page}"
-      :total="numberOfPages"
-      :visible="visiblePageNumbers">
-      <template #next="{go}" >
-        <button @click="go" class="sf-pagination__button sf-pagination__button--next">next</button>
-      </template>
-    </SfPagination>`
+    <sf-pagination
+      v-model="page"
+      :total="numberOfPages + 1"
+      :visible="visiblePageNumbers - 1">
+      <template slot="next">next</template>
+    </sf-pagination>`
     }),
     {
       info: true
@@ -134,15 +127,14 @@ storiesOf("Molecules|Pagination", module)
     () => ({
       ...vm,
       template: `
-    <SfPagination
-      :current="page"
-      @click="(page)=>{this.page=page}"
+    <sf-pagination
+      v-model="page"
       :total="numberOfPages"
       :visible="visiblePageNumbers">
-      <template #number="{ number, go }">
-        <button @click="go(number)" class="sf-pagination__button">[{{number}}]</button>
+      <template v-slot:number="{ number }">
+        [{{ number }}]
       </template>
-    </SfPagination>`
+    </sf-pagination>`
     }),
     {
       info: true

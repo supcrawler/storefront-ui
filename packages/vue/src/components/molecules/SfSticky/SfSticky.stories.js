@@ -48,9 +48,9 @@ storiesOf("Molecules|Sticky", module)
             <div :style="content"></div>
           </div>
           <div :style="col">
-            <SfSticky>
+            <sf-sticky>
               <div :style="sticky"></div>
-            </SfSticky>
+            </sf-sticky>
           </div>
         </div>
         <div :style="bottom"></div>
@@ -59,7 +59,7 @@ storiesOf("Molecules|Sticky", module)
     {
       info: {
         summary: `<h2>Usage</h2>
-       <pre><code>import { SfSticky } from "@storefrontui/vue"</code></pre>`
+       <pre><code>import { SfSticky } from "@storefront-ui/vue"</code></pre>`
       }
     }
   );
