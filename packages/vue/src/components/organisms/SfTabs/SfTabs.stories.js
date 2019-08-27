@@ -3,6 +3,7 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, object } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfTabs from "./SfTabs.vue";
+import SfTab from "./_internal/SfTab.vue";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
@@ -44,7 +45,8 @@ storiesOf("Organisms|Tabs", module)
     "Basic",
     () => ({
       components: {
-        SfTabs
+        SfTabs,
+        SfTab
       },
       template: `
       <SfTabs :openTab="1">
