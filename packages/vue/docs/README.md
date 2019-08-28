@@ -17,15 +17,15 @@ footer: MIT Licensed
 
 Install NPM package:
 ```
-npm install --save @storefront-ui/vue
+npm install --save @storefrontui/vue
 ```
 Import styles (optional)
 ```scss
-import "@storefront-ui/vue/src/css/_all.scss"
+import "@storefrontui/vue/src/css/_all.scss"
 ```
 Import and register components that you need
 ```js
-import { SfButton } from '@storefront-ui/vue'
+import { SfButton } from '@storefrontui/vue'
 
 export default {
   components: {

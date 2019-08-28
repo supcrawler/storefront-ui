@@ -14,13 +14,6 @@ module.exports = {
       ['/introduction', 'Introduction'],
       ['/customization', 'Customization'],
       {
-        title: 'Components',
-        collapsable: false,
-        children: [
-          ['/components/button', 'Button'],
-        ],
-      },
-      {
         title: 'Contributing',
         collapsable: false,
         children: [
@@ -29,6 +22,7 @@ module.exports = {
           ['/creating-new-component', 'Create/Edit Component'],
         ],
       },
+
     ]
   }
 }
