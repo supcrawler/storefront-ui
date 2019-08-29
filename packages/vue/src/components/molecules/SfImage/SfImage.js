@@ -1,11 +1,13 @@
-import lozad from "lozad";
 export default {
   name: "SfImage",
   props: {
     /**
-     * Images list or image url
+     * Image url
      */
-    src: [Array, String],
+    src: {
+      type: String,
+      default: ""
+    },
     /**
      * Alt attribute value
      */
@@ -19,27 +21,6 @@ export default {
     transition: {
       type: String,
       default: "fade"
-    },
-    /**
-     * Lazyload
-     */
-    lazy: {
-      type: Boolean,
-      default: true
-    },
-    /**
-     * Src image placeholder
-     */
-    placeholder: {
-      type: String,
-      default: "/assets/placeholder.png"
-    },
-    /**
-     * Picture tag breakpoint
-     */
-    pictureBreakpoint: {
-      type: Number,
-      default: 576
     }
   },
   data() {
@@ -60,17 +41,11 @@ export default {
     }
   },
   mounted: function() {
-    if (this.lazy !== false) {
-      let observer;
-      let self = this;
-      observer = lozad(".sf-image-lozad", {
-        loaded: function() {
-          self.loaded = true;
-        }
-      });
-      observer.observe();
-    } else {
+    this.$refs.img.setAttribute("src", this.src);
+    this.$refs.img.addEventListener("load", () => {
       this.loaded = true;
-    }
+      this.$refs.img.setAttribute("alt", this.alt);
+      this.maxWidth = `${this.$refs.img.naturalWidth}px`;
+    });
   }
 };
