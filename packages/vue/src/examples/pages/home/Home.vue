@@ -65,11 +65,8 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection titleHeading="Best Sellers">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
+    <SfSection title="Best Sellers">
+      <SfCarousel :settings="{ gap: 0 }" class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
@@ -81,7 +78,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
+    <SfSection title="Share Your Look" subtitle="#YOURLOOK">
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
@@ -135,32 +132,6 @@
         </div>
       </template>
     </SfBanner>
-    <SfBottomNavigation class="mobile-only">
-      <SfBottomNavigationItem>
-        <SfIcon icon="home" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="menu" size="20px" style="width: 25px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="heart" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="profile" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfCircleIcon
-          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
-        >
-          <SfIcon
-            icon="add_to_cart"
-            size="20px"
-            color="white"
-            style="margin-right: 4px;"
-          />
-        </SfCircleIcon>
-      </SfBottomNavigationItem>
-    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -172,10 +143,7 @@ import {
   SfCarousel,
   SfProductCard,
   SfImage,
-  SfBannerGrid,
-  SfBottomNavigation,
-  SfIcon,
-  SfCircleIcon
+  SfBannerGrid
 } from "../../../../index.js";
 
 export default {
@@ -267,31 +235,25 @@ export default {
     SfCarousel,
     SfProductCard,
     SfImage,
-    SfBannerGrid,
-    SfBottomNavigation,
-    SfIcon,
-    SfCircleIcon
-  },
-  mounted() {
-    document.body.style.setProperty("margin", "0");
+    SfBannerGrid
   }
 };
 </script>
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
+
 #home {
   max-width: 1240px;
   margin: auto;
-  box-sizing: border-box;
   padding: 0 $spacer-big;
+  box-sizing: border-box;
   @media screen and (min-width: $desktop-min) {
     padding: 0;
   }
 }
 .call-to-action-newsletter {
-  margin: $spacer-big -#{$spacer-big};
-  box-sizing: border-box;
+  margin: $spacer-big 0;
   @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big * 2 0;
   }
@@ -303,10 +265,7 @@ export default {
   }
 }
 .product-carousel {
-  margin: -20px -#{$spacer-big} -20px 0;
-  @media screen and (min-width: $desktop-min) {
-    margin: -20px 0;
-  }
+  margin: -20px 0;
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
     @media screen and (min-width: $desktop-min) {
