@@ -1,13 +1,13 @@
-import lozad from "lozad";
-
 export default {
   name: "SfImage",
-
   props: {
     /**
-     * Image url or pictures object (`{ small: { url, alt }, normal: { url, alt } }`)
+     * Image url
      */
-    src: [String, Object],
+    src: {
+      type: String,
+      default: ""
+    },
     /**
      * Alt attribute value
      */
@@ -21,30 +21,8 @@ export default {
     transition: {
       type: String,
       default: "fade"
-    },
-    /**
-     * Lazyload
-     */
-    lazy: {
-      type: Boolean,
-      default: true
-    },
-    /**
-     * Src image placeholder
-     */
-    placeholder: {
-      type: String,
-      default: "/assets/placeholder.png"
-    },
-    /**
-     * Screen width breakpoint for picture tag media query
-     */
-    pictureBreakpoint: {
-      type: Number,
-      default: 576
     }
   },
-
   data() {
     return {
       loaded: false,
@@ -52,30 +30,22 @@ export default {
       maxWidth: "unset"
     };
   },
-
   computed: {
     hasOverlay() {
       return this.$slots.hasOwnProperty("default") && this.overlay;
     }
   },
-
   methods: {
     hoverHandler(state) {
       this.overlay = state;
     }
   },
-
-  mounted() {
-    if (this.lazy !== false) {
-      const vm = this;
-      const observer = lozad(".sf-image-lozad", {
-        loaded: function() {
-          vm.loaded = true;
-        }
-      });
-      observer.observe();
-    } else {
+  mounted: function() {
+    this.$refs.img.setAttribute("src", this.src);
+    this.$refs.img.addEventListener("load", () => {
       this.loaded = true;
-    }
+      this.$refs.img.setAttribute("alt", this.alt);
+      this.maxWidth = `${this.$refs.img.naturalWidth}px`;
+    });
   }
 };
