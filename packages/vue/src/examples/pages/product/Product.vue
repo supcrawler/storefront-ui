@@ -1,541 +1,82 @@
 <template>
   <div id="product">
-    <section class="product">
-      <div class="product-gallery">
-        <!-- SFGallery -->
-      </div>
+    <div class="product-info">
+      <div class="product-gallery"></div>
       <div class="product-details">
-        <SfHeading
-          title="Cashmere Sweater"
-          :level="1"
-          class="sf-heading--no-underline sf-heading--left"
-        />
+        <h1>Cashmere Sweater</h1>
         <div class="product-details__sub">
-          <SfPrice regular="$50.00" />
-          <SfRating class="product-details__sub-rating" :score="4" :max="5" />
-          <span class="product-details__sub-reviews">Read all 1 review</span>
+          <SfPrice regular-price="$ 50,00" />
+          <SfRating score="4" />
         </div>
-        <!-- short description -->
         <p class="product-details__description">
           Find stunning women cocktail and party dresses. Stand out in lace and
           metallic cocktail dresses and party dresses from all your favorite
           brands.
         </p>
-        <!-- Action: Size guide -->
-        <div class="product-details__action">
-          <button class="sf-action">Size guide</button>
-        </div>
-        <SfSelect
-          v-model="size"
-          label="Size"
-          class="sf-select--bordered product-details__attribute"
-        >
-          <SfSelectOption
-            v-for="size in sizes"
-            :key="size.value"
-            :value="size.value"
-            >{{ size.label }}</SfSelectOption
-          >
-        </SfSelect>
-        <SfSelect
-          v-model="color"
-          label="Color"
-          class="sf-select--bordered product-details__attribute"
-        >
-          <SfSelectOption
-            v-for="color in colors"
-            :key="color.value"
-            :value="color.value"
-          >
-            <SfProductOption :label="color.label" :color="color.color" />
-          </SfSelectOption>
-        </SfSelect>
-        <SfAddToCart
-          :stock="stock"
-          v-model="qty"
-          :canAddToCart="stock > 0"
-          class="product-details__add-to-cart"
-        />
-        <div class="product-details__action">
-          <button class="sf-action">Save for later</button>
-        </div>
-        <div class="product-details__action">
-          <button class="sf-action">Add to compare</button>
-        </div>
-        <SfTabs class="product-details__tabs" :openTab="2">
-          <SfTab header="Description">
-            <div>
-              <p>
-                The Karissa V-Neck Tee features a semi-fitted shape that's
-                flattering for every figure. You can hit the gym with confidence
-                while it hugs curves and hides common "problem" areas. Find
-                stunning women's cocktail dresses and party dresses.
-              </p>
-            </div>
-            <SfProperty
-              v-for="(property, i) in properties"
-              :key="i"
-              :name="property.name"
-              :value="property.value"
-            />
-          </SfTab>
-          <SfTab header="1 Review">
-            <div>
-              <SfHeading
-                title="Mari"
-                :level="3"
-                class="sf-heading--no-underline sf-heading--left"
-              />
-              <div style="display: flex">
-                <SfRating :score="4" :max="5" />
-                <small>Jan 2018</small>
-              </div>
-              <p>
-                Excellent light output from this led fitting. Relatively easy to
-                fix to the ceiling,but having two people makes it easier, to
-                complete the installation. Unable to comment on reliability at
-                this time, but I am hopeful of years of use with good light
-                levels... <span style="color: #5ECE7B">Read more</span>
-              </p>
-            </div>
-          </SfTab>
-          <SfTab header="Additional Information">
-            <SfHeading
-              title="Brand"
-              :level="3"
-              class="sf-heading--no-underline sf-heading--left"
-            />
-            <div>
-              <p>
-                <u>Brand name</u> is the perfect pairing of quality and design.
-                This label creates major everyday vibes with its collection of
-                modern brooches, silver and gold jewellery, or clips it back
-                with hair accessories in geo styles.
-              </p>
-            </div>
-            <SfHeading
-              title="Take care of me"
-              :level="3"
-              class="sf-heading--no-underline sf-heading--left"
-            />
-            <div>
-              <p>
-                Just here for the care instructions? Yeah, we thought so
-              </p>
-              <p>
-                Do not wash!
-              </p>
-            </div>
-          </SfTab>
-        </SfTabs>
       </div>
-    </section>
-    <!--
-    <SfSection titleHeading="Match it with">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
+    </div>
+
+    <SfSection :heading="{ title: 'You may also like' }">
+      <SfCarousel>
+        <SfCarouselItem v-for="i in 6" :key="i">
           <SfProductCard
-            :title="product.title"
-            :image="product.image"
-            :regular-price="product.price.regular"
-            :rating="product.rating.score"
-            class="product-card"
+            title="Cream Beach Bag"
+            regular-price="10,99 $"
+            :rating="5"
           />
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection titleHeading="You might also like">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
-        <SfCarouselItem v-for="(product, i) in products" :key="i">
-          <SfProductCard
-            :title="product.title"
-            :image="product.image"
-            :regular-price="product.price.regular"
-            :rating="product.rating.score"
-            class="product-card"
-          />
-        </SfCarouselItem>
-      </SfCarousel>
-    </SfSection>
-    <SfSection titleHeading="Share Your Look" subtitleHeading="#YOURLOOK">
-      <div class="grid">
-        <div class="grid__row">
-          <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.png"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.png"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.png"
-              >katherina_trn</SfImage
-            >
-          </div>
-        </div>
-        <div class="grid__row">
-          <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.png"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.png"
-              >katherina_trn</SfImage
-            >
-          </div>
-          <div class="grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.png"
-              >katherina_trn</SfImage
-            >
-          </div>
-        </div>
-      </div>
-    </SfSection>
-    <SfBanner
-      title="Download our application to your mobile"
-      subtitle="Fashion to Take Away"
-      image="assets/storybook/homepage/bannerD.png"
-      class="banner-application sf-banner--left sf-banner--center desktop-only"
-    >
-      <template #title>
-        <h1 class="banner-application__title">
-          Download our application to your&nbsp;mobile
-        </h1>
-      </template>
-      <template #call-to-action>
-        <div>
-          <img
-            class="banner-application__download"
-            src="assets/storybook/homepage/google.png"
-            alt=""
-          />
-          <img
-            class="banner-application__download"
-            src="assets/storybook/homepage/apple.png"
-            alt=""
-          />
-        </div>
-      </template>
-    </SfBanner>
-    <SfBottomNavigation class="mobile-only">
-      <SfBottomNavigationItem>
-        <SfIcon icon="home" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="menu" size="20px" style="width: 25px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="heart" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfIcon icon="profile" size="20px" />
-      </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
-        <SfCircleIcon
-          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
-        >
-          <SfIcon
-            icon="add_to_cart"
-            size="20px"
-            color="white"
-            style="margin-right: 4px;"
-          />
-        </SfCircleIcon>
-      </SfBottomNavigationItem>
-    </SfBottomNavigation> -->
   </div>
 </template>
+
 <script>
 import {
-  SfProperty,
-  SfHeading,
+  SfCarousel,
+  SfProductCard,
   SfPrice,
   SfRating,
-  SfSelect,
-  SfProductOption,
-  SfAddToCart,
-  SfTabs,
-  SfProductCard,
-  SfCarousel,
-  SfSection,
-  SfImage,
-  SfBanner,
-  SfBottomNavigation,
-  SfCircleIcon,
-  SfIcon
-} from "@storefront-ui/vue";
+  SfSection
+} from "../../../../index.js";
 
 export default {
-  name: "Product",
   data() {
-    return {
-      qty: "1",
-      stock: 5,
-      size: "",
-      sizes: [
-        { label: "XXS", value: "xxs" },
-        { label: "XS", value: "xs" },
-        { label: "S", value: "s" },
-        { label: "M", value: "m" },
-        { label: "L", value: "l" },
-        { label: "XL", value: "xl" },
-        { label: "XXL", value: "xxl" }
-      ],
-      color: "",
-      colors: [
-        { label: "Red", value: "red", color: "#990611" },
-        { label: "Black", value: "black", color: "#000000" },
-        { label: "Yellow", value: "yellow", color: "#DCA742" },
-        { label: "Blue", value: "blue", color: "#004F97" },
-        { label: "Navy", value: "navy", color: "#656466" },
-        { label: "White", value: "white", color: "#FFFFFF" }
-      ],
-      properties: [
-        {
-          name: "Product Code",
-          value: "578902-00"
-        },
-        {
-          name: "Category",
-          value: "Pants"
-        },
-        {
-          name: "Material",
-          value: "Cotton"
-        },
-        {
-          name: "Country",
-          value: "Germany"
-        }
-      ],
-      products: [
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.png",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.png",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        },
-        {
-          title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.png",
-          price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
-        }
-      ]
-    };
+    return {};
   },
   components: {
-    SfProperty,
-    SfTabs,
-    SfHeading,
-    SfPrice,
-    SfRating,
-    SfSelect,
-    SfProductOption,
-    SfAddToCart
-    /*SfProductCard,
     SfCarousel,
+    SfProductCard,
     SfSection,
-    SfImage,
-    SfBanner,
-    SfBottomNavigation,
-    SfCircleIcon,
-    SfIcon*/
-  },
-  mounted() {
-    document.body.style.setProperty("margin", "0");
+    SfPrice,
+    SfRating
   }
 };
 </script>
+
 <style lang="scss" scoped>
-@import "~@storefront-ui/shared/styles/variables";
+@import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
 
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
 #product {
-  max-width: 1240px;
-  margin: auto;
   box-sizing: border-box;
-  padding: 0 $spacer-big;
-  @include for-desktop {
-    padding: 0;
-  }
+  max-width: 1200px;
+  margin: auto;
+  overflow: hidden;
 }
-.product {
+.product-info {
   display: flex;
+  align-items: flex-start;
 }
 .product-gallery,
 .product-details {
-  @media screen and (min-width: $desktop-min) {
-    flex: 1;
-  }
+  width: 50%;
+  display: inline-block;
 }
-.product-gallery {
-}
+
 .product-details {
-  @include for-desktop {
-    margin-left: 5 * $spacer-big;
-  }
   &__sub {
     display: flex;
-    align-items: center;
-    margin-top: $spacer-big / 2;
-  }
-  &__sub-rating {
-    margin-left: auto;
-  }
-  &__sub-reviews {
-    margin-left: 10px;
-    font-size: 0.75rem;
-  }
-  &__description {
-    margin: (3 * $spacer-big) 0;
-    font-size: 1.125rem;
-    line-height: 1.6;
-  }
-  &__attribute {
-    & + & {
-      margin-top: $spacer-big;
-    }
-  }
-  &__add-to-cart {
-    margin-top: $spacer-extra-big;
-  }
-  &__tabs {
-    margin-top: 5 * $spacer-big;
-  }
-  &__action {
-    & + & {
-      margin-top: $spacer-big;
-    }
-    display: flex;
-    justify-content: flex-end;
-  }
-}
-
-.sf-action {
-  border: 0;
-  background: none;
-  font-size: 1.125rem;
-  font-family: $body-font-family-primary;
-  line-height: 1.6;
-  font-weight: 300;
-  text-decoration: underline;
-  &:focus{
-    outline: 0;
-  }
-}
-/* copied from Home Page */
-.product-card {
-  max-width: unset; // TODO: test this property and fix if it required
-  &:hover {
-    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
-  }
-}
-.product-carousel {
-  margin: -20px -#{$spacer-big} -20px 0;
-  @include for-desktop {
-    margin: -20px 0;
-  }
-  /deep/ .sf-carousel__wrapper {
-    padding: 20px 0;
-    @include for-desktop {
-      padding: 20px;
-      max-width: calc(100% - 216px);
-    }
-  }
-}
-.banner-application {
-  min-height: 420px;
-  max-width: 1040px;
-  margin: auto;
-  &__title {
-    padding: 0;
-    margin: 0;
-    margin-top: $spacer-big;
-    font-size: 2.25rem;
-    font-weight: 400;
-    line-height: 1.388;
-  }
-  &__download {
-    max-height: 47px;
-    margin-top: $spacer-extra-big;
-    & + & {
-      margin-left: $spacer-big;
-    }
-  }
-}
-
-/*  TODO: .grid shoud be refactored */
-.grid {
-  &__row {
-    display: flex;
-    & + & {
-      margin-top: $spacer-big / 2;
-      @include for-desktop {
-        margin-top: $spacer-big;
-      }
-    }
-  }
-  &__col {
-    margin: 0;
-    & + & {
-      margin-left: $spacer-big / 2;
-      @include for-desktop {
-        margin-left: $spacer-big;
-      }
-    }
+    justify-content: space-between;
   }
 }
 </style>

@@ -1,4 +1,5 @@
 <div
+  class="sf-select"
   @click="toggle($event)"
   @blur="closeHandler"
   @keyup.space="openHandler"
@@ -10,46 +11,45 @@
   aria-autocomplete="none"
   role="combobox"
   tabindex="0"
-  :class="{
-  'sf-select--is-active': isActive,
-  'sf-select--is-selected': isSelected,
-  'sf-select--is-required': required
-  }"
-  class="sf-select">
-  <div style="position: relative">
-    <div
-      v-if="label"
-      class="sf-select__label">
-      <slot name="label">{{label}}</slot>
-    </div>
-    <div
-      v-html="html"
-      class="sf-select__selected sf-select-option"></div>
-    <transition name="sf-select">
-      <div v-show="open" class="sf-select__dropdown">
-        <!--  sf-select__option -->
-        <ul
-          :style="{ maxHeight }"
-          class="sf-select__options">
-          <slot/>
-        </ul>
-        <SfButton
-          @click="closeHandler"
-          ref="cancel"
-          class="sf-select__cancel">
-          Cancel
-        </SfButton>
-      </div>
-    </transition>
-  </div>
+>
+  <label
+    v-if="label"
+    class="sf-select__label"
+    :class="{'sf-select__label--is-active':labelIsActive, 'sf-select__label--is-required': required, 'sf-select__label--is-selected':labelIsSelected}"
+  >
+    <!-- @slot Custom label of form select -->
+    <slot name="label">{{label}}</slot>
+  </label>
   <div
-    v-if="(valid !== undefined)"
-    class="sf-select__error-message">
+    role="textbox"
+    class="sf-select__selected sf-select-option"
+    v-html="html"
+  ></div>
+  <div class="sf-select__error-message" v-if="valid!== undefined">
     <transition name="fade">
-      <span v-if="(valid === false)">
+      <span v-if="valid === false">
+        <!-- @slot Custom error message of form select -->
         <slot name="errorMessage">{{errorMessage}}</slot>
       </span>
     </transition>
   </div>
-  <SfOverlay :visible="open" @click="" class="sf-select__overlay"/>
+  <!--  -->
+  <transition name="fade">
+    <div v-show="open" class="sf-select__overlay"></div>
+  </transition>
+  <transition name="sf-select">
+    <div v-show="open" class="sf-select__dropdown">
+      <ul
+        :id="'lbox_'+_uid"
+        role="listbox"
+        class="sf-select__options"
+        :style="{maxHeight}"
+      >
+        <slot />
+      </ul>
+      <SfButton @click="closeHandler" class="sf-select__cancel" ref="cancel">
+        Cancel
+      </SfButton>
+    </div>
+  </transition>
 </div>
