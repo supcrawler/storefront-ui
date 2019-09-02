@@ -1,18 +1,16 @@
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
 
 export default {
   name: "SfProductCard",
-
   props: {
     /**
      * Product image
      * It should be an url of the product
      */
     image: {
-      type: [Array, Object, String],
+      type: String,
       default: "assets/storybook/product_thumb.png"
     },
     /**
@@ -26,14 +24,7 @@ export default {
      * Product rating
      */
     scoreRating: {
-      type: [Number, Boolean],
-      default: false
-    },
-    /**
-     * Product reviews count
-     */
-    reviewsCount: {
-      type: [Number],
+      type: [Number, String, Boolean],
       default: false
     },
     /**
@@ -83,14 +74,11 @@ export default {
       default: false
     }
   },
-
   components: {
     SfPrice,
     SfRating,
-    SfIcon,
-    SfImage
+    SfIcon
   },
-
   computed: {
     currentWishlistIcon() {
       return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
@@ -106,7 +94,6 @@ export default {
       }`;
     }
   },
-
   methods: {
     toggleOnWishlist() {
       this.$emit("click:wishlist", !this.isOnWishlist);
