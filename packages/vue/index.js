@@ -13,10 +13,8 @@ import SfPrice from "./src/components/atoms/SfPrice/SfPrice.vue";
 import SfProperty from "./src/components/atoms/SfProperty/SfProperty.vue";
 import SfRating from "./src/components/atoms/SfRating/SfRating.vue";
 import SfInput from "./src/components/atoms/SfInput/SfInput.vue";
-import SfImage from "./src/components/atoms/SfImage/SfImage.vue";
 
 import SfAlert from "./src/components/molecules/SfAlert/SfAlert.vue";
-import SfAddToCart from "./src/components/molecules/SfAddToCart/SfAddToCart.vue";
 import SfBanner from "./src/components/molecules/SfBanner/SfBanner.vue";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.vue";
 import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfCharacteristic.vue";
@@ -32,6 +30,7 @@ import SfRadio from "./src/components/molecules/SfRadio/SfRadio.vue";
 import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
+import SfImage from "./src/components/molecules/SfImage/SfImage.vue";
 
 import SfAccordion from "./src/components/organisms/SfAccordion/SfAccordion.vue";
 import SfCarousel from "./src/components/organisms/SfCarousel/SfCarousel.vue";
@@ -40,7 +39,6 @@ import SfMegaMenu from "./src/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 import SfSidebar from "./src/components/organisms/SfSidebar/SfSidebar.vue";
 import SfTopBar from "./src/components/organisms/SfTopBar/SfTopBar.vue";
 import SfHero from "./src/components/organisms/SfHero/SfHero.vue";
-import SfTabs from "./src/components/organisms/SfTabs/SfTabs.vue";
 
 import SfStoreLocator from "./src/components/organisms/SfStoreLocator/SfStoreLocator.vue";
 import SfBannerGrid from "./src/components/organisms/SfBannerGrid/SfBannerGrid.vue";
@@ -60,7 +58,6 @@ export {
   SfPrice,
   SfProperty,
   SfRating,
-  SfAddToCart,
   SfInput,
   SfAlert,
   SfBanner,
@@ -88,6 +85,5 @@ export {
   SfStoreLocator,
   SfImage,
   SfBannerGrid,
-  SfBottomNavigation,
-  SfTabs
+  SfBottomNavigation
 };
