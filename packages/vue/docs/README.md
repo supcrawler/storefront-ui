@@ -21,7 +21,7 @@ npm install --save @storefront-ui/vue
 ```
 Import styles (optional)
 ```scss
-import "@storefront-ui/vue/styles.scss"
+import "@storefront-ui/vue/src/css/_all.scss"
 ```
 Import and register components that you need
 ```js
