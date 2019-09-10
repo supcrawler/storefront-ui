@@ -27,8 +27,7 @@ export default {
         return {
           type: "slider",
           autoplay: false,
-          rewind: false,
-          gap: 0
+          rewind: false
         };
       }
     }
