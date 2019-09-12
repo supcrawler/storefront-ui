@@ -129,17 +129,15 @@ storiesOf("Molecules|Banner", module)
           )
         }
       },
-      template: `<div style="max-width: 1240px;">
-        <SfBanner
-                :title="title"
-                :description="description"
-                :subtitle="subtitle"
-                :button-text="buttonText"
-                :background="background"
-                :image="image"
-                :class="customClass"
-              />
-        </div>`
+      template: `<SfBanner
+        :title="title"
+        :description="description"
+        :subtitle="subtitle"
+        :button-text="buttonText"
+        :background="background"
+        :image="image"
+        :class="customClass"
+      />`
     }),
     {
       info: {

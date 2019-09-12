@@ -23,8 +23,7 @@ export default {
         type: "slider",
         rewind: true,
         autoplay: 5000,
-        perView: 1,
-        gap: 0
+        perView: 1
       }
     };
   },
@@ -79,11 +78,9 @@ export default {
 
   mounted() {
     if (this.numberOfPages) {
-      this.$nextTick(() => {
-        const glide = new Glide(this.$refs.glide, this.mergedOptions);
-        glide.mount();
-        this.glide = glide;
-      });
+      const glide = new Glide(this.$refs.glide, this.mergedOptions);
+      glide.mount();
+      this.glide = glide;
     }
   }
 };

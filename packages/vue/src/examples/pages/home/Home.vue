@@ -21,7 +21,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--slim"
+            class="sf-banner--left sf-banner--container-full"
           />
         </a>
       </template>
@@ -33,7 +33,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerE.png"
-            class="sf-banner--slim banner-central"
+            class="sf-banner--left"
           />
         </a>
       </template>
@@ -43,7 +43,7 @@
             subtitle="T-Shirts"
             title="THE OFFICE LIFE"
             image="assets/storybook/homepage/bannerC.png"
-            class="sf-banner--slim"
+            class="sf-banner--left sf-banner--container-full"
           />
         </a>
       </template>
@@ -53,7 +53,7 @@
             subtitle="Summer shoes"
             title="ECO SANDALS"
             image="assets/storybook/homepage/bannerG.png"
-            class="sf-banner--slim"
+            class="sf-banner--left sf-banner--container-full"
           />
         </a>
       </template>
@@ -66,14 +66,16 @@
       image="assets/storybook/homepage/newsletter.png"
     />
     <SfSection titleHeading="Best Sellers">
-      <SfCarousel class="product-carousel">
+      <SfCarousel
+        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
+        class="product-carousel"
+      >
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
-            :max-rating="product.rating.max"
-            :score-rating="product.rating.score"
+            :rating="product.rating.score"
             class="product-card"
           />
         </SfCarouselItem>
@@ -109,12 +111,10 @@
     </SfSection>
     <SfBanner
       title="Download our application to your mobile"
+      subtitle="Fashion to Take Away"
       image="assets/storybook/homepage/bannerD.png"
       class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
-      <template #subtitle>
-        <div class="banner-application__subtitle">Fashion to Take Away</div>
-      </template>
       <template #title>
         <h1 class="banner-application__title">
           Download our application to your&nbsp;mobile
@@ -315,28 +315,17 @@ export default {
     }
   }
 }
-.banner-central {
-  @media screen and (min-width: $desktop-min) {
-    padding-right: 30%;
-  }
-}
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
   margin: auto;
-  padding-right: calc(25% + 5rem);
-  padding-left: 2.5rem;
-  line-height: 1.6;
   &__title {
-    margin: $spacer-big 0 0 0;
-    font-size: $h1-font-size-desktop;
-    font-weight: $h1-font-weight-desktop;
-  }
-  &__subtitle {
-    color: #a3a5ad;
-    font-family: $body-font-family-primary;
-    font-size: $font-size-extra-big-desktop;
-    font-weight: $body-font-weight-primary;
+    padding: 0;
+    margin: 0;
+    margin-top: $spacer-big;
+    font-size: 2.25rem;
+    font-weight: 400;
+    line-height: 1.388;
   }
   &__download {
     max-height: 47px;

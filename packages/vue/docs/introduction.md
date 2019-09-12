@@ -84,10 +84,10 @@ It's a great goal but it will take a lot of time to achieve it only by ourselves
 The project is open source and free to use.
 
 If you'd like to support us and join the team please write to me:
-[**filip@vuestorefront.io**](mailto:filip@vuestorefront.io) ;)
+**filip [at] vuestorefront.io** ;)
 
 ## Useful links
 
 - [StorefrontUI Github](https://github.com/Divanteltd/storefront-ui)
-- [Contribution guide](contributing/getting-started.md)
+- [Contribution guide](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md)
 - [Storybook docs](https://storybook.js.org/docs/basics/introduction/)

@@ -45,7 +45,6 @@
               v-for="option in sortByOptions"
               :key="option.value"
               :value="option.value"
-              class="sort-by__option"
               >{{ option.label }}</SfSelectOption
             >
           </SfSelect>
@@ -95,7 +94,7 @@
     </div>
     <div class="main">
       <div class="sidebar desktop-only">
-        <SfAccordion :firstOpen="true" :showChevron="false">
+        <SfAccordion :firstOpen="true">
           <template v-slot="{ selected }">
             <SfAccordionItem
               v-for="(accordion, i) in sidebarAccordion"
@@ -170,7 +169,6 @@
         :key="filter.value"
         :label="filter.label"
         :count="filter.count"
-        class="filters__item"
       />
       <h3 class="filters__title">Color</h3>
       <SfFilter
@@ -179,7 +177,6 @@
         :value="filter.value"
         :label="filter.label"
         :color="filter.color"
-        class="filters__item"
       />
       <h3 class="filters__title">Size</h3>
       <SfFilter
@@ -188,7 +185,6 @@
         :value="filter.value"
         :label="filter.label"
         :count="filter.count"
-        class="filters__item"
       />
       <h3 class="filters__title">Price</h3>
       <SfFilter
@@ -197,7 +193,6 @@
         :value="filter.value"
         :label="filter.label"
         :count="filter.count"
-        class="filters__item"
       />
       <h3 class="filters__title">Material</h3>
       <SfFilter
@@ -206,7 +201,6 @@
         :value="filter.value"
         :label="filter.label"
         :count="filter.count"
-        class="filters__item"
       />
       <div class="filters__buttons">
         <SfButton
@@ -556,22 +550,18 @@ export default {
     background: $c-light-primary;
     color: #a3a5ad;
   }
-  &__item {
-    padding: $spacer-small 0;
-  }
 }
 .sort-by {
   flex: unset;
-  width: 190px;
-  padding: 0 10px;
-  font-size: inherit;
-  &__option {
+  width: 175px;
+  /deep/ .sf-select__selected {
     padding: 10px;
-    font-size: inherit;
+  }
+  /deep/ .sf-select-option {
+    padding: 10px;
   }
 }
 .menu-item {
-  padding: $spacer-small 0;
   &--active,
   &:hover {
     font-weight: 500;
