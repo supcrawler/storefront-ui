@@ -51,7 +51,7 @@ npm install --save @storefront-ui/vue
 - Import stylesheets in App.vue or main.js:
 
 ```scss
-import "@storefront-ui/vue/src/css/_all.scss";
+import "@storefront-ui/vue/styles.scss";
 ```
 
 - It's done! Now you can import and use any of the components:
@@ -84,10 +84,10 @@ It's a great goal but it will take a lot of time to achieve it only by ourselves
 The project is open source and free to use.
 
 If you'd like to support us and join the team please write to me:
-**filip [at] vuestorefront.io** ;)
+[**filip@vuestorefront.io**](mailto:filip@vuestorefront.io) ;)
 
 ## Useful links
 
 - [StorefrontUI Github](https://github.com/Divanteltd/storefront-ui)
-- [Contribution guide](https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md)
+- [Contribution guide](contributing/become-a-contributor.md)
 - [Storybook docs](https://storybook.js.org/docs/basics/introduction/)
