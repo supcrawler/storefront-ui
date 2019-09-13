@@ -66,16 +66,14 @@
       image="assets/storybook/homepage/newsletter.png"
     />
     <SfSection titleHeading="Best Sellers">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
+      <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
-            :rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :score-rating="product.rating.score"
             class="product-card"
           />
         </SfCarouselItem>
@@ -111,10 +109,12 @@
     </SfSection>
     <SfBanner
       title="Download our application to your mobile"
-      subtitle="Fashion to Take Away"
       image="assets/storybook/homepage/bannerD.png"
-      class="banner-application sf-banner--left desktop-only"
+      class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
+      <template #subtitle>
+        <div class="banner-application__subtitle">Fashion to Take Away</div>
+      </template>
       <template #title>
         <h1 class="banner-application__title">
           Download our application to your&nbsp;mobile
@@ -148,7 +148,7 @@
       <SfBottomNavigationItem>
         <SfIcon icon="profile" size="20px" />
       </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
         <SfCircleIcon
           class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
         >
@@ -326,13 +326,17 @@ export default {
   margin: auto;
   padding-right: calc(25% + 5rem);
   padding-left: 2.5rem;
+  line-height: 1.6;
   &__title {
-    padding: 0;
-    margin: 0;
-    margin-top: $spacer-big;
-    font-size: 2.25rem;
-    font-weight: 400;
-    line-height: 1.388;
+    margin: $spacer-big 0 0 0;
+    font-size: $h1-font-size-desktop;
+    font-weight: $h1-font-weight-desktop;
+  }
+  &__subtitle {
+    color: #a3a5ad;
+    font-family: $body-font-family-primary;
+    font-size: $font-size-extra-big-desktop;
+    font-weight: $body-font-weight-primary;
   }
   &__download {
     max-height: 47px;
@@ -372,5 +376,8 @@ export default {
 }
 .sf-banner {
   flex: 1;
+}
+.bottom-navigation-circle {
+  opacity: 1;
 }
 </style>
