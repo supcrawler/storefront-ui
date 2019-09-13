@@ -3,10 +3,8 @@
 .sf-sticky {
   position: sticky;
   top: 0;
-  z-index: 1;
   width: 100%;
 }
-// For position:static non supported browsers
 .sf-sticky--sticky {
   position: fixed;
   top: 0;

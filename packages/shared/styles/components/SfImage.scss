@@ -8,10 +8,8 @@ $image__overlay-color: $c-white !default;
 .sf-image {
   position: relative;
   display: flex;
-  justify-content: center;
-  align-items: center;
   &__img {
-    flex: unset;
+    flex: none;
     max-width: 100%;
     height: auto;
   }
