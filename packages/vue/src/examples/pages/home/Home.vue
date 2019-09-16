@@ -21,7 +21,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerF.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -33,7 +33,7 @@
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
             image="assets/storybook/homepage/bannerE.png"
-            class="sf-banner--left"
+            class="sf-banner--slim banner-central"
           />
         </a>
       </template>
@@ -43,7 +43,7 @@
             subtitle="T-Shirts"
             title="THE OFFICE LIFE"
             image="assets/storybook/homepage/bannerC.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -53,7 +53,7 @@
             subtitle="Summer shoes"
             title="ECO SANDALS"
             image="assets/storybook/homepage/bannerG.png"
-            class="sf-banner--left sf-banner--container-full"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -66,16 +66,16 @@
       image="assets/storybook/homepage/newsletter.png"
     />
     <SfSection titleHeading="Best Sellers">
-      <SfCarousel
-        :settings="{ gap: 0, peek: { before: 100, after: 0 } }"
-        class="product-carousel"
-      >
+      <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
-            :rating="product.rating.score"
+            :max-rating="product.rating.max"
+            :score-rating="product.rating.score"
+            :isOnWishlist="product.isOnWishlist"
+            @click:wishlist="toggleWishlist(i)"
             class="product-card"
           />
         </SfCarouselItem>
@@ -111,10 +111,12 @@
     </SfSection>
     <SfBanner
       title="Download our application to your mobile"
-      subtitle="Fashion to Take Away"
       image="assets/storybook/homepage/bannerD.png"
       class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
+      <template #subtitle>
+        <div class="banner-application__subtitle">Fashion to Take Away</div>
+      </template>
       <template #title>
         <h1 class="banner-application__title">
           Download our application to your&nbsp;mobile
@@ -148,7 +150,7 @@
       <SfBottomNavigationItem>
         <SfIcon icon="profile" size="20px" />
       </SfBottomNavigationItem>
-      <SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
         <SfCircleIcon
           class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
         >
@@ -212,49 +214,57 @@ export default {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productC.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
           image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
-          rating: { max: 5, score: 4 }
+          rating: { max: 5, score: 4 },
+          isOnWishlist: false
         }
       ]
     };
@@ -271,6 +281,11 @@ export default {
     SfBottomNavigation,
     SfIcon,
     SfCircleIcon
+  },
+  methods: {
+    toggleWishlist(index) {
+      this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
+    }
   },
   mounted() {
     document.body.style.setProperty("margin", "0");
@@ -315,17 +330,28 @@ export default {
     }
   }
 }
+.banner-central {
+  @media screen and (min-width: $desktop-min) {
+    padding-right: 30%;
+  }
+}
 .banner-application {
   min-height: 420px;
   max-width: 1040px;
   margin: auto;
+  padding-right: calc(25% + 5rem);
+  padding-left: 2.5rem;
+  line-height: 1.6;
   &__title {
-    padding: 0;
-    margin: 0;
-    margin-top: $spacer-big;
-    font-size: 2.25rem;
-    font-weight: 400;
-    line-height: 1.388;
+    margin: $spacer-big 0 0 0;
+    font-size: $h1-font-size-desktop;
+    font-weight: $h1-font-weight-desktop;
+  }
+  &__subtitle {
+    color: #a3a5ad;
+    font-family: $body-font-family-primary;
+    font-size: $font-size-extra-big-desktop;
+    font-weight: $body-font-weight-primary;
   }
   &__download {
     max-height: 47px;
@@ -365,5 +391,8 @@ export default {
 }
 .sf-banner {
   flex: 1;
+}
+.bottom-navigation-circle {
+  opacity: 1;
 }
 </style>
