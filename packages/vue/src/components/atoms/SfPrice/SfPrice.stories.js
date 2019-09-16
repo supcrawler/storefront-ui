@@ -35,8 +35,7 @@ storiesOf("Atoms|Price", module)
       components: { SfPrice },
       template: `<SfPrice 
         :regular="regular" 
-        :special="special"
-        class="sf-price--big"/>`
+        :special="special"/>`
     }),
     {
       info: {
