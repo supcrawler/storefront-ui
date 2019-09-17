@@ -1,3 +1,0 @@
-# Documentation guidelines
-
-TBD

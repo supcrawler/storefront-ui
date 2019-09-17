@@ -10,9 +10,6 @@ storiesOf("Examples|Pages", module)
     "Category",
     () => ({
       components: { Category },
-      mounted() {
-        document.body.style.setProperty("margin", "0");
-      },
       template: `
       <Category />
     `
