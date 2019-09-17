@@ -60,12 +60,7 @@
 }, {
     "name": "Nicolò Maria Mezzopera",
     "role": "Maintainer",
-    "work": {
-        "title": "Senior Frontend Engineer",
-        "org": "Gitlab",
-        "orgUrl": "https://gitlab.com/"
-    },
-    "location": "Budapest, Hungary",
+    "location": "Sofia, Hungary",
     "languages": ["it", "en"],
     "socials": {
         "github": "DonNicoJs",
