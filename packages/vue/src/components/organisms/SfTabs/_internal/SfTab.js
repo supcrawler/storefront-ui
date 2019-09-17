@@ -15,9 +15,9 @@ export default {
   },
   props: {
     /**
-     * Tab title.
+     * Tab header.
      */
-    title: {
+    header: {
       type: String,
       default: "MenuItem"
     }
