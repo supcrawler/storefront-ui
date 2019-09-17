@@ -18,7 +18,7 @@ const eventsTableConfig = {
   tableBodyConfig: [["input", "event emited when option is selected"]]
 };
 
-storiesOf("Organisms|BottomNavigation", module)
+storiesOf("Molecules|BottomNavigation", module)
   .addDecorator(withKnobs)
   .add(
     "[slot] default",
