@@ -1,5 +1,6 @@
+import SfArrow from '../../src/components/atoms/SfArrow/SfArrow.vue'
+import SfButton from '../../src/components/atoms/SfButton/SfButton.vue'
 
-import { SfArrow, SfButton, SfPagination } from '../../index'
 export default ({
   Vue,
   options, 
@@ -8,5 +9,4 @@ export default ({
 }) => {
   Vue.component('SfArrow', SfArrow)
   Vue.component('SfButton', SfButton)
-  Vue.component('SfPagination', SfPagination)
 }
