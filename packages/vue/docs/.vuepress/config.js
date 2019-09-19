@@ -16,7 +16,6 @@ module.exports = {
     sidebarDepth: 2,
     sidebar: [
       ['/introduction', 'Introduction'],
-      ['/getting-started', 'Getting started'],
       ['/customization', 'Customization'],
       ['/meet-the-team', 'Meet the core team'],
       {
