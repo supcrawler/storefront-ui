@@ -13,43 +13,39 @@ $card-margin-left-desktop: $spacer-big * 5!default;
   @include for-desktop {
     display: flex;
   }
-  &__static,
-  &__sliding {
+  &__top,
+  &__bottom {
     flex: 1;
   }
-  &__static {
+  &__top {
     margin: 0 -#{$spacer-big};
     overflow: hidden;
     transition: height 150ms ease-in-out;
   }
-  &__sliding {
+  &__bottom {
     @include for-desktop {
       margin-left: $card-margin-left-desktop;
     }
   }
-  &__mobile-bar{
-    padding: $spacer-medium 0;
+  &__cross {
+    box-sizing: border-box;
     display: none;
+    padding: $spacer-medium 0 $spacer-medium * 2;
     @include for-desktop {
       display: none;
     }
   }
-  &__close{
-    padding: 0;
-    border: 0;
-    background-color: transparent;
-    cursor: pointer;
-  }
-  &--has-scroll-lock{
-    overflow: hidden;
-  }
-  &--is-active{
-    #{$this}{
-      &__static{
-        height: 0!important;
+  &--is-active {
+    #{$this} {
+      &__top {
+        height: 0 !important;
       }
-      &__mobile-bar{
+      &__cross {
         display: block;
+        cursor: pointer;
+        @include for-desktop {
+          display: none;
+        }
       }
     }
   }

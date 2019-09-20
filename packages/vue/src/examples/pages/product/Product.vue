@@ -460,10 +460,6 @@ export default {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     }
-  },
-  mounted() {
-    const vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty("--vh", `${vh}px`);
   }
 };
 </script>
@@ -605,7 +601,6 @@ export default {
 }
 .gallery-mobile {
   height: calc(100vh - 177px);
-  height: calc(var(--vh, 1vh) * 100 - 177px);
   /deep/ .glide {
     &,
     * {
@@ -621,7 +616,6 @@ export default {
         min-width: calc(
           (375 / 490) * (100vh - 177px)
         ); // (oldWidth / oldHeight) * newHeight = newWidth
-        height: calc((var(--vh, 1vh) * 100 - 177px) * (375px / 490));
       }
     }
   }
