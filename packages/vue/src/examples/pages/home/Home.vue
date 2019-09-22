@@ -312,9 +312,7 @@ export default {
 .product-card {
   max-width: unset;
   &:hover {
-    @media screen and (min-width: $desktop-min) {
-      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
-    }
+    box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
   }
 }
 .product-carousel {
