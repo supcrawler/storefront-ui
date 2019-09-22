@@ -1,14 +1,11 @@
 # Arrow
-
 Arrow component for sliders and navigation.
-
 
 [[toc]]
 
-
 ## Most common usage scenario
-
-<br><SfArrow />
+<br />
+<SfArrow/>
 
 ```html 
 <template>
@@ -26,33 +23,20 @@ export default {
 </script>
 ```
 
-
 ## Props
-
-None.
-
-
+none
 ## Slots
-
-- **`default`**
-  - _Use this slot to replace arrow icon_
-
-
+- `default` arrow SVG icon
 ## Events
+none
+## CSS Modifiers
 
-None.
-
-
-## CSS modifiers
-
-- **`arrow--long`**
-- **`arrow--right`**
-- **`arrow--rounded`**
-- **`arrow--transparent`**
-- **`arrow--no-shadow`**
+- `sf-arrow--right` transform left to right arrow
+- `sf-arrow--long` change short to long arrow
 
 
 ## SCSS variables
+Below you can find defaut values of SCSS variables bound to this component. You can override them in `sfui.scss` in the root of your project.
 
 ```scss
 $arrow__button-color: $c-light-primary !default;
@@ -63,24 +47,20 @@ $arrow__icon-color: $c-white !default;
 $arrow__icon-color--hover: $c-dark-primary !default;
 ```
 
-You can override SCSS variable values bound to this component in `sfui.scss` in the root of your project.
-
-
 ## Partials
 
-If you want to customize this component even more you can use its partials for limitless customization.
+If you want to customize this component even more you can use it's partials for limitless customization.
 
 ```html
-<template lang="html" src="@storefront-ui/vue/src/components/atoms/SfArrow/SfArrow.html"></template>
-<script src="@storefront-ui/vue/src/components/atoms/SfArrow/SfArrow.js"></script>
+<template lang="html" src="@storefront-ui/vue/src/components/atoms/SfArrow.html"></template>
+<script src="@storefront-ui/vue/src/components/atoms/SfArrow.js"></script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/SfArrow.scss";
 </style>
 ```
-
 You can read about using component partials [here](docs.storefrontui.io/customization)
-
 
 ## Play with this component
 
 See all available configurations and play with this component on <a href="https://storybook.storefrontui.io/?path=/story/atoms-arrow--basic">Storybook</a>.
+
