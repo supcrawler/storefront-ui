@@ -4,9 +4,9 @@
     @click="tabClick"
     :class="{'sf-tabs__title--active': isActive}"
   >
-    {{title}}
+    {{header}}
     <div class="sf-tabs__chevron">
-      <SfChevron :class="{'sf-chevron--top': isActive}" />
+      <SfChevron :isActive="isActive" />
     </div>
   </div>
 
