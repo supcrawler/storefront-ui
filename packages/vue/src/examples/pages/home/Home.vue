@@ -1,6 +1,6 @@
 <template>
   <div id="home">
-    <SfHero class="section">
+    <SfHero>
       <SfHeroItem
         v-for="(hero, i) in heroes"
         :key="i"
@@ -12,7 +12,7 @@
         :class="hero.className"
       ></SfHeroItem>
     </SfHero>
-    <SfBannerGrid :banner-grid="1" class="banners section">
+    <SfBannerGrid :banner-grid="1" class="banners">
       <template #bannerA>
         <a href="#">
           <SfBanner
@@ -65,7 +65,7 @@
       class="call-to-action-newsletter"
       image="assets/storybook/homepage/newsletter.png"
     />
-    <SfSection title-heading="Best Sellers" class="section">
+    <SfSection title-heading="Best Sellers">
       <SfCarousel class="product-carousel">
         <SfCarouselItem v-for="(product, i) in products" :key="i">
           <SfProductCard
@@ -81,11 +81,7 @@
         </SfCarouselItem>
       </SfCarousel>
     </SfSection>
-    <SfSection
-      title-heading="Share Your Look"
-      subtitle-heading="#YOURLOOK"
-      class="section"
-    >
+    <SfSection title-heading="Share Your Look" subtitle-heading="#YOURLOOK">
       <div class="grid grid-images">
         <div class="grid__row">
           <div class="grid__col">
@@ -114,8 +110,9 @@
       </div>
     </SfSection>
     <SfBanner
+      title="Download our application to your mobile"
       image="assets/storybook/homepage/bannerD.png"
-      class="banner-application desktop-only"
+      class="banner-application sf-banner--left sf-banner--center desktop-only"
     >
       <template #subtitle>
         <div class="banner-application__subtitle">Fashion to Take Away</div>
@@ -295,51 +292,46 @@ export default {
 <style lang="scss" scoped>
 @import "../../../css/variables";
 @import "~@storefront-ui/shared/styles/helpers/visibility";
-
-@mixin for-desktop {
-  @media screen and (min-width: $desktop-min) {
-    @content;
-  }
-}
-
 #home {
   box-sizing: border-box;
   margin: 0 0 60px 0;
-  @include for-desktop {
+  padding: 0 $spacer-big;
+  @media screen and (min-width: $desktop-min) {
     max-width: 1240px;
     margin: auto;
+    padding: 0;
   }
 }
 .call-to-action-newsletter {
-  margin: $spacer-big 0;
+  margin: $spacer-big -#{$spacer-big};
   box-sizing: border-box;
-  @include for-desktop {
+  @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big * 2 0;
   }
 }
 .product-card {
   max-width: unset;
   &:hover {
-    @include for-desktop {
+    @media screen and (min-width: $desktop-min) {
       box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
     }
   }
 }
 .product-carousel {
   margin: -20px -#{$spacer-big} -20px 0;
-  @include for-desktop {
+  @media screen and (min-width: $desktop-min) {
     margin: -20px 0;
   }
   /deep/ .sf-carousel__wrapper {
     padding: 20px 0;
-    @include for-desktop {
+    @media screen and (min-width: $desktop-min) {
       padding: 20px;
       max-width: calc(100% - 216px);
     }
   }
 }
 .banner-central {
-  @include for-desktop {
+  @media screen and (min-width: $desktop-min) {
     padding-right: 30%;
   }
 }
@@ -371,7 +363,7 @@ export default {
 }
 .banners {
   margin: $spacer-big 0;
-  @include for-desktop {
+  @media screen and (min-width: $desktop-min) {
     margin: $spacer-extra-big 0;
   }
 }
@@ -382,7 +374,7 @@ export default {
     display: flex;
     & + & {
       margin-top: $spacer-big / 2;
-      @include for-desktop {
+      @media screen and (min-width: $desktop-min) {
         margin-top: $spacer-big;
       }
     }
@@ -391,7 +383,7 @@ export default {
     margin: 0;
     & + & {
       margin-left: $spacer-big / 2;
-      @include for-desktop {
+      @media screen and (min-width: $desktop-min) {
         margin-left: $spacer-big;
       }
     }
@@ -399,12 +391,6 @@ export default {
 }
 .sf-banner {
   flex: 1;
-}
-.section {
-  @media (max-width: $desktop-min) {
-    padding-left: $spacer-big;
-    padding-right: $spacer-big;
-  }
 }
 .bottom-navigation-circle {
   opacity: 1;
