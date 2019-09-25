@@ -1,3 +1,10 @@
 export default {
-  name: "SfChevron"
+  name: "SfChevron",
+  props: {
+    /** Is SfChevron active. Direction of chevron depends on it  */
+    active: {
+      type: Boolean,
+      default: false
+    }
+  }
 };

@@ -9,7 +9,7 @@
       <div class="sf-accordion-item__header">{{ header }}</div>
     </slot>
     <div v-if="$parent.showChevron" class="sf-accordion-item__chevron">
-      <SfChevron :class="{'sf-chevron--top': isOpen}" />
+      <SfChevron :active="isOpen" />
     </div>
   </div>
   <transition :name="$parent.transition">
