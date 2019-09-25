@@ -1,0 +1,88 @@
+@import "../variables";
+$collected-product-hover-shadow: 0px 4px 35px rgba(168, 172, 176, 0.19) !default;
+$collected-product-desktop-max-width: 360px !default;
+$collected-product__remove-size: 1.625rem !default;
+$collected-product__remove-background: $c-gray-secondary!default;
+$collected-product__remove-background--hover: $c-dark-secondary!default;
+$collected-product-remove-active: #1d1f22;
+
+.sf-collected-product {
+  $this: &;
+  max-width: 100%;
+  position: relative;
+  transition: 0.3s all;
+  background: transparent;
+  &__remove {
+    display: none;
+    @media (min-width: $desktop-min) {
+      position: absolute;
+      right: calc(#{$collected-product__remove-size} / -2);
+      top: 10px;
+      display: flex;
+      width: $collected-product__remove-size;
+      height: $collected-product__remove-size;
+      background-color: $collected-product__remove-background;
+      box-shadow: none;
+      cursor: pointer;
+      opacity: 0;
+    }
+    &:hover,
+    &:active{
+      @media (min-width: $desktop-min) {
+        box-shadow: none;
+        background-color: $collected-product__remove-background--hover;
+      }
+    }
+  }
+  &__container {
+    display: flex;
+  }
+  &__image {
+    max-width: 100%;
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    padding: 10px;
+    align-items: flex-end;
+    justify-content: end;
+    img {
+      max-width: 100%;
+    }
+  }
+  .sf-counter {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+  }
+  &__contents {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  &__title {
+    margin-top: 0.5rem;
+    margin-bottom: 0.25rem;
+    display: flex;
+    font-family: $body-font-family-secondary;
+    font-size: $font-size-regular-mobile;
+    font-weight: 300;
+    line-height: 1.6;
+    @media (min-width: $desktop-min) {
+      margin: $spacer 0;
+      font-size: $font-size-regular-desktop;
+    }
+  }
+  &:hover {
+    transition: 0.3s all;
+    z-index: 2;
+    background: #ffffff;
+    box-shadow: $collected-product-hover-shadow;
+    #{$this}__remove {
+      opacity: 1;
+    }
+  }
+  @media (min-width: $desktop-min) {
+    max-width: $collected-product-desktop-max-width;
+  }
+}
