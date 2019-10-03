@@ -57,6 +57,7 @@ storiesOf("Atoms|Heading", module)
           default: options(
             "CSS Modifier",
             {
+              null: "null",
               "sf-heading--no-underline": "sf-heading--no-underline",
               "sf-heading--left": "sf-heading--left",
               "sf-heading--right": "sf-heading--right"
@@ -68,10 +69,10 @@ storiesOf("Atoms|Heading", module)
         }
       },
       components: { SfHeading },
-      template: `<SfHeading
-        :title="title"
-        :subtitle="subtitle"
-        :level="level"
+      template: `<SfHeading 
+        :title="title" 
+        :subtitle="subtitle" 
+        :level="level" 
         :class="customClass" />`
     }),
     {
@@ -138,6 +139,7 @@ storiesOf("Atoms|Heading", module)
           default: options(
             "CSS Modifier",
             {
+              null: "null",
               "sf-heading--underline": "sf-heading--underline",
               "sf-heading--left": "sf-heading--left",
               "sf-heading--right": "sf-heading--right"

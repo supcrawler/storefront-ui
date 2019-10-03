@@ -1,10 +1,6 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import SfIcon from "./SfIcon.vue";
@@ -78,14 +74,10 @@ storiesOf("Atoms|Icon", module)
     () => ({
       props: {
         customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              "sf-icon--color-primary": "sf-icon--color-primary",
-              "sf-icon--color-secondary": "sf-icon--color-secondary"
-            },
-            "",
-            { display: "multi-select" }
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-icon--color-primary", "sf-icon--color-secondary"],
+            "null"
           )
         },
         icon: {

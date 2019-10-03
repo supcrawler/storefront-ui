@@ -1,9 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfBanner from "./SfBanner.vue";
 
@@ -117,19 +113,19 @@ storiesOf("Molecules|Banner", module)
           default: text("image (prop)", "assets/storybook/Banner1.png")
         },
         customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              "sf-banner--left": "sf-banner--left",
-              "sf-banner--top": "sf-banner--top",
-              "sf-banner--bottom": "sf-banner--bottom",
-              "sf-banner--center": "sf-banner--center",
-              "sf-banner--secondary": "sf-banner--secondary",
-              "sf-banner--container-medium": "sf-banner--container-medium",
-              "sf-banner--container-full": "sf-banner--container-full"
-            },
-            "",
-            { display: "multi-select" }
+          default: select(
+            "CSS Modifier",
+            [
+              "null",
+              "sf-banner--left",
+              "sf-banner--top",
+              "sf-banner--bottom",
+              "sf-banner--center",
+              "sf-banner--secondary",
+              "sf-banner--container-medium",
+              "sf-banner--container-full"
+            ],
+            "null"
           )
         }
       },
