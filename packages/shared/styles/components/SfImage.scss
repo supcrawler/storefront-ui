@@ -7,24 +7,27 @@ $image__overlay-color: $c-white !default;
 
 .sf-image {
   position: relative;
-  display: inline-block;
-  line-height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+
   &__img {
-    display: block;
+    flex: unset;
     max-width: 100%;
     height: auto;
   }
+
   &__overlay {
     position: absolute;
     top: 0;
     left: 0;
-    bottom: 0;
-    right: 0;
+    width: 100%;
+    height: 100%;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: $image__overlay-justify-content;
+    align-items: $image__overlay-align-items;
     background-color: $image__overlay-background-color;
     color: $image__overlay-color;
-    line-height: 1.6;
   }
 }

@@ -589,8 +589,6 @@ export default {
   }
   &__pagination {
     @include for-desktop {
-      display: flex;
-      justify-content: center;
       margin-top: $spacer-extra-big;
     }
   }
