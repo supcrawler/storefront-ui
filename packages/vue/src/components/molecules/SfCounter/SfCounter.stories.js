@@ -5,8 +5,7 @@ import {
   text,
   number,
   boolean,
-  select,
-  optionsKnob as options
+  select
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 import SfCounter from "./SfCounter.vue";
@@ -87,13 +86,11 @@ storiesOf("Molecules|Counter", module)
           default: boolean("required (prop)")
         },
         customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              "sf-counter--large": "sf-counter--large"
-            },
-            "",
-            { display: "multi-select" }
+          default: select(
+            "CSS Modifier",
+            ["null", "sf-counter--large"],
+            "null",
+            "CSS-Modifiers"
           )
         }
       },
