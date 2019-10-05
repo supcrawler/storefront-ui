@@ -1,11 +1,7 @@
 import { storiesOf } from "@storybook/vue";
 import SfCircleIcon from "./SfCircleIcon.vue";
 import { generateStorybookTable } from "@/helpers";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
@@ -58,26 +54,26 @@ storiesOf("Atoms|CircleIcon", module)
           default: text("colorIcon (prop)", "white")
         },
         customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              "sf-circle-icon--small": "sf-circle-icon--small",
-              "sf-circle-icon--big": "sf-circle-icon--big",
-              "color-primary": "color-primary",
-              "color-secondary": "color-secondary",
-              "color-warning": "color-warning",
-              "color-danger": "color-danger",
-              "color-info": "color-info",
-              "color-success": "color-success"
-            },
-            "",
-            { display: "multi-select" }
+          default: select(
+            "CSS Modifier",
+            [
+              "null",
+              "sf-circle-icon--small",
+              "sf-circle-icon--big",
+              "color-primary",
+              "color-secondary",
+              "color-warning",
+              "color-danger",
+              "color-info",
+              "color-success"
+            ],
+            "null"
           )
         }
       },
       components: { SfCircleIcon },
-      template: `<SfCircleIcon
-        :icon="icon"
+      template: `<SfCircleIcon 
+        :icon="icon" 
         :class="customClass" />`
     }),
     {
@@ -97,7 +93,7 @@ storiesOf("Atoms|CircleIcon", module)
     () => ({
       components: { SfCircleIcon },
       template: `<SfCircleIcon>
-        <img alt="Menu" src='assets/storybook/menu.svg'>
+        <img src='assets/storybook/menu.svg'>
       </SfCircleIcon>`
     }),
     {

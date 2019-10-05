@@ -589,15 +589,11 @@ export default {
   }
   &__pagination {
     @include for-desktop {
-      display: flex;
-      justify-content: center;
       margin-top: $spacer-extra-big;
     }
   }
 }
 .filters {
-  position: relative;
-  z-index: 10;
   &__title:not(:first-child),
   &__buttons {
     margin-top: $spacer-big * 3;

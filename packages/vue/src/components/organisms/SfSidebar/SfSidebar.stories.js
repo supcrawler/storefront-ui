@@ -37,6 +37,7 @@ storiesOf("Organisms|Sidebar", module)
           default: options(
             "CSS Modifiers",
             {
+              null: "null",
               "sf-sidebar--right": "sf-sidebar--right"
             },
             "",

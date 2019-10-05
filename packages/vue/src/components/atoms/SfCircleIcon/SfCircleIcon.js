@@ -21,14 +21,7 @@ export default {
     sizeIcon: {
       type: String,
       default: "100%"
-    },
-    /**
-     * Sets aria-label for button icon
-     */
-    alt: {
-      type: String,
-      default: ""
-    },
+    }
   },
   components: {
     SfButton,

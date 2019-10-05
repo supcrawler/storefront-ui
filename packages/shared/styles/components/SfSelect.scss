@@ -76,9 +76,7 @@ $select__cancel-color: #a3a5ad !default;
     }
   }
   &__selected {
-    display: flex;
-    align-content: center;
-    min-height: 28px;
+    min-height: 28px; // TODO: none-selected height
     padding: 5px 0;
     &:hover {
       background-color: transparent;
