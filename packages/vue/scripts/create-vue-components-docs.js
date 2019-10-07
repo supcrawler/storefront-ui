@@ -125,16 +125,15 @@ function getComponentInfoFromPath(pathComponentVue) {
   const componentDirname = path.dirname(pathComponentVue);
   const componentFilename = path.basename(pathComponentVue);
   const componentName = componentFilename.replace(/Sf(.+)\.vue$/, "$1");
-  const sfComponentName = "Sf" + componentName;
   const atomicType = componentDirname.replace(/\/.*/, "");
   const storybookLink = `${atomicType}-${componentName}--basic`.toLowerCase();
 
   return {
     componentName,
-    sfComponentName,
+    sfComponentName: "Sf" + componentName,
     pathComponentHtml: pathComponentVue.replace(/(.+)\.vue$/, "$1.html"),
     pathComponentJs: pathComponentVue.replace(/(.+)\.vue$/, "$1.js"),
-    pathComponentScss: sfComponentName + ".scss",
+    pathComponentScss: pathComponentVue.replace(/(.+)\.vue$/, "$1.scss"),
     pathComponentMd: pathComponentVue.replace(/(.+)\.vue$/, "$1.md"),
     pathInternalComponents: path.join(componentDirname, "_internal"),
     storybookLink
@@ -292,7 +291,7 @@ function extractCssModifiers(contentScssFile) {
   const uniqueModifiers = new Map();
   for (let i = 0; i < lines.length; ++i) {
     const line = lines[i];
-    const regExp = /(\S+--[^\s,:]+)/g;
+    const regExp = /(\w+--[^\s,:]+)/g;
     let partialReResult;
     let lastModifierFound;
     // as multiple modifiers may be on one line, we have to make this (stateful) reg exp. search
@@ -311,12 +310,7 @@ function extractCssModifiers(contentScssFile) {
       if (!lines[j].endsWith("{")) {
         continue;
       }
-      // opening-brace found; but if the line after it contains a @no-docs annotation, remove it again from the found modifiers
-      if (lines[j + 1].trim().includes("@no-docs")) {
-        uniqueModifiers.delete(lastModifierFound);
-        break;
-      }
-      // if it doesn't contain a @modifier annotation, keep it in the found modifiers, but break (don't look for description)
+      // opening-brace found; if the line after it doesn't contain a @modifier annotation, break
       if (!lines[j + 1].trim().includes("@modifier")) {
         break;
       }
