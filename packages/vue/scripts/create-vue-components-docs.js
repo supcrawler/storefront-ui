@@ -665,6 +665,5 @@ module.exports = {
   createVueComponentsDocs
 };
 
-if (require.main === module) {
-  createVueComponentsDocs();
-}
+createVueComponentsDocs();
+process.exit(0);
