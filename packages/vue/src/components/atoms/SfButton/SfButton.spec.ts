@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfButton from "./SfButton.vue";
+import SfButton from "@/components/atoms/SfButton/SfButton.vue";
 
 describe("SfButton.vue", () => {
   it("renders a button", () => {

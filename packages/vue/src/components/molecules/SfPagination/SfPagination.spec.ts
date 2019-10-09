@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfPagination from "./SfPagination.vue";
+import SfPagination from "@/components/molecules/SfPagination/SfPagination.vue";
 
 const propsData = {
   page: 2,

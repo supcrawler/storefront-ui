@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfOptions from "./SfOptions.vue";
+import SfOptions from "@/components/molecules/SfOptions/SfOptions.vue";
 
 describe("SfOptions.vue", () => {
   it("renders options", () => {

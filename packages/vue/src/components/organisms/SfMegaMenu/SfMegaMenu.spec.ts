@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfMegaMenu from "./SfMegaMenu.vue";
+import SfMegaMenu from "@/components/organisms/SfMegaMenu/SfMegaMenu.vue";
 
 describe("SfMegaMenu.vue", () => {
   it("render a Mega Menu", () => {
