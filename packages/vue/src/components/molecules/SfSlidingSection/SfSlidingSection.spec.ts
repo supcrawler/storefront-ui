@@ -1,9 +1,9 @@
 import { shallowMount } from "@vue/test-utils";
-import SfSlidingSection from "./SfSlidingSection.vue";
+import SfCard from "@/components/molecules/SfCard.vue";
 
-describe("SfSlidingSection.vue", () => {
+describe("SfCard.vue", () => {
   it("renders a component", () => {
-    const component = shallowMount(SfSlidingSection);
-    expect(component.contains(".sf-sliding-section")).toBe(true);
+    const component = shallowMount(SfCard);
+    expect(component.contains(".sf-card")).toBe(true);
   });
 });

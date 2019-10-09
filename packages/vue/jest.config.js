@@ -9,7 +9,7 @@ module.exports = {
   },
   transformIgnorePatterns: ["/node_modules/"],
   moduleNameMapper: {
-    "^@/components/(.*)$": "<rootDir>/src/components/$1"
+    "^@/(.*)$": "<rootDir>/src/$1"
   },
   modulePathIgnorePatterns: ["scripts"],
   snapshotSerializers: ["jest-serializer-vue"],

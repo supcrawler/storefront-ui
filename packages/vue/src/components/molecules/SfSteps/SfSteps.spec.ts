@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfSteps from "./SfSteps.vue";
+import SfSteps from "@/components/molecules/SfSteps.vue";
 
 describe("SfSteps.vue", () => {
   it("renders a component", () => {
