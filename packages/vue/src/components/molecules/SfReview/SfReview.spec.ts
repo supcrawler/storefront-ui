@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfReview from "./SfReview.vue";
+import SfReview from "@/components/organisms/SfReview.vue";
 
 describe("SfReview.vue", () => {
   it("renders a component", () => {

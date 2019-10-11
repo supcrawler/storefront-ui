@@ -23,23 +23,22 @@ describe("SfAlert.vue", () => {
         message
       }
     });
-    expect(component.contains(".sf-alert__message")).toBe(true);
-    expect(component.find(".sf-alert__message").text()).toMatch(message);
+    expect(component.find(".sf-alert__text").text()).toMatch(message);
   });
 
   it("renders an alert icon when passed via props", () => {
     const component = shallowMount(SfAlert, {
       propsData: {
-        type: "alert"
+        icon: "/assets/img.jpg"
       }
     });
-    expect(component.contains(".sf-alert--alert")).toBe(true);
+    expect(component.contains(".sf-alert__icon")).toBe(true);
   });
 
-  it("renders an alert without icon when empty prop passed", () => {
+  it("renders an alert without icon when false prop passed", () => {
     const component = shallowMount(SfAlert, {
       propsData: {
-        icon: ""
+        icon: false
       }
     });
     expect(component.contains(".sf-alert__icon")).toBe(false);

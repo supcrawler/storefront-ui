@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfStoreLocator from "./SfStoreLocator.vue";
+import SfStoreLocator from "@/components/organisms/SfStoreLocator/SfStoreLocator.vue";
 
 describe("SfStoreLocator.vue", () => {
   it("renders a component", () => {

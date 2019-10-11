@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfProductCard from "./SfProductCard.vue";
+import SfProductCard from "@/components/organisms/SfProductCard/SfProductCard.vue";
 
 const title = "Product A";
 const wishlistIconButtonClass = ".sf-product-card__wishlist-icon";

@@ -1,5 +1,5 @@
 import { shallowMount } from "@vue/test-utils";
-import SfSticky from "./SfSticky.vue";
+import SfSticky from "@/components/molecules/SfSticky/SfSticky.vue";
 
 describe("SfSticky.vue", () => {
   it("renders a component", () => {
