@@ -6,14 +6,14 @@ export default {
      */
     total: {
       type: Number,
-      default: 3
+      default: 0
     },
     /**
-     * Index of the currently active bullet (0-indexed)
+     * Index of the curretly active bullet
      */
     current: {
       type: Number,
-      default: 1
+      default: 0
     }
   },
   computed: {
