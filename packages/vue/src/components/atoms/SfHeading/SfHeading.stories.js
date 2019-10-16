@@ -10,56 +10,33 @@ import { generateStorybookTable } from "@/helpers";
 
 import SfHeading from "./SfHeading.vue";
 
+// use this to document scss vars
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$heading-border-color", "#f1f2f4", "border color for heading"],
-    ["$heading-line-height", "1.6", "line height for heading"],
     [
-      "$heading__title-font-family",
-      "$body-font-family-primary",
-      "font family for heading title"
+      "$heading--border-color",
+      "#F1F2F4",
+      "border color for underlined heading"
     ],
     [
-      "$heading__title-font-size",
-      "$font-size-extra-big-mobile",
-      "font size for heading title"
+      "$heading--underline-subtitle-color",
+      "#A3A5AD",
+      "subtitle color for underlined heading"
     ],
-    [
-      "$heading__title-font-size-desktop",
-      "$font-size-extra-big-desktop",
-      "font size for heading title on desktop"
-    ],
-    [
-      "$heading__subtitle-font-family",
-      "$body-font-family-primary",
-      "font family for subtitle"
-    ],
-    [
-      "$heading__subtitle-font-size",
-      "$font-size-regular-mobile",
-      "font size for subtitle"
-    ],
-    [
-      "$heading__subtitle-font-size-desktop",
-      "$font-size-big-desktop",
-      "font size for subtitle on desktop"
-    ]
-  ]
-};
-const cssTableConfig = {
-  tableHeadConfig: ["NAME", "DESCRIPTION"],
-  tableBodyConfig: [
-    ["sf-heading--no-underline", "removed underline"],
-    ["sf-heading--left", "adjusted heading to left side"],
-    ["sf-heading--right", "adjusted heading to right side"]
+    ["$heading--mobile-breakpoint", "$mobile-max", "default mobile breakpoint"]
   ]
 };
 
-const summary = `<h2>Usage</h2>
-<pre><code>import { SfHeading } from "@storefront-ui/vue"</code></pre>
-${generateStorybookTable(scssTableConfig, "SCSS variables")}
-${generateStorybookTable(cssTableConfig, "CSS modifiers")}`
+// use this to document events
+const cssTableConfig = {
+  tableHeadConfig: ["NAME", "DESCRIPTION"],
+  tableBodyConfig: [
+    [".sf-heading--underline", "change heading to underlined mobile version"],
+    [".sf-heading--left", "align text to left"],
+    [".sf-heading--right", "align text to right"]
+  ]
+};
 
 storiesOf("Atoms|Heading", module)
   .addDecorator(withKnobs)
@@ -99,7 +76,11 @@ storiesOf("Atoms|Heading", module)
     }),
     {
       info: {
-        summary
+        summary: `<h2>Usage</h2>
+       <pre><code>import { SfHeading } from "@storefront-ui/vue"</code></pre>
+       ${generateStorybookTable(scssTableConfig, "SCSS variables")}
+       ${generateStorybookTable(cssTableConfig, "CSS modifiers")}
+       `
       }
     }
   )
@@ -121,7 +102,7 @@ storiesOf("Atoms|Heading", module)
             "CSS Modifier",
             {
               null: "null",
-              "sf-heading--no-underline": "sf-heading--no-underline",
+              "sf-heading--underline": "sf-heading--underline",
               "sf-heading--left": "sf-heading--left",
               "sf-heading--right": "sf-heading--right"
             },
@@ -137,9 +118,7 @@ storiesOf("Atoms|Heading", module)
       </SfHeading>`
     }),
     {
-      info: {
-        summary
-      }
+      info: true
     }
   )
   .add(
@@ -159,7 +138,7 @@ storiesOf("Atoms|Heading", module)
           default: options(
             "CSS Modifier",
             {
-              "sf-heading--no-underline": "sf-heading--no-underline",
+              "sf-heading--underline": "sf-heading--underline",
               "sf-heading--left": "sf-heading--left",
               "sf-heading--right": "sf-heading--right"
             },
@@ -175,8 +154,6 @@ storiesOf("Atoms|Heading", module)
       </SfHeading>`
     }),
     {
-      info: {
-        summary
-      }
+      info: true
     }
   );
