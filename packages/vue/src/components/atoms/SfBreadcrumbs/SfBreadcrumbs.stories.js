@@ -1,6 +1,5 @@
 // /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfBreadcrumbs from "./SfBreadcrumbs.vue";
@@ -9,106 +8,38 @@ import SfBreadcrumbs from "./SfBreadcrumbs.vue";
 const scssTableConfig = {
   tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
   tableBodyConfig: [
-    ["$breadcrumbs__item-separator", "|", "Separator between breadcrumb items"],
-    [
-      "$breadcrumbs__item-padding",
-      ".75rem",
-      "Space between breadcrumbs and separator"
-    ],
-    [
-      "$breadcrumbs__item-color",
-      "$c-gray-primary",
-      "Default color breadcrumb items"
-    ],
-    [
-      "$breadcrumbs__link-color",
-      "$c-dark-primary",
-      "Color for breadcrumb links"
-    ],
-    [
-      "$breadcrumbs__item-separator-color",
-      "$breadcrumbs__link-color",
-      "Breadcrumbs separator color"
-    ]
+    ["$breadcrumbs-font-family", "$body-font-family-secondary", "font family for breadcrumbs"],
+    ["$breadcrumbs-font-size", "$font-size-small-desktop", "font size for breadcrumbs"],
+    ["$breadcrumbs-font-weight", "$body-font-weight-secondary", "font weight for breadcrumbs"],
+    ["$breadcrumbs-line-height", "1.6", "line height for breadcrumbs"],
+    ["$breadcrumbs__link-color", "$c-dark-primary", "color for breadcrumbs link"],
+    ["$breadcrumbs__item-padding", "0.75rem", "padding for breadcrumbs item"],
+    ["$breadcrumbs__item-color", "$c-gray-primary", "color for breadcrumbs item"],
+    ["$breadcrumbs__item-separator-color", "$breadcrumbs__link-color", "color for breadcrumbs item separator"],
+    ["$breadcrumbs__item-separator", "|", "char for breadcrumbs item separator"],
+    ["$breadcrumbs__current-color", "$c-gray-secondary!default;", "color for current breadcrumbs"]
   ]
 };
 
-const data = () => {
-  return {
-    breadcrumbs: [
-      {
-        text: "Home",
-        route: {
-          link: "#home"
-        }
-      },
-      {
-        text: "Category",
-        route: {
-          link: "#category"
-        }
-      },
-      {
-        text: "Pants",
-        route: {
-          link: "#pants"
-        }
-      }
-    ]
-  };
-};
-
-const methods = {
-  click(route) {
-    alert(JSON.stringify(route, null, 2));
-  }
-};
-
 storiesOf("Atoms|Breadcrumbs", module)
-  .addDecorator(withKnobs)
-
   .add(
-    "Basic",
+    "Default",
     () => ({
-      data,
-      methods,
       components: { SfBreadcrumbs },
+      data(){
+        return {
+          breadcrumbs: [{text: 'Home',route: {link: '#'}},{text: 'Category',route: {link: '#'}},{text: 'Pants',route: {link: '#'}}]
+        }
+      },
       template: `<SfBreadcrumbs
-          :breadcrumbs="breadcrumbs"
-          @click="click"/>`
+      :breadcrumbs="breadcrumbs" />`
     }),
-    {
-      info: {
-        summary: `
-        <h2>
-          Description
-        </h2>
-        <p>
-          Indicate the current page’s
-          location within a navigational hierarchy,
-          called by <code>&lt;SfBreadcrumbs&gt;</code>.
-        </p>
-        <p>
-          You <b>must</b> pass an array of objects (breadcrumbs) with the format:
-          <code>
-          [
-            {
-              text: 'Some page',
-              route: {}
-            }
-          ]
-          </code>
-          <br>
-          <code>route</code> property is optional and may be anything you want, it'll be passed
-          as argument on click events.
-          <br>
-          The last array element will be the current item (current page)
-          on breadcrumbs nav.
-        </p>
-        <h2>Usage</h2>
-        <pre><code>import { SfBreadcrumbs } from "@storefront-ui/vue"</code></pre>
-        ${generateStorybookTable(scssTableConfig, "SCSS variables")}
-        `
-      }
-    }
+    // {
+    //   info: {
+    //     summary: `<p><!--Component description.--></p>
+    //     <h2>Usage</h2>
+    //     <pre><code>import { SfBreadcrumbs } from "@storefront-ui/vue"</code></pre>
+    //     ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
+    //   }
+    // }
   );
