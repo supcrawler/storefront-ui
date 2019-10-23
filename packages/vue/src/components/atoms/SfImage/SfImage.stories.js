@@ -18,11 +18,11 @@ storiesOf("Atoms|Image", module)
       src: {
         default: object("src (prop)", {
           small: {
-            url: "/assets/storybook/product-109x164.jpg",
+            url: "/assets/storybook/product-109x164.png",
             alt: "Vila stripe maxi shirt dress"
           },
           normal: {
-            url: "/assets/storybook/product-216x326.jpg",
+            url: "/assets/storybook/product-216x326.png",
             alt: "Vila stripe maxi shirt dress"
           }
         })
@@ -57,10 +57,10 @@ storiesOf("Atoms|Image", module)
       src: {
         default: object("src (prop)", {
           small: {
-            url: "/assets/storybook/product-109x164.jpg"
+            url: "/assets/storybook/product-109x164.png"
           },
           normal: {
-            url: "/assets/storybook/product-216x326.jpg"
+            url: "/assets/storybook/product-216x326.png"
           }
         })
       },
