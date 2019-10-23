@@ -37,7 +37,7 @@ export default {
      */
     placeholder: {
       type: String,
-      default: "/assets/placeholder.jpg"
+      default: "/assets/placeholder.png"
     },
     /**
      * Screen width breakpoint for picture tag media query

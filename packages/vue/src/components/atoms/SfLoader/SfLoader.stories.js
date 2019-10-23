@@ -23,7 +23,7 @@ storiesOf("Atoms|Loader", module)
     template: `<div style="width: 236px; height: 366px; border: 1px solid #F2F2F2">
       <SfLoader
       :loading="isLoading">
-          <SfImage src="/assets/storybook/product-216x326.jpg" />
+          <SfImage src="/assets/storybook/product-216x326.png" />
       </SfLoader>
     </div>`
   }))
@@ -45,7 +45,7 @@ storiesOf("Atoms|Loader", module)
     template: `<div style="width: 236px; height: 366px; border: 1px solid #F2F2F2">
       <SfLoader
         :loading="isLoading">
-        <SfImage src="/assets/storybook/product-216x326.jpg" />
+        <SfImage src="/assets/storybook/product-216x326.png" />
         <template #loader>
           loading...
         </template>
