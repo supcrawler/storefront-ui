@@ -1,5 +1,9 @@
 <template>
   <div id="product">
+    <SfBreadcrumbs
+      class="breadcrumbs desktop-only"
+      :breadcrumbs="breadcrumbs"
+    />
     <div class="product">
       <div class="product__gallery">
         <SfImage
@@ -306,11 +310,35 @@ import {
   SfIcon,
   SfAlert,
   SfSticky,
-  SfReview
+  SfReview,
+  SfBreadcrumbs
 } from "@storefront-ui/vue";
 
 export default {
   name: "Product",
+  components: {
+    SfAlert,
+    SfProperty,
+    SfHeading,
+    SfPrice,
+    SfRating,
+    SfSelect,
+    SfProductOption,
+    SfAddToCart,
+    SfTabs,
+    SfGallery,
+    SfProductCard,
+    SfCarousel,
+    SfSection,
+    SfImage,
+    SfBanner,
+    SfBottomNavigation,
+    SfCircleIcon,
+    SfIcon,
+    SfSticky,
+    SfReview,
+    SfBreadcrumbs
+  },
   data() {
     return {
       qty: "1",
@@ -426,48 +454,33 @@ export default {
           rating: 5
         }
       ],
-      detailsIsActive: false
+      detailsIsActive: false,
+      breadcrumbs: [
+        {
+          text: "Home",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Category",
+          route: {
+            link: "#"
+          }
+        },
+        {
+          text: "Pants",
+          route: {
+            link: "#"
+          }
+        }
+      ]
     };
-  },
-  components: {
-    SfAlert,
-    SfProperty,
-    SfHeading,
-    SfPrice,
-    SfRating,
-    SfSelect,
-    SfProductOption,
-    SfAddToCart,
-    SfTabs,
-    SfGallery,
-    SfProductCard,
-    SfCarousel,
-    SfSection,
-    SfImage,
-    SfBanner,
-    SfBottomNavigation,
-    SfCircleIcon,
-    SfIcon,
-    SfSticky,
-    SfReview
   },
   methods: {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
-    },
-    viewportHeight() {
-      const vh = window.innerHeight * 0.01;
-      document.documentElement.style.setProperty("--vh", `${vh}px`);
     }
-  },
-  mounted() {
-    this.viewportHeight();
-    window.addEventListener("resize", this.viewportHeight, { passive: true });
-  },
-  beforeDestroy() {
-    window.removeEventListener("resize", this.viewportHeight, {
-      passive: true
-    });
   }
 };
 </script>
@@ -489,6 +502,9 @@ export default {
     max-width: 1240px;
     margin: auto;
   }
+}
+.breadcrumbs {
+  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
 }
 .product-details {
   &__action {
@@ -621,8 +637,13 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  height: calc(100vh - 180px);
-  height: calc((var(--vh, 1vh) * 100) - 180px);
+  $height-other: 240px;
+  $height-iOS: 265px;
+
+  height: calc(100vh - #{$height-other});
+  @supports (-webkit-overflow-scrolling: touch) {
+    height: calc(100vh - #{$height-iOS});
+  }
   ::v-deep .glide {
     &,
     * {
@@ -631,16 +652,19 @@ export default {
     &__slide {
       position: relative;
       overflow: hidden;
-      & img {
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        min-width: calc(
-          (375 / 490) * (100vh - 180px)
-        ); // (oldWidth / oldHeight) * newHeight = newWidth
-        min-width: calc(((var(--vh, 1vh) * 100) - 180px) * (375 / 490));
+    }
+    img {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      min-width: calc((375 / 490) * (100vh - #{$height-other}));
+      @supports (-webkit-overflow-scrolling: touch) {
+        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
       }
     }
+  }
+  ::v-deep .sf-gallery__stage {
+    width: 100%;
   }
 }
 .section {
