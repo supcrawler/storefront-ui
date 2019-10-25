@@ -1,9 +1,5 @@
 <template>
   <div id="product">
-    <SfBreadcrumbs
-      class="breadcrumbs desktop-only"
-      :breadcrumbs="breadcrumbs"
-    />
     <div class="product">
       <div class="product__gallery">
         <SfImage
@@ -261,6 +257,32 @@
         </div>
       </template>
     </SfBanner>
+    <SfBottomNavigation class="mobile-only">
+      <SfBottomNavigationItem>
+        <SfIcon icon="home" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="menu" size="20px" style="width: 25px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="heart" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="profile" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
+        <SfCircleIcon
+          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
+        >
+          <SfIcon
+            icon="add_to_cart"
+            size="20px"
+            color="white"
+            style="margin-right: 4px;"
+          />
+        </SfCircleIcon>
+      </SfBottomNavigationItem>
+    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -279,34 +301,16 @@ import {
   SfSection,
   SfImage,
   SfBanner,
+  SfBottomNavigation,
+  SfCircleIcon,
+  SfIcon,
   SfAlert,
   SfSticky,
-  SfReview,
-  SfBreadcrumbs
+  SfReview
 } from "@storefront-ui/vue";
 
 export default {
   name: "Product",
-  components: {
-    SfAlert,
-    SfProperty,
-    SfHeading,
-    SfPrice,
-    SfRating,
-    SfSelect,
-    SfProductOption,
-    SfAddToCart,
-    SfTabs,
-    SfGallery,
-    SfProductCard,
-    SfCarousel,
-    SfSection,
-    SfImage,
-    SfBanner,
-    SfSticky,
-    SfReview,
-    SfBreadcrumbs
-  },
   data() {
     return {
       qty: "1",
@@ -422,33 +426,48 @@ export default {
           rating: 5
         }
       ],
-      detailsIsActive: false,
-      breadcrumbs: [
-        {
-          text: "Home",
-          route: {
-            link: "#"
-          }
-        },
-        {
-          text: "Category",
-          route: {
-            link: "#"
-          }
-        },
-        {
-          text: "Pants",
-          route: {
-            link: "#"
-          }
-        }
-      ]
+      detailsIsActive: false
     };
+  },
+  components: {
+    SfAlert,
+    SfProperty,
+    SfHeading,
+    SfPrice,
+    SfRating,
+    SfSelect,
+    SfProductOption,
+    SfAddToCart,
+    SfTabs,
+    SfGallery,
+    SfProductCard,
+    SfCarousel,
+    SfSection,
+    SfImage,
+    SfBanner,
+    SfBottomNavigation,
+    SfCircleIcon,
+    SfIcon,
+    SfSticky,
+    SfReview
   },
   methods: {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
+    },
+    viewportHeight() {
+      const vh = window.innerHeight * 0.01;
+      document.documentElement.style.setProperty("--vh", `${vh}px`);
     }
+  },
+  mounted() {
+    this.viewportHeight();
+    window.addEventListener("resize", this.viewportHeight, { passive: true });
+  },
+  beforeDestroy() {
+    window.removeEventListener("resize", this.viewportHeight, {
+      passive: true
+    });
   }
 };
 </script>
@@ -465,13 +484,11 @@ export default {
 
 #product {
   box-sizing: border-box;
+  margin: 0 0 60px 0;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
   }
-}
-.breadcrumbs {
-  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
 }
 .product-details {
   &__action {
@@ -604,13 +621,8 @@ export default {
   padding: $spacer-small 0;
 }
 .gallery-mobile {
-  $height-other: 240px;
-  $height-iOS: 265px;
-
-  height: calc(100vh - #{$height-other});
-  @supports (-webkit-overflow-scrolling: touch) {
-    height: calc(100vh - #{$height-iOS});
-  }
+  height: calc(100vh - 180px);
+  height: calc((var(--vh, 1vh) * 100) - 180px);
   ::v-deep .glide {
     &,
     * {
@@ -619,19 +631,16 @@ export default {
     &__slide {
       position: relative;
       overflow: hidden;
-    }
-    img {
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      min-width: calc((375 / 490) * (100vh - #{$height-other}));
-      @supports (-webkit-overflow-scrolling: touch) {
-        min-width: calc((375 / 490) * (100vh - #{$height-iOS}));
+      & img {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        min-width: calc(
+          (375 / 490) * (100vh - 180px)
+        ); // (oldWidth / oldHeight) * newHeight = newWidth
+        min-width: calc(((var(--vh, 1vh) * 100) - 180px) * (375 / 490));
       }
     }
-  }
-  ::v-deep .sf-gallery__stage {
-    width: 100%;
   }
 }
 .section {
@@ -675,6 +684,10 @@ export default {
       }
     }
   }
+}
+/* same on the home, category */
+.bottom-navigation-circle {
+  opacity: 1;
 }
 /* same on the home */
 .banner-application {
