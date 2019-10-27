@@ -1,20 +1,16 @@
 body {
-  background: $c-body;
-  color: $c-text;
-  font-size: $body-font-size-mobile;
+  font-size: $body-font-size-desktop;
   font-family: $body-font-family-primary;
   font-weight: $body-font-weight-primary;
-
-  @media (min-width: $desktop-min) {
-    font-size: $body-font-size-desktop;
+  color: $c-dark-primary;
+  @media ( max-width: $mobile-max ) {
+    font-size: $body-font-size-mobile;
   }
 }
-
 a {
   text-decoration: none;
-  color: $c-link;
-
+  color: $c-text-link;
   &:hover {
-    color: $c-link-hover;
+    color: $c-text-link-hover;
   }
 }

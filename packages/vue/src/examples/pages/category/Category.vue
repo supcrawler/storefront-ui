@@ -313,56 +313,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: false },
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -453,8 +453,8 @@ export default {
   position: relative;
   display: flex;
   @include for-desktop {
-    border-top: 1px solid $c-light;
-    border-bottom: 1px solid $c-light;
+    border-top: 1px solid $c-border;
+    border-bottom: 1px solid $c-border;
   }
   &::after {
     position: absolute;
@@ -462,7 +462,7 @@ export default {
     left: $spacer-big;
     width: calc(100% - (#{$spacer-big} * 2));
     height: 1px;
-    background-color: $c-light;
+    background-color: $c-border;
     content: "";
     @include for-desktop {
       content: none;
@@ -474,7 +474,7 @@ export default {
     align-items: center;
     flex: 0 0 15%;
     padding: 1.85rem $spacer-extra-big;
-    border-right: 1px solid $c-light;
+    border-right: 1px solid $c-border;
   }
   &__main {
     flex: 1;
@@ -506,20 +506,20 @@ export default {
       text-transform: none;
     }
     svg {
-      fill: $c-dark;
+      fill: $c-dark-primary;
       @include for-desktop {
-        fill: $c-gray-variant;
+        fill: $c-gray-secondary;
       }
     }
     &:hover {
-      color: $c-primary;
+      color: $c-accent-primary;
       svg {
-        fill: $c-primary;
+        fill: $c-accent-primary;
       }
     }
   }
   &__label {
-    color: $c-gray-variant;
+    color: $c-gray-secondary;
   }
   &__sort {
     display: flex;
@@ -548,7 +548,7 @@ export default {
 .sidebar {
   flex: 0 0 15%;
   padding: $spacer-extra-big;
-  border-right: 1px solid $c-light;
+  border-right: 1px solid $c-border;
 }
 .products {
   box-sizing: border-box;
@@ -591,7 +591,7 @@ export default {
   }
   &__button-clear {
     margin-top: 10px;
-    background: $c-light;
+    background: $c-light-primary;
     color: #a3a5ad;
   }
   &__item {
