@@ -1,3 +1,0 @@
-"*.{js,vue,html,scss}":
-  - vue-cli-service lint
-  - git add

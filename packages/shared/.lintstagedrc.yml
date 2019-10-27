@@ -1,3 +1,0 @@
-"*.{js,html,scss}":
-  - eslint --fix
-  - git add

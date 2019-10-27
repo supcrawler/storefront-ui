@@ -5,6 +5,7 @@ import {
   text,
   number,
   boolean,
+  select,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
