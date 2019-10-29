@@ -1,11 +1,14 @@
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
-import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfInput from "../../atoms/SfInput/SfInput.vue";
 
 export default {
-  name: "SfCollectedProduct",
+  name: "SfGroupedProduct",
+  components: {
+    SfImage,
+    SfPrice,
+    SfInput
+  },
   props: {
     /**
      * Product image
@@ -13,7 +16,7 @@ export default {
      */
     image: {
       type: String,
-      default: ""
+      default: "assets/storybook/product_thumb.jpg"
     },
     /**
      * Product title
@@ -23,25 +26,32 @@ export default {
       required: true
     },
     /**
+     * Product title
+     */
+    sku: {
+      type: String,
+      default: ""
+    },
+    /**
      * Product regular price
      */
     regularPrice: {
       type: [Number, String],
-      default: null
+      default: ""
     },
     /**
      * Product special price
      */
     specialPrice: {
       type: [Number, String],
-      default: null
+      default: ""
     },
     /**
      * Selected quantity
      */
     qty: {
       type: String,
-      default: "1"
+      default: "0"
     },
     /**
      * Stock quantity of product
@@ -53,29 +63,5 @@ export default {
   },
   model: {
     prop: "qty"
-  },
-  methods: {
-    removeHandler() {
-      this.$emit("click:remove");
-    }
-  },
-  watch: {
-    qty(value) {
-      const qty = parseInt(value, 10);
-      if (qty <= 0) {
-        this.$emit("input", "1");
-        return;
-      }
-      if (qty > this.stock) {
-        this.$emit("input", "" + this.stock);
-      }
-    }
-  },
-  components: {
-    SfIcon,
-    SfImage,
-    SfCircleIcon,
-    SfPrice,
-    SfInput
   }
 };
