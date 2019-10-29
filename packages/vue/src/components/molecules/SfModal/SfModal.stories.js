@@ -33,7 +33,7 @@ storiesOf("Molecules|Modal", module)
     () => ({
       data() {
         return {
-          isModalOpen: false
+          isModalOpen: true
         };
       },
       components: { SfModal, SfButton },
