@@ -6,8 +6,7 @@
   "main": "index.js",
   "scripts": {
     "create-component": "node ./scripts/create-component.js",
-    "storybook:serve": "cd packages/vue && yarn storybook:serve",
-    "vue-docs:dev": "cd packages/vue && yarn docs:dev"
+    "storybook:serve": "cd packages/vue && yarn storybook:serve"
   },
   "repository": {
     "type": "git",
