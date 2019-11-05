@@ -1,115 +1,68 @@
-// /* eslint-disable import/no-extraneous-dependencies */
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, boolean } from "@storybook/addon-knobs";
-
+import { withKnobs } from "@storybook/addon-knobs";
+import { generateStorybookTable } from "@/helpers";
 import SfCheckbox from "./SfCheckbox.vue";
+
+const scssTableConfig = {
+  tableHeadConfig: ["NAME", "DEFAULT", "DESCRIPTION"],
+  tableBodyConfig: [
+    ["$checkbox__label-font-size", "1.125rem", "font size for label"],
+    [
+      "$checkbox__checkmark-transition",
+      "background-color 0.25s cubic-bezier(1, 0.5, 0.8, 1), border-color 0.25s cubic-bezier(1, 0.5, 0.8, 1)",
+      "transition for checkmark"
+    ],
+    ["$checkbox__checkmark-size", "1.4375rem ", "size for checkmark"],
+    [
+      "$checkbox__checkmark-primary-color",
+      "$c-green-primary",
+      "primary color for checkmark"
+    ],
+    [
+      "$checkbox__checkmark-secondary-color",
+      "$c-gray-secondary",
+      "secondary color for checkmark"
+    ]
+  ]
+};
 
 storiesOf("Atoms|Checkbox", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
-    components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("(prop) name", "shipping")
+  .add(
+    "Basic",
+    () => ({
+      data() {
+        return {
+          checked: [],
+          checkboxes: [
+            {
+              name: "shipping",
+              value: "shipping-addres",
+              label: "Copy address data from shipping"
+            },
+            {
+              name: "invoce",
+              value: "invoce",
+              label: "I want to generate invoce for the company"
+            }
+          ]
+        };
       },
-      value: {
-        default: text("(prop) value", "shipping-address")
+      components: {
+        SfCheckbox
       },
-      label: {
-        default: text("(prop) label", "Copy address data from shipping")
-      },
-      required: {
-        default: boolean("(prop) required", false)
-      },
-      disabled: {
-        default: boolean("(prop) disabled", false)
+      template: `<div>
+        <p v-for="(checkbox, key) in checkboxes" :key="key">
+          <SfCheckbox v-model="checked" :disabled="checkbox.disabled" :name="checkbox.name" :value="checkbox.value" :label="checkbox.label"/>
+        </p>
+      </div>`
+    }),
+    {
+      info: {
+        summary: `<h2> Usage </h2>
+          <pre><code>import { SfCheckbox } from "@storefront-ui/vue"</code></pre>
+          ${generateStorybookTable(scssTableConfig, "SCSS variables")}`
       }
-    },
-    data() {
-      return {
-        checked: []
-      };
-    },
-    template: `<SfCheckbox 
-      v-model="checked"
-      :name="name"
-      :value="value"
-      :label="label"
-      :required="required"
-      :disabled="disabled"
-      />`
-  }))
-  .add("[slot] checkmark", () => ({
-    components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("(prop) name", "shipping")
-      },
-      value: {
-        default: text("(prop) value", "shipping-address")
-      },
-      label: {
-        default: text("(prop) label", "Copy address data from shipping")
-      },
-      required: {
-        default: boolean("(prop) required", false)
-      },
-      disabled: {
-        default: boolean("(prop) disabled", false)
-      }
-    },
-    data() {
-      return {
-        checked: []
-      };
-    },
-    template: `<SfCheckbox 
-      v-model="checked"
-      :name="name"
-      :value="value"
-      :label="label"
-      :required="required"
-      :disabled="disabled">
-      <template #checkmark="{ isChecked }">
-        <span v-if="isChecked">👍🏻</span>
-        <span v-else>👎🏻</spanv>
-      </template>
-    </SfCheckbox>`
-  }))
-  .add("[slot] label", () => ({
-    components: { SfCheckbox },
-    props: {
-      name: {
-        default: text("name (prop)", "shipping")
-      },
-      value: {
-        default: text("value (prop)", "shipping-address")
-      },
-      label: {
-        default: text("label (prop)", "Copy address data from shipping")
-      },
-      required: {
-        default: boolean("required (prop)", false)
-      },
-      disabled: {
-        default: boolean("disabled (prop)", false)
-      }
-    },
-    data() {
-      return {
-        checked: []
-      };
-    },
-    template: `<SfCheckbox 
-      v-model="checked"
-      :name="name"
-      :value="value"
-      :label="label"
-      :required="required"
-      :disabled="disabled">
-      <template #label="{ isChecked }">
-        <span v-if="isChecked" style="margin-left: 1rem">🎉 I'm checked</span>
-        <span v-else style="margin-left: 1rem">👈 Please check me</span>
-      </template>
-    </SfCheckbox>`
-  }));
+    }
+  );

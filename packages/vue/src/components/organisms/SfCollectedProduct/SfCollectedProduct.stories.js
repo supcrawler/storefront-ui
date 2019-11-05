@@ -31,12 +31,12 @@ const scssTableConfig = {
     ],
     [
       ("$collected-product__remove-background",
-      "$c-gray-variant",
+      "$c-gray-secondary",
       "Remove icon background on desktop")
     ],
     [
       ("$collected-product__remove-background--hover",
-      "$c-dark-variant",
+      "$c-dark-secondary",
       "Remove icon background hover on desktop")
     ],
     [
@@ -66,7 +66,7 @@ storiesOf("Organisms|CollectedProduct", module)
         image: {
           default: text(
             "image (prop)",
-            "/assets/storybook/homepage/productB.jpg"
+            "/assets/storybook/homepage/productB.png"
           )
         },
         title: {

@@ -20,8 +20,8 @@
             title="COCKTAIL PARTY"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerF.jpg"
-            class="sf-banner--slim banner-custom"
+            image="assets/storybook/homepage/bannerF.png"
+            class="sf-banner--slim"
           />
         </a>
       </template>
@@ -32,7 +32,7 @@
             title="LINEN DRESSES"
             description="Find stunning women's cocktail dresses and party dresses. Stand out in lace and metallic cocktail dresses from all your favorite brands."
             button-text="SHOP NOW"
-            image="assets/storybook/homepage/bannerE.jpg"
+            image="assets/storybook/homepage/bannerE.png"
             class="sf-banner--slim banner-central"
           />
         </a>
@@ -42,7 +42,7 @@
           <SfBanner
             subtitle="T-Shirts"
             title="THE OFFICE LIFE"
-            image="assets/storybook/homepage/bannerC.jpg"
+            image="assets/storybook/homepage/bannerC.png"
             class="sf-banner--slim"
           />
         </a>
@@ -52,7 +52,7 @@
           <SfBanner
             subtitle="Summer shoes"
             title="ECO SANDALS"
-            image="assets/storybook/homepage/bannerG.jpg"
+            image="assets/storybook/homepage/bannerG.png"
             class="sf-banner--slim"
           />
         </a>
@@ -63,7 +63,7 @@
       button-text="Subscribe"
       description="Be aware of upcoming sales and events. Receive gifts and special offers!"
       class="call-to-action-newsletter"
-      image="assets/storybook/homepage/newsletter.jpg"
+      image="assets/storybook/homepage/newsletter.png"
     />
     <SfSection title-heading="Best Sellers" class="section">
       <SfCarousel class="product-carousel">
@@ -86,27 +86,27 @@
       subtitle-heading="#YOURLOOK"
       class="section"
     >
-      <div class="images-grid">
-        <div class="images-grid__row">
-          <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageA.jpg"
+      <div class="grid grid-images">
+        <div class="grid__row">
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageA.png"
               >katherina_trn</SfImage
             >
           </div>
-          <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageB.jpg"
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageB.png"
               >katherina_trn</SfImage
             >
           </div>
         </div>
-        <div class="images-grid__row">
-          <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageC.jpg"
+        <div class="grid__row">
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageC.png"
               >katherina_trn</SfImage
             >
           </div>
-          <div class="images-grid__col">
-            <SfImage src="assets/storybook/homepage/imageD.jpg"
+          <div class="grid__col">
+            <SfImage src="assets/storybook/homepage/imageD.png"
               >katherina_trn</SfImage
             >
           </div>
@@ -140,6 +140,32 @@
         </div>
       </template>
     </SfBanner>
+    <SfBottomNavigation class="mobile-only">
+      <SfBottomNavigationItem>
+        <SfIcon icon="home" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="menu" size="20px" style="width: 25px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="heart" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="profile" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
+        <SfCircleIcon
+          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
+        >
+          <SfIcon
+            icon="add_to_cart"
+            size="20px"
+            color="white"
+            style="margin-right: 4px;"
+          />
+        </SfCircleIcon>
+      </SfBottomNavigationItem>
+    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -151,7 +177,10 @@ import {
   SfCarousel,
   SfProductCard,
   SfImage,
-  SfBannerGrid
+  SfBannerGrid,
+  SfBottomNavigation,
+  SfIcon,
+  SfCircleIcon
 } from "../../../../index.js";
 
 export default {
@@ -164,14 +193,14 @@ export default {
           subtitle: "SUMMER COLLECTION 2019",
           buttonText: "Learn more",
           background: "#eceff1",
-          image: "assets/storybook/homepage/bannerH.jpg"
+          image: "assets/storybook/homepage/bannerH.png"
         },
         {
           title: "Colorful summer dresses are already in store",
           subtitle: "SUMMER COLLECTION 2019",
           buttonText: "Learn more",
           background: "#efebe9",
-          image: "assets/storybook/homepage/bannerHM.jpg",
+          image: "assets/storybook/homepage/bannerA.png",
           className:
             "sf-hero-item--position-bg-top-left sf-hero-item--align-right"
         },
@@ -180,62 +209,62 @@ export default {
           subtitle: "SUMMER COLLECTION 2019",
           buttonText: "Learn more",
           background: "#fce4ec",
-          image: "assets/storybook/homepage/bannerH.jpg"
+          image: "assets/storybook/homepage/bannerB.png"
         }
       ],
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/homepage/productC.png",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/homepage/productC.png",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "50.00 $" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -251,7 +280,10 @@ export default {
     SfCarousel,
     SfProductCard,
     SfImage,
-    SfBannerGrid
+    SfBannerGrid,
+    SfBottomNavigation,
+    SfIcon,
+    SfCircleIcon
   },
   methods: {
     toggleWishlist(index) {
@@ -261,7 +293,8 @@ export default {
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
+@import "../../../css/variables";
+@import "~@storefront-ui/shared/styles/helpers/visibility";
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
@@ -271,6 +304,7 @@ export default {
 
 #home {
   box-sizing: border-box;
+  margin: 0 0 60px 0;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
@@ -283,14 +317,30 @@ export default {
     margin: $spacer-extra-big * 2 0;
   }
 }
+.product-card {
+  max-width: unset;
+  &:hover {
+    @include for-desktop {
+      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
+    }
+  }
+}
+.product-carousel {
+  margin: -20px -#{$spacer-big} -20px 0;
+  @include for-desktop {
+    margin: -20px 0;
+  }
+  /deep/ .sf-carousel__wrapper {
+    padding: 20px 0;
+    @include for-desktop {
+      padding: 20px;
+      max-width: calc(100% - 216px);
+    }
+  }
+}
 .banner-central {
   @include for-desktop {
     padding-right: 30%;
-  }
-}
-.banner-custom {
-  @media (max-width: $desktop-min) {
-    background-image: url("../../../../public/assets/storybook/homepage/bannerB.jpg") !important;
   }
 }
 .banner-application {
@@ -325,7 +375,7 @@ export default {
     margin: $spacer-extra-big 0;
   }
 }
-.images-grid {
+.grid {
   max-width: 960px;
   margin: auto;
   &__row {
@@ -347,33 +397,16 @@ export default {
     }
   }
 }
-.product-card {
-  max-width: unset;
-  &:hover {
-    @include for-desktop {
-      box-shadow: 0px 4px 20px rgba(168, 172, 176, 0.19);
-    }
-  }
-}
-.product-carousel {
-  margin: -20px -#{$spacer-big} -20px 0;
-  @include for-desktop {
-    margin: -20px 0;
-  }
-  ::v-deep .sf-carousel__wrapper {
-    padding: 20px 0;
-    @include for-desktop {
-      padding: 20px;
-      max-width: calc(100% - 216px);
-    }
-  }
+.sf-banner {
+  flex: 1;
 }
 .section {
-  padding-left: $spacer-big;
-  padding-right: $spacer-big;
-  @include for-desktop {
-    padding-left: 0;
-    padding-right: 0;
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
   }
+}
+.bottom-navigation-circle {
+  opacity: 1;
 }
 </style>

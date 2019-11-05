@@ -1,9 +1,5 @@
 <template>
   <div id="category">
-    <SfBreadcrumbs
-      class="breadcrumbs desktop-only"
-      :breadcrumbs="breadcrumbs"
-    />
     <div class="navbar section">
       <div class="navbar__aside desktop-only">
         <h1 class="navbar__title">Categories</h1>
@@ -100,19 +96,36 @@
     <div class="main section">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true" :showChevron="false">
-          <SfAccordionItem
-            v-for="(accordion, i) in sidebarAccordion"
-            :key="i"
-            :header="accordion.header"
-          >
-            <template>
-              <SfList>
-                <SfListItem v-for="(item, j) in accordion.items" :key="j">
-                  <SfMenuItem :label="item.label" :count="item.count" />
-                </SfListItem>
-              </SfList>
-            </template>
-          </SfAccordionItem>
+          <template v-slot="{ selected }">
+            <SfAccordionItem
+              v-for="(accordion, i) in sidebarAccordion"
+              :key="i"
+              :header="accordion.header"
+            >
+              <template v-slot="{ handler }">
+                <SfList>
+                  <SfListItem v-for="(item, j) in accordion.items" :key="j">
+                    <div
+                      @click="
+                        () => {
+                          handler(item.label);
+                        }
+                      "
+                    >
+                      <SfMenuItem
+                        class="menu-item"
+                        :class="{
+                          'menu-item--active': selected === item.label
+                        }"
+                        :label="item.label"
+                        :count="item.count"
+                      />
+                    </div>
+                  </SfListItem>
+                </SfList>
+              </template>
+            </SfAccordionItem>
+          </template>
         </SfAccordion>
       </div>
       <div class="products">
@@ -205,6 +218,32 @@
         >
       </div>
     </SfSidebar>
+    <SfBottomNavigation class="mobile-only">
+      <SfBottomNavigationItem>
+        <SfIcon icon="home" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="menu" size="20px" style="width: 25px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="heart" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem>
+        <SfIcon icon="profile" size="20px" />
+      </SfBottomNavigationItem>
+      <SfBottomNavigationItem class="bottom-navigation-circle">
+        <SfCircleIcon
+          class="sf-bottom-navigation__floating-icon sf-circle-icon--big"
+        >
+          <SfIcon
+            icon="add_to_cart"
+            size="20px"
+            color="white"
+            style="margin-right: 4px;"
+          />
+        </SfCircleIcon>
+      </SfBottomNavigationItem>
+    </SfBottomNavigation>
   </div>
 </template>
 <script>
@@ -219,23 +258,11 @@ import {
   SfPagination,
   SfAccordion,
   SfSelect,
-  SfBreadcrumbs
+  SfBottomNavigation,
+  SfCircleIcon
 } from "../../../../index.js";
 
 export default {
-  components: {
-    SfButton,
-    SfSidebar,
-    SfIcon,
-    SfList,
-    SfFilter,
-    SfProductCard,
-    SfPagination,
-    SfMenuItem,
-    SfAccordion,
-    SfSelect,
-    SfBreadcrumbs
-  },
   data() {
     return {
       currentPage: 1,
@@ -303,56 +330,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: false },
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -389,21 +416,7 @@ export default {
           { label: "Cotton", value: "coton", count: "33" },
           { label: "Silk", value: "silk", count: "73" }
         ]
-      },
-      breadcrumbs: [
-        {
-          text: "Home",
-          route: {
-            link: "#"
-          }
-        },
-        {
-          text: "Women",
-          route: {
-            link: "#"
-          }
-        }
-      ]
+      }
     };
   },
   methods: {
@@ -418,11 +431,26 @@ export default {
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     }
+  },
+  components: {
+    SfButton,
+    SfSidebar,
+    SfIcon,
+    SfList,
+    SfFilter,
+    SfProductCard,
+    SfPagination,
+    SfMenuItem,
+    SfAccordion,
+    SfSelect,
+    SfBottomNavigation,
+    SfCircleIcon
   }
 };
 </script>
 <style lang="scss" scoped>
-@import "~@storefront-ui/vue/styles";
+@import "../../../css/variables";
+@import "~@storefront-ui/shared/styles/helpers/visibility";
 
 @mixin for-desktop {
   @media screen and (min-width: $desktop-min) {
@@ -432,23 +460,18 @@ export default {
 
 #category {
   box-sizing: border-box;
+  margin: 0 0 60px 0;
   @include for-desktop {
     max-width: 1240px;
     margin: auto;
   }
 }
-.breadcrumbs {
-  padding: $spacer-big $spacer-extra-big $spacer-extra-big;
-}
-.main {
-  display: flex;
-}
 .navbar {
   position: relative;
   display: flex;
   @include for-desktop {
-    border-top: 1px solid $c-light;
-    border-bottom: 1px solid $c-light;
+    border-top: 1px solid $c-border;
+    border-bottom: 1px solid $c-border;
   }
   &::after {
     position: absolute;
@@ -456,18 +479,19 @@ export default {
     left: $spacer-big;
     width: calc(100% - (#{$spacer-big} * 2));
     height: 1px;
-    background-color: $c-light;
+    background-color: $c-border;
     content: "";
     @include for-desktop {
       content: none;
     }
   }
+
   &__aside {
     display: flex;
     align-items: center;
     flex: 0 0 15%;
-    padding: $spacer-big $spacer-extra-big;
-    border-right: 1px solid $c-light;
+    padding: 1.85rem $spacer-extra-big;
+    border-right: 1px solid $c-border;
   }
   &__main {
     flex: 1;
@@ -476,7 +500,7 @@ export default {
     padding: $spacer-medium 0;
     font-size: $font-size-small-desktop;
     @include for-desktop {
-      padding: $spacer-big 0;
+      padding: 1.85rem 0;
     }
   }
   &__title {
@@ -499,20 +523,20 @@ export default {
       text-transform: none;
     }
     svg {
-      fill: $c-dark;
+      fill: $c-dark-primary;
       @include for-desktop {
-        fill: $c-gray-variant;
+        fill: $c-gray-secondary;
       }
     }
     &:hover {
-      color: $c-primary;
+      color: $c-accent-primary;
       svg {
-        fill: $c-primary;
+        fill: $c-accent-primary;
       }
     }
   }
   &__label {
-    color: $c-gray-variant;
+    color: $c-gray-secondary;
   }
   &__sort {
     display: flex;
@@ -535,7 +559,14 @@ export default {
     }
   }
 }
-
+.main {
+  display: flex;
+}
+.sidebar {
+  flex: 0 0 15%;
+  padding: $spacer-extra-big;
+  border-right: 1px solid $c-border;
+}
 .products {
   box-sizing: border-box;
   flex: 1;
@@ -564,29 +595,6 @@ export default {
     }
   }
 }
-.section {
-  padding-left: $spacer-big;
-  padding-right: $spacer-big;
-  @include for-desktop {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-.sidebar {
-  flex: 0 0 15%;
-  padding: $spacer-extra-big;
-  border-right: 1px solid $c-light;
-}
-.sort-by {
-  flex: unset;
-  width: 190px;
-  padding: 0 10px;
-  font-size: inherit;
-  &__option {
-    padding: 10px;
-    font-size: inherit;
-  }
-}
 .filters {
   position: relative;
   z-index: 10;
@@ -600,11 +608,39 @@ export default {
   }
   &__button-clear {
     margin-top: 10px;
-    background: $c-light;
+    background: $c-light-primary;
     color: #a3a5ad;
   }
   &__item {
     padding: $spacer-small 0;
+  }
+}
+.sort-by {
+  flex: unset;
+  width: 190px;
+  padding: 0 10px;
+  font-size: inherit;
+  &__option {
+    padding: 10px;
+    font-size: inherit;
+  }
+}
+.menu-item {
+  padding: $spacer-small 0;
+  &--active,
+  &:hover {
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
+  }
+}
+.bottom-navigation-circle {
+  opacity: 1;
+}
+.section {
+  @media (max-width: $desktop-min) {
+    padding-left: $spacer-big;
+    padding-right: $spacer-big;
   }
 }
 </style>
