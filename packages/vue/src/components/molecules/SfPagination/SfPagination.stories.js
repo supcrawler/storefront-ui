@@ -1,5 +1,4 @@
 import { storiesOf } from "@storybook/vue";
-import { linkTo } from "@storybook/addon-links";
 import { generateStorybookTable } from "@/helpers";
 import SfPagination from "./SfPagination.vue";
 
@@ -16,12 +15,12 @@ const scssTableConfig = {
     ["$pagination__item-margin", "0.25rem", "margin of pagination"],
     [
       "$pagination__item-color",
-      "$c-text-secondary",
+      "$c-text-muted",
       "text color of pagination"
     ],
     [
       "$pagination__item-hover-color",
-      "$c-text-primary",
+      "$c-text",
       "text color of pagination on hover"
     ],
     [
