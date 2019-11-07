@@ -71,7 +71,7 @@ storiesOf("Organisms|ProductCard", module)
     () => ({
       props: {
         image: {
-          default: text("image (prop)", "assets/storybook/product_thumb.jpg")
+          default: text("image (prop)", "assets/storybook/product_thumb.png")
         },
         title: {
           default: text("title (prop)", "Product name")
