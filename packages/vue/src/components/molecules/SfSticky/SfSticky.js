@@ -37,7 +37,7 @@ export default {
     }
   },
   watch: {
-    scrollY() {
+    scrollY(value) {
       this.toggleSticky();
       this.toggleBound();
     },
@@ -102,15 +102,16 @@ export default {
     computedPadding() {
       const computed = window.getComputedStyle(this.$el.parentElement);
       return {
-        top: parseInt(computed["padding-top"], 10),
-        right: parseInt(computed["padding-right"], 10),
-        bottom: parseInt(computed["padding-bottom"], 10),
-        left: parseInt(computed["padding-left"], 10)
+        top: parseInt(computed["padding-top"]),
+        right: parseInt(computed["padding-right"]),
+        bottom: parseInt(computed["padding-bottom"]),
+        left: parseInt(computed["padding-left"])
       };
     }
   },
   mounted: function() {
     if (!this.isIE) return;
+    const computed = window.getComputedStyle(this.$el);
     this.$el.parentElement.style.position = "relative";
     this.padding = this.computedPadding();
     this.parentTop = this.$el.parentElement.offsetTop;
