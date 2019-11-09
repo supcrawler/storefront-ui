@@ -25,12 +25,12 @@ $price--big__old-font-size-desktop: $font-size-regular-desktop !default;
     text-decoration: none;
   }
   &__special {
-    color: $c-danger;
+    color: $c-pink-primary;
     text-decoration: none;
     margin-right: $spacer-small;
   }
   &__old {
-    color: $c-gray;
+    color: $c-gray-primary;
     font-size: $price__old-font-size;
     @media (min-width: $desktop-min) {
       font-size: $price__old-font-size-desktop;

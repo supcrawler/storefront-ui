@@ -13,14 +13,14 @@ export default {
      */
     image: {
       type: String,
-      default: ""
+      default: "assets/storybook/product_thumb.jpg"
     },
     /**
      * Product title
      */
     title: {
       type: String,
-      default: ""
+      required: true
     },
     /**
      * Product regular price
