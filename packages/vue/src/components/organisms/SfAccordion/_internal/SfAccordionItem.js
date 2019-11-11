@@ -1,23 +1,37 @@
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 export default {
   name: "SfAccordionItem",
-  components: {
-    SfChevron
-  },
-  props: {
-    header: {
-      type: String,
-      default: ""
-    }
-  },
   data() {
     return {
       isOpen: false
     };
   },
+  props: {
+    header: {
+      type: String,
+      default: ""
+    },
+    selected: {
+      type: String,
+      default: ""
+    },
+    contentItems: {
+      type: Array,
+      default: () => []
+    }
+  },
+  components: {
+    SfChevron
+  },
+  mounted() {
+    this.$parent.$emit("accordion-item-ready");
+  },
   methods: {
-    accordionClick() {
+    onHeaderClick() {
       this.$parent.$emit("toggle", this._uid);
+    },
+    onContentItemClick(id) {
+      this.$parent.$emit("click", id);
     }
   }
 };

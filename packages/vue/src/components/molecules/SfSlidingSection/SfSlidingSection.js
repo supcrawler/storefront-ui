@@ -17,7 +17,6 @@ export default {
   },
   watch: {
     isMobile(mobile) {
-      if (typeof window === "undefined") return;
       if (!mobile) {
         this.isActive = false;
         this.hasScrollLock = false;
@@ -28,7 +27,6 @@ export default {
       this.hammer.set({ enable: true });
     },
     isActive(active) {
-      if (typeof window === "undefined") return;
       if (!active) {
         this.hasStaticHeight = false;
         if (!this.isMobile) {
@@ -41,26 +39,12 @@ export default {
       this.hasScrollLock = false;
     },
     hasScrollLock(scrollLock) {
-      if (typeof window === "undefined") return;
       if (!scrollLock) {
         this.scrollUnlock();
         return;
       }
       this.scrollLock();
     }
-  },
-  async mounted() {
-    const hammer = await import("hammerjs");
-    const Hammer = hammer.default;
-    this.hammer = new Hammer(document, {
-      enable: false
-    }).on("pan", this.touchHandler);
-    this.isMobileHandler();
-    window.addEventListener("resize", this.isMobileHandler, { passive: true });
-  },
-  beforeDestroy() {
-    this.scrollUnlock();
-    this.hammer.destroy();
   },
   methods: {
     touchPreventDefault(e) {
@@ -85,7 +69,7 @@ export default {
       });
     },
     touchHandler(event) {
-      const { direction, isFinal } = event;
+      const { distance, direction, isFinal } = event;
       if (!this.hasStaticHeight && this.$refs.static.offsetHeight > 0) {
         this.hasStaticHeight = true;
         this.$refs.static.style.setProperty(
@@ -103,5 +87,17 @@ export default {
     closeHandler() {
       this.isActive = false;
     }
+  },
+  async mounted() {
+    const hammer = await import("hammerjs");
+    const Hammer = hammer.default;
+    this.hammer = new Hammer(document, {
+      enable: false
+    }).on("pan", this.touchHandler);
+    this.isMobileHandler();
+    window.addEventListener("resize", this.isMobileHandler, { passive: true });
+  },
+  beforeDestroy() {
+    this.hammer.destroy();
   }
 };

@@ -35,15 +35,13 @@ export default {
       default: ""
     },
     /**
-     * Notification type ("secondary", "info", "success", "warning", "danger"). Check "Knobs" section to see how they look like.
+     * Notification type ("alert", "warning", "info", "success"). Check "Knobs" section to see how they look like.
      */
     type: {
       type: String,
       default: "secondary",
       validator: function(value) {
-        return ["secondary", "info", "success", "warning", "danger"].includes(
-          value
-        );
+        return ["success", "info", "secondary", "danger"].indexOf(value) !== -1;
       }
     }
   },
@@ -52,7 +50,7 @@ export default {
       switch (this.type) {
         case "success":
           return "added_to_cart";
-        case "danger":
+        case "warning":
           return "info_shield";
         default:
           return "info_circle";

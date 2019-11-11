@@ -3,6 +3,7 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfInput from "../../atoms/SfInput/SfInput.vue";
+import { toInt } from "@glidejs/glide/src/utils/unit";
 
 export default {
   name: "SfCollectedProduct",
@@ -13,7 +14,7 @@ export default {
      */
     image: {
       type: String,
-      default: ""
+      default: "assets/storybook/product_thumb.png"
     },
     /**
      * Product title
@@ -61,13 +62,14 @@ export default {
   },
   watch: {
     qty(value) {
-      const qty = parseInt(value, 10);
+      const qty = toInt(value);
       if (qty <= 0) {
         this.$emit("input", "1");
         return;
       }
       if (qty > this.stock) {
         this.$emit("input", "" + this.stock);
+        return;
       }
     }
   },

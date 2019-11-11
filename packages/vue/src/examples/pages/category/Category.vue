@@ -96,19 +96,36 @@
     <div class="main section">
       <div class="sidebar desktop-only">
         <SfAccordion :firstOpen="true" :showChevron="false">
-          <SfAccordionItem
-            v-for="(accordion, i) in sidebarAccordion"
-            :key="i"
-            :header="accordion.header"
-          >
-            <template>
-              <SfList>
-                <SfListItem v-for="(item, j) in accordion.items" :key="j">
-                  <SfMenuItem :label="item.label" :count="item.count" />
-                </SfListItem>
-              </SfList>
-            </template>
-          </SfAccordionItem>
+          <template v-slot="{ selected }">
+            <SfAccordionItem
+              v-for="(accordion, i) in sidebarAccordion"
+              :key="i"
+              :header="accordion.header"
+            >
+              <template v-slot="{ handler }">
+                <SfList>
+                  <SfListItem v-for="(item, j) in accordion.items" :key="j">
+                    <div
+                      @click="
+                        () => {
+                          handler(item.label);
+                        }
+                      "
+                    >
+                      <SfMenuItem
+                        class="menu-item"
+                        :class="{
+                          'menu-item--active': selected === item.label
+                        }"
+                        :label="item.label"
+                        :count="item.count"
+                      />
+                    </div>
+                  </SfListItem>
+                </SfList>
+              </template>
+            </SfAccordionItem>
+          </template>
         </SfAccordion>
       </div>
       <div class="products">
@@ -313,56 +330,56 @@ export default {
       products: [
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00", special: "$20.00" },
           rating: { max: 5, score: false },
           isOnWishlist: true
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productC.jpg",
+          image: "assets/storybook/homepage/productC.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productA.jpg",
+          image: "assets/storybook/homepage/productA.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
         },
         {
           title: "Cream Beach Bag",
-          image: "assets/storybook/homepage/productB.jpg",
+          image: "assets/storybook/homepage/productB.png",
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           isOnWishlist: false
@@ -606,6 +623,15 @@ export default {
   &__option {
     padding: 10px;
     font-size: inherit;
+  }
+}
+.menu-item {
+  padding: $spacer-small 0;
+  &--active,
+  &:hover {
+    font-weight: 500;
+    text-decoration: underline;
+    cursor: pointer;
   }
 }
 .bottom-navigation-circle {
