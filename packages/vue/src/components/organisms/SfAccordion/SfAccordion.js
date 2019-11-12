@@ -5,14 +5,14 @@ Vue.component("SfAccordionItem", SfAccordionItem);
 
 export default {
   name: "SfAccordion",
+
+  data() {
+    return {
+      selected: ""
+    };
+  },
+
   props: {
-    /**
-     * Opens the first accordion item if set to "true"
-     */
-    firstOpen: {
-      type: Boolean,
-      default: false
-    },
     /**
      * Allows to open multiple accordion items if set to "true"
      */
@@ -21,19 +21,23 @@ export default {
       default: false
     },
     /**
-     * Overlay transition effect
+     * Opens the first accordion item if set to "true"
      */
-    transition: {
-      type: String,
-      default: "fade"
+    firstOpen: {
+      type: Boolean,
+      default: false
     },
+    /**
+     * Toggles chevron icon in accordion item header
+     */
     showChevron: {
       type: Boolean,
       default: true
     }
   },
+
   methods: {
-    toggleHandler(slotId) {
+    toggle(slotId) {
       if (!this.multiple) {
         this.$children.forEach(child => {
           child._uid === slotId
@@ -48,8 +52,12 @@ export default {
       }
     }
   },
+
   mounted: function() {
-    this.$on("toggle", this.toggleHandler);
+    this.$on("toggle", this.toggle);
+    this.$on("click", id => {
+      this.selected = id;
+    });
     if (this.$children.length) {
       this.$children[0].isOpen = this.firstOpen;
     }

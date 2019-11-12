@@ -1,48 +1,44 @@
-// /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
-
-import SfChevron from "./SfChevron.vue";
-import SfIcon from "../SfIcon/SfIcon.vue";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
+import SfChevron from "@/components/atoms/SfChevron/SfChevron.vue";
 
 storiesOf("Atoms|Chevron", module)
   .addDecorator(withKnobs)
-  .add("Default", () => ({
-    components: { SfChevron },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifier",
-          {
-            "sf-chevron--top": "sf-chevron--top"
-          },
-          "",
-          { display: "multi-select" }
-        )
+  .add(
+    "Basic",
+    () => ({
+      props: {
+        isActive: {
+          default: boolean("isActive (prop)", false)
+        }
+      },
+      components: {
+        SfChevron
+      },
+      template: '<SfChevron :active="isActive"/>'
+    }),
+    {
+      info: {
+        summary: `
+            <h2> Description </h2>
+            <p>Chevron component. Place desired content into slot.</p>
+            <h2> Usage </h2>
+            <pre><code>import { SfChevron } from "@storefront-ui/vue"</code></pre>
+            `
       }
-    },
-    template: `<SfChevron
-        :class="customClass" />`
-  }))
-  .add("[slot] default", () => ({
-    components: {
-      SfChevron,
-      SfIcon
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifier",
-          {
-            "sf-chevron--top": "sf-chevron--top"
-          },
-          "",
-          { display: "multi-select" }
-        )
+    }
+  )
+  .add(
+    "[slot] default",
+    () => ({
+      components: {
+        SfChevron
+      },
+      template: `<SfChevron><img src='assets/chevron_down.svg' alt="Chevron icon"></SfChevron>`
+    }),
+    {
+      info: {
+        summary: "Use this slot if passing basic props in not enough."
       }
-    },
-    template: `<SfChevron
-        :class="customClass">
-        <SfIcon icon="chevron_down" size="xxs"/> 
-      </SfChevron>`
-  }));
+    }
+  );

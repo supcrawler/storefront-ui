@@ -1,6 +1,5 @@
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import Vue from "vue";
 
 Vue.component("SfSelectOption", SfSelectOption);
@@ -64,8 +63,7 @@ export default {
     };
   },
   components: {
-    SfButton,
-    SfOverlay
+    SfButton
   },
   watch: {
     index(index) {
@@ -91,10 +89,10 @@ export default {
       if (!this.size) return;
       return `${this.optionHeight * this.size}px`;
     },
-    isActive() {
+    labelIsActive() {
       return this.open;
     },
-    isSelected() {
+    labelIsSelected() {
       return this.selected;
     }
   },
