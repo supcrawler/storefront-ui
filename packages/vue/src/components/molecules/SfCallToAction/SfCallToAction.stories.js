@@ -1,9 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text, select } from "@storybook/addon-knobs";
 import SfCallToAction from "./SfCallToAction.vue";
 
 storiesOf("Molecules|CallToAction", module)
@@ -14,35 +10,34 @@ storiesOf("Molecules|CallToAction", module)
       components: { SfCallToAction },
       props: {
         title: {
-          default: text("title (prop)", "Subscribe to Newsletters")
+          default: text("title (prop)", "Title prop")
         },
         description: {
           default: text(
             "description (prop)",
-            "Be aware of upcoming sales and events. Receive gifts and special offers!"
+            "Description prop lorem ipsum dolor sit amet"
           )
         },
         buttonText: {
-          default: text("buttonText (prop)", "Subscripe")
+          default: text("buttonText (prop)", "ButtonText prop")
         },
         customClass: {
-          default: options(
-            "CSS Modifiers",
-            {
-              "sf-call-to-action--secondary": "sf-call-to-action--secondary",
-              "sf-call-to-action--light": "sf-call-to-action--light"
-            },
-            "",
-            { display: "multi-select" }
+          default: select(
+            "CSS Modifier",
+            [
+              "null",
+              "sf-call-to-action--secondary",
+              "sf-call-to-action--light"
+            ],
+            "null"
           )
         }
       },
-      template: `<div style="max-width:1240px"><SfCallToAction
+      template: `<SfCallToAction
         :title="title"
         :button-text="buttonText"
         :description="description"
-        :class="customClass"
-        image="assets/storybook/homepage/newsletter.jpg"/></div>`
+        :class="customClass"/>`
     }),
     {
       info: {

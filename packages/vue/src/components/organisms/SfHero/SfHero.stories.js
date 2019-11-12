@@ -2,12 +2,14 @@
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
+  select,
   number,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { generateStorybookTable } from "@/helpers";
 
 import SfHero from "./SfHero.vue";
+import { string } from "postcss-selector-parser";
 
 const data = () => {
   return {
@@ -50,7 +52,7 @@ const scssTableConfig = {
     ["$hero__bullets-position-offset", "0.5rem"],
     ["$hero__bullets-position-offset--desktop", "2.5rem"],
     ["$hero__bullets-width", "100%"],
-    ["$hero-item-height", "14rem"],
+    [("$hero-item-height", "14rem")],
     ["$hero-item-height--desktop", "30rem"],
     ["$hero-item-width", "100%"],
     ["$hero-item-padding", "1rem"],
@@ -66,7 +68,7 @@ const scssTableConfig = {
 
     ["$hero-item__subtitle-width", "100%"],
     ["$hero-item__subtitle-width--desktop", "min-content"],
-    ["$hero-item__subtitle-color", "$c-gray-variant"],
+    ["$hero-item__subtitle-color", "$c-gray-secondary"],
     [
       "$hero-item__subtitle-border-left",
       "$hero-item__subtitle-color solid 1px"
@@ -83,7 +85,7 @@ const scssTableConfig = {
     ["$hero-item__title-font--desktop", "36px"],
     ["$hero-item__title-line-height--desktop", "50px"],
     ["$hero-item__title-line-height", "25px"],
-    ["$hero-item__title-color", "$c-dark"]
+    ["$hero-item__title-color", "$c-dark-primary"]
   ]
 };
 
@@ -100,6 +102,7 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 1st item",
             {
+              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",
@@ -113,6 +116,7 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 2nd item",
             {
+              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",
@@ -126,6 +130,7 @@ storiesOf("Organisms|Hero", module)
           default: options(
             "CSS Modifier for 3rd item",
             {
+              null: "null",
               "bg-bottom-left": "sf-hero-item--position-bg-bottom-left",
               "bg-top-right": "sf-hero-item--position-bg-top-right",
               "bg-top-left": "sf-hero-item--position-bg-top-left",
@@ -136,7 +141,7 @@ storiesOf("Organisms|Hero", module)
           )
         }
       },
-      template: `<div style="max-width: 1240px; margin: auto"><SfHero :sliderOptions="{autoplay: false}">
+      template: `<SfHero>
         <template>
           <div v-for="(item, index) in items">
             <SfHeroItem
@@ -149,7 +154,7 @@ storiesOf("Organisms|Hero", module)
             />
           </div>
         </template>
-      </SfHero></div>`
+      </SfHero>`
     }),
     {
       info: {

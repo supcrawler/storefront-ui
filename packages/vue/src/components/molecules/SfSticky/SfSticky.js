@@ -19,10 +19,9 @@ export default {
     };
   },
   computed: {
-    isIE() {
-      if (typeof window === "undefined") return;
-      const ua = window.navigator.userAgent;
-      return ua.indexOf("MSIE ") > -1 || ua.indexOf("Trident/ ") > -1;
+    isSupportedSticky() {
+      const computed = window.getComputedStyle(this.$el);
+      return computed.position === "sticky";
     },
     maxWidth() {
       return this.width - (this.padding.right + this.padding.left);
@@ -37,7 +36,7 @@ export default {
     }
   },
   watch: {
-    scrollY() {
+    scrollY(value) {
       this.toggleSticky();
       this.toggleBound();
     },
@@ -102,15 +101,16 @@ export default {
     computedPadding() {
       const computed = window.getComputedStyle(this.$el.parentElement);
       return {
-        top: parseInt(computed["padding-top"], 10),
-        right: parseInt(computed["padding-right"], 10),
-        bottom: parseInt(computed["padding-bottom"], 10),
-        left: parseInt(computed["padding-left"], 10)
+        top: parseInt(computed["padding-top"]),
+        right: parseInt(computed["padding-right"]),
+        bottom: parseInt(computed["padding-bottom"]),
+        left: parseInt(computed["padding-left"])
       };
     }
   },
   mounted: function() {
-    if (!this.isIE) return;
+    const computed = window.getComputedStyle(this.$el);
+    if (this.isSupportedSticky) return;
     this.$el.parentElement.style.position = "relative";
     this.padding = this.computedPadding();
     this.parentTop = this.$el.parentElement.offsetTop;
