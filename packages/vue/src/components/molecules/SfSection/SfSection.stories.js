@@ -33,13 +33,13 @@ storiesOf("Molecules|Section", module)
     () => ({
       props: {
         titleHeading: {
-          default: text("titleHeading (prop)", "Share your look")
+          default: text("(prop) titleHeading", "Share your look")
         },
         subtitleHeading: {
-          default: text("subtitleHeading (prop)", "#YOURLOOK")
+          default: text("(prop) subtitleHeading", "#YOURLOOK")
         },
         levelHeading: {
-          default: number("levelHeading (prop)", 2)
+          default: number("(prop) levelHeading", 2)
         },
         customClass: {
           default: options(
