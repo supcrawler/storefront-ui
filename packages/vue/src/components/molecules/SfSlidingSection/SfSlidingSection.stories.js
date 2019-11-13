@@ -36,7 +36,7 @@ storiesOf("Molecules|SlidingSection", module)
       },
       props: {
         editableProp: {
-          default: text("propname (prop)")
+          default: text("(prop) propname")
         },
         customClass: {
           default: options(
