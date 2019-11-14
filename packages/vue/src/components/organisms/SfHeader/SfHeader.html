@@ -1,10 +1,10 @@
 <header class="sf-header">
   <slot name="logo">
-    <SfImage :src="logo" class="sf-header__logo" />
+    <SfImage v-if="logo" :src="logo" class="sf-header__logo" />
   </slot>
   <slot name="navigations">
     <nav class="sf-header__navigation">
-      <a class="sf-header__navigation-link" v-for="(navigation, index) in navigations" :key="index" :href="navigation.href">{{navigation.text}}</a>
+      <a class="sf-header__navigation-link" v-for="(navigation, index) in navigations" :key="index" :href="navigation.href" v-text="navigation.text"></a>
     </nav>
   </slot>
   <slot name="search">
@@ -16,7 +16,7 @@
       class="sf-header__icon"
       size="xs"
       :icon="accountIcon"
-      @click="$emit('click:account')">
+      @click="onClickHandler('account')">
     </SfIcon>
   </slot>
   <slot name ="wishlistIcon">
@@ -24,7 +24,7 @@
       class="sf-header__icon"
       size="xs"
       :icon="wishlistIcon"
-      @click="$emit('click:wishlist')">
+      @click="onClickHandler('wishlist')">
     </SfIcon>
   </slot>
   <slot name ="cartIcon">
@@ -32,7 +32,7 @@
       class="sf-header__icon"
       size="xs"
       :icon="cartIcon"
-      @click="$emit('click:cart')">
+      @click="onClickHandler('cart')">
     </SfIcon>
   </slot>
   </div>

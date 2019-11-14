@@ -28,7 +28,7 @@ export default {
      * Heading cartIcon
      */
     cartIcon: {
-      type: [String, Boolean],
+      type: String,
       default: "empty_cart"
     },
     /**
