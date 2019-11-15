@@ -87,6 +87,6 @@ storiesOf("Atoms|Image", module)
       :lazy="lazy"
       :placeholder="placeholder"
       :picture-breakpoint="pictureBreakpoint">
-      <span>CUSTOM OVERLAY CONTENT</span>
+      <span>angelina_trn</span>
     </SfImage>`
   }));

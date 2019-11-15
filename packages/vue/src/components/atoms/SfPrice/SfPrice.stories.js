@@ -63,7 +63,7 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #special="{special}">
+      <template #special="{ special }">
         <SfBadge class="color-warning">{{special}}</SfBadge>
       </template>  
     </SfPrice>`
@@ -95,7 +95,7 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #old="{regular, special}">
+      <template #old="{ regular }">
         <SfBadge class="color-secondary">{{regular}}</SfBadge>
       </template>
     </SfPrice>`
@@ -127,7 +127,7 @@ storiesOf("Atoms|Price", module)
       :class="customClass"
       :regular="regular"
       :special="special">
-      <template #regular="{regular, special}">
+      <template #regular="{ regular }">
         <SfBadge>{{regular}}</SfBadge>
       </template>
     </SfPrice>`
