@@ -3,7 +3,7 @@ export default {
   props: {
     placeholder: {
       type: String,
-      default: ""
+      default: "Search for..."
     },
     value: {
       type: [Number, String],
