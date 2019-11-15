@@ -10,19 +10,19 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("(prop) name", "shipping")
       },
       value: {
-        default: text("value (prop)", "shipping-address")
+        default: text("(prop) value", "shipping-address")
       },
       label: {
-        default: text("label (prop)", "Copy address data from shipping")
+        default: text("(prop) label", "Copy address data from shipping")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("(prop) required", false)
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("(prop) disabled", false)
       }
     },
     data() {
@@ -43,19 +43,19 @@ storiesOf("Atoms|Checkbox", module)
     components: { SfCheckbox },
     props: {
       name: {
-        default: text("name (prop)", "shipping")
+        default: text("(prop) name", "shipping")
       },
       value: {
-        default: text("value (prop)", "shipping-address")
+        default: text("(prop) value", "shipping-address")
       },
       label: {
-        default: text("label (prop)", "Copy address data from shipping")
+        default: text("(prop) label", "Copy address data from shipping")
       },
       required: {
-        default: boolean("required (prop)", false)
+        default: boolean("(prop) required", false)
       },
       disabled: {
-        default: boolean("disabled (prop)", false)
+        default: boolean("(prop) disabled", false)
       }
     },
     data() {
@@ -70,9 +70,9 @@ storiesOf("Atoms|Checkbox", module)
       :label="label"
       :required="required"
       :disabled="disabled">
-      <template #checkmark="{isChecked, disabled}">
+      <template #checkmark="{ isChecked }">
         <span v-if="isChecked">👍🏻</span>
-        <span v-else>👎🏻</span>
+        <span v-else>👎🏻</spanv>
       </template>
     </SfCheckbox>`
   }))
@@ -107,7 +107,7 @@ storiesOf("Atoms|Checkbox", module)
       :label="label"
       :required="required"
       :disabled="disabled">
-      <template #label="{label, isChecked, disabled}">
+      <template #label="{ isChecked }">
         <span v-if="isChecked" style="margin-left: 1rem">🎉 I'm checked</span>
         <span v-else style="margin-left: 1rem">👈 Please check me</span>
       </template>
