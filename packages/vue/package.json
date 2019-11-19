@@ -19,6 +19,7 @@
     "docs:dev": "yarpm docs:vuecomponents && vuepress dev docs",
     "docs:build": "yarpm docs:vuecomponents && vuepress build docs",
     "create-index-files": "node scripts/create-index-files.js",
+    "precommit": "lint-staged",
     "postinstall": "node scripts/postinstall.js",
     "version": "node scripts/version.js",
     "postpublish": "node scripts/postpublish.js"
@@ -51,6 +52,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.5.5",
+    "@linusborg/vue-simple-portal": "^0.1.4",
     "@storybook/addon-a11y": "^5.1.9",
     "@storybook/addon-actions": "^5.1.9",
     "@storybook/addon-backgrounds": "^5.1.9",
