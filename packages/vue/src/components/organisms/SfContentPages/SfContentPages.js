@@ -1,20 +1,16 @@
 import Vue from "vue";
 import SfContentPage from "./_internal/SfContentPage.vue";
-import SfContentCategory from "./_internal/SfContentCategory.vue";
 
 Vue.component("SfContentPage", SfContentPage);
-Vue.component("SfContentCategory", SfContentCategory);
 
 import SfList from "../SfList/SfList.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 
 export default {
   name: "SfContentPages",
   components: {
     SfList,
-    SfMenuItem,
-    SfIcon
+    SfMenuItem
   },
   props: {
     /**
@@ -34,22 +30,22 @@ export default {
   },
   data() {
     return {
-      categories: [],
+      pages: [],
       isMobile: false,
       desktopMin: 1024
     };
   },
   provide() {
-    const categories = {};
-    const component = {};
-    Object.defineProperty(component, "active", {
+    const provided = {};
+
+    Object.defineProperty(provided, "active", {
       get: () => this.active
     });
-    Object.defineProperty(categories, "updateCategories", {
-      value: this.updateCategories
+    Object.defineProperty(provided, "updatePages", {
+      value: this.updatePages
     });
 
-    return { categories, component };
+    return { provided };
   },
   watch: {
     isMobile(mobile) {
@@ -58,12 +54,13 @@ export default {
         this.$emit("click:change", "");
         return;
       }
-      this.$emit("click:change", this.categories[0].pages[0].title);
+      this.$emit("click:change", this.pages[0]);
     }
   },
   methods: {
-    updateCategories(page) {
-      this.categories.push(page);
+    updatePages(title) {
+      if (this.pages.includes(title)) return;
+      this.pages.push(title);
     },
     updatePage(title) {
       /**

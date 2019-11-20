@@ -12,7 +12,7 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
   props: {},
   data() {
     return {
-      activePage: "My profile"
+      activePage: "About us"
     };
   },
   template: `<div>
@@ -20,9 +20,8 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
         :active="activePage"
         @click:change="updateActive"
         title="Help">
-        <SfContentCategory title="Personal Details">
-          <SfContentPage title="My profile" icon="heart" >
-            <SfTabs :open-tab="1">
+        <SfContentPage title="About us">
+          <SfTabs :open-tab="1">
             <SfTab title="Security">
               This website ("website") is operated by Luma Inc., which includes
               Luma stores, and Luma Private Sales. This privacy policy only covers
@@ -46,8 +45,8 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
             </SfTab>
           </SfTabs>
         </SfContentPage>
-          <SfContentPage title="Shopping details" icon="home">
-            <SfTabs :open-tab="1">
+        <SfContentPage title="Customer service">
+          <SfTabs :open-tab="1">
             <SfTab title="Size guide">
               This website ("website") is operated by Luma Inc., which includes
               Luma stores, and Luma Private Sales. This privacy policy only covers
@@ -63,63 +62,14 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
               by this privacy policy.
             </SfTab>
           </SfTabs>
-          </SfContentPage>
-          <SfContentPage title="Loyalty Card" icon="clock">
+        </SfContentPage>
+        <SfContentPage title="Store locator">
           This website ("website") is operated by Luma Inc., which includes
           Luma stores, and Luma Private Sales. This privacy policy only covers
           information collected at this website, and does not cover any
           information collected offline by Luma. All Luma websites are covered
           by this privacy policy.
-          </SfContentPage>
-        </SfContentCategory>
-        <SfContentCategory title="Order details">
-          <SfContentPage title="Order history">
-            <SfTabs :open-tab="1">
-            <SfTab title="Security">
-              This website ("website") is operated by Luma Inc., which includes
-              Luma stores, and Luma Private Sales. This privacy policy only covers
-              information collected at this website, and does not cover any
-              information collected offline by Luma. All Luma websites are covered
-              by this privacy policy.
-            </SfTab>
-            <SfTab title="Privacy Policy">
-              This website ("website") is operated by Luma Inc., which includes
-              Luma stores, and Luma Private Sales. This privacy policy only covers
-              information collected at this website, and does not cover any
-              information collected offline by Luma. All Luma websites are covered
-              by this privacy policy.
-            </SfTab>
-            <SfTab title="Additional Information ">
-              This website ("website") is operated by Luma Inc., which includes
-              Luma stores, and Luma Private Sales. This privacy policy only covers
-              information collected at this website, and does not cover any
-              information collected offline by Luma. All Luma websites are covered
-              by this privacy policy.
-            </SfTab>
-          </SfTabs>
         </SfContentPage>
-          <SfContentPage title="My reviews">
-            <SfTabs :open-tab="1">
-            <SfTab title="Size guide">
-              This website ("website") is operated by Luma Inc., which includes
-              Luma stores, and Luma Private Sales. This privacy policy only covers
-              information collected at this website, and does not cover any
-              information collected offline by Luma. All Luma websites are covered
-              by this privacy policy.
-            </SfTab>
-            <SfTab title="Where's my order?">
-              This website ("website") is operated by Luma Inc., which includes
-              Luma stores, and Luma Private Sales. This privacy policy only covers
-              information collected at this website, and does not cover any
-              information collected offline by Luma. All Luma websites are covered
-              by this privacy policy.
-            </SfTab>
-          </SfTabs>
-          </SfContentPage>
-        </SfContentCategory>
-        <SfContentCategory>
-          <SfContentPage title="Logout"/>
-        </SfContentCategory>
       </SfContentPages>
       <button 
         v-if="activePage" 
@@ -129,10 +79,6 @@ storiesOf("Organisms|ContentPages", module).add("[slot] default", () => ({
     </div>`,
   methods: {
     updateActive(title) {
-      if (title === "Logout") {
-        alert("You have been logged out");
-        return;
-      }
       this.activePage = title;
     }
   }

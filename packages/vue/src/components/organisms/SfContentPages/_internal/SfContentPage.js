@@ -1,6 +1,6 @@
 export default {
   name: "SfContentPage",
-  inject: ["pages", "component"],
+  inject: ["provided"],
   props: {
     /**
      * Page title
@@ -8,25 +8,14 @@ export default {
     title: {
       type: String,
       default: ""
-    },
-    /**
-     * Page nav title
-     */
-    icon: {
-      type: String,
-      default: ""
     }
   },
   computed: {
     isActive() {
-      return this.component.active === this.title;
+      return this.provided.active === this.title;
     }
   },
   mounted() {
-    const page = {
-      title: this.title,
-      icon: this.icon
-    };
-    this.pages.updatePages(page);
+    this.provided.updatePages(this.title);
   }
 };
