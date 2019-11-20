@@ -2,24 +2,20 @@ import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 export default {
   name: "SfModal",
-  model: {
-    prop: "visible",
-    event: "toggle"
-  },
   props: {
-    /**
-     * Visibility of the modal
-     */
-    visible: {
-      type: Boolean,
-      default: false
-    },
     /**
      * Cross closing modal button
      */
     cross: {
       type: Boolean,
       default: true
+    },
+    /**
+     * Visibility of the modal
+     */
+    visible: {
+      type: Boolean,
+      default: () => false
     },
     /**
      * Whether to show the overlay
@@ -52,37 +48,48 @@ export default {
   },
   methods: {
     close() {
-      this.$emit("toggle", false);
+      this.$emit("close");
+      // remove left code
+    },
+    keydownHandler(e) {
+      if (e.key === "Escape" || e.key === "Esc" || e.keyCode === 27) {
+        this.close();
+      }
+      if (this.visible) {
+        // TODO: this is an error right now. what shall it do?
+        //  document.addEventListener("keydown", keydownHandler);
+        this.$emit("close");
+      } else {
+        // TODO: this is an error right now. what shall it do?
+        //  document.removeEventListener("keydown", keydownHandler);
+        this.$emit("open");
+      }
     },
     checkPersistence() {
-      if (!this.persistent) {
+      if (this.persistent === false) {
         this.close();
       }
     }
   },
   watch: {
     visible: {
-      handler: value => {
-        if (typeof window === "undefined") return;
-        if (value) {
+      handler: function(visibility) {
+        if (visibility && typeof window !== "undefined") {
+          document.body.style.setProperty(
+            "margin-right",
+            `${window.innerWidth - document.body.clientWidth}px`
+          );
+          document.addEventListener("keydown", this.keydownHandler);
           document.body.style.setProperty("overflow", "hidden");
-        } else {
+        }
+        if (!visibility && typeof window !== "undefined") {
+          document.body.style.removeProperty("margin-right");
           document.body.style.removeProperty("overflow");
+          document.removeEventListener("keydown", this.keydownHandler);
         }
       },
       immediate: true
     }
-  },
-  created() {
-    const escapeHandler = e => {
-      if (e.key === "Escape" && this.visible) {
-        this.close();
-      }
-    };
-    document.addEventListener("keydown", escapeHandler);
-    this.$once("hook:destroyed", () => {
-      document.removeEventListener("keydown", escapeHandler);
-    });
   },
   components: {
     SfOverlay,
