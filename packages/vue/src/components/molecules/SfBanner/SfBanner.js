@@ -33,11 +33,49 @@ export default {
     },
     /** Background image. Influenced by $banner-background-size, $banner-background-position CSS props. */
     image: {
-      type: String,
+      type: [String, Object],
       default: ""
     }
   },
   components: {
     SfButton
+  },
+  watch: {
+    image: {
+      handler(image) {
+        this.$nextTick(() => {
+          if (typeof image === "object") {
+            if (image.mobile && image.desktop) {
+              this.$el.style.setProperty(
+                "--background-image-mobile",
+                `url(${image.mobile})`
+              );
+              this.$el.style.setProperty(
+                "--background-image-desktop",
+                `url(${image.desktop})`
+              );
+            }
+          } else {
+            this.$el.style.setProperty(
+              "--background-image-mobile",
+              `url(${image})`
+            );
+            this.$el.style.setProperty(
+              "--background-image-desktop",
+              `url(${image})`
+            );
+          }
+        });
+      },
+      immediate: true
+    },
+    background: {
+      handler(background) {
+        this.$nextTick(() => {
+          this.$el.style.setProperty("--background-color", background);
+        });
+      },
+      immediate: true
+    }
   }
 };
