@@ -40,7 +40,7 @@ export default {
      * Selected quantity
      */
     qty: {
-      type: [Number, String],
+      type: String,
       default: "1"
     },
     /**

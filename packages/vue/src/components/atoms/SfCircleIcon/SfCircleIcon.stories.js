@@ -34,7 +34,7 @@ storiesOf("Atoms|CircleIcon", module)
         )
       },
       icon: {
-        default: select("icon (prop)", iconsNames, "home")
+        default: select("(prop) icon", iconsNames, "home")
       }
     },
     template: `<SfCircleIcon
