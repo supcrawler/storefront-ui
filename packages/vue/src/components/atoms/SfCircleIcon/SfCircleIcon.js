@@ -12,15 +12,15 @@ export default {
     },
     /**
      */
-    iconColor: {
+    colorIcon: {
       type: String,
       default: "white"
     },
     /**
      */
-    iconSize: {
+    sizeIcon: {
       type: String,
-      default: "20px"
+      default: "100%"
     }
   },
   components: {
