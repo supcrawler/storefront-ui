@@ -1,95 +1,73 @@
 // /* eslint-disable import/no-extraneous-dependencies */
-import { storiesOf } from "@storybook/vue";
+import { storiesOf } from '@storybook/vue';
 import {
   withKnobs,
-  text,
   select,
-  color,
   optionsKnob as options
-} from "@storybook/addon-knobs";
-import { icons } from "@storefront-ui/shared/icons/icons";
+} from '@storybook/addon-knobs';
+import { icons } from '@storefront-ui/shared/icons/icons';
 
-import SfCircleIcon from "./SfCircleIcon.vue";
+import SfCircleIcon from './SfCircleIcon.vue';
 
 const iconsNames = Object.keys(icons);
 
-const StoriesPlaceholder = {
-  template: `<span style="font-size: 1.5rem; width: 20px; height: 20px; line-height: 0; display: flex; justify-content: center; align-items: center">1</span>`
-};
-
-storiesOf("Atoms|CircleIcon", module)
+storiesOf('Atoms|CircleIcon', module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add('Default', () => ({
     components: { SfCircleIcon },
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          'CSS modifier',
           {
-            "color-primary": "color-primary",
-            "color-secondary": "color-secondary",
-            "color-warning": "color-warning",
-            "color-danger": "color-danger",
-            "color-info": "color-info",
-            "color-success": "color-success"
+            'sf-circle-icon--small': 'sf-circle-icon--small',
+            'sf-circle-icon--big': 'sf-circle-icon--big',
+            'color-primary': 'color-primary',
+            'color-secondary': 'color-secondary',
+            'color-warning': 'color-warning',
+            'color-danger': 'color-danger',
+            'color-info': 'color-info',
+            'color-success': 'color-success'
           },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          '',
+          { display: 'multi-select' }
         )
       },
       icon: {
-        default: select("icon", iconsNames, "home", "Props")
-      },
-      iconSize: {
-        default: text("iconSize", "20px", "Props")
-      },
-      iconColor: {
-        default: color("iconColor", "#FFFFFF", "Props")
+        default: select('(prop) icon', iconsNames, 'home')
       }
     },
     template: `<SfCircleIcon
         :class="customClass"
-        :icon="icon" 
-        :iconSize="iconSize"
-        :iconColor="iconColor"
-     />`
+        :icon="icon" />`
   }))
-  .add("[slot] default", () => ({
-    components: { SfCircleIcon, StoriesPlaceholder },
+  .add('[slot] default', () => ({
+    components: { SfCircleIcon },
     props: {
       customClass: {
         default: options(
-          "CSS modifiers",
+          'CSS modifier',
           {
-            "color-primary": "color-primary",
-            "color-secondary": "color-secondary",
-            "color-warning": "color-warning",
-            "color-danger": "color-danger",
-            "color-info": "color-info",
-            "color-success": "color-success"
+            'sf-circle-icon--small': 'sf-circle-icon--small',
+            'sf-circle-icon--big': 'sf-circle-icon--big',
+            'color-primary': 'color-primary',
+            'color-secondary': 'color-secondary',
+            'color-warning': 'color-warning',
+            'color-danger': 'color-danger',
+            'color-info': 'color-info',
+            'color-success': 'color-success'
           },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
+          '',
+          { display: 'multi-select' }
         )
       },
       icon: {
-        default: select("icon", iconsNames, "home", "Props")
-      },
-      iconSize: {
-        default: text("iconSize", "20px", "Props")
-      },
-      iconColor: {
-        default: text("iconColor", "#FFFFFF", "Props")
+        default: select('icon (prop)', iconsNames, 'home')
       }
     },
     template: `<SfCircleIcon
       :class="customClass"
-      :icon="icon"
-      :iconSize="iconSize"
-      :iconColor="iconColor"
-    >
-      <StoriesPlaceholder/>
+      :icon="icon">
+      <span style="font-size: 1.5rem">1</span>
     </SfCircleIcon>`
   }));

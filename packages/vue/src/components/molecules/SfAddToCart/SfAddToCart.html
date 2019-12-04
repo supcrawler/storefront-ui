@@ -4,7 +4,7 @@
     <SfButton
       v-on="$listeners"
       class="sf-add-to-cart__button"
-      :disabled="disabled"
+      :disabled="!canAddToCart"
     >
       Add to cart
     </SfButton>
