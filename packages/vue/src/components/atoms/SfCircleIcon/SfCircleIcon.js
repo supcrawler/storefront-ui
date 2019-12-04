@@ -12,22 +12,15 @@ export default {
     },
     /**
      */
-    colorIcon: {
+    iconColor: {
       type: String,
       default: "white"
     },
     /**
      */
-    sizeIcon: {
+    iconSize: {
       type: String,
-      default: "100%"
-    },
-    /**
-     * Sets aria-label for button icon
-     */
-    alt: {
-      type: String,
-      required: true
+      default: "20px"
     }
   },
   components: {
