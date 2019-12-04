@@ -6,9 +6,9 @@ import {
   optionsKnob as options
 } from "@storybook/addon-knobs";
 
-import ComponentNameCamelCase from "./ComponentNameCamelCase.vue";
+import SfBar from "./SfBar.vue";
 
-storiesOf("ComponentType|ComponentName", module)
+storiesOf("Molecules|Bar", module)
   .addDecorator(withKnobs)
   .add("[slot] default", () => ({
     props: {
@@ -16,8 +16,8 @@ storiesOf("ComponentType|ComponentName", module)
         default: options(
           "CSS modifier",
           {
-            "ComponentNameKebabCase--modifier":
-              "ComponentNameKebabCase--modifier"
+            "sf-bar--modifier":
+              "sf-bar--modifier"
           },
           "",
           { display: "multi-select" }
@@ -27,7 +27,8 @@ storiesOf("ComponentType|ComponentName", module)
     editableProp: {
       default: text("propname (prop)", "propvalue")
     },
-    components: { ComponentNameCamelCase },
-    template: `<ComponentNameCamelCase
+    components: { SfBar },
+    template: `<SfBar
       :class="customClass" />`
   }));
+
