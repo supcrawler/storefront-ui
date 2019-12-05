@@ -11,9 +11,9 @@ export default {
     }
   },
   computed: {
-    open() {
+    opened() {
       const title = this.title;
-      return this.$parent.open.includes(title);
+      return this.$parent.opened.includes(title);
     }
   },
   methods: {
