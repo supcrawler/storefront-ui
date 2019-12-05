@@ -3,7 +3,7 @@ import { Fragment } from "vue-fragment";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 
 export default {
-  name: "SfTab",
+  name: "Sftab",
   data() {
     return {
       isActive: false

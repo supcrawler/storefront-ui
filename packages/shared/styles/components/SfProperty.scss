@@ -32,7 +32,6 @@ $property__value-font-weight-desktop: $body-font-weight-secondary !default;
   &--full-width {
     display: flex;
     justify-content: space-between;
-    align-content: center;
     #{$this}__name {
       text-transform: uppercase;
     }
