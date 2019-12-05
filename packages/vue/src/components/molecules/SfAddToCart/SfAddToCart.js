@@ -15,7 +15,7 @@ export default {
      * Boolean to indicate whether product
      * can be added to cart
      */
-    disabled: {
+    canAddToCart: {
       type: Boolean,
       default: false
     },
@@ -30,8 +30,8 @@ export default {
      * Selected quantity
      */
     qty: {
-      type: [Number, String],
-      default: 1
+      type: String,
+      default: "1"
     }
   },
   watch: {

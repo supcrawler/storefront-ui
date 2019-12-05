@@ -1,5 +1,5 @@
-import SfTab from "./_internal/SfTab.vue";
 import Vue from "vue";
+import SfTab from "./_internal/SfTab.vue";
 
 Vue.component("SfTab", SfTab);
 
