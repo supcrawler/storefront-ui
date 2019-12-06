@@ -6,23 +6,23 @@ import SfModal from "./SfModal.vue";
 
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
-  .add("[slot] default", () => ({
+  .add("Common", () => ({
     components: { SfModal },
     props: {
       overlay: {
-        default: boolean("overlay (prop)", true)
+        default: boolean("overlay", true, "Props")
       },
       cross: {
-        default: boolean("cross (prop)", true)
+        default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent (prop)", true)
+        default: boolean("persistent", true, "Props")
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible (data)<input type="checkbox" v-model="visible"></label>
@@ -40,19 +40,19 @@ storiesOf("Molecules|Modal", module)
     components: { SfModal },
     props: {
       overlay: {
-        default: boolean("overlay (prop)", true)
+        default: boolean("overlay", true, "Props")
       },
       cross: {
-        default: boolean("cross (prop)", true)
+        default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent (prop)", true)
+        default: boolean("persistent", true, "Props")
       }
     },
-    data(){
+    data() {
       return {
         visible: true
-      }
+      };
     },
     template: `<div>
         <label>visible (data)<input type="checkbox" v-model="visible"></label>
