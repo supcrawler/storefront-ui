@@ -27,8 +27,11 @@ export default {
       type: Boolean,
       default: false
     },
+    /**
+     * Array storing the checked values (usable for multiple grouped checkboxes).
+     */
     selected: {
-      type: [Array, Boolean],
+      type: Array,
       default: () => []
     }
   },
@@ -37,26 +40,19 @@ export default {
   },
   methods: {
     inputHandler() {
-      if (typeof this.selected === "boolean") {
-        this.$emit("input", !this.selected);
+      const selected = [...this.selected];
+      const index = selected.indexOf(this.value);
+      if (index > -1) {
+        selected.splice(index, 1);
       } else {
-        let selected = [...this.selected];
-        if (selected.includes(this.value)) {
-          selected = selected.filter(value => value !== this.value);
-        } else {
-          selected.push(this.value);
-        }
-        this.$emit("input", selected);
+        selected.push(this.value);
       }
+      this.$emit("input", selected);
     }
   },
   computed: {
     isChecked() {
-      if (typeof this.selected === "boolean") {
-        return this.selected;
-      } else {
-        return this.selected.includes(this.value);
-      }
+      return this.selected.indexOf(this.value) > -1;
     }
   }
 };
