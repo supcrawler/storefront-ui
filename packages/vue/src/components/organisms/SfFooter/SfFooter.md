@@ -6,7 +6,7 @@ Footer component.
 
 ```html 
 <template>
-  <SfFooter :column="4" :multiple="true">
+  <SfFooter v-model="opened" :column="4" :multiple="true">
     <SfFooterColumn title="About Us"></SfFooterColumn>
     <SfFooterColumn title="Departmens"></SfFooterColumn>
     <SfFooterColumn title="Help"></SfFooterColumn>
@@ -20,6 +20,11 @@ import { SfFooter } from '@storefront-ui/vue'
 export default {
   components: {
     SfFooter
+  },
+  data(){
+    return {
+      opened: []
+    }
   }
 }
 </script>

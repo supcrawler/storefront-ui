@@ -18,13 +18,13 @@ storiesOf("Organisms/Header", module)
         })
       },
       cartIcon: {
-        default: text("cart-icon (prop)", "empty_cart")
+        default: text("a (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("wishlist-icon (prop)", "heart")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("account-icon (prop)", "profile")
+        default: text("accountIcon (prop)", "profile")
       },
       activeIcon: {
         default: select(
