@@ -3,8 +3,8 @@
 const fs = require("fs");
 const path = require("path");
 
-const isDependency = path.resolve(__dirname).includes("node_modules");
-const stylesPath = path.resolve(__dirname, "../../../../sfui.scss");
+const isDependency = __dirname.includes("node_modules");
+const stylesPath = path.resolve(__dirname, "../../../sfui.scss");
 
 function getStylesContent() {
   return `/* Here you can override global SCSS variables */
@@ -16,7 +16,7 @@ function getStylesContent() {
 }
 function createRootSfuiScss() {
   if (isDependency && !fs.existsSync(stylesPath)) {
-    fs.appendFile(stylesPath, getStylesContent(), err => {
+    fs.appendFile("../../../sfui.scss", getStylesContent(), err => {
       if (err) throw err;
     });
   }
