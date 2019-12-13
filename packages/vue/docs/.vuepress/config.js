@@ -31,7 +31,6 @@ module.exports = {
           ["/components/Badge", "Badge"],
           ["/components/Banner", "Banner"],
           ["/components/BannerGrid", "Banner Grid"],
-          ["/components/Bar", "Bar"],
           ["/components/BottomNavigation", "Bottom Navigation"],
           ["/components/Breadcrumbs", "Breadcrumbs"],
           ["/components/Bullets", "Bullets"],

@@ -27,7 +27,7 @@ export default {
      */
     ariaLabel: {
       type: String,
-      default: ""
+      required: true
     }
   },
   components: {
