@@ -3,141 +3,132 @@ import { withKnobs, text, select, object } from "@storybook/addon-knobs";
 
 import SfHeader from "./SfHeader.vue";
 
-storiesOf("Organisms|Header", module)
+storiesOf("Organisms/Header", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            small: { url: "/assets/logo.svg" },
-            normal: { url: "/assets/logo.svg" }
-          },
-          "Props"
-        )
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("a (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon (prop)", "profile")
       },
       activeIcon: {
         default: select(
-          "activeIcon",
+          "active-icon (prop)",
           ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
+          "account"
         )
       }
     },
-    template: `<SfHeader
-      :title="title" 
-      :logo="logo"
-      :cart-icon="cartIcon" 
-      :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon"
-      :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
-     >
-      <template #navigation>
-        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
-      </template>
-    </SfHeader>`
+    template: `<div style="margin: -20px">
+      <SfHeader
+        :title="title" 
+        :logo="logo"
+        :cart-icon="cartIcon" 
+        :wishlist-icon="wishlistIcon" 
+        :account-icon="accountIcon"
+        :active-icon="activeIcon"
+        style="max-width: 1024px; margin: auto"
+      >
+        <template #navigation>
+          <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+          <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+          <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+        </template>
+      </SfHeader>
+    </div>`
   }))
   .add("[slot] logo", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            small: { url: "/assets/logo.svg" },
-            normal: { url: "/assets/logo.svg" }
-          },
-          "Props"
-        )
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon (prop)", "profile")
       },
       activeIcon: {
         default: select(
-          "activeIcon",
+          "active-icon (prop)",
           ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
+          "account"
         )
       }
     },
-    template: `<SfHeader
-      :title="title"  
-      :logo="logo"
-      :cart-icon="cartIcon" 
-      :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon"
-      :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
-    >
-      <template #logo>
-        CUSTOM LOGO 
+    template: `<div style="margin: -20px">
+      <SfHeader
+        :title="title"  
+        :logo="logo"
+        :cart-icon="cartIcon" 
+        :wishlist-icon="wishlistIcon" 
+        :account-icon="accountIcon"
+        :active-icon="activeIcon"
+        style="max-width: 1024px; margin: auto"
+      >
+        <template #logo>
+          CUSTOM LOGO 
+        </template>
+        <template #navigation>
+        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
       </template>
-      <template #navigation>
-      <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
-      <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-      <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
-    </template>
-    </SfHeader>`
+      </SfHeader>
+    </div>`
   }))
   .add("[slot] navigation", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            small: { url: "/assets/logo.svg" },
-            normal: { url: "/assets/logo.svg" }
-          },
-          "Props"
-        )
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon (prop)", "profile")
       },
       activeIcon: {
-        default: text("activeIcon", "account", "Props")
+        default: text("activeIcon (prop)", "account")
       }
     },
-    template: `<SfHeader
+    template: `<div style="margin: -20px">
+    <SfHeader
       :title="title" 
       :logo="logo"
       :cart-icon="cartIcon" 
@@ -151,106 +142,102 @@ storiesOf("Organisms|Header", module)
         <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
         <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
       </template>
-    </SfHeader>`
+    </SfHeader>
+  </div>`
   }))
   .add("[slot] search", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            small: { url: "/assets/logo.svg" },
-            normal: { url: "/assets/logo.svg" }
-          },
-          "Props"
-        )
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("accountIcon", "profile", "Props")
+        default: text("accountIcon (prop)", "profile")
       },
       activeIcon: {
-        default: text("activeIcon", "account", "Props")
+        default: text("activeIcon (prop)", "account")
       }
     },
-    template: `<SfHeader
-      :title="title"  
-      :logo="logo"
-      :cart-icon="cartIcon" 
-      :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon"
-      :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
-    >
-      <template #navigation>
-        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
-      </template>
-      <template #search>
-        CUSTOM SEARCH
-      </template>
-    </SfHeader>`
+    template: `<div style="margin: -20px">
+      <SfHeader
+        :title="title"  
+        :logo="logo"
+        :cart-icon="cartIcon" 
+        :wishlist-icon="wishlistIcon" 
+        :account-icon="accountIcon"
+        :active-icon="activeIcon"
+        style="max-width: 1024px; margin: auto"
+      >
+        <template #navigation>
+          <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+          <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+          <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+        </template>
+        <template #search>
+          CUSTOM SEARCH
+        </template>
+      </SfHeader>
+    </div>`
   }))
   .add("[slot] icons", () => ({
     components: { SfHeader },
     props: {
       title: {
-        default: text("title", "Storefront UI", "Props")
+        default: text("title (prop)", "Storefront UI")
       },
       logo: {
-        default: object(
-          "logo",
-          {
-            small: { url: "/assets/logo.svg" },
-            normal: { url: "/assets/logo.svg" }
-          },
-          "Props"
-        )
+        default: object("logo (prop)", {
+          small: { url: "/assets/logo.svg" },
+          normal: { url: "/assets/logo.svg" }
+        })
       },
       cartIcon: {
-        default: text("cartIcon", "empty_cart", "Props")
+        default: text("cartIcon (prop)", "empty_cart")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props")
+        default: text("wishlistIcon (prop)", "heart")
       },
       accountIcon: {
-        default: text("accountIcon", "mail", "Props")
+        default: text("accountIcon (prop)", "mail")
       },
       activeIcon: {
         default: select(
-          "activeIcon",
+          "active-icon (prop)",
           ["", "account", "wishlist", "cart"],
-          "account",
-          "Props"
+          "account"
         )
       }
     },
-    template: `<SfHeader
-      :title="title" 
-      :logo="logo"
-      :cart-icon="cartIcon" 
-      :wishlist-icon="wishlistIcon" 
-      :account-icon="accountIcon"
-      :active-icon="activeIcon"
-      style="max-width: 1024px; margin: auto"
-    >
-      <template #navigation>
-        <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
-        <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
-      </template>
-      <template #header-icons>
-        CUSTOM ICONS
-      </template>
-    </SfHeader>`
+    template: `<div style="margin: -20px">
+      <SfHeader
+        :title="title" 
+        :logo="logo"
+        :cart-icon="cartIcon" 
+        :wishlist-icon="wishlistIcon" 
+        :account-icon="accountIcon"
+        :active-icon="activeIcon"
+        style="max-width: 1024px; margin: auto"
+      >
+        <template #navigation>
+          <SfHeaderNavigationItem>WOMEN</SfHeaderNavigationItem>
+          <SfHeaderNavigationItem>MEN</SfHeaderNavigationItem>
+          <SfHeaderNavigationItem>KIDS</SfHeaderNavigationItem>
+        </template>
+        <template #header-icons>
+          CUSTOM ICONS
+        </template>
+      </SfHeader>
+    </div>`
   }));

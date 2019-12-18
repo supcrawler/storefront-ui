@@ -20,18 +20,7 @@ export default {
      */
     iconSize: {
       type: String,
-      default: "100%"
-    },
-    /**
-     * Sets aria-label for button icon
-     */
-    ariaLabel: {
-      type: String,
-      default: ""
-    },
-    hasBadge: {
-      type: Boolean,
-      default: false
+      default: "20px"
     }
   },
   components: {

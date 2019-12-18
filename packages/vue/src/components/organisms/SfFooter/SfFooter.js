@@ -5,7 +5,15 @@ import SfFooterColumn from "./_internal/SfFooterColumn.vue";
 Vue.component("SfFooterColumn", SfFooterColumn);
 export default {
   name: "SfFooter",
+  model: {
+    prop: "opened",
+    event: "change"
+  },
   props: {
+    opened: {
+      type: Array,
+      default: () => []
+    },
     column: {
       type: Number,
       default: 4
@@ -17,24 +25,29 @@ export default {
   },
   data() {
     return {
-      open: [],
       items: [],
       desktopMin: 1024,
-      isMobile: false
+      isMobile: false,
+      mql: undefined
     };
   },
   watch: {
     isMobile: {
       handler(mobile) {
+        let opened;
         this.$nextTick(() => {
-          this.open = mobile ? [] : [...this.items];
+          if (mobile) {
+            opened = [];
+          } else {
+            opened = [...this.items];
+          }
+          this.$emit("change", opened);
         });
       },
       immediate: true
     },
     column: {
       handler(column) {
-        if (typeof window === "undefined") return;
         this.$nextTick(() => {
           this.$el.style.setProperty("--col-width", `${100 / column}%`);
         });
@@ -44,15 +57,15 @@ export default {
   },
   methods: {
     toggle(payload) {
-      if (!this.isMobile) return;
+      let opened = [...this.opened];
       if (!this.multiple) {
-        this.open = [payload];
-      } else if (this.open.includes(payload)) {
-        this.open = this.open.filter(item => item !== payload);
+        opened = [payload];
+      } else if (opened.includes(payload)) {
+        opened = opened.filter(item => item !== payload);
       } else {
-        this.open.push(payload);
+        opened.push(payload);
       }
-      this.$emit("change", this.open);
+      this.$emit("change", opened);
     },
     isMobileHandler(e) {
       this.isMobile = e.matches;
@@ -62,13 +75,11 @@ export default {
     this.isMobile =
       Math.max(document.documentElement.clientWidth, window.innerWidth) <
       this.desktopMin;
-    window
-      .matchMedia(`(max-width: ${this.desktopMin}px)`)
-      .addListener(this.isMobileHandler);
+    window.matchMedia("(max-width: 1024px)").addListener(this.isMobileHandler);
   },
   beforeDestroy() {
     window
-      .matchMedia(`(max-width: ${this.desktopMin}px)`)
+      .matchMedia("(max-width: 1024px)")
       .removeListener(this.isMobileHandler);
   }
 };

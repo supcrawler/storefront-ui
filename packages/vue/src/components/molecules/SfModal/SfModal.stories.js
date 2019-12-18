@@ -3,64 +3,57 @@ import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 
 import SfModal from "./SfModal.vue";
-import {
-  visibilityToggleMixin,
-  withVisibilityToggle
-} from "../../../../config/storybook/decorators";
 
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
-  .addDecorator(withVisibilityToggle)
-  .add("Common", () => ({
+  .add("[slot] default", () => ({
     components: { SfModal },
     props: {
+      visible: {
+        default: boolean("visible (data)", true)
+      },
       overlay: {
-        default: boolean("overlay", true, "Props")
+        default: boolean("overlay (prop)", true)
       },
       cross: {
-        default: boolean("cross", true, "Props")
+        default: boolean("cross (prop)", true)
       },
       persistent: {
-        default: boolean("persistent", true, "Props")
+        default: boolean("persistent (prop)", true)
       }
     },
-    mixins: [visibilityToggleMixin],
-    template: `
-      <SfModal
-        :visible="visible"
-        :overlay="overlay"
-        :cross="cross"
-        :persistent="persistent"
-        @close="visible = false"
-      >
-        HELLO STOREFRONT UI!
-      </SfModal>`
+    template: `<SfModal
+      :visible="visible"
+      :overlay="overlay"
+      :cross="cross"
+      :persistent="persistent">
+      HELLO STOREFRONT UI!
+    </SfModal>`
   }))
   .add("[slot] close", () => ({
     components: { SfModal },
     props: {
+      visible: {
+        default: boolean("visible (data)", true)
+      },
       overlay: {
-        default: boolean("overlay", true, "Props")
+        default: boolean("overlay (prop)", true)
       },
       cross: {
-        default: boolean("cross", true, "Props")
+        default: boolean("cross (prop)", true)
       },
       persistent: {
-        default: boolean("persistent", true, "Props")
+        default: boolean("persistent (prop)", true)
       }
     },
-    mixins: [visibilityToggleMixin],
-    template: `
-      <SfModal
-        :visible="visible"
-        :overlay="overlay"
-        :cross="cross"
-        :persistent="persistent"
-        @close="visible = false"
-      >
-        HELLO STOREFRONT UI!
-        <template #close>
+    template: `<SfModal
+      :visible="visible"
+      :overlay="overlay"
+      :cross="cross"
+      :persistent="persistent">
+      HELLO STOREFRONT UI!
+      <template #close>
           close
-        </template>
-      </SfModal>`
+      </template>
+    </SfModal>`
   }));

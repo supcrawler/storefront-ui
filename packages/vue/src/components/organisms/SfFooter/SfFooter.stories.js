@@ -8,14 +8,14 @@ import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
 
 storiesOf("Organisms|Footer", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     components: { SfFooter, SfList, SfMenuItem, SfImage },
     props: {
       column: {
-        default: number("column", 4, {}, "Props")
+        default: number("column (prop)", 4)
       },
       multiple: {
-        default: boolean("multiple", true, "Props")
+        default: boolean("multiple (prop)", true)
       }
     },
     data() {
@@ -26,15 +26,20 @@ storiesOf("Organisms|Footer", module)
         paymentsDelivery: ["Purchase terms", "Guarantee"],
         social: ["facebook", "pinterest", "twitter", "youtube"],
         isMobile: false,
-        desktopMin: 1024
+        desktopMin: 1024,
+        opened: []
       };
     },
     computed: {
       style() {
-        return this.isMobile ? { padding: "20px 40px" } : { padding: "6px 0" };
+        return this.isMobile
+          ? { padding: "1.25rem 2.5rem" }
+          : { padding: "6px 0" };
       }
     },
-    template: `<SfFooter 
+    template: `<div style="margin: -20px;">
+      <SfFooter 
+        v-model="opened" 
         :column="column" 
         :multiple="multiple" 
         style="max-width: 64rem; margin-left: auto; margin-right: auto"
@@ -46,7 +51,7 @@ storiesOf("Organisms|Footer", module)
               :key="item"
             >
               <SfMenuItem 
-                class="sf-footer__menu-item" 
+                :style="style" 
                 :label="item"
               />
             </SfListItem>
@@ -59,7 +64,7 @@ storiesOf("Organisms|Footer", module)
               :key="item"
             >
               <SfMenuItem 
-                class="sf-footer__menu-item" 
+                :style="style" 
                 :label="item"
               />
             </SfListItem>
@@ -72,7 +77,7 @@ storiesOf("Organisms|Footer", module)
               :key="item"
             >
               <SfMenuItem 
-                class="sf-footer__menu-item" 
+                :style="style" 
                 :label="item"
               />
             </SfListItem>
@@ -85,7 +90,7 @@ storiesOf("Organisms|Footer", module)
               :key="item"
             >
               <SfMenuItem 
-                class="sf-footer__menu-item" 
+                :style="style" 
                 :label="item"
               />
             </SfListItem>
@@ -100,7 +105,8 @@ storiesOf("Organisms|Footer", module)
             />
           </div>
         </SfFooterColumn>
-      </SfFooter>`,
+      </SfFooter>
+    </div>`,
     methods: {
       isMobileHandler(e) {
         this.isMobile = e.matches;

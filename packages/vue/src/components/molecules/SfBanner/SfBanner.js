@@ -43,7 +43,6 @@ export default {
   watch: {
     image: {
       handler(image) {
-        if (typeof window === "undefined") return;
         this.$nextTick(() => {
           if (typeof image === "object") {
             this.$el.style.setProperty(
@@ -67,7 +66,6 @@ export default {
     },
     background: {
       handler(background) {
-        if (typeof window === "undefined") return;
         this.$nextTick(() => {
           this.$el.style.setProperty("--background-color", background);
         });

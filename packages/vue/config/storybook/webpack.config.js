@@ -5,7 +5,10 @@ module.exports = async ({ config }) => {
     test: /\.stories\.js?$/,
     loaders: [
       {
-        loader: require.resolve("@storybook/addon-storysource/loader")
+        loader: require.resolve("@storybook/addon-storysource/loader"),
+        options: {
+          uglyCommentsRegex: [/^eslint-.*/]
+        }
       }
     ],
     enforce: "pre"

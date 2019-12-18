@@ -6,42 +6,33 @@ import SfBullets from "./SfBullets.vue";
 
 storiesOf("Atoms|Bullets", module)
   .addDecorator(withKnobs)
-  .add("Common", () => ({
+  .add("Default", () => ({
     props: {
       total: {
-        default: number("total", 3, {}, "Props")
+        default: number("total (props)", 3)
+      },
+      current: {
+        default: number("current (props)", 1)
       }
     },
     components: { SfBullets },
-    data() {
-      return {
-        current: 1
-      };
-    },
     template: `<SfBullets
       :total="total"
-      :current="current"
-      @click="value => current = value"/>`
+      :current="current" />`
   }))
   .add("[slot] active", () => ({
     props: {
       total: {
-        default: number("total", 3, {}, "Props")
+        default: number("total (props)", 3)
       },
       current: {
-        default: number("current", 1, {}, "Props")
+        default: number("current (props)", 1)
       }
     },
     components: { SfBullets },
-    data() {
-      return {
-        current: 1
-      };
-    },
     template: `<SfBullets
       :total="total"
-      :current="current"
-      @click="value => current = value">
+      :current="current">
       <template #active>
         <li style="width: 10px; height: 10px; background-color:#9EE2B0"></li>
       </template>
@@ -50,21 +41,18 @@ storiesOf("Atoms|Bullets", module)
   .add("[slot] inactive", () => ({
     props: {
       total: {
-        default: number("total", 3, {}, "Props")
+        default: number("total (props)", 3)
+      },
+      current: {
+        default: number("current (props)", 1)
       }
     },
     components: { SfBullets },
-    data() {
-      return {
-        current: 1
-      };
-    },
     template: `<SfBullets
       :total="total"
-      :current="current"
-      @click="value => current = value">
+      :current="current">
       <template #inactive="{index, go}">
-        <li @click="go(index)" style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
+        <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
       </template>
     </SfBullets>`
   }));

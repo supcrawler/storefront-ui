@@ -6,7 +6,7 @@ export default {
       default: ""
     },
     count: {
-      type: [String, Number],
+      type: String,
       default: ""
     },
     color: {
