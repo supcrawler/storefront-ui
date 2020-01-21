@@ -1,5 +1,5 @@
 <template>
-  <Fragment class="sf-tabs__tab">
+  <Fragment>
     <div
       class="sf-tabs__title"
       :class="{ 'sf-tabs__title--active': isActive }"
