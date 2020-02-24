@@ -31,11 +31,6 @@
       )
     );
   }
-  @include for-desktop {
-    --heading-padding: 0;
-    --heading-border: 0;
-    --heading-text-align: center;
-  }
   &--no-underline {
     --heading-border: 0;
   }
@@ -44,5 +39,10 @@
   }
   &--right {
     --heading-text-align: right;
+  }
+  @include for-desktop {
+    --heading-padding: 0;
+    --heading-border: 0;
+    --heading-text-align: center;
   }
 }

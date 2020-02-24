@@ -16,8 +16,7 @@
     border-radius: var(--color-border-radius);
     transition: border-color 150ms linear;
   }
-  &--active,
-  &:hover {
+  &--active {
     --color-fill-border: 2px solid var(--c-white);
   }
   &--rounded {
