@@ -17,18 +17,18 @@
             :alt="title"
             class="sf-header__logo"
           />
-          <h1 v-else-if="title" class="sf-header__title">{{ title }}</h1>
+          <h1 v-else class="sf-header__title">{{ title }}</h1>
         </slot>
-        <nav class="sf-header__navigation desktop-only">
+        <nav v-if="!isMobile" class="sf-header__navigation">
           <!--@slot Use this slot to replace default navigation links -->
           <slot name="navigation" />
         </nav>
         <!--@slot Use this slot to replace default search bar-->
         <slot name="search" v-bind="{ searchPlaceholder }">
           <SfSearchBar
+            v-if="hasMobileSearch || !isMobile"
             :placeholder="searchPlaceholder"
             class="sf-header__search"
-            :class="{ 'desktop-only': !hasMobileSearch }"
           />
         </slot>
         <!--@slot Use this slot to replace default header icons with custom content-->
@@ -36,7 +36,7 @@
           name="header-icons"
           v-bind="{ accountIcon, wishlistIcon, cartIcon }"
         >
-          <div class="sf-header__icons desktop-only">
+          <div v-if="!isMobile" class="sf-header__icons">
             <SfCircleIcon
               v-for="icon in headerIcons"
               :key="icon.name"
@@ -59,7 +59,7 @@
         <slot name="language-selector" />
       </header>
     </div>
-    <div v-show="isSticky" class="sf-header__sticky-holder" :style="height" />
+    <div v-if="isSticky" class="sf-header__sticky-holder" :style="height" />
   </div>
 </template>
 <script>

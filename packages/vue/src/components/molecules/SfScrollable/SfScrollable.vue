@@ -4,7 +4,7 @@
       <slot />
     </Simplebar>
     <SfButton
-      v-show="hasScroll"
+      v-if="hasScroll"
       class="sf-scrollable__button sf-button--text color-secondary"
       @click="isHidden = !isHidden"
     >

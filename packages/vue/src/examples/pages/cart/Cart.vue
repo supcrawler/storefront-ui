@@ -2,7 +2,7 @@
   <div id="cart">
     <SfSidebar
       :visible="isCartSidebarOpen"
-      title="My Cart"
+      heading-title="My Cart"
       class="sf-sidebar--right"
       @close="() => {}"
     >
