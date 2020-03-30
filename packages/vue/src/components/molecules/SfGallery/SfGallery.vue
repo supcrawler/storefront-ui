@@ -55,9 +55,9 @@
           <SfImage
             class="sf-gallery__thumb"
             :src="image.mobile.url"
+            :width="imageWidth"
+            :height="imageHeight"
             alt=""
-            :width="thumbWidth"
-            :height="thumbHeight"
           />
         </div>
       </slot>
@@ -85,28 +85,14 @@ export default {
      */
     imageWidth: {
       type: [Number, String],
-      default: 422
+      default: 400
     },
     /**
      * Images height, without unit
      */
     imageHeight: {
       type: [Number, String],
-      default: 664
-    },
-    /**
-     * Thumb width, without unit
-     */
-    thumbWidth: {
-      type: [Number, String],
-      default: 160
-    },
-    /**
-     * Thumb height, without unit
-     */
-    thumbHeight: {
-      type: [Number, String],
-      default: 160
+      default: 400
     },
     /**
      * Initial image number (starting from 1)

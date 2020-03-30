@@ -8,11 +8,11 @@
     :class="{
       'sf-select--is-active': isActive,
       'sf-select--is-selected': isSelected,
-      'sf-select--is-required': required,
-      'sf-select--is-disabled': disabled
+      'sf-select--is-required': required
     }"
     class="sf-select"
     @click="toggle($event)"
+    @blur="closeHandler"
     @keyup.space="openHandler"
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
@@ -25,9 +25,6 @@
         <div v-if="label" class="sf-select__label">
           {{ label }}
         </div>
-      </slot>
-      <slot name="icon">
-        <SfChevron class="sf-select__chevron" />
       </slot>
       <SfOverlay :visible="open" class="sf-select__overlay mobile-only" />
       <transition name="sf-select">
@@ -60,7 +57,6 @@
 </template>
 <script>
 import SfSelectOption from "./_internal/SfSelectOption.vue";
-import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import Vue from "vue";
@@ -69,7 +65,6 @@ export default {
   name: "SfSelect",
   components: {
     SfButton,
-    SfChevron,
     SfOverlay
   },
   model: {
@@ -111,13 +106,6 @@ export default {
     valid: {
       type: Boolean,
       default: undefined
-    },
-    /**
-     * Disabled status of form select
-     */
-    disabled: {
-      type: Boolean,
-      default: false
     },
     /**
      * Error message value of form select. It will be appeared if `valid` is `true`.
@@ -213,12 +201,7 @@ export default {
       this.toggle();
     },
     toggle(event) {
-      if (
-        (this.$refs.cancel &&
-          event &&
-          event.target.contains(this.$refs.cancel.$el)) ||
-        this.disabled
-      ) {
+      if (this.$refs.cancel && event.target.contains(this.$refs.cancel.$el)) {
         return;
       }
       this.open = !this.open;

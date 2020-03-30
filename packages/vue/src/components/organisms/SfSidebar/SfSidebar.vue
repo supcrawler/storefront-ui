@@ -4,7 +4,7 @@
     <transition :name="transitionName">
       <aside v-if="visible" class="sf-sidebar__aside">
         <!--@slot Use this slot to place content inside the modal bar.-->
-        <slot name="bar">
+        <slot name="modal-bar">
           <SfBar
             :title="title"
             class="mobile-only"
@@ -12,18 +12,7 @@
             @click:back="close"
           />
         </slot>
-        <!--@slot Use this slot to replace close icon.-->
-        <slot name="circle-icon" v-bind="{ close, button }">
-          <SfCircleIcon
-            v-if="button"
-            icon-size="12px"
-            icon="cross"
-            class="sf-sidebar__circle-icon desktop-only"
-            @click="close"
-          />
-        </slot>
-        <div v-if="title || hasTop" class="sf-sidebar__top">
-          <!--@slot Use this slot to replace SfHeading component.-->
+        <div ref="content" class="sf-sidebar__content">
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
               v-if="title"
@@ -33,27 +22,28 @@
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />
           </slot>
-          <!--@slot Use this slot to add sticky top content.-->
-          <slot name="content-top" />
-        </div>
-        <div ref="content" class="sf-sidebar__content">
-          <!--@slot Use this slot to add SfSidebar content.-->
           <slot />
         </div>
-        <!--@slot Use this slot to place content to sticky bottom.-->
-        <div v-if="hasBottom" class="sf-sidebar__bottom">
-          <slot name="content-bottom" />
-        </div>
+        <slot name="circle-icon" v-bind="{ close, button }">
+          <SfCircleIcon
+            v-if="button"
+            icon-size="14px"
+            icon="cross"
+            icon-color="white"
+            class="sf-sidebar__circle-icon desktop-only"
+            @click="close"
+          />
+        </slot>
       </aside>
     </transition>
   </div>
 </template>
 <script>
-import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import SfBar from "../../molecules/SfBar/SfBar.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
 import SfHeading from "../../atoms/SfHeading/SfHeading.vue";
+import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 export default {
   name: "SfSidebar",
   components: {
@@ -73,7 +63,7 @@ export default {
     },
     headingLevel: {
       type: Number,
-      default: 3
+      default: 2
     },
     button: {
       type: Boolean,
@@ -101,12 +91,6 @@ export default {
     },
     transitionName() {
       return "slide-" + this.position;
-    },
-    hasTop() {
-      return this.$slots.hasOwnProperty("content-top");
-    },
-    hasBottom() {
-      return this.$slots.hasOwnProperty("content-bottom");
     }
   },
   watch: {

@@ -81,12 +81,13 @@ export default {
       const image = this.image;
       const background = this.background;
       return {
-        "--_banner-background-image": image.mobile
+        "--background-image": image.mobile
           ? `url(${image.mobile})`
           : `url(${image})`,
-        "--_banner-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
-        "--_banner-background-color": background
+        "--background-desktop-image": image.desktop
+          ? `url(${image.desktop})`
+          : `url(${image})`,
+        "--background-color": background
       };
     }
   },

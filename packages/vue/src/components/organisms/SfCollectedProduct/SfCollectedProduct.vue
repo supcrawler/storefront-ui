@@ -3,13 +3,8 @@
     <slot name="remove" v-bind="{ removeHandler }">
       <SfCircleIcon
         icon="cross"
-        class="sf-collected-product__remove desktop-only"
+        class="sf-collected-product__remove"
         @click="removeHandler"
-      />
-      <SfIcon
-        icon="more"
-        role="button"
-        class="sf-collected-product__more-actions mobile-only"
       />
     </slot>
     <div class="sf-collected-product__aside">
@@ -23,13 +18,11 @@
         />
       </slot>
       <slot name="input">
-        <div class="sf-collected-product__quantity-wrapper">
-          <SfQuantitySelector
-            :qty="qty"
-            class="sf-collected-product__quantity-selector"
-            @input="$emit('input', $event)"
-          />
-        </div>
+        <SfQuantitySelector
+          :qty="qty"
+          class="sf-collected-product__quantity-selector"
+          @input="$emit('input', $event)"
+        />
       </slot>
     </div>
     <div class="sf-collected-product__main">
@@ -43,8 +36,8 @@
           :special="specialPrice"
         />
       </slot>
-      <slot name="configuration" />
       <div class="sf-collected-product__details">
+        <slot name="configuration"> </slot>
         <slot name="actions"> </slot>
       </div>
     </div>
@@ -52,14 +45,12 @@
 </template>
 <script>
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 export default {
   name: "SfCollectedProduct",
   components: {
-    SfIcon,
     SfImage,
     SfCircleIcon,
     SfPrice,

@@ -1,11 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  text,
-  boolean,
-  optionsKnob as options
-} from "@storybook/addon-knobs";
+import { withKnobs, text, boolean } from "@storybook/addon-knobs";
 
 import SfInput from "./SfInput.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
@@ -15,17 +10,6 @@ storiesOf("Atoms|Input", module)
   .add("Common", () => ({
     components: { SfInput },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       type: {
         default: text("type", "text", "Props")
       },
@@ -36,7 +20,7 @@ storiesOf("Atoms|Input", module)
         default: text("name", "first-name", "Props")
       },
       errorMessage: {
-        default: text("errorMessage", "Required.", "Props")
+        default: text("errorMessage", "Field is required.", "Props")
       },
       valid: {
         default: boolean("valid", true, "Props")
@@ -51,7 +35,7 @@ storiesOf("Atoms|Input", module)
         default: text("ariaLabel", "First name", "Props")
       },
       hasShowPassword: {
-        default: boolean("hasShowPassword", false, "Props")
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -70,7 +54,6 @@ storiesOf("Atoms|Input", module)
       :disabled="disabled"
       :aria-label="ariaLabel"
       :has-show-password="hasShowPassword"
-      :class="customClass"
       />`
   }))
   .add("[slot] label", () => ({
@@ -79,17 +62,6 @@ storiesOf("Atoms|Input", module)
       SfIcon
     },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       type: {
         default: text("type", "text", "Props")
       },
@@ -100,7 +72,7 @@ storiesOf("Atoms|Input", module)
         default: text("name", "first-name", "Props")
       },
       errorMessage: {
-        default: text("errorMessage", "Required.", "Props")
+        default: text("errorMessage", "Field is required.", "Props")
       },
       valid: {
         default: boolean("valid", true, "Props")
@@ -115,7 +87,7 @@ storiesOf("Atoms|Input", module)
         default: text("ariaLabel", "First name", "Props")
       },
       hasShowPassword: {
-        default: boolean("hasShowPassword", false, "Props")
+        default: boolean("hasShowPassword", true, "Props")
       }
     },
     data() {
@@ -140,23 +112,12 @@ storiesOf("Atoms|Input", module)
       </template>
     </SfInput>`
   }))
-  .add("[slot] error-message", () => ({
+  .add("[slot] errorMessage", () => ({
     components: {
       SfInput,
       SfIcon
     },
     props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
       type: {
         default: text("type", "text", "Props")
       },
@@ -167,74 +128,7 @@ storiesOf("Atoms|Input", module)
         default: text("name", "first-name", "Props")
       },
       errorMessage: {
-        default: text("errorMessage", "Required.", "Props")
-      },
-      valid: {
-        default: boolean("valid", true, "Props")
-      },
-      required: {
-        default: boolean("required", false, "Props")
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props")
-      },
-      ariaLabel: {
-        default: text("ariaLabel", "First name", "Props")
-      },
-      hasShowPassword: {
-        default: boolean("hasShowPassword", false, "Props")
-      }
-    },
-    data() {
-      return {
-        value: "Adam"
-      };
-    },
-    template: `<SfInput
-      v-model="value"
-      :type="type"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled"
-      :has-show-password="hasShowPassword"
-      :aria-label="ariaLabel"
-      >
-      <template #error-message="{errorMessage}">
-        <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
-      </template>
-    </SfInput>`
-  }))
-  .add("[slot] with password icon", () => ({
-    components: {
-      SfInput,
-      SfIcon
-    },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled"
-          },
-          "",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
-      type: {
-        default: text("type", "password", "Props")
-      },
-      label: {
-        default: text("label", "First name", "Props")
-      },
-      name: {
-        default: text("name", "first-name", "Props")
-      },
-      errorMessage: {
-        default: text("errorMessage", "Required.", "Props")
+        default: text("errorMessage", "Field is required.", "Props")
       },
       valid: {
         default: boolean("valid", false, "Props")
@@ -269,69 +163,8 @@ storiesOf("Atoms|Input", module)
       :has-show-password="hasShowPassword"
       :aria-label="ariaLabel"
       >
-      <template #error-message="{errorMessage}">
+      <template #errorMessage="{errorMessage}">
         <SfIcon icon="info_shield" size="10px" color="#E22326" style="margin-right: 4px; display: inline-block"/> CUSTOM ERROR MESSAGE
       </template>
     </SfInput>`
-  }))
-  .add("with modifier --filled", () => ({
-    components: { SfInput },
-    props: {
-      customClass: {
-        default: options(
-          "CSS modifiers",
-          {
-            "sf-input--filled": "sf-input--filled"
-          },
-          "sf-input--filled",
-          { display: "multi-select" },
-          "CSS Modifiers"
-        )
-      },
-      type: {
-        default: text("type", "text", "Props")
-      },
-      label: {
-        default: text("label", "First name", "Props")
-      },
-      name: {
-        default: text("name", "first-name", "Props")
-      },
-      errorMessage: {
-        default: text("errorMessage", "Required.", "Props")
-      },
-      valid: {
-        default: boolean("valid", true, "Props")
-      },
-      required: {
-        default: boolean("required", false, "Props")
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props")
-      },
-      ariaLabel: {
-        default: text("ariaLabel", "First name", "Props")
-      },
-      hasShowPassword: {
-        default: boolean("hasShowPassword", false, "Props")
-      }
-    },
-    data() {
-      return {
-        value: ""
-      };
-    },
-    template: `<SfInput
-      v-model="value"
-      :type="type"
-      :label="label"
-      :name="name"
-      :valid="valid"
-      :error-message="errorMessage"
-      :required="required"
-      :disabled="disabled"
-      :aria-label="ariaLabel"
-      :has-show-password="hasShowPassword"
-      :class="customClass"
-      />`
   }));

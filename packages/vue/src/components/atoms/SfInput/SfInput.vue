@@ -3,7 +3,7 @@
     class="sf-input"
     :class="{
       'sf-input--has-text': !!value,
-      'sf-input--invalid': !valid
+      'sf-input--invalid': valid === false
     }"
   >
     <div class="sf-input__wrapper">
@@ -49,12 +49,14 @@
         </SfButton>
       </slot>
     </div>
-    <div class="sf-input__error-message">
+    <div v-if="valid !== undefined" class="sf-input__error-message">
       <transition name="fade">
-        <!-- @slot Custom error message of form input -->
-        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
-          <span>{{ errorMessage }}</span></slot
-        >
+        <div v-if="!valid">
+          <!-- @slot Custom error message of form input -->
+          <slot name="error-message" v-bind="{ errorMessage }">{{
+            errorMessage
+          }}</slot>
+        </div>
       </transition>
     </div>
   </div>
@@ -99,7 +101,7 @@ export default {
      */
     valid: {
       type: Boolean,
-      default: true
+      default: undefined
     },
     /**
      * Error message value of form input. It will be appeared if `valid` is `true`.
@@ -131,12 +133,9 @@ export default {
       type: String,
       default: null
     },
-    /**
-     * Status of show password icon display
-     */
     hasShowPassword: {
       type: Boolean,
-      default: false
+      default: true
     }
   },
   data() {

@@ -119,8 +119,7 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<div style="max-width: 1240px;">
-      <SfStoreLocator
+    template: `<SfStoreLocator
         :tile-server-url="tileServerUrl"
         :tile-server-attribution="tileServerAttribution"
         :center="center"
@@ -143,8 +142,7 @@ storiesOf("Organisms|StoreLocator", module)
           :address="store.address"
           :picture="store.picture"
         />
-      </SfStoreLocator>
-    </div>`
+      </SfStoreLocator>`
   }))
   .add("[props] SfStore", () => ({
     components: { SfStoreLocator },
@@ -203,8 +201,7 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<div style="max-width: 1240px;">
-      <SfStoreLocator
+    template: `<SfStoreLocator
         :center="latlng"
     >
       <SfStore
@@ -215,8 +212,7 @@ storiesOf("Organisms|StoreLocator", module)
           :address="address"
           :picture="picture"
       />
-    </SfStoreLocator>
-  </div>`
+    </SfStoreLocator>`
   }))
   .add("[slot] default", () => ({
     components: { SfStoreLocator, SfImage },
@@ -323,8 +319,7 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<div style="max-width: 1240px;">
-      <SfStoreLocator
+    template: `<SfStoreLocator
         :tile-server-url="tileServerUrl"
         :tile-server-attribution="tileServerAttribution"
         :center="center"
@@ -345,8 +340,7 @@ storiesOf("Organisms|StoreLocator", module)
           <SfImage  @click="centerOn(store.latlng)":src="store.picture" :width="82" :height="112"/>
           <small>* click picture to zoom</small>
         </div>
-      </SfStoreLocator>
-    </div>`
+      </SfStoreLocator>`
   }))
   .add("[slot] marker-icon", () => ({
     components: { SfStoreLocator },
@@ -405,8 +399,7 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `<div style="max-width: 1240px;">
-      <SfStoreLocator
+    template: `<SfStoreLocator
         :center="latlng"
     >
       <template #marker-icon>
@@ -420,8 +413,7 @@ storiesOf("Organisms|StoreLocator", module)
           :address="address"
           :picture="picture"
       />
-    </SfStoreLocator>
-    </div>`
+    </SfStoreLocator>`
   }))
   .add("[slot] map-loading", () => ({
     components: { SfStoreLocator },
@@ -480,9 +472,7 @@ storiesOf("Organisms|StoreLocator", module)
         ]
       };
     },
-    template: `
-      <div style="max-width: 1240px;">
-      <SfStoreLocator
+    template: `<SfStoreLocator
         :center="latlng"
     >
       <template #map-loading>
@@ -496,6 +486,5 @@ storiesOf("Organisms|StoreLocator", module)
           :address="address"
           :picture="picture"
       />
-    </SfStoreLocator>
-      </div>`
+    </SfStoreLocator>`
   }));
