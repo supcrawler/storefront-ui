@@ -16,9 +16,6 @@ storiesOf("Atoms|Checkbox", module)
       required: {
         default: boolean("required", false, "Props")
       },
-      valid: {
-        default: boolean("valid", true, "Props")
-      },
       disabled: {
         default: boolean("disabled", false, "Props")
       }
@@ -34,7 +31,6 @@ storiesOf("Atoms|Checkbox", module)
       :label="label"
       :required="required"
       :disabled="disabled"
-      :valid="valid"
       />`
   }))
   .add("Multiple checkboxes", () => ({

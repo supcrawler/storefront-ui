@@ -3,8 +3,7 @@
     class="sf-checkbox"
     :class="{
       'sf-checkbox--is-active': isChecked,
-      'sf-checkbox--is-disabled': disabled,
-      'sf-checkbox--has-error': !valid
+      'sf-checkbox--is-disabled': disabled
     }"
   >
     <input
@@ -51,7 +50,7 @@ export default {
       default: ""
     },
     value: {
-      type: [String, Boolean],
+      type: String,
       default: ""
     },
     label: {
@@ -65,10 +64,6 @@ export default {
     disabled: {
       type: Boolean,
       default: false
-    },
-    valid: {
-      type: Boolean,
-      default: true
     },
     selected: {
       type: [Array, Boolean],

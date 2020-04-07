@@ -81,7 +81,7 @@ storiesOf("Molecules|Notification", module)
         @click:close="visible = false"
       >
         <template #icon="{icon}">
-          <SfIcon icon="heart" color="white"/>
+          <SfIcon icon="heart" color="white" size="sm" style="margin-right: 1.25rem"/>
         </template>
       </SfNotification>`
   }))

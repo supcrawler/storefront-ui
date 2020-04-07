@@ -4,20 +4,25 @@
   &__value {
     margin: var(--price-margin);
     color: var(--price-color, var(--c-text));
-    text-decoration: var(--price-text-decoration);
-    letter-spacing: 0.02rem;
-    @include font(
+    font: var(
       --price-font,
-      var(--font-medium),
-      var(--font-lg),
-      1.6,
-      var(--font-family-secondary)
+      font(
+        --price,
+        400,
+        var(--font-size-big),
+        1.6,
+        var(--body-font-family-primary)
+      )
     );
-    &--old {
+    text-decoration: var(--price-text-decoration);
+    &--special {
       --price-color: var(--c-danger);
-      --price-margin: 0 var(--spacer-xs) 0 0;
+      --price-margin: 0 var(--spacer-small) 0 0;
+    }
+    &--old {
+      --price-color: var(--c-text-muted);
+      --price-font-size: var(--font-size-small);
       --price-text-decoration: line-through;
-      --price-font-weight: var(--font-light);
     }
   }
 }

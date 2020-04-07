@@ -17,8 +17,6 @@ storiesOf("Atoms|Property", module)
           "CSS modifiers",
           {
             "sf-property--full-width": "sf-property--full-width",
-            "sf-property--value-in-middle": "sf-property--value-in-middle",
-            "sf-property--large": "sf-property--large",
             "sf-property--without-suffix": "sf-property--without-suffix"
           },
           "",
@@ -45,9 +43,7 @@ storiesOf("Atoms|Property", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-property--full-width": "sf-property--full-width",
-            "sf-property--value-in-middle": "sf-property--value-in-middle",
-            "sf-property--large": "sf-property--large"
+            "sf-property--full-width": "sf-property--full-width"
           },
           "",
           { display: "multi-select" },
@@ -80,9 +76,7 @@ storiesOf("Atoms|Property", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-property--full-width": "sf-property--full-width",
-            "sf-property--value-in-middle": "sf-property--value-in-middle",
-            "sf-property--large": "sf-property--large"
+            "sf-property--full-width": "sf-property--full-width"
           },
           "",
           { display: "multi-select" },

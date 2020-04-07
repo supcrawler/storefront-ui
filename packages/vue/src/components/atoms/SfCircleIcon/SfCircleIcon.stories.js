@@ -5,6 +5,7 @@ import {
   text,
   select,
   boolean,
+  color,
   optionsKnob as options
 } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
@@ -22,7 +23,6 @@ storiesOf("Atoms|CircleIcon", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-circle-icon--small": "sf-circle-icon--small",
             "color-primary": "color-primary",
             "color-secondary": "color-secondary",
             "color-warning": "color-warning",
@@ -38,6 +38,12 @@ storiesOf("Atoms|CircleIcon", module)
       icon: {
         default: select("icon", iconsNames, "home", "Props")
       },
+      iconSize: {
+        default: text("iconSize", "20px", "Props")
+      },
+      iconColor: {
+        default: color("iconColor", "#FFFFFF", "Props")
+      },
       ariaLabel: {
         default: text("ariaLabel", "Go to home", "Props")
       },
@@ -46,19 +52,17 @@ storiesOf("Atoms|CircleIcon", module)
       },
       badgeLabel: {
         default: text("badgeLabel", "99", "Props")
-      },
-      disabled: {
-        default: boolean("disabled", false, "Props")
       }
     },
     template: `<SfCircleIcon
         :class="customClass"
         :icon="icon" 
+        :iconSize="iconSize"
+        :iconColor="iconColor"
         :has-badge="hasBadge"
         :badge-label="badgeLabel"
         :aria-label="ariaLabel"
-        :disabled="disabled"
-        :style="{margin: '.5rem'}"
+        :style="{margin: '.625rem'}"
      />`
   }))
   .add("[slot] default", () => ({
@@ -86,14 +90,15 @@ storiesOf("Atoms|CircleIcon", module)
       iconSize: {
         default: text("iconSize", "20px", "Props")
       },
-      disabled: {
-        default: boolean("disabled", false, "Props")
+      iconColor: {
+        default: text("iconColor", "#FFFFFF", "Props")
       }
     },
     template: `<SfCircleIcon
       :class="customClass"
       :icon="icon"
       :iconSize="iconSize"
+      :iconColor="iconColor"
     >
       <StoriesPlaceholder/>
     </SfCircleIcon>`

@@ -42,16 +42,14 @@
     </div>
     <!-- @slot Custom configuration markup -->
     <slot name="configuration" />
-    <div class="sf-grouped-product-item__info">
-      <slot name="price" v-bind="{ priceSpecial, priceRegular }">
-        <SfPrice
-          :regular="priceRegular"
-          :special="priceSpecial"
-          class="sf-grouped-product-item__price"
-        />
-      </slot>
-    </div>
     <!-- @slot Custom price markup -->
+    <slot name="price" v-bind="{ priceSpecial, priceRegular }">
+      <SfPrice
+        :regular="priceRegular"
+        :special="priceSpecial"
+        class="sf-grouped-product-item__price"
+      />
+    </slot>
   </li>
 </template>
 <script>
@@ -81,14 +79,14 @@ export default {
      */
     imageWidth: {
       type: [String, Number],
-      default: 328
+      default: 246
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: 448
+      default: 336
     },
     /**
      * Product image placeholder

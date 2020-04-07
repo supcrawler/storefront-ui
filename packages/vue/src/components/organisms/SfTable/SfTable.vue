@@ -25,7 +25,7 @@ export default {
   methods: {
     updateColumnsCount(columnsCount) {
       this.$el.style.setProperty(
-        "--_table-column-width",
+        "--mobile-column",
         Math.ceil(columnsCount / 2)
       );
     }

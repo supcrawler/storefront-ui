@@ -5,7 +5,7 @@
     </Simplebar>
     <SfButton
       v-show="hasScroll"
-      class="sf-button--text sf-scrollable__button"
+      class="sf-scrollable__button sf-button--text color-secondary"
       @click="isHidden = !isHidden"
     >
       <span v-if="isHidden">{{ showText }}</span>
@@ -46,7 +46,7 @@ export default {
   computed: {
     style() {
       return {
-        "--_scrollable-max-height": this.maxContentHeight.trim
+        "--scrollable-max-height": this.maxContentHeight.trim
           ? this.maxContentHeight
           : undefined
       };

@@ -1,19 +1,22 @@
 @import "../../helpers";
 
 .sf-alert {
-  --icon-size: 1.25rem;
+  --icon-size: 1.5rem;
   display: flex;
   align-items: center;
   color: var(--alert-color);
-  @include font(
+  font: var(
     --alert-font,
-    var(--font-normal),
-    var(--font-sm),
-    1.6,
-    var(--font-family-secondary)
+    font(
+      --alert,
+      400,
+      var(--font-size-regular),
+      1.6,
+      var(--body-font-family-secondary)
+    )
   );
   &__message {
-    margin: var(--alert-message-margin, 0 0 0 var(--spacer-xs));
+    margin: var(--alert-message-margin, 0 0 0 0.625rem);
   }
   @each $color, $map in $colors-map {
     $primary: map-get($map, "primary");

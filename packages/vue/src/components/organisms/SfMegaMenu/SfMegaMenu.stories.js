@@ -4,31 +4,32 @@ import { withKnobs, text } from "@storybook/addon-knobs";
 
 import SfMegaMenu from "./SfMegaMenu.vue";
 
+import SfImage from "../../atoms/SfImage/SfImage.vue";
 import SfHeader from "../SfHeader/SfHeader.vue";
 import SfMenuItem from "../../molecules/SfMenuItem/SfMenuItem.vue";
-import SfBanner from "../../molecules/SfBanner/SfBanner.vue";
-import SfList from "../SfList/SfList.vue";
 
 const AsidePlaceholder = {
-  components: { SfBanner },
+  components: { SfImage },
   data() {
     return {
       isMobile: false,
       tiles: [
         {
-          title: "THE OFFICE LIFE",
-          subtitle: "T-shirts",
+          title: "Last pairs left",
           pictures: {
-            mobile: "assets/storybook/SfMegaMenu/bannerSandals.jpg",
-            desktop: "assets/storybook/SfMegaMenu/bannerSandals.jpg"
+            mobile: {
+              url: "assets/storybook/SfMegaMenu/bannerSandals-full.png"
+            },
+            desktop: { url: "assets/storybook/SfMegaMenu/bannerSandals.jpg" }
           }
         },
         {
-          title: "ECO SANDALS",
-          subtitle: "T-shirts",
+          title: "Beach bags 2=1",
           pictures: {
-            mobile: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
-            desktop: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg"
+            mobile: {
+              url: "assets/storybook/SfMegaMenu/bannerBeachBag-full.png"
+            },
+            desktop: { url: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg" }
           }
         }
       ]
@@ -36,7 +37,9 @@ const AsidePlaceholder = {
   },
   computed: {
     root() {
-      return this.isMobile ? {} : { display: "flex" };
+      return this.isMobile
+        ? {}
+        : { display: "flex", justifyContent: "space-between" };
     }
   },
   mounted() {
@@ -52,20 +55,19 @@ const AsidePlaceholder = {
       this.isMobile = event.matches;
     }
   },
-  template: `
-      <div :style="root">
-      <SfBanner 
-        v-for="(tile, index) in tiles"
+  template: `<div :style="root">
+      <div 
+        v-for="tile in tiles" 
         :key="tile.title" 
-        :title="tile.title" 
-        :subtitle="tile.subtitle" 
-        :image="tile.pictures" 
-        :style="{margin: isMobile ? index === 0 ? '0' : '24px 0 0 0' : index === 0 ? '0' : '0 0 0 24px', '--banner-height': '310px', '--banner-width': '330px'} "
-      />
-      </div>`
+        :style="{marginBottom: '1.25rem'}"
+      >
+        <h3 :style="{marginBottom: '1.25rem', textTransform: 'uppercase'}">{{tile.title}}</h3>
+        <SfImage :src="tile.pictures"/>
+      </div>
+    </div>`
 };
 const MegaMenuPlaceholder = {
-  components: { SfMegaMenu, SfMenuItem, AsidePlaceholder, SfList },
+  components: { SfMegaMenu, SfMenuItem, AsidePlaceholder },
   props: {
     title: {
       type: String,
@@ -74,9 +76,6 @@ const MegaMenuPlaceholder = {
     visible: {
       type: Boolean,
       default: false
-    },
-    asideTitle: {
-      default: text("asideTitle", "Featured", "Props")
     }
   },
   data() {
@@ -121,7 +120,6 @@ const MegaMenuPlaceholder = {
   },
   template: `<SfMegaMenu 
         title="Man"
-        :asideTitle="asideTitle"
         :visible="visible"
         :style="{ position: 'absolute', left: 0, width: '100%', top: '100%' }"
       >
@@ -130,16 +128,11 @@ const MegaMenuPlaceholder = {
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfList>
-            <SfListItem 
-              v-for="item in subcategory.items" 
-              :key="item.label"
-            >
-              <SfMenuItem
-                :label="item.label" 
-              />
-            </SfListItem>
-          </SfList>
+          <SfMenuItem
+            v-for="item in subcategory.items" 
+            :key="item.label" 
+            :label="item.label" 
+          />
         </SfMegaMenuColumn>
         <template #aside>
           <AsidePlaceholder/>
@@ -152,8 +145,7 @@ storiesOf("Organisms|MegaMenu", module)
   .add("Common", () => ({
     components: {
       SfMegaMenu,
-      SfMenuItem,
-      SfList
+      SfMenuItem
     },
     props: {
       title: {
@@ -204,19 +196,18 @@ storiesOf("Organisms|MegaMenu", module)
     template: `<SfMegaMenu 
         :title="title" 
         :visible="visible"
+        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfList>
-            <SfListItem v-for="item in subcategory.items" :key="item.label" >
-              <SfMenuItem
-                :label="item.label" 
-              />
-            </SfListItem>
-          </SfList>
+          <SfMenuItem
+            v-for="item in subcategory.items" 
+            :key="item.label" 
+            :label="item.label" 
+          />
         </SfMegaMenuColumn>
       </SfMegaMenu>`
   }))
@@ -224,15 +215,11 @@ storiesOf("Organisms|MegaMenu", module)
     components: {
       SfMegaMenu,
       SfMenuItem,
-      SfList,
       AsidePlaceholder
     },
     props: {
       title: {
         default: text("title", "Man", "Props")
-      },
-      asideTitle: {
-        default: text("asideTitle", "Featured", "Props")
       }
     },
     data() {
@@ -278,24 +265,19 @@ storiesOf("Organisms|MegaMenu", module)
     },
     template: `<SfMegaMenu 
         :title="title"
-        :asideTitle="asideTitle"
         :visible="visible"
+        :style="{maxWidth: '1240px', margin: 'auto'}"
       >
         <SfMegaMenuColumn 
           v-for="subcategory in subcategories" 
           :key="subcategory.header" 
           :title="subcategory.header"
         >
-          <SfList>
-            <SfListItem
-              v-for="item in subcategory.items"
-              :key="item.label" 
-            >
-              <SfMenuItem
-                :label="item.label"
-              />
-            </SfListItem>
-          </SfList>
+          <SfMenuItem
+            v-for="item in subcategory.items" 
+            :key="item.label" 
+            :label="item.label"
+          />
         </SfMegaMenuColumn>
         <template #aside>
           <AsidePlaceholder/>

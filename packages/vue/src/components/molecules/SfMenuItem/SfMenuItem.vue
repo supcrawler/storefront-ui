@@ -1,12 +1,12 @@
 <template>
   <div class="sf-menu-item" v-on="$listeners">
-    <!-- @slot for menu item icon-->
+    <!-- @slot -->
     <slot name="icon" />
-    <!-- @slot for menu item label-->
+    <!-- @slot -->
     <slot name="label" v-bind="{ label }">
       <span class="sf-menu-item__label">{{ label }}</span>
     </slot>
-    <!-- @slot for items count -->
+    <!-- @slot -->
     <slot name="count" v-bind="{ count }">
       <span class="sf-menu-item__count">{{ count }}</span>
     </slot>

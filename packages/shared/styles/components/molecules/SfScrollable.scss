@@ -2,21 +2,24 @@
 @import "../../helpers";
 
 .sf-scrollable {
+  $this: &;
   &__content {
-    max-height: var(
-      --scrollable-max-height,
-      var(--_scrollable-max-height, 5rem)
-    );
+    max-height: var(--scrollable-max-height, 5rem);
     .simplebar-scrollbar:before {
-      width: 4px;
-      background: var(--c-gray-variant);
+      width: var(--scrollable-width, 0.25rem);
+      background: var(--scrollable-background, var(--c-dark));
       border-radius: 10px;
+    }
+    .simplebar-visible:before {
+      opacity: 1;
     }
   }
   &--is-open {
-    --scrollable-max-height: auto;
+    #{$this}__content {
+      max-height: unset;
+    }
   }
   &__button {
-    margin: var(--scrollable-button-margin, var(--spacer-sm) 0 0 0);
+    margin: var(--scrollable-button-margin, var(--spacer-medium) 0 0);
   }
 }

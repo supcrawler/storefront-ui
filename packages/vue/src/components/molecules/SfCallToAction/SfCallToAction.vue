@@ -1,5 +1,14 @@
 <template>
-  <section class="sf-call-to-action" :style="style">
+  <section
+    class="sf-call-to-action"
+    :style="
+      'background-image: url(' +
+        image +
+        '); background-color: ' +
+        background +
+        ';'
+    "
+  >
     <div class="sf-call-to-action__text-container">
       <!--@slot Use this slot to replace title-->
       <slot name="title" v-bind="{ title }">
@@ -49,20 +58,6 @@ export default {
     image: {
       type: String,
       default: ""
-    }
-  },
-  computed: {
-    style() {
-      const image = this.image;
-      const background = this.background;
-      return {
-        "--_call-to-action-background-image": image.mobile
-          ? `url(${image.mobile})`
-          : `url(${image})`,
-        "--_call-to-action-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
-        "--_call-to-action-background-color": background
-      };
     }
   }
 };

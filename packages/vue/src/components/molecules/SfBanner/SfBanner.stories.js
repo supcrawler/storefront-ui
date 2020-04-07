@@ -16,7 +16,8 @@ storiesOf("Molecules|Banner", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--right": "sf-banner--right"
+            "sf-banner--left": "sf-banner--left",
+            "sf-banner--slim": "sf-banner--slim"
           },
           "",
           { display: "multi-select" },
@@ -43,8 +44,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
+            mobile: "/assets/storybook/SfBanner/Banner1.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -72,7 +73,8 @@ storiesOf("Molecules|Banner", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--right": "sf-banner--right"
+            "sf-banner--left": "sf-banner--left",
+            "sf-banner--slim": "sf-banner-slim"
           },
           "",
           { display: "multi-select" },
@@ -99,8 +101,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
+            mobile: "/assets/storybook/SfBanner/Banner1.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -131,7 +133,8 @@ storiesOf("Molecules|Banner", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--right": "sf-banner--right"
+            "sf-banner--left": "sf-banner--left",
+            "sf-banner--slim": "sf-banner-slim"
           },
           "",
           { display: "multi-select" },
@@ -158,8 +161,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
+            mobile: "/assets/storybook/SfBanner/Banner1.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -190,7 +193,8 @@ storiesOf("Molecules|Banner", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--right": "sf-banner--right"
+            "sf-banner--left": "sf-banner--left",
+            "sf-banner--slim": "sf-banner-slim"
           },
           "",
           { display: "multi-select" },
@@ -217,8 +221,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
+            mobile: "/assets/storybook/SfBanner/Banner1.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
@@ -249,7 +253,8 @@ storiesOf("Molecules|Banner", module)
         default: options(
           "CSS Modifiers",
           {
-            "sf-banner--right": "sf-banner--right"
+            "sf-banner--left": "sf-banner--left",
+            "sf-banner--slim": "sf-banner-slim"
           },
           "",
           { display: "multi-select" },
@@ -276,8 +281,8 @@ storiesOf("Molecules|Banner", module)
         default: object(
           "image",
           {
-            mobile: "/assets/storybook/SfBanner/Banner2.jpg",
-            desktop: "/assets/storybook/SfBanner/Banner2.jpg"
+            mobile: "/assets/storybook/SfBanner/Banner1.jpg",
+            desktop: "/assets/storybook/SfBanner/Banner1.jpg"
           },
           "Props"
         )
