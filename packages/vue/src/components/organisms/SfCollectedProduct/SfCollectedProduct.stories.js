@@ -1,16 +1,33 @@
 /* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, object, text, number } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  object,
+  text,
+  number,
+  optionsKnob as options
+} from "@storybook/addon-knobs";
 
+import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfCollectedProduct from "./SfCollectedProduct.vue";
-
 import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
 
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfCollectedProduct, SfProperty },
+    components: { SfCollectedProduct, SfProperty, SfButton },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-collected-product--detailed": "sf-collected-product--detailed"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -44,6 +61,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="productQty"
+        :class="customClass"
         @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
@@ -53,22 +71,30 @@ storiesOf("Organisms|CollectedProduct", module)
         :special-price="specialPrice"
     >
       <template #configuration>
-        <div :style="{margin: '20px 0 0 0'}">
+        <div :style="{margin: '1rem 0 0 0'}">
           <SfProperty name="Size" value="XS"/>
           <SfProperty name="Color" value="white"/>
         </div>
       </template>
       <template #actions>
-        <div :style="{margin: 'auto 0 0 0', fontSize: '14px'}">
-          <div>MSD23-345-325</div>
-          <div>Quantity: 1</div>
-        </div>
+          <SfButton class="sf-button--text desktop-only">Save for later</SfButton>
       </template>
     </SfCollectedProduct>`
   }))
-  .add("[slot] configuration", () => ({
+  .add("[slot] actions", () => ({
     components: { SfCollectedProduct, SfProperty },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-collected-product--detailed": "sf-collected-product--detailed"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -102,6 +128,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="productQty"
+        :class="customClass"
         @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
@@ -115,9 +142,20 @@ storiesOf("Organisms|CollectedProduct", module)
       </template>
     </SfCollectedProduct>`
   }))
-  .add("[slot] actions", () => ({
+  .add("[slot] configuration", () => ({
     components: { SfCollectedProduct, SfProperty },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-collected-product--detailed": "sf-collected-product--detailed"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -151,6 +189,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="productQty"
+        :class="customClass"
         @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
@@ -167,6 +206,17 @@ storiesOf("Organisms|CollectedProduct", module)
   .add("[slot] remove", () => ({
     components: { SfCollectedProduct, SfProperty },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-collected-product--detailed": "sf-collected-product--detailed"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -200,6 +250,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="productQty"
+        :class="customClass"
         @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
@@ -216,6 +267,17 @@ storiesOf("Organisms|CollectedProduct", module)
   .add("[slot] image", () => ({
     components: { SfCollectedProduct, SfProperty },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-collected-product--detailed": "sf-collected-product--detailed"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -249,6 +311,7 @@ storiesOf("Organisms|CollectedProduct", module)
     },
     template: `<SfCollectedProduct
         :qty="productQty"
+        :class="customClass"
         @input="productQty = $event"
         :image="image"
         :image-width="imageWidth"
@@ -265,6 +328,17 @@ storiesOf("Organisms|CollectedProduct", module)
   .add("[slot] input", () => ({
     components: { SfCollectedProduct, SfProperty },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-collected-product--detailed": "sf-collected-product--detailed"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -297,6 +371,7 @@ storiesOf("Organisms|CollectedProduct", module)
       };
     },
     template: `<SfCollectedProduct
+        :class="customClass"
         :qty="productQty"
         @input="productQty = $event"
         :image="image"
@@ -314,6 +389,17 @@ storiesOf("Organisms|CollectedProduct", module)
   .add("[slot] title", () => ({
     components: { SfCollectedProduct, SfProperty },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-collected-product--detailed": "sf-collected-product--detailed"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -346,6 +432,7 @@ storiesOf("Organisms|CollectedProduct", module)
       };
     },
     template: `<SfCollectedProduct
+        :class="customClass"
         :qty="productQty"
         @input="productQty = $event"
         :image="image"
@@ -363,6 +450,17 @@ storiesOf("Organisms|CollectedProduct", module)
   .add("[slot] price", () => ({
     components: { SfCollectedProduct, SfProperty },
     props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-collected-product--detailed": "sf-collected-product--detailed"
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        )
+      },
       image: {
         default: object(
           "image",
@@ -395,6 +493,7 @@ storiesOf("Organisms|CollectedProduct", module)
       };
     },
     template: `<SfCollectedProduct
+        :class="customClass"
         :qty="productQty"
         @input="productQty = $event"
         :image="image"
