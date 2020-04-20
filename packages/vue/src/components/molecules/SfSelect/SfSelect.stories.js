@@ -1,10 +1,11 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
   number,
   boolean,
-  optionsKnob as options,
+  optionsKnob as options
 } from "@storybook/addon-knobs";
 import SfSelect from "./SfSelect.vue";
 import SfProductOption from "../SfProductOption/SfProductOption.vue";
@@ -14,7 +15,7 @@ const optionsList = [
   { value: "amber", color: "#FFBF00", label: "Amber" },
   { value: "arctic-lime", color: "#D0FF14", label: "Arctic lime" },
   { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
-  { value: "buff", color: "#F0DC82", label: "Buff" },
+  { value: "buff", color: "#F0DC82", label: "Buff" }
 ];
 const knobOptionsList = optionsList.reduce(
   (a, c) => ({ ...a, [c.label]: c.value }),
@@ -29,30 +30,30 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
           { display: "multi-select" },
           "CSS Modifiers"
-        ),
+        )
       },
       label: {
-        default: text("label", "Color", "Props"),
+        default: text("label", "Color", "Props")
       },
       size: {
-        default: number("size", 5, {}, "Props"),
+        default: number("size", 5, {}, "Props")
       },
       required: {
-        default: boolean("required", false, "Props"),
+        default: boolean("required", false, "Props")
       },
       valid: {
-        default: boolean("valid", true, "Props"),
+        default: boolean("valid", true, "Props")
       },
       disabled: {
-        default: boolean("disabled", false, "Props"),
+        default: boolean("disabled", false, "Props")
       },
       errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
+        default: text("errorMessage", "Color", "Props")
       },
       selected: {
         default: options(
@@ -61,12 +62,12 @@ storiesOf("Molecules|Select", module)
           optionsList[0].value,
           { display: "select" },
           "Data"
-        ),
-      },
+        )
+      }
     },
     data() {
       return {
-        options: optionsList,
+        options: optionsList
       };
     },
     template: `
@@ -84,7 +85,7 @@ storiesOf("Molecules|Select", module)
         <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
           <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
         </SfSelectOption>
-      </SfSelect>`,
+      </SfSelect>`
   }))
   .add("[slot] label", () => ({
     components: { SfSelect, SfProductOption },
@@ -93,36 +94,36 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
           { display: "multi-select" },
           "CSS Modifiers"
-        ),
+        )
       },
       label: {
-        default: text("label", "Color", "Props"),
+        default: text("label", "Color", "Props")
       },
       size: {
-        default: number("size", 5, {}, "Props"),
+        default: number("size", 5, {}, "Props")
       },
       required: {
-        default: boolean("required", false, "Props"),
+        default: boolean("required", false, "Props")
       },
       valid: {
-        default: boolean("valid", true, "Props"),
+        default: boolean("valid", true, "Props")
       },
       disabled: {
-        default: boolean("disabled", false, "Props"),
+        default: boolean("disabled", false, "Props")
       },
       errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
+        default: text("errorMessage", "Color", "Props")
+      }
     },
     data() {
       return {
         selected: "",
-        options: optionsList,
+        options: optionsList
       };
     },
     template: `<div style="max-width: 30rem">
@@ -142,7 +143,7 @@ storiesOf("Molecules|Select", module)
           CUSTOM LABEL
         </template>
       </SfSelect>
-    </div>`,
+    </div>`
   }))
   .add("[slot] errorMessage", () => ({
     components: { SfSelect, SfProductOption },
@@ -151,36 +152,36 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
           { display: "multi-select" },
           "CSS Modifiers"
-        ),
+        )
       },
       label: {
-        default: text("label", "Color", "Props"),
+        default: text("label", "Color", "Props")
       },
       size: {
-        default: number("size", 5, {}, "Props"),
+        default: number("size", 5, {}, "Props")
       },
       required: {
-        default: boolean("required", false, "Props"),
+        default: boolean("required", false, "Props")
       },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", false, "Props")
       },
       disabled: {
-        default: boolean("disabled", false, "Props"),
+        default: boolean("disabled", false, "Props")
       },
       errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
+        default: text("errorMessage", "Color", "Props")
+      }
     },
     data() {
       return {
         selected: "",
-        options: optionsList,
+        options: optionsList
       };
     },
     template: `<div style="max-width: 30rem">
@@ -200,7 +201,7 @@ storiesOf("Molecules|Select", module)
           CUSTOM ERROR MESSAGE
         </template>
       </SfSelect>
-    </div>`,
+    </div>`
   }))
   .add("[slot] cancel", () => ({
     components: { SfSelect, SfProductOption },
@@ -209,36 +210,36 @@ storiesOf("Molecules|Select", module)
         default: options(
           "CSS modifiers",
           {
-            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--underlined": "sf-select--underlined"
           },
           "sf-select--underlined",
           { display: "multi-select" },
           "CSS Modifiers"
-        ),
+        )
       },
       label: {
-        default: text("label", "Color", "Props"),
+        default: text("label", "Color", "Props")
       },
       size: {
-        default: number("size", 5, {}, "Props"),
+        default: number("size", 5, {}, "Props")
       },
       required: {
-        default: boolean("required", false, "Props"),
+        default: boolean("required", false, "Props")
       },
       valid: {
-        default: boolean("valid", false, "Props"),
+        default: boolean("valid", false, "Props")
       },
       disabled: {
-        default: boolean("disabled", false, "Props"),
+        default: boolean("disabled", false, "Props")
       },
       errorMessage: {
-        default: text("errorMessage", "Color", "Props"),
-      },
+        default: text("errorMessage", "Color", "Props")
+      }
     },
     data() {
       return {
         selected: "",
-        options: optionsList,
+        options: optionsList
       };
     },
     template: `<div style="max-width: 30rem">
@@ -258,5 +259,5 @@ storiesOf("Molecules|Select", module)
           CUSTOM CANCEL BUTTON
         </template>
       </SfSelect>
-    </div>`,
+    </div>`
   }));

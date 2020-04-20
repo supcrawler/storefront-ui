@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs } from "@storybook/addon-knobs";
 import "./home.scss";
@@ -7,8 +8,8 @@ storiesOf(" |Introduction", module)
   .addParameters({
     options: {
       showPanel: false,
-      isToolshown: false,
-    },
+      isToolshown: false
+    }
   })
   .add("How to use Storybook", () => ({
     template: `<div id="intro">
@@ -56,5 +57,5 @@ storiesOf(" |Introduction", module)
         <li><a href="https://discord.gg/GS8hqFS" target="_blank">Discord server</a></li>
         <li><a href="https://github.com/DivanteLtd/storefront-ui/blob/master/CONTRIBUTING.md" target="_blank">Contribution guide</a></li>
       </ul>
-    </div>`,
+    </div>`
   }));

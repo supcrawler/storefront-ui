@@ -1,16 +1,18 @@
+docs/.vuepress/dist
 package-lock.json
+
+# auto-generated components docs
+docs/components
+
+# auto-generated index files
+/index.js
+/js.js
+
 .DS_Store
 node_modules
 /dist
 /src/Playground.vue
-storybook-static
-
-# auto-generated docs
-docs/.vuepress/dist
-docs/components
-
-# auto-generated index
-/index.js
+storybook_static
 
 # local env files
 .env.local
@@ -29,4 +31,3 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw*
-

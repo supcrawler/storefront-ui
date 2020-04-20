@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import Product from "./Product";
 storiesOf("Pages|Product", module).add("Common", () => ({
@@ -8,5 +9,5 @@ storiesOf("Pages|Product", module).add("Common", () => ({
   beforeDestroy() {
     document.body.style.removeProperty("margin");
   },
-  template: `<Product />`,
+  template: `<Product />`
 }));

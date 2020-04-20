@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import SfTopBar from "./SfTopBar.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
@@ -17,7 +18,7 @@ storiesOf("Organisms|TopBar", module)
         <div style="margin-right: 27px">Location:</div>
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
       </template>
-    </SfTopBar>`,
+    </SfTopBar>`
   }))
   .add("[slot] left", () => ({
     components: { SfTopBar, SfButton, SfImage },
@@ -33,7 +34,7 @@ storiesOf("Organisms|TopBar", module)
         <div style="margin-right: 27px">Location:</div>
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
       </template>
-    </SfTopBar>`,
+    </SfTopBar>`
   }))
   .add("[slot] center", () => ({
     components: { SfTopBar, SfButton, SfImage },
@@ -48,7 +49,7 @@ storiesOf("Organisms|TopBar", module)
         <div style="margin-right: 27px">Location:</div>
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag"/>
       </template>
-    </SfTopBar>`,
+    </SfTopBar>`
   }))
   .add("[slot] right", () => ({
     components: { SfTopBar, SfButton, SfImage },
@@ -63,5 +64,5 @@ storiesOf("Organisms|TopBar", module)
       <template #right>
         CUSTOM RIGHT
       </template>
-    </SfTopBar>`,
+    </SfTopBar>`
   }));

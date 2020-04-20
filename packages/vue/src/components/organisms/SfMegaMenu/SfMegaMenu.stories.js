@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, text } from "@storybook/addon-knobs";
 import SfMegaMenu from "./SfMegaMenu.vue";
@@ -16,37 +17,37 @@ const AsidePlaceholder = {
           subtitle: "T-shirts",
           pictures: {
             mobile: "assets/storybook/SfMegaMenu/bannerSandals.jpg",
-            desktop: "assets/storybook/SfMegaMenu/bannerSandals.jpg",
-          },
+            desktop: "assets/storybook/SfMegaMenu/bannerSandals.jpg"
+          }
         },
         {
           title: "ECO SANDALS",
           subtitle: "T-shirts",
           pictures: {
             mobile: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
-            desktop: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
-          },
-        },
-      ],
+            desktop: "assets/storybook/SfMegaMenu/bannerBeachBag.jpg"
+          }
+        }
+      ]
     };
   },
   computed: {
     root() {
       return this.isMobile ? {} : { display: "flex" };
-    },
+    }
   },
   mounted() {
     this.isMobile =
-      Math.max(document.documentElement.clientWidth, window.innerWidth) <= 1023;
-    window.matchMedia("(max-width: 1023px)").addListener(this.mobileHandler);
+      Math.max(document.documentElement.clientWidth, window.innerWidth) < 1024;
+    window.matchMedia("(max-width: 1024px)").addListener(this.mobileHandler);
   },
   beforeDestroy() {
-    window.matchMedia("(max-width: 1023px)").removeListener(this.mobileHandler);
+    window.matchMedia("(max-width: 1024px)").removeListener(this.mobileHandler);
   },
   methods: {
     mobileHandler(event) {
       this.isMobile = event.matches;
-    },
+    }
   },
   template: `
       <div :style="root">
@@ -58,22 +59,22 @@ const AsidePlaceholder = {
         :image="tile.pictures" 
         :style="{margin: isMobile ? index === 0 ? '0' : '24px 0 0 0' : index === 0 ? '0' : '0 0 0 24px', '--banner-height': '310px', '--banner-width': '330px'} "
       />
-      </div>`,
+      </div>`
 };
 const MegaMenuPlaceholder = {
   components: { SfMegaMenu, SfMenuItem, AsidePlaceholder, SfList },
   props: {
     title: {
       type: String,
-      default: "",
+      default: ""
     },
     visible: {
       type: Boolean,
-      default: false,
+      default: false
     },
     asideTitle: {
-      default: text("asideTitle", "Featured", "Props"),
-    },
+      default: text("asideTitle", "Featured", "Props")
+    }
   },
   data() {
     return {
@@ -88,8 +89,8 @@ const MegaMenuPlaceholder = {
             { label: "Pants" },
             { label: "Underwear" },
             { label: "Jackets" },
-            { label: "Blouses" },
-          ],
+            { label: "Blouses" }
+          ]
         },
         {
           header: "Accessories",
@@ -97,8 +98,8 @@ const MegaMenuPlaceholder = {
             { label: "Bags & Purses" },
             { label: "Belts" },
             { label: "Gloves" },
-            { label: "Hats" },
-          ],
+            { label: "Hats" }
+          ]
         },
         {
           header: "Shoes",
@@ -109,10 +110,10 @@ const MegaMenuPlaceholder = {
             { label: "Loafers" },
             { label: "Sandals" },
             { label: "Slippers" },
-            { label: "Trainers" },
-          ],
-        },
-      ],
+            { label: "Trainers" }
+          ]
+        }
+      ]
     };
   },
   template: `<SfMegaMenu 
@@ -140,7 +141,7 @@ const MegaMenuPlaceholder = {
         <template #aside>
           <AsidePlaceholder/>
         </template>
-      </SfMegaMenu>`,
+      </SfMegaMenu>`
 };
 storiesOf("Organisms|MegaMenu", module)
   .addDecorator(withKnobs)
@@ -148,12 +149,12 @@ storiesOf("Organisms|MegaMenu", module)
     components: {
       SfMegaMenu,
       SfMenuItem,
-      SfList,
+      SfList
     },
     props: {
       title: {
-        default: text("title", "Man", "Props"),
-      },
+        default: text("title", "Man", "Props")
+      }
     },
     data() {
       return {
@@ -169,8 +170,8 @@ storiesOf("Organisms|MegaMenu", module)
               { label: "Pants" },
               { label: "Underwear" },
               { label: "Jackets" },
-              { label: "Blouses" },
-            ],
+              { label: "Blouses" }
+            ]
           },
           {
             header: "Accessories",
@@ -178,8 +179,8 @@ storiesOf("Organisms|MegaMenu", module)
               { label: "Bags & Purses" },
               { label: "Belts" },
               { label: "Gloves" },
-              { label: "Hats" },
-            ],
+              { label: "Hats" }
+            ]
           },
           {
             header: "Shoes",
@@ -190,10 +191,10 @@ storiesOf("Organisms|MegaMenu", module)
               { label: "Loafers" },
               { label: "Sandals" },
               { label: "Slippers" },
-              { label: "Trainers" },
-            ],
-          },
-        ],
+              { label: "Trainers" }
+            ]
+          }
+        ]
       };
     },
     template: `<SfMegaMenu 
@@ -213,22 +214,22 @@ storiesOf("Organisms|MegaMenu", module)
             </SfListItem>
           </SfList>
         </SfMegaMenuColumn>
-      </SfMegaMenu>`,
+      </SfMegaMenu>`
   }))
   .add("[slot] aside", () => ({
     components: {
       SfMegaMenu,
       SfMenuItem,
       SfList,
-      AsidePlaceholder,
+      AsidePlaceholder
     },
     props: {
       title: {
-        default: text("title", "Man", "Props"),
+        default: text("title", "Man", "Props")
       },
       asideTitle: {
-        default: text("asideTitle", "Featured", "Props"),
-      },
+        default: text("asideTitle", "Featured", "Props")
+      }
     },
     data() {
       return {
@@ -244,8 +245,8 @@ storiesOf("Organisms|MegaMenu", module)
               { label: "Pants" },
               { label: "Underwear" },
               { label: "Jackets" },
-              { label: "Blouses" },
-            ],
+              { label: "Blouses" }
+            ]
           },
           {
             header: "Accessories",
@@ -253,8 +254,8 @@ storiesOf("Organisms|MegaMenu", module)
               { label: "Bags & Purses" },
               { label: "Belts" },
               { label: "Gloves" },
-              { label: "Hats" },
-            ],
+              { label: "Hats" }
+            ]
           },
           {
             header: "Shoes",
@@ -265,10 +266,10 @@ storiesOf("Organisms|MegaMenu", module)
               { label: "Loafers" },
               { label: "Sandals" },
               { label: "Slippers" },
-              { label: "Trainers" },
-            ],
-          },
-        ],
+              { label: "Trainers" }
+            ]
+          }
+        ]
       };
     },
     template: `<SfMegaMenu 
@@ -295,16 +296,16 @@ storiesOf("Organisms|MegaMenu", module)
         <template #aside>
           <AsidePlaceholder/>
         </template>
-      </SfMegaMenu>`,
+      </SfMegaMenu>`
   }))
   .add("With SfHeader", () => ({
     components: {
       SfHeader,
-      MegaMenuPlaceholder,
+      MegaMenuPlaceholder
     },
     data() {
       return {
-        hovered: "",
+        hovered: ""
       };
     },
     template: `
@@ -335,5 +336,5 @@ storiesOf("Organisms|MegaMenu", module)
             <MegaMenuPlaceholder title="Kids" :visible="hovered === 'kids'"/>
           </SfHeaderNavigationItem>
         </template>
-      </SfHeader>`,
+      </SfHeader>`
   }));

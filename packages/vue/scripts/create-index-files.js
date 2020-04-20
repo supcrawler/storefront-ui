@@ -5,6 +5,7 @@ const glob = require("glob");
 const path = require("path");
 
 const pathTargetIndexJs = path.resolve(__dirname, "..", "index.js");
+const pathTargetJsJs = path.resolve(__dirname, "..", "js.js");
 
 const pathVueComponentsRoot = path.resolve(__dirname, "..", "src/components");
 const pathsVueComponents = glob.sync("*/*/Sf*.vue", {
@@ -15,6 +16,8 @@ function createIndexFiles() {
   const filesContent = generateFilesContent();
   saveIndexJs(filesContent.contentIndexJs);
   console.log("index.js created");
+  saveJsJs(filesContent.contentJsJs);
+  console.log("js.js created");
 }
 
 function generateFilesContent() {
@@ -44,6 +47,10 @@ function generateFilesContent() {
 
 function saveIndexJs(contentIndexJs) {
   fs.writeFileSync(pathTargetIndexJs, contentIndexJs);
+}
+
+function saveJsJs(contentJsJs) {
+  fs.writeFileSync(pathTargetJsJs, contentJsJs);
 }
 
 module.exports = {

@@ -1,9 +1,10 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import { withKnobs, boolean, text } from "@storybook/addon-knobs";
 import SfModal from "./SfModal.vue";
 import {
   visibilityToggleMixin,
-  withVisibilityToggle,
+  withVisibilityToggle
 } from "../../../../config/storybook/decorators";
 storiesOf("Molecules|Modal", module)
   .addDecorator(withKnobs)
@@ -12,20 +13,20 @@ storiesOf("Molecules|Modal", module)
     components: { SfModal },
     props: {
       title: {
-        default: text("title", "My title", "Props"),
+        default: text("title", "My title", "Props")
       },
       overlay: {
-        default: boolean("overlay", true, "Props"),
+        default: boolean("overlay", true, "Props")
       },
       cross: {
-        default: boolean("cross", true, "Props"),
+        default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent", false, "Props"),
+        default: boolean("persistent", false, "Props")
       },
       ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
-      },
+        default: text("ariaLabelClose", "Close", "Props")
+      }
     },
     mixins: [visibilityToggleMixin],
     template: `
@@ -39,26 +40,26 @@ storiesOf("Molecules|Modal", module)
         @close="visible = false"
       >
         HELLO STOREFRONT UI!
-      </SfModal>`,
+      </SfModal>`
   }))
   .add("[slot] close", () => ({
     components: { SfModal },
     props: {
       title: {
-        default: text("title", "My title", "Props"),
+        default: text("title", "My title", "Props")
       },
       overlay: {
-        default: boolean("overlay", true, "Props"),
+        default: boolean("overlay", true, "Props")
       },
       cross: {
-        default: boolean("cross", true, "Props"),
+        default: boolean("cross", true, "Props")
       },
       persistent: {
-        default: boolean("persistent", false, "Props"),
+        default: boolean("persistent", false, "Props")
       },
       ariaLabelClose: {
-        default: text("ariaLabelClose", "Close", "Props"),
-      },
+        default: text("ariaLabelClose", "Close", "Props")
+      }
     },
     mixins: [visibilityToggleMixin],
     template: `
@@ -75,5 +76,5 @@ storiesOf("Molecules|Modal", module)
         <template #close>
           close
         </template>
-      </SfModal>`,
+      </SfModal>`
   }));

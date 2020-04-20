@@ -1,8 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import SfCarousel from "./SfCarousel.vue";
 const StoriesPlaceholder = {
   props: ["index"],
-  template: `<div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">{{index}}</div>`,
+  template: `<div style="display: flex; align-items: center; justify-content: center; height: 300px; background-color: #5ECE7B; color: #FFF; font-size: 2.5rem">{{index}}</div>`
 };
 storiesOf("Organisms|Carousel", module)
   .add("Common", () => ({
@@ -13,7 +14,7 @@ storiesOf("Organisms|Carousel", module)
         <SfCarouselItem v-for="index in 12">
           <StoriesPlaceholder :index="index"/>
         </SfCarouselItem>
-      </SfCarousel>`,
+      </SfCarousel>`
   }))
   .add("[slot] next", () => ({
     components: { SfCarousel, StoriesPlaceholder },
@@ -26,7 +27,7 @@ storiesOf("Organisms|Carousel", module)
       <SfCarouselItem v-for="index in 12">
         <StoriesPlaceholder :index="index"/>
       </SfCarouselItem>
-    </SfCarousel>`,
+    </SfCarousel>`
   }))
   .add("[slot] prev", () => ({
     components: { SfCarousel, StoriesPlaceholder },
@@ -39,5 +40,5 @@ storiesOf("Organisms|Carousel", module)
       <SfCarouselItem v-for="index in 12">
         <StoriesPlaceholder :index="index"/>
       </SfCarouselItem>
-    </SfCarousel>`,
+    </SfCarousel>`
   }));

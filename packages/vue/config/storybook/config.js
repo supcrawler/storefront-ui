@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { configure, addDecorator, addParameters } from "@storybook/vue";
 import { withA11y } from "@storybook/addon-a11y";
 
@@ -15,13 +16,13 @@ addParameters({
     showPanel: true,
     isToolshown: true,
     theme,
-    sortStoriesByKind: true,
-  },
+    sortStoriesByKind: true
+  }
 });
 
 function loadStories() {
   require("./home/home.js");
-  req.keys().forEach((filename) => req(filename));
+  req.keys().forEach(filename => req(filename));
 }
 
 configure(loadStories, module);

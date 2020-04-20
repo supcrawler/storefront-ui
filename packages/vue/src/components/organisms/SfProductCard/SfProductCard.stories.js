@@ -1,3 +1,4 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
@@ -5,7 +6,7 @@ import {
   number,
   boolean,
   select,
-  object,
+  object
 } from "@storybook/addon-knobs";
 import SfProductCard from "./SfProductCard.vue";
 import { colorsValues as colors } from "@storefront-ui/shared/variables/colors";
@@ -19,70 +20,70 @@ storiesOf("Organisms|ProductCard", module)
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           "Props"
-        ),
+        )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props"),
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props"),
+        default: number("imageHeight", 326, {}, "Props")
       },
       badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props"),
+        default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("badgeColor", colors, "color-primary", "Props"),
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props"),
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "", "Props"),
+        default: text("link", "", "Props")
       },
       linkTag: {
-        default: text("linkTag", "", "Props"),
+        default: text("linkTag", "", "Props")
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props"),
+        default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props"),
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props"),
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10.99", "Props"),
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5.09", "Props"),
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
+        default: text("wishlistIcon", "heart", "Props")
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props"),
+        default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", true, "Props"),
+        default: boolean("showAddToCartButton", true, "Props")
       },
       isAddedToCart: {
-        default: boolean("isAddedToCart", false, "Props"),
+        default: boolean("isAddedToCart", false, "Props")
       },
       addToCartDisabled: {
-        default: boolean("addToCartDisabled", false, "Props"),
-      },
+        default: boolean("addToCartDisabled", false, "Props")
+      }
     },
     methods: {
       alert(label) {
         alert(label);
-      },
+      }
     },
     template: `<SfProductCard
         :image="image"
@@ -107,7 +108,7 @@ storiesOf("Organisms|ProductCard", module)
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
-    />`,
+    />`
   }))
   .add("With 2 pictures", () => ({
     components: { SfProductCard },
@@ -117,84 +118,84 @@ storiesOf("Organisms|ProductCard", module)
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           "Props"
-        ),
+        )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props"),
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props"),
+        default: number("imageHeight", 326, {}, "Props")
       },
       badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props"),
+        default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("badgeColor", colors, "color-primary", "Props"),
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props"),
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "", "Props"),
+        default: text("link", "", "Props")
       },
       linkTag: {
-        default: text("linkTag", "", "Props"),
+        default: text("linkTag", "", "Props")
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props"),
+        default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props"),
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props"),
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10.99", "Props"),
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5.09", "Props"),
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
+        default: text("wishlistIcon", "heart", "Props")
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props"),
+        default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", false, "Props"),
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
-        default: boolean("isAddedToCart", false, "Props"),
+        default: boolean("isAddedToCart", false, "Props")
       },
       addToCartDisabled: {
-        default: boolean("addToCartDisabled", false, "Props"),
-      },
+        default: boolean("addToCartDisabled", false, "Props")
+      }
     },
     data() {
       return {
         pictures: [
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           {
             mobile: { url: "/assets/storybook/Home/productA.jpg" },
-            desktop: { url: "/assets/storybook/Home/productA.jpg" },
-          },
-        ],
+            desktop: { url: "/assets/storybook/Home/productA.jpg" }
+          }
+        ]
       };
     },
     methods: {
       alert(label) {
         alert(label);
-      },
+      }
     },
     template: `<SfProductCard
         :image="pictures"
@@ -219,7 +220,7 @@ storiesOf("Organisms|ProductCard", module)
         @click:is-added-to-cart="alert('@click:is-added-to-cart')"
         @click:wishlist="alert('@click:wishlist')"
         @click:reviews="alert('@click:reviews')"
-    />`,
+    />`
   }))
   .add("[slot] image", () => ({
     components: { SfProductCard },
@@ -229,70 +230,70 @@ storiesOf("Organisms|ProductCard", module)
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           "Props"
-        ),
+        )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props"),
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props"),
+        default: number("imageHeight", 326, {}, "Props")
       },
       badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props"),
+        default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("badgeColor", colors, "color-primary", "Props"),
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props"),
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "", "Props"),
+        default: text("link", "", "Props")
       },
       linkTag: {
-        default: text("linkTag", "", "Props"),
+        default: text("linkTag", "", "Props")
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props"),
+        default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props"),
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props"),
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10.99", "Props"),
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5.09", "Props"),
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
+        default: text("wishlistIcon", "heart", "Props")
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props"),
+        default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", false, "Props"),
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
-        default: boolean("isAddedToCart", false, "Props"),
+        default: boolean("isAddedToCart", false, "Props")
       },
       addToCartDisabled: {
-        default: boolean("addToCartDisabled", false, "Props"),
-      },
+        default: boolean("addToCartDisabled", false, "Props")
+      }
     },
     methods: {
       alert(label) {
         alert(label);
-      },
+      }
     },
     template: `<SfProductCard
         :image="image"
@@ -321,7 +322,7 @@ storiesOf("Organisms|ProductCard", module)
       <template #image="{ image, title }">
         <div :style="{ height: '111px', display: 'flex', alignItems: 'center', justifyContent: 'center'}">CUSTOM IMAGE</div>
       </template>
-    </SfProductCard>`,
+    </SfProductCard>`
   }))
   .add("[slot] add-to-cart", () => ({
     components: { SfProductCard },
@@ -331,70 +332,70 @@ storiesOf("Organisms|ProductCard", module)
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           "Props"
-        ),
+        )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props"),
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props"),
+        default: number("imageHeight", 326, {}, "Props")
       },
       badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props"),
+        default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("badgeColor", colors, "color-primary", "Props"),
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props"),
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "", "Props"),
+        default: text("link", "", "Props")
       },
       linkTag: {
-        default: text("linkTag", "", "Props"),
+        default: text("linkTag", "", "Props")
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props"),
+        default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props"),
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props"),
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10.99", "Props"),
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5.09", "Props"),
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
+        default: text("wishlistIcon", "heart", "Props")
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props"),
+        default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", false, "Props"),
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
-        default: boolean("isAddedToCart", false, "Props"),
+        default: boolean("isAddedToCart", false, "Props")
       },
       addToCartDisabled: {
-        default: boolean("addToCartDisabled", false, "Props"),
-      },
+        default: boolean("addToCartDisabled", false, "Props")
+      }
     },
     methods: {
       alert(label) {
         alert(label);
-      },
+      }
     },
     template: `<SfProductCard
         :image="image"
@@ -422,7 +423,7 @@ storiesOf("Organisms|ProductCard", module)
       <template #add-to-cart="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }">
         CUSTOM ADD TO CART
       </template>
-    </SfProductCard>`,
+    </SfProductCard>`
   }))
   .add("[slot] title", () => ({
     components: { SfProductCard },
@@ -432,70 +433,70 @@ storiesOf("Organisms|ProductCard", module)
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           "Props"
-        ),
+        )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props"),
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props"),
+        default: number("imageHeight", 326, {}, "Props")
       },
       badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props"),
+        default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("badgeColor", colors, "color-primary", "Props"),
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props"),
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "", "Props"),
+        default: text("link", "", "Props")
       },
       linkTag: {
-        default: text("linkTag", "", "Props"),
+        default: text("linkTag", "", "Props")
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props"),
+        default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props"),
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props"),
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10.99", "Props"),
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5.09", "Props"),
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
+        default: text("wishlistIcon", "heart", "Props")
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props"),
+        default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", false, "Props"),
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
-        default: boolean("isAddedToCart", false, "Props"),
+        default: boolean("isAddedToCart", false, "Props")
       },
       addToCartDisabled: {
-        default: boolean("addToCartDisabled", false, "Props"),
-      },
+        default: boolean("addToCartDisabled", false, "Props")
+      }
     },
     methods: {
       alert(label) {
         alert(label);
-      },
+      }
     },
     template: `<SfProductCard
         :image="image"
@@ -523,7 +524,7 @@ storiesOf("Organisms|ProductCard", module)
       <template #title="{ title }">
         CUSTOM TITLE
       </template>
-    </SfProductCard>`,
+    </SfProductCard>`
   }))
   .add("[slot] wishlist-icon", () => ({
     components: { SfProductCard },
@@ -533,70 +534,70 @@ storiesOf("Organisms|ProductCard", module)
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           "Props"
-        ),
+        )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props"),
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props"),
+        default: number("imageHeight", 326, {}, "Props")
       },
       badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props"),
+        default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("badgeColor", colors, "color-primary", "Props"),
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props"),
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "", "Props"),
+        default: text("link", "", "Props")
       },
       linkTag: {
-        default: text("linkTag", "", "Props"),
+        default: text("linkTag", "", "Props")
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props"),
+        default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props"),
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props"),
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10.99", "Props"),
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5.09", "Props"),
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
+        default: text("wishlistIcon", "heart", "Props")
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props"),
+        default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", false, "Props"),
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
-        default: boolean("isAddedToCart", false, "Props"),
+        default: boolean("isAddedToCart", false, "Props")
       },
       addToCartDisabled: {
-        default: boolean("addToCartDisabled", false, "Props"),
-      },
+        default: boolean("addToCartDisabled", false, "Props")
+      }
     },
     methods: {
       alert(label) {
         alert(label);
-      },
+      }
     },
     template: `<SfProductCard
         :image="image"
@@ -624,7 +625,7 @@ storiesOf("Organisms|ProductCard", module)
       <template #wishlist-icon="{ currentWishlistIcon }">
         CUSTOM WISH LIST ICON
       </template>
-    </SfProductCard>`,
+    </SfProductCard>`
   }))
   .add("[slot] price", () => ({
     components: { SfProductCard },
@@ -634,70 +635,70 @@ storiesOf("Organisms|ProductCard", module)
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           "Props"
-        ),
+        )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props"),
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props"),
+        default: number("imageHeight", 326, {}, "Props")
       },
       badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props"),
+        default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("badgeColor", colors, "color-primary", "Props"),
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props"),
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "", "Props"),
+        default: text("link", "", "Props")
       },
       linkTag: {
-        default: text("linkTag", "", "Props"),
+        default: text("linkTag", "", "Props")
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props"),
+        default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props"),
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props"),
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10.99", "Props"),
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5.09", "Props"),
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
+        default: text("wishlistIcon", "heart", "Props")
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props"),
+        default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", false, "Props"),
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
-        default: boolean("isAddedToCart", false, "Props"),
+        default: boolean("isAddedToCart", false, "Props")
       },
       addToCartDisabled: {
-        default: boolean("addToCartDisabled", false, "Props"),
-      },
+        default: boolean("addToCartDisabled", false, "Props")
+      }
     },
     methods: {
       alert(label) {
         alert(label);
-      },
+      }
     },
     template: `<SfProductCard
         :image="image"
@@ -725,7 +726,7 @@ storiesOf("Organisms|ProductCard", module)
       <template #price="{ specialPrice, regularPrice }">
         CUSTOM PRICE
       </template>
-    </SfProductCard>`,
+    </SfProductCard>`
   }))
   .add("[slot] reviews", () => ({
     components: { SfProductCard },
@@ -735,70 +736,70 @@ storiesOf("Organisms|ProductCard", module)
           "image",
           {
             mobile: { url: "/assets/storybook/Home/productB.jpg" },
-            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" }
           },
           "Props"
-        ),
+        )
       },
       imageWidth: {
-        default: number("imageWidth", 216, {}, "Props"),
+        default: number("imageWidth", 216, {}, "Props")
       },
       imageHeight: {
-        default: number("imageHeight", 326, {}, "Props"),
+        default: number("imageHeight", 326, {}, "Props")
       },
       badgeLabel: {
-        default: text("badgeLabel", "-50%", "Props"),
+        default: text("badgeLabel", "-50%", "Props")
       },
       badgeColor: {
-        default: select("badgeColor", colors, "color-primary", "Props"),
+        default: select("badgeColor", colors, "color-primary", "Props")
       },
       title: {
-        default: text("title", "Cotton Sweater", "Props"),
+        default: text("title", "Cotton Sweater", "Props")
       },
       link: {
-        default: text("link", "", "Props"),
+        default: text("link", "", "Props")
       },
       linkTag: {
-        default: text("linkTag", "", "Props"),
+        default: text("linkTag", "", "Props")
       },
       scoreRating: {
-        default: number("scoreRating", 4, {}, "Props"),
+        default: number("scoreRating", 4, {}, "Props")
       },
       maxRating: {
-        default: number("maxRating", 5, {}, "Props"),
+        default: number("maxRating", 5, {}, "Props")
       },
       reviewsCount: {
-        default: number("reviewsCount", 7, {}, "Props"),
+        default: number("reviewsCount", 7, {}, "Props")
       },
       regularPrice: {
-        default: text("regularPrice", "$10.99", "Props"),
+        default: text("regularPrice", "$10.99", "Props")
       },
       specialPrice: {
-        default: text("specialPrice", "$5.09", "Props"),
+        default: text("specialPrice", "$5.09", "Props")
       },
       wishlistIcon: {
-        default: text("wishlistIcon", "heart", "Props"),
+        default: text("wishlistIcon", "heart", "Props")
       },
       isOnWishlistIcon: {
-        default: text("isOnWishlistIcon", "heart_fill", "Props"),
+        default: text("isOnWishlistIcon", "heart_fill", "Props")
       },
       isOnWishlist: {
-        default: boolean("isOnWishlist", false, "Props"),
+        default: boolean("isOnWishlist", false, "Props")
       },
       showAddToCartButton: {
-        default: boolean("showAddToCartButton", false, "Props"),
+        default: boolean("showAddToCartButton", false, "Props")
       },
       isAddedToCart: {
-        default: boolean("isAddedToCart", false, "Props"),
+        default: boolean("isAddedToCart", false, "Props")
       },
       addToCartDisabled: {
-        default: boolean("addToCartDisabled", false, "Props"),
-      },
+        default: boolean("addToCartDisabled", false, "Props")
+      }
     },
     methods: {
       alert(label) {
         alert(label);
-      },
+      }
     },
     template: `<SfProductCard
         :image="image"
@@ -826,5 +827,5 @@ storiesOf("Organisms|ProductCard", module)
       <template #reviews="{ maxRating, scoreRating }">
         CUSTOM REVIEWS
       </template>
-    </SfProductCard>`,
+    </SfProductCard>`
   }));

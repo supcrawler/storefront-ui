@@ -1,8 +1,9 @@
+/* eslint-disable import/no-extraneous-dependencies */
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,
   text,
-  optionsKnob as options,
+  optionsKnob as options
 } from "@storybook/addon-knobs";
 import SfProperty from "./SfProperty.vue";
 import SfBadge from "../SfBadge/SfBadge.vue";
@@ -18,24 +19,24 @@ storiesOf("Atoms|Property", module)
             "sf-property--full-width": "sf-property--full-width",
             "sf-property--value-in-middle": "sf-property--value-in-middle",
             "sf-property--large": "sf-property--large",
-            "sf-property--without-suffix": "sf-property--without-suffix",
+            "sf-property--without-suffix": "sf-property--without-suffix"
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        ),
+        )
       },
       name: {
-        default: text("name", "Material", "Props"),
+        default: text("name", "Material", "Props")
       },
       value: {
-        default: text("value", "Cotton", "Props"),
-      },
+        default: text("value", "Cotton", "Props")
+      }
     },
     template: `<SfProperty
         :class="customClass"
         :name="name"
-        :value="value" />`,
+        :value="value" />`
   }))
   .add("[slot] name", () => ({
     components: { SfProperty },
@@ -46,19 +47,19 @@ storiesOf("Atoms|Property", module)
           {
             "sf-property--full-width": "sf-property--full-width",
             "sf-property--value-in-middle": "sf-property--value-in-middle",
-            "sf-property--large": "sf-property--large",
+            "sf-property--large": "sf-property--large"
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        ),
+        )
       },
       name: {
-        default: text("name", "Material", "Props"),
+        default: text("name", "Material", "Props")
       },
       value: {
-        default: text("value", "Cotton", "Props"),
-      },
+        default: text("value", "Cotton", "Props")
+      }
     },
     template: `<SfProperty
       :class="customClass"
@@ -67,12 +68,12 @@ storiesOf("Atoms|Property", module)
       <template #name="{name}">
         {{name}}:<br>
       </template>
-    </SfProperty>`,
+    </SfProperty>`
   }))
   .add("[slot] value", () => ({
     components: {
       SfProperty,
-      SfBadge,
+      SfBadge
     },
     props: {
       customClass: {
@@ -81,19 +82,19 @@ storiesOf("Atoms|Property", module)
           {
             "sf-property--full-width": "sf-property--full-width",
             "sf-property--value-in-middle": "sf-property--value-in-middle",
-            "sf-property--large": "sf-property--large",
+            "sf-property--large": "sf-property--large"
           },
           "",
           { display: "multi-select" },
           "CSS Modifiers"
-        ),
+        )
       },
       name: {
-        default: text("name", "Material", "Props"),
+        default: text("name", "Material", "Props")
       },
       value: {
-        default: text("value", "Cotton", "Props"),
-      },
+        default: text("value", "Cotton", "Props")
+      }
     },
     template: `<SfProperty
       :class="customClass"
@@ -102,5 +103,5 @@ storiesOf("Atoms|Property", module)
       <template #value="{value}">
         <SfBadge>{{value}}</SfBadge>
       </template>
-    </SfProperty>`,
+    </SfProperty>`
   }));
