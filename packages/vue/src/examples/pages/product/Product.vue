@@ -63,7 +63,6 @@
             <SfColor
               v-for="(color, i) in product.colors"
               :key="i"
-              :aria-label="color.name"
               :color="color.color"
               :selected="color.selected"
               class="product__color"

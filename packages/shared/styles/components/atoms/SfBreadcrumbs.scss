@@ -26,13 +26,13 @@
       1.6,
       var(--font-family-secondary)
     );
-    --link-color: var(--c-text-muted);
-    --link-text-decoration: none;
+    color: var(--breadcrumbs-breadcrumb-color, var(--c-text-muted));
+    cursor: pointer;
     &:hover {
-      --link-color: var(--c-text);
+      --breadcrumbs-breadcrumb-color: var(--c-link-hover);
     }
     &--current {
-      --link-color: var(--c-text);
+      --breadcrumbs-breadcrumb-color: var(--c-text);
       cursor: default;
     }
   }
