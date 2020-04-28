@@ -1,9 +1,8 @@
 <template>
-  <div aria-labelledby="AddToCart" class="sf-add-to-cart">
+  <div class="sf-add-to-cart" data-test="sf-add-to-card">
     <slot name="add-to-cart-btn">
       <!--@slot Custom content that will replace default Add to cart button design.-->
       <SfButton
-        id="AddToCart"
         class="sf-add-to-cart__button"
         :disabled="disabled"
         v-on="$listeners"
@@ -14,7 +13,6 @@
     <slot name="quantity-select-input" v-bind="{ qty }">
       <SfQuantitySelector
         :qty="qty"
-        aria-label="Quantity"
         :disabled="disabled"
         class="sf-add-to-cart__select-quantity"
         @input="$emit('input', $event)"

@@ -81,7 +81,6 @@
             />
             <a
               v-if="reviewsCount"
-              v-focus
               class="sf-product-card-horizontal__reviews-count"
               href="#"
               @click="$emit('click:reviews')"
@@ -109,7 +108,7 @@
       <button
         v-if="wishlistIcon !== false"
         v-focus
-        :aria-label="`${ariaLabel} ${title}`"
+        :aria-label="ariaLabel"
         :class="wishlistIconClasses"
         class="mobile-only"
         @click="toggleIsOnWishlist"

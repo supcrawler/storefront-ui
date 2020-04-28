@@ -81,7 +81,6 @@ module.exports = {
           ["/components/icon", "Icon"],
           ["/components/image", "Image"],
           ["/components/input", "Input"],
-          ["/components/link", "Link"],
           ["/components/list", "List"],
           ["/components/loader", "Loader"],
           ["/components/megamenu", "Mega Menu"],

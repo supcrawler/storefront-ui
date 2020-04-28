@@ -1,5 +1,9 @@
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
+import {
+  withKnobs,
+  text,
+  optionsKnob as options,
+} from "@storybook/addon-knobs";
 import { SfQuantitySelector } from "@storefront-ui/vue";
 storiesOf("Atoms|QuantitySelector", module)
   .addDecorator(withKnobs)
@@ -23,12 +27,15 @@ storiesOf("Atoms|QuantitySelector", module)
           "CSS Modifiers"
         ),
       },
+      ariaLabel: {
+        default: text("ariaLabel", "Quantity", "Props"),
+      },
     },
     template: `<div style="max-width: 375px">
         <SfQuantitySelector
           v-model="value"
-          aria-label="Quantity"
           :class="customClass"
+          :aria-label="ariaLabel"
         />
       </div>`,
   }));

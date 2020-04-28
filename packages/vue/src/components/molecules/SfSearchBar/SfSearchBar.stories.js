@@ -17,13 +17,16 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--position-center": "sf-search-bar--position-center",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
-          "",
+          "null",
           { display: "multi-select" },
           "CSS Modifiers"
         ),
       },
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Search", "Props"),
       },
     },
     data() {
@@ -34,7 +37,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      aria-label="Search"
+      :aria-label="ariaLabel"
       v-model="value"/>`,
   }))
   .add("[slot] icon", () => ({
@@ -47,13 +50,16 @@ storiesOf("Molecules|SearchBar", module)
             "sf-search-bar--position-center": "sf-search-bar--position-center",
             "sf-search-bar--no-icon": "sf-search-bar--no-icon",
           },
-          "",
+          "null",
           { display: "multi-select" },
           "CSS Modifiers"
         ),
       },
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
+      },
+      ariaLabel: {
+        default: text("ariaLabel", "Search", "Props"),
       },
     },
     data() {
@@ -64,7 +70,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      aria-label="Search"
+      :aria-label="ariaLabel"
       v-model="value">
       <template #icon>👀</template>
     </SfSearchBar>`,
@@ -87,6 +93,9 @@ storiesOf("Molecules|SearchBar", module)
       placeholder: {
         default: text("placeholder", "Search for items", "Props"),
       },
+      ariaLabel: {
+        default: text("ariaLabel", "Search", "Props"),
+      },
     },
     data() {
       return {
@@ -96,7 +105,7 @@ storiesOf("Molecules|SearchBar", module)
     template: `<SfSearchBar
       :class="customClass"
       :placeholder="placeholder"
-      aria-label="Search"
+      :aria-label="ariaLabel"
       v-model="value">
     </SfSearchBar>`,
   }));

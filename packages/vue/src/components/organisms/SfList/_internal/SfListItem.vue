@@ -4,8 +4,3 @@
     <slot />
   </li>
 </template>
-<script>
-export default {
-  name: "SfListItem",
-};
-</script>
