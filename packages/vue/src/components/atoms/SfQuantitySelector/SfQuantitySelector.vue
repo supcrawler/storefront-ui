@@ -9,7 +9,7 @@
     <SfInput
       type="number"
       :value="qty"
-      v-bind="$attrs"
+      :aria-label="ariaLabel"
       :disabled="disabled"
       class="sf-quantity-selector__input"
       @input="$emit('input', parseInt($event, 10))"
@@ -31,7 +31,6 @@ export default {
     SfInput,
     SfButton,
   },
-  inheritAttrs: false,
   model: {
     prop: "qty",
   },
@@ -40,6 +39,13 @@ export default {
     qty: {
       type: [Number, String],
       default: 1,
+    },
+    /**
+     * Form input label
+     */
+    ariaLabel: {
+      type: String,
+      default: "quantity",
     },
     disabled: {
       type: Boolean,

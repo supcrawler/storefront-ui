@@ -1,44 +1,38 @@
 <template>
   <div class="sf-bar">
-    <div>
-      <slot name="back">
-        <button
+    <slot name="back">
+      <div class="sf-bar__icon">
+        <SfIcon
           v-if="back"
-          v-focus
+          icon="chevron_left"
+          size="14px"
+          role="button"
           aria-label="back"
-          class="sf-bar__icon"
           @click="$emit('click:back')"
-        >
-          <SfIcon icon="chevron_left" size="14px" />
-        </button>
-      </slot>
-    </div>
-    <div>
-      <slot name="title" v-bind="{ title }">
-        <div class="sf-bar__title">{{ title }}</div>
-      </slot>
-    </div>
-    <div>
-      <slot name="close">
-        <button
+        />
+      </div>
+    </slot>
+    <slot name="title" v-bind="{ title }">
+      <div class="sf-bar__title">{{ title }}</div>
+    </slot>
+    <slot name="close">
+      <div class="sf-bar__icon">
+        <SfIcon
           v-if="close"
-          v-focus
-          class="sf-bar__icon"
+          icon="cross"
+          size="14px"
+          role="button"
           aria-label="close"
           @click="$emit('click:close')"
-        >
-          <SfIcon icon="cross" size="14px" />
-        </button>
-      </slot>
-    </div>
+        />
+      </div>
+    </slot>
   </div>
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import { focus } from "../../../utilities/directives/focus-directive.js";
 export default {
   name: "SfBar",
-  directives: { focus },
   components: {
     SfIcon,
   },

@@ -4,22 +4,20 @@
       <li v-if="hasArrows" class="sf-pagination__item">
         <!-- @slot Custom markup for previous page button -->
         <slot name="prev" v-bind="{ isDisabled: !canGoPrev, go: goPrev }">
-          <SfLink
+          <button
             aria-label="Go to previous page"
             class="sf-pagination__button sf-pagination__button--prev"
             :disabled="isDisabled('prev')"
             @click="go('prev')"
           >
             <sf-icon icon="chevron_left" size="14px" />
-          </SfLink>
+          </button>
         </slot>
       </li>
       <template v-if="showFirst">
         <li class="sf-pagination__item">
           <slot name="number" v-bind="{ go, number: 1 }">
-            <SfLink class="sf-pagination__button" @click="go(1)">
-              1
-            </SfLink>
+            <button class="sf-pagination__button" @click="go(1)">1</button>
           </slot>
         </li>
         <li class="sf-pagination__item">
@@ -33,13 +31,13 @@
           class="sf-pagination__item"
         >
           <slot name="number" v-bind="{ go, number }">
-            <SfLink
+            <button
               class="sf-pagination__button"
               :class="{ 'sf-pagination__button--current': current === number }"
               @click="go(number)"
             >
               {{ number }}
-            </SfLink>
+            </button>
           </slot>
         </li>
       </slot>
@@ -49,23 +47,23 @@
         </li>
         <li class="sf-pagination__item">
           <slot name="number" v-bind="{ go, number: total }">
-            <SfLink class="sf-pagination__button" @click="go(total)">
+            <button class="sf-pagination__button" @click="go(total)">
               {{ total }}
-            </SfLink>
+            </button>
           </slot>
         </li>
       </template>
       <li v-if="hasArrows" class="sf-pagination__item">
         <!-- @slot Custom markup for next page button -->
         <slot name="next" v-bind="{ isDisabled: !canGoNext, go: goNext }">
-          <SfLink
+          <button
             aria-label="Go to next page"
             class="sf-pagination__button sf-pagination__button--next"
             :disabled="isDisabled('next')"
             @click="go('next')"
           >
             <sf-icon icon="chevron_right" size="14px" />
-          </SfLink>
+          </button>
         </slot>
       </li>
     </ul>
@@ -73,12 +71,10 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfLink from "../../atoms/SfLink/SfLink.vue";
 export default {
   name: "SfPagination",
   components: {
     SfIcon,
-    SfLink,
   },
   props: {
     /**

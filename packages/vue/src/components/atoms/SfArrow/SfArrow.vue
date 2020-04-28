@@ -1,8 +1,13 @@
 <template>
-  <SfButton class="sf-arrow" type="button" v-on="$listeners">
+  <SfButton
+    class="sf-arrow"
+    type="button"
+    :aria-label="ariaLabel"
+    v-on="$listeners"
+  >
     <!--@slot Use this slot to replace arrow icon-->
     <slot>
-      <SfIcon aria-hidden="true" icon="arrow_left" class="sf-arrow__icon" />
+      <SfIcon icon="arrow_left" class="sf-arrow__icon" />
     </slot>
   </SfButton>
 </template>
@@ -12,6 +17,12 @@ import SfIcon from "../SfIcon/SfIcon";
 export default {
   name: "SfArrow",
   components: { SfButton, SfIcon },
+  props: {
+    ariaLabel: {
+      type: String,
+      default: "Arrow",
+    },
+  },
 };
 </script>
 <style lang="scss">

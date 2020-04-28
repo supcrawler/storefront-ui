@@ -29,10 +29,13 @@ storiesOf("Atoms|Arrow", module)
           "CSS Modifiers"
         ),
       },
+      ariaLabel: {
+        default: text("ariaLabel", "Arrow Label", "Props"),
+      },
     },
     template: `<SfArrow
       :class="customClass" 
-      aria-label="Arrow label"
+      :aria-label="ariaLabel"
     />`,
   }))
   .add("[slot] default", () => ({
@@ -56,9 +59,12 @@ storiesOf("Atoms|Arrow", module)
           "CSS Modifiers"
         ),
       },
+      ariaLabel: {
+        default: text("ariaLabel", "Arrow Label", "Props"),
+      },
     },
     template: `<SfArrow
-      :class="customClass" aria-label="Arrow label">
+      :class="customClass" :aria-label="ariaLabel">
       <SfIcon icon="chevron_left" class="sf-arrow__icon" size="12px" view-box="0 0 24 12"/>
     </SfArrow>`,
   }));
