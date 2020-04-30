@@ -47,7 +47,7 @@ export default {
       default: "",
     },
     image: {
-      type: [String, Object],
+      type: String,
       default: "",
     },
   },
