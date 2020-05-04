@@ -46,19 +46,20 @@
           <button
             v-for="icon in headerIcons"
             :key="icon.name"
-            class="sf-header__icon desktop-only"
-            :aria-label="icon.name"
-            :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
-            @click="$emit(`click:${icon.name}`)"
+            class="sf-header__icons desktop-only"
           >
             <SfIcon
               :icon="icon.icon"
               :has-badge="cartIsNotEmpty && icon.hasBadge === true"
               :badge-label="cartItemsQty"
               size="xs"
+              class="sf-header__icon"
               :class="{
                 'sf-header__icon--is-active': activeIcon === icon.name,
               }"
+              :aria-label="icon.name"
+              :aria-pressed="activeIcon === icon.name ? 'true' : 'false'"
+              @click="$emit(`click:${icon.name}`)"
             />
           </button>
         </slot>
