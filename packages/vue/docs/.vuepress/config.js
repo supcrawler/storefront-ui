@@ -110,7 +110,6 @@ module.exports = {
           ["/components/storelocator", "Store Locator"],
           ["/components/table", "Table"],
           ["/components/tabs", "Tabs"],
-          ["/components/tile", "Tile"],
           ["/components/topbar", "Top Bar"]
           // @components-docs-end
         ],
