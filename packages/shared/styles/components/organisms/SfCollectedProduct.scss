@@ -71,9 +71,7 @@
     flex-direction: column;
   }
   &__title {
-    display: inline-block;
     margin-bottom: var(--spacer-base);
-    --link-text-decoration: none;
     @include font(
       --collected-product-title-font,
       var(--font-normal),

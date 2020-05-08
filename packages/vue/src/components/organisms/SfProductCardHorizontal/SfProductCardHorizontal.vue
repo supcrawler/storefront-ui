@@ -82,7 +82,6 @@
             <a
               v-if="reviewsCount"
               v-focus
-              :aria-label="`Read ${reviewsCount} reviews about ${title}`"
               class="sf-product-card-horizontal__reviews-count"
               href="#"
               @click="$emit('click:reviews')"
