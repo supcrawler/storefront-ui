@@ -25,19 +25,16 @@
         />
       </SfButton>
     </slot>
-    <SfExpand :transition="$parent.transition">
-      <div v-if="isOpen">
-        <div class="sf-accordion-item__content">
-          <!-- @slot -->
-          <slot />
-        </div>
+    <transition :name="$parent.transition">
+      <div v-if="isOpen" class="sf-accordion-item__content">
+        <!-- @slot -->
+        <slot />
       </div>
-    </SfExpand>
+    </transition>
   </div>
 </template>
 <script>
 import { focus } from "../../../../utilities/directives";
-import SfExpand from "../../../../utilities/transitions/component/SfExpand";
 import SfChevron from "../../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../../atoms/SfButton/SfButton.vue";
 export default {
@@ -46,7 +43,6 @@ export default {
   components: {
     SfChevron,
     SfButton,
-    SfExpand,
   },
   props: {
     header: {

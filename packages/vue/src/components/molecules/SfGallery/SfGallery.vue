@@ -26,7 +26,7 @@
           </ul>
         </div>
       </div>
-      <transition name="sf-fade">
+      <transition name="fade">
         <div
           v-if="outsideZoom && pictureSelected"
           ref="outSide"

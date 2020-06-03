@@ -5,18 +5,20 @@
   --icon-size: 1.5rem;
   --button-size: 3.25rem;
   --button-background: var(--c-primary);
+  --button-transition: box-shadow 300ms ease;
+  --button-box-shadow: 0 4px 4px rgba(var(--c-dark-base), 0.2);
   --button-border-radius: 100%;
   position: var(--circle-icon-position, relative);
-  --button-box-shadow: 0 0 0 0.3125rem var(--c-primary);
   &:hover {
     --button-background: var(--c-primary);
-    --button-box-shadow-opacity: 0.3;
+    --button-box-shadow: 0 0 0 0.3125rem rgba(var(--c-primary-base), 0.3);
   }
   &:active {
-    --button-box-shadow: 0 0 0 0.5rem var(--c-primary);
+    --button-transition: box-shadow 150ms ease;
+    --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-primary-base), 0.3);
   }
   &:disabled {
-    --button-box-shadow: none;
+    --button-box-shadow: 0;
     --icon-color: var(--c-text-disabled);
     &:hover {
       --button-background: var(--c-light);
@@ -30,14 +32,16 @@
     $variant: map-get($map, "variant");
     &.color-#{$color} {
       --button-background: var(--c-#{$color});
-      --button-box-shadow: 0 0 0 0.3125rem var(--c-#{$color});
-
       &:hover {
         --button-background: var(--c-#{$color}-lighten);
-        --button-box-shadow-opacity: 0.08;
+        --button-box-shadow: 0
+          0
+          0
+          0.3125rem
+          rgba(var(--c-#{$color}-base), 0.08);
       }
       &:active {
-        --button-box-shadow: 0 0 0 0.5rem var(--c-#{$color});
+        --button-box-shadow: 0 0 0 0.5rem rgba(var(--c-#{$color}-base), 0.08);
       }
     }
   }
@@ -47,7 +51,7 @@
     --button-transition: background 150ms ease;
     &:hover {
       --button-background: var(--c-primary);
-      --button-box-shadow: none;
+      --button-box-shadow: 0;
     }
     &:active {
       --button-background: var(--c-primary-variant);
@@ -58,13 +62,24 @@
       &.color-#{$color} {
         &:hover {
           --button-background: var(--c-#{$color});
-          --button-box-shadow: none;
+          --button-box-shadow: 0;
         }
         &:active {
           --button-background: var(--c-#{$color}-variant);
-          --button-box-shadow: none;
+          --button-box-shadow: 0;
         }
       }
     }
+  }
+}
+@keyframes bounce-in {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
   }
 }

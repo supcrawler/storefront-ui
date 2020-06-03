@@ -47,7 +47,6 @@
         icon="cross"
         aria-label="Remove"
         class="sf-circle-icon--small sf-collected-product__remove sf-collected-product__remove--circle-icon"
-        @click="removeHandler"
       />
       <SfButton
         class="sf-button--text sf-collected-product__remove sf-collected-product__remove--text"

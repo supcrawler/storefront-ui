@@ -6,7 +6,7 @@
         <SfChevron :class="{ 'sf-chevron--top': open }" />
       </div>
     </button>
-    <transition name="sf-fade">
+    <transition name="fade">
       <div v-if="open" class="sf-footer-column__content">
         <slot />
       </div>

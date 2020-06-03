@@ -60,7 +60,7 @@
           class="form__checkbox"
         />
       </div>
-      <transition name="sf-fade">
+      <transition name="fade">
         <SfInput
           v-if="createAccount"
           v-model="password"

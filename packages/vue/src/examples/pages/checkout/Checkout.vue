@@ -44,7 +44,7 @@
         </SfSteps>
       </div>
       <div class="checkout__aside desktop-only">
-        <transition name="sf-fade">
+        <transition name="fade">
           <OrderSummary
             v-if="currentStep <= 2"
             key="order-summary"

@@ -20,7 +20,7 @@
       </svg>
     </slot>
     <slot name="badge" v-bind="{ badgeLabel, hasBadge }">
-      <transition name="sf-bounce">
+      <transition name="bounce">
         <SfBadge v-if="hasBadge" class="sf-icon__badge sf-badge--number">
           {{ badgeLabel }}
         </SfBadge>

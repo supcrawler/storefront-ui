@@ -32,10 +32,7 @@
       image="/assets/storybook/Home/newsletter.jpg"
     />
     <SfSection title-heading="Bestsellers">
-      <SfCarousel
-        :settings="{ peek: 16, breakpoints: { 1023: { peek: 0, perView: 2 } } }"
-        class="carousel"
-      >
+      <SfCarousel class="carousel">
         <SfCarouselItem
           v-for="(product, index) in products"
           :key="index"
@@ -337,9 +334,7 @@ export default {
   @include for-desktop {
     margin: 0;
   }
-  &__item {
-    margin: 1.9375rem 0 2.4375rem 0;
-  }
+  // todo: fix product shadow on carousel
 }
 .banner-grid {
   margin: var(--spacer-base) 0;

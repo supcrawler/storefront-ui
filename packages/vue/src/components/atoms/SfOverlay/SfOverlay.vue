@@ -18,7 +18,7 @@ export default {
      */
     transition: {
       type: String,
-      default: "sf-fade",
+      default: "fade",
     },
     /**
      * Visibility state

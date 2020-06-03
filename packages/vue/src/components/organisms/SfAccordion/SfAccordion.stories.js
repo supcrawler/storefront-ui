@@ -16,7 +16,7 @@ storiesOf("Organisms|Accordion", module)
         default: boolean("showChevron", false, "Props"),
       },
       transition: {
-        default: text("transition", "sf-expand", "Props"),
+        default: text("transition", "fade", "Props"),
       },
     },
     data() {
@@ -86,7 +86,7 @@ storiesOf("Organisms|Accordion", module)
         default: boolean("showChevron", false, "Props"),
       },
       transition: {
-        default: text("transition", "sf-expand", "Props"),
+        default: text("transition", "fade", "Props"),
       },
     },
     data() {

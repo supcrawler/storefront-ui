@@ -1,5 +1,5 @@
 <template>
-  <transition name="sf-fade">
+  <transition name="fade">
     <div v-if="visible" class="sf-notification" :class="`color-${type}`">
       <!--@slot Custom notification icon. Slot content will replace default icon.-->
       <slot name="icon" v-bind="{ icon }">

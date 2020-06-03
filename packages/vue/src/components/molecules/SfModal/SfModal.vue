@@ -5,15 +5,11 @@
       class="sf-modal__overlay"
       :transition="transitionOverlay"
       :visible="visible"
+      @click="checkPersistence"
     >
     </SfOverlay>
     <transition :name="transitionModal">
-      <div
-        v-if="visible"
-        v-focus-trap
-        v-click-outside="checkPersistence"
-        class="sf-modal__container"
-      >
+      <div v-if="visible" v-focus-trap class="sf-modal__container">
         <!--@slot Use this slot to place content inside the modal bar.-->
         <slot name="modal-bar">
           <SfBar
@@ -49,11 +45,10 @@ import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import { disableBodyScroll, clearAllBodyScrollLocks } from "body-scroll-lock";
 import { focusTrap } from "../../../utilities/directives";
-import { clickOutside } from "../../../utilities/directives";
 import { isClient } from "../../../utilities/helpers";
 export default {
   name: "SfModal",
-  directives: { focusTrap, clickOutside },
+  directives: { focusTrap },
   components: {
     SfBar,
     SfOverlay,
@@ -105,14 +100,14 @@ export default {
      */
     transitionOverlay: {
       type: String,
-      default: "sf-fade",
+      default: "fade",
     },
     /**
      * overlay transition effect
      */
     transitionModal: {
       type: String,
-      default: "sf-fade",
+      default: "fade",
     },
   },
   data() {

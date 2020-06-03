@@ -7,7 +7,7 @@ storiesOf("Atoms|Overlay", module)
     components: { SfOverlay },
     props: {
       transition: {
-        default: text("transition", "sf-fade", "Props"),
+        default: text("transition", "fade", "Props"),
       },
       visible: {
         default: boolean("visible", true, "Props"),
