@@ -1,7 +1,6 @@
 @import "../../helpers";
 .sf-sidebar {
   &__aside {
-    --scrollable-max-height: var(--sidebar-content-max-height, 600px);
     position: fixed;
     top: var(--sidebar-top, 0);
     left: var(--sidebar-left, 0);
@@ -36,8 +35,6 @@
     box-sizing: border-box;
     width: var(--sidebar-content-width);
     height: 100%;
-    scrollbar-color: var(--c-gray-variant) var(--c-light);
-    scrollbar-width: thin;
     padding: var(
       --sidebar-content-padding,
       var(--spacer-base) var(--spacer-sm)
