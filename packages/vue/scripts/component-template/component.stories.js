@@ -1,4 +1,3 @@
-import "./ComponentNameCamelCase.stories.scss";
 import { storiesOf } from "@storybook/vue";
 import {
   withKnobs,

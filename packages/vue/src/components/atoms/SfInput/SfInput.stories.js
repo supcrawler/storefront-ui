@@ -47,9 +47,6 @@ storiesOf("Atoms|Input", module)
       hasShowPassword: {
         default: boolean("hasShowPassword", false, "Props"),
       },
-      placeholder: {
-        default: text("placeholder", "", "Props"),
-      },
     },
     data() {
       return {
@@ -57,18 +54,17 @@ storiesOf("Atoms|Input", module)
       };
     },
     template: `<div style="padding: 10px">
-      <SfInput
-        v-model="value"
-        :type="type"
-        :label="label"
-        :name="name"
-        :valid="valid"
-        :error-message="errorMessage"
-        :required="required"
-        :disabled="disabled"
-        :has-show-password="hasShowPassword"
-        :class="customClass"
-        :placeholder="placeholder"
+    <SfInput
+      v-model="value"
+      :type="type"
+      :label="label"
+      :name="name"
+      :valid="valid"
+      :error-message="errorMessage"
+      :required="required"
+      :disabled="disabled"
+      :has-show-password="hasShowPassword"
+      :class="customClass"
       />
     </div>`,
   }))
