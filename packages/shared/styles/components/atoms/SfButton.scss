@@ -1,6 +1,5 @@
 @import "../../helpers";
 .sf-button {
-  --link-color: var(--button-color, var(--c-light-variant));
   box-sizing: border-box;
   position: relative;
   width: var(--button-size, var(--button-width));
@@ -43,9 +42,6 @@
         --button-background: #{$variant};
       }
     }
-  }
-  &.sf-link { 
-    --button-width: var(--spacer-3xl);
   }
   &:hover {
     --button-box-shadow-opacity: 0.25;
