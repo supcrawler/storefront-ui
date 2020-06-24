@@ -1,0 +1,7 @@
+.text-color {
+  @include color-modifiers($prefix: '-');
+}
+
+.bg-color {
+  @include color-modifiers($prefix: '-', $property: 'background');
+}

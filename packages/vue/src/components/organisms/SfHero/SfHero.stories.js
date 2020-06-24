@@ -67,7 +67,6 @@ storiesOf("Organisms|Hero", module)
           :background="background"
       />
       <SfHeroItem
-          :class="customClass"
           title="Colorful summer dresses are already in store"
           subtitle="Summer Collection 2019"
           button-text="Learn more"
@@ -137,7 +136,6 @@ storiesOf("Organisms|Hero", module)
         :background="background"
       />
       <SfHeroItem
-          :class="customClass"
           title="Colorful summer dresses are already in store"
           subtitle="Summer Collection 2019"
           button-text="Learn more"
@@ -207,7 +205,6 @@ storiesOf("Organisms|Hero", module)
           :background="background"
       />
       <SfHeroItem
-          :class="customClass"
           title="Colorful summer dresses are already in store"
           subtitle="Summer Collection 2019"
           button-text="Learn more"
@@ -277,7 +274,6 @@ storiesOf("Organisms|Hero", module)
           :background="background"
       />
       <SfHeroItem
-          :class="customClass"
           title="Colorful summer dresses are already in store"
           subtitle="Summer Collection 2019"
           button-text="Learn more"

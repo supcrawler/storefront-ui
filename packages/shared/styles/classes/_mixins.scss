@@ -1,0 +1,17 @@
+@mixin color-modifiers($prefix: '-', $property: 'color') {
+  @each $name, $hex in $colors {
+    &#{$prefix}#{$name} {
+      #{$property}: $hex;
+    }
+  }
+}
+
+@mixin space-modifiers($prefix: '-', $properties...) {
+  @each $name, $space in $spaces {
+    &#{$prefix}#{$name} {
+      @for $i from 0 to length($properties) {
+        #{nth($properties, $i + 1)}: $space;
+      }
+    }
+  }
+}
