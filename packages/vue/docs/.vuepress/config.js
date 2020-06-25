@@ -46,8 +46,7 @@ module.exports = {
         children: [
           ['/design/color-palette', 'Colors'],
           ['/design/sizes', 'Sizes'],
-          ['/design/working-with-designs', 'Working with Designs'],
-          ['/design/styleguide', 'Styleguide']
+          ['/design/working-with-designs', 'Working with Designs']
         ],
       },
       {
@@ -108,7 +107,8 @@ module.exports = {
 ["/components/select", "Select"],
 ["/components/slidingsection", "Sliding Section"],
 ["/components/steps", "Steps"],
-["/components/sticky", "Sticky"]]
+["/components/sticky", "Sticky"],
+["/components/tile", "Tile"]]
  },
 { 
  title: "Organisms",
