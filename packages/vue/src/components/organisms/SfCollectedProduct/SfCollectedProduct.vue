@@ -60,7 +60,7 @@
         aria-label="More actions"
         class="sf-button--pure sf-collected-product__more-actions mobile-only"
       >
-        <SfIcon icon="more" size="18px" />
+        <SfIcon icon="more" />
       </SfButton>
     </slot>
   </div>

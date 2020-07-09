@@ -77,21 +77,21 @@ export default {
      */
     value: {
       type: [String, Number],
-      default: "",
+      default: null,
     },
     /**
      * Form input label
      */
     label: {
       type: String,
-      default: "",
+      default: null,
     },
     /**
      * Form input name
      */
     name: {
       type: String,
-      default: "",
+      default: null,
     },
     /**
      * Form input type
@@ -112,7 +112,7 @@ export default {
      */
     errorMessage: {
       type: String,
-      default: "",
+      default: null,
     },
     /**
      * Native input required attribute
