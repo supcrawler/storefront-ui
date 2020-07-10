@@ -19,7 +19,6 @@
     @keyup.up="move(-1)"
     @keyup.down="move(1)"
     @keyup.enter="enter($event)"
-    v-on="$listeners"
   >
     <div style="position: relative;">
       <div
@@ -27,6 +26,7 @@
         v-focus
         tabindex="0"
         class="sf-select__selected sf-select-option"
+        v-on="$listeners"
         v-html="html"
       ></div>
       <slot name="label">
@@ -45,22 +45,26 @@
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
-          <ul
-            :aria-expanded="open.toString()"
-            :style="{ maxHeight }"
-            class="sf-select__options"
+          <SfScrollable
+            :max-content-height="maxHeight"
           >
-            <slot />
-          </ul>
-          <slot name="cancel">
-            <SfButton
-              ref="cancel"
-              class="sf-select__cancel sf-button--full-width mobile-only"
-              @click="closeHandler"
+            <ul
+              :aria-expanded="open.toString()"
+              :style="{ maxHeight }"
+              class="sf-select__options"
             >
-              Cancel
-            </SfButton>
-          </slot>
+              <slot />
+            </ul>
+            <slot name="cancel">
+              <SfButton
+                ref="cancel"
+                class="sf-select__cancel sf-button--full-width mobile-only"
+                @click="closeHandler"
+              >
+                Cancel
+              </SfButton>
+            </slot>
+          </SfScrollable>
         </div>
       </transition>
     </div>
@@ -79,6 +83,7 @@ import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
+import SfScrollable from "../SfScrollable/SfScrollable.vue";
 import { focus } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
@@ -90,6 +95,7 @@ export default {
     SfButton,
     SfChevron,
     SfOverlay,
+    SfScrollable,
   },
   model: {
     prop: "selected",
@@ -172,7 +178,7 @@ export default {
         return stringified;
       },
       set(index) {
-        this.focusedOption = this.options[index].value;
+        this.focusedOption = this.options[index].value;        
         this.$emit("change", this.options[index].value);
       },
     },
@@ -181,7 +187,7 @@ export default {
       return this.options[this.index].html;
     },
     maxHeight() {
-      if (!this.size) return;
+      if (!this.options.length) return;  
       return `${this.optionHeight * this.size}px`;
     },
     isActive() {
@@ -197,7 +203,9 @@ export default {
       handler: function (visible) {
         if (visible) {
           this.$nextTick(() => {
-            this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+            if (this.$slots.default) {
+              this.optionHeight = this.$slots.default[0].elm.offsetHeight;
+            }
           });
         }
       },
@@ -205,20 +213,14 @@ export default {
   },
   created: function () {},
   mounted: function () {
-    const options = [];
-    const indexes = {};
-    if (!this.$slots.default) return;
-    this.$on("update", this.update);
-    this.$slots.default.forEach((slot, index) => {
-      if (!slot.tag) return;
-      options.push({
-        ...slot.componentOptions.propsData,
-        html: slot.elm.innerHTML,
-      });
-      indexes[JSON.stringify(slot.componentOptions.propsData.value)] = index;
-    });
-    this.options = options;
-    this.indexes = indexes;
+    this.addOptionsAndIndexes();
+  },
+  updated() {
+    if (this.$slots.default) {
+      if (this.$slots.default.length > this.options.length) {
+        this.addOptionsAndIndexes();
+      }
+    }
   },
   beforeDestroy: function () {
     this.$off("update", this.update);
@@ -226,6 +228,22 @@ export default {
   methods: {
     update(index) {
       this.index = index;
+    },
+    addOptionsAndIndexes() {
+      const options = [];
+      const indexes = {};
+      if (!this.$slots.default) return;
+      this.$on("update", this.update);
+      this.$slots.default.forEach(({ tag, componentOptions, elm }, index) => {
+        if (!tag) return;
+        options.push({
+          ...componentOptions.propsData,
+          html: elm.innerHTML,
+        });
+        indexes[JSON.stringify(componentOptions.propsData.value)] = index;
+      });
+      this.options = options;
+      this.indexes = indexes;
     },
     move(payload) {
       const optionsLength = this.options.length;
@@ -265,6 +283,15 @@ export default {
     closeHandler() {
       this.open = false;
     },
+  },
+   provide: function () {
+    const optionIndexes = {};
+    Object.defineProperty(optionIndexes, "indexes", {
+      get: () => this.indexes,
+    });
+    return {
+      optionIndexes,
+    };
   },
 };
 </script>

@@ -18,6 +18,7 @@ import { focus } from "../../../../utilities/directives";
 export default {
   name: "SfSelectOption",
   directives: { focus },
+  inject: ["optionIndexes"],
   props: {
     value: {
       type: [String, Number, Object],
@@ -29,7 +30,7 @@ export default {
       return this.$parent.selected;
     },
     indexes() {
-      return this.$parent.indexes;
+      return this.optionIndexes.indexes;
     },
   },
   methods: {
