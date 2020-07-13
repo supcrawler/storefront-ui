@@ -45,26 +45,22 @@
       <transition name="sf-select">
         <div v-show="open" class="sf-select__dropdown">
           <!--  sf-select__option -->
-          <SfScrollable
-            :max-content-height="maxHeight"
+          <ul
+            :aria-expanded="open.toString()"
+            :style="{ maxHeight }"
+            class="sf-select__options"
           >
-            <ul
-              :aria-expanded="open.toString()"
-              :style="{ maxHeight }"
-              class="sf-select__options"
+            <slot />
+          </ul>
+          <slot name="cancel">
+            <SfButton
+              ref="cancel"
+              class="sf-select__cancel sf-button--full-width mobile-only"
+              @click="closeHandler"
             >
-              <slot />
-            </ul>
-            <slot name="cancel">
-              <SfButton
-                ref="cancel"
-                class="sf-select__cancel sf-button--full-width mobile-only"
-                @click="closeHandler"
-              >
-                Cancel
-              </SfButton>
-            </slot>
-          </SfScrollable>
+              Cancel
+            </SfButton>
+          </slot>
         </div>
       </transition>
     </div>
@@ -83,7 +79,6 @@ import SfSelectOption from "./_internal/SfSelectOption.vue";
 import SfChevron from "../../atoms/SfChevron/SfChevron.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
-import SfScrollable from "../SfScrollable/SfScrollable.vue";
 import { focus } from "../../../utilities/directives";
 import { clickOutside } from "../../../utilities/directives";
 import Vue from "vue";
@@ -95,7 +90,6 @@ export default {
     SfButton,
     SfChevron,
     SfOverlay,
-    SfScrollable,
   },
   model: {
     prop: "selected",
@@ -178,7 +172,7 @@ export default {
         return stringified;
       },
       set(index) {
-        this.focusedOption = this.options[index].value;        
+        this.focusedOption = this.options[index].value;
         this.$emit("change", this.options[index].value);
       },
     },
@@ -187,8 +181,8 @@ export default {
       return this.options[this.index].html;
     },
     maxHeight() {
-      if (!this.options.length) return;  
-      return `${this.optionHeight * this.size}px`;
+      if (!this.options.length) return;
+      return `${this.optionHeight * this.options.length}px`;
     },
     isActive() {
       return this.open;
@@ -283,15 +277,6 @@ export default {
     closeHandler() {
       this.open = false;
     },
-  },
-   provide: function () {
-    const optionIndexes = {};
-    Object.defineProperty(optionIndexes, "indexes", {
-      get: () => this.indexes,
-    });
-    return {
-      optionIndexes,
-    };
   },
 };
 </script>
