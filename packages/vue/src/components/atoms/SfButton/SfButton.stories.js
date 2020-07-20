@@ -45,6 +45,7 @@ storiesOf("Atoms|Button", module)
     template: `<SfButton
       :class="customClass"
       :disabled="disabled"
+      :nativeButton="nativeButton"
       :link="link">
       {{customLabel}}
     </SfButton>`,
@@ -86,6 +87,7 @@ storiesOf("Atoms|Button", module)
     template: `<SfButton
       :class="customClass"
       :disabled="disabled"
+      :nativeButton="nativeButton"
       :link="link">
       {{customLabel}}
     </SfButton>`,
