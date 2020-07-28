@@ -15,19 +15,19 @@
   color: var(--notification-color, var(--c-white));
   @include font(
     --notification-font,
-    var(--font-weight--normal),
-    var(--font-size--xs),
+    var(--font-normal),
+    var(--font-2xs),
     normal,
-    var(--font-family--secondary)
+    var(--font-family-secondary)
   );
   &__title {
     display: var(--notification-title-display, block);
     @include font(
       --notification-title-font,
-      var(--font-weight--normal),
-      var(--font-size--lg),
+      var(--font-normal),
+      var(--font-xl),
       normal,
-      var(--font-family--secondary)
+      var(--font-family-secondary)
     );
     &::after {
       content: " ";

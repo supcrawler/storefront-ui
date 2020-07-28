@@ -18,7 +18,7 @@
         <slot name="modal-bar">
           <SfBar
             class="sf-modal__bar mobile-only"
-            :close="false"
+            :close="true"
             :title="title"
             @click:close="close"
           />
