@@ -3,16 +3,14 @@
     <Simplebar ref="content" class="sf-scrollable__content" :style="style">
       <slot />
     </Simplebar>
-    <slot name="view-all" v-bind="{ hasScroll, showText, hideText }">
-      <SfButton
-        v-show="hasScroll"
-        class="sf-button--text sf-scrollable__view-all"
-        @click="isHidden = !isHidden"
-      >
-        <span v-if="isHidden">{{ showText }}</span>
-        <span v-else>{{ hideText }}</span>
-      </SfButton>
-    </slot>
+    <SfButton
+      v-show="hasScroll"
+      class="sf-button--text sf-scrollable__button"
+      @click="isHidden = !isHidden"
+    >
+      <span v-if="isHidden">{{ showText }}</span>
+      <span v-else>{{ hideText }}</span>
+    </SfButton>
   </div>
 </template>
 <script>
