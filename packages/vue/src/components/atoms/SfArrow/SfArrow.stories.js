@@ -1,9 +1,5 @@
 import { storiesOf } from "@storybook/vue";
-import {
-  withKnobs,
-  boolean,
-  optionsKnob as options,
-} from "@storybook/addon-knobs";
+import { withKnobs, optionsKnob as options } from "@storybook/addon-knobs";
 import { SfArrow, SfIcon } from "@storefront-ui/vue";
 storiesOf("Atoms|Arrow", module)
   .addDecorator(withKnobs)
@@ -29,13 +25,9 @@ storiesOf("Atoms|Arrow", module)
           "CSS Modifiers"
         ),
       },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
     },
     template: `<SfArrow
       :class="customClass" 
-      :disabled="disabled"
       aria-label="Arrow label"
     />`,
   }))
@@ -60,14 +52,9 @@ storiesOf("Atoms|Arrow", module)
           "CSS Modifiers"
         ),
       },
-      disabled: {
-        default: boolean("disabled", false, "Props"),
-      },
     },
     template: `<SfArrow
-      :class="customClass"
-      :disabled="disabled"
-      aria-label="Arrow label">
+      :class="customClass" aria-label="Arrow label">
       <SfIcon icon="chevron_left" class="sf-arrow__icon" size="14px" view-box="0 0 24 12"/>
     </SfArrow>`,
   }));
