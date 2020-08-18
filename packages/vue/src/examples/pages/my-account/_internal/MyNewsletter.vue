@@ -95,6 +95,6 @@ a {
 .notice {
   max-width: 31rem;
   margin: var(--spacer-base) 0 0 0;
-  font-size: var(--font-size--xs);
+  font-size: var(--font-2xs);
 }
 </style>

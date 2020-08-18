@@ -5,7 +5,7 @@
       :level="2"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfAccordion class="accordion smartphone-only">
+    <SfAccordion class="accordion mobile-only">
       <SfAccordionItem header="Personal Details">
         <div class="accordion__item">
           <div class="accordion__content">
@@ -163,7 +163,7 @@
         </SfTableData>
       </SfTableRow>
     </SfTable>
-    <div class="summary smartphone-only">
+    <div class="summary mobile-only">
       <div class="summary__content">
         <SfHeading
           title="Totals"
@@ -200,7 +200,7 @@
         </SfCheckbox>
       </div>
     </div>
-    <div class="characteristics smartphone-only">
+    <div class="characteristics mobile-only">
       <SfCharacteristic
         v-for="characteristic in characteristics"
         :key="characteristic.title"
@@ -211,7 +211,7 @@
         class="characteristics__item"
       />
     </div>
-    <div class="actions smartphone-only">
+    <div class="actions mobile-only">
       <SfButton class="sf-button--full-width actions__button"
         >Place my order
       </SfButton>
@@ -440,8 +440,8 @@ export default {
 }
 .property {
   margin: 0 0 var(--spacer-base) 0;
-  --property-value-font-weight: var(--font-weight--semibold);
-  --property-value-font-size: var(--font-size--base);
+  --property-value-font-weight: var(--font-semibold);
+  --property-value-font-size: var(--font-base);
   @include for-desktop {
     margin: 0 0 var(--spacer-sm) 0;
     &__total {
@@ -513,7 +513,7 @@ export default {
   margin: 0 0 var(--spacer-base) 0;
   color: var(--c-text);
   &__label {
-    font-weight: var(--font-weight--normal);
+    font-weight: 400;
   }
 }
 .actions {

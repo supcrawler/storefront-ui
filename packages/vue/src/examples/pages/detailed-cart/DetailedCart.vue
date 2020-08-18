@@ -46,24 +46,18 @@
                   </div>
                 </template>
                 <template #actions>
-                  <div class="actions desktop-only">
-                    <SfButton class="sf-button--text actions__button"
-                      >Edit</SfButton
-                    >
-                    <SfButton class="sf-button--text actions__button"
-                      >Save for later</SfButton
-                    >
-                    <SfButton class="sf-button--text actions__button"
-                      >Add to compare</SfButton
-                    >
-                    <SfButton class="sf-button--text actions__button"
-                      >Add message or gift wrap</SfButton
-                    >
-                    <span class="actions__description">
-                      Usually arrives in 5-13 business days. A shipping timeline
-                      specific to your destination can be viewed in Checkout.
-                    </span>
-                  </div>
+                  <SfButton class="sf-button--text actions__button desktop-only"
+                    >Edit</SfButton
+                  >
+                  <SfButton class="sf-button--text actions__button desktop-only"
+                    >Save for later</SfButton
+                  >
+                  <SfButton class="sf-button--text actions__button desktop-only"
+                    >Add to compare</SfButton
+                  >
+                  <SfButton class="sf-button--text actions__button desktop-only"
+                    >Add message or gift wrap</SfButton
+                  >
                 </template>
               </SfCollectedProduct>
             </transition-group>
@@ -268,16 +262,10 @@ export default {
 }
 .collected-product {
   --collected-product-padding: var(--spacer-sm) 0;
-  --collected-product-actions-display: flex;
   border: 1px solid var(--c-light);
   border-width: 1px 0 0 0;
   &__properties {
     margin: var(--spacer-sm) 0 0 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    align-items: flex-start;
-    flex: 2;
   }
   @include for-mobile {
     --collected-product-remove-bottom: var(--spacer-sm);
@@ -291,24 +279,14 @@ export default {
 }
 .actions {
   &__button {
-    display: block;
-    margin: 0 0 var(--spacer-xs) 0;
-  }
-  &__description {
-    font-family: var(--font-family--primary);
-    font-size: var(--font-size--sm);
-    font-weight: var(--font-weight--light);
-    color: var(--c-text-muted);
-    position: absolute;
-    bottom: 0;
-    padding-bottom: var(--spacer-lg);
+    margin: 0 0 var(--spacer-base) 0;
   }
 }
 .empty-cart {
   --heading-title-color: var(--c-primary);
   --heading-title-margin: 0 0 var(--spacer-base) 0;
   --heading-subtitle-margin: 0 0 var(--spacer-xl) 0;
-  --heading-title-font-weight: var(--font-weight--semibold);
+  --heading-title-font-weight: var(--font-semibold);
   display: flex;
   flex: 1;
   align-items: center;

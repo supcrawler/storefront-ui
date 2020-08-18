@@ -5,17 +5,14 @@ storiesOf("Organisms|TopBar", module)
     components: { SfTopBar, SfButton, SfImage },
     template: `<SfTopBar>
       <template #center>
-        <div style="display: flex;" class="desktop-only">
-          <p style="margin: 0 var(--spacer-sm) 0 0; font-size: var(--font-size--base); color: var(--c-link);">Download our application.</p>
-          <SfButton style="padding: 0" class="sf-button--text">Find out more</SfButton>
-        </div>
-        <SfImage class="smartphone-only" src="/assets/storybook/SfTopBar/logo.svg" alt="logo"/>
+        <p style="margin-right: 5px;">Download our application.</p>
+        <SfButton class="sf-button--text">Find out more</SfButton>
       </template>
       <template #left>
-        <SfButton style="padding: 0" class="sf-button--text">Help & FAQs</SfButton>
+        <SfButton class="sf-button--text">Help & FAQs</SfButton>
       </template>
       <template #right>
-        <SfImage style="margin-right: var(--spacer-sm)" src="/assets/storybook/SfTopBar/currency.svg" alt="currency"/>
+        <div style="margin-right: 27px">Location:</div>
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
@@ -23,18 +20,15 @@ storiesOf("Organisms|TopBar", module)
   .add("[slot] left", () => ({
     components: { SfTopBar, SfButton, SfImage },
     template: `<SfTopBar>
-        <template #center>
-        <div style="display: flex;" class="desktop-only">
-          <p style="margin: 0 var(--spacer-sm) 0 0; font-size: var(--font-size--base); color: var(--c-link);">Download our application.</p>
-          <SfButton style="padding: 0" class="sf-button--text">Find out more</SfButton>
-        </div>
-        <SfImage class="smartphone-only" src="/assets/storybook/SfTopBar/logo.svg" alt="logo"/>
+      <template #center>
+        <p style="margin-right: 5px;">Download our application.</p>
+        <SfButton class="sf-button--text">Find out more</SfButton>
       </template>
       <template #left>
         CUSTOM LEFT
       </template>
       <template #right>
-        <SfImage style="margin-right: var(--spacer-sm)" src="/assets/storybook/SfTopBar/currency.svg" alt="currency"/>
+        <div style="margin-right: 27px">Location:</div>
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
@@ -46,10 +40,10 @@ storiesOf("Organisms|TopBar", module)
         CUSTOM CENTER
       </template>
       <template #left>
-        <SfButton style="padding: 0" class="sf-button--text">Help & FAQs</SfButton>
+        <SfButton class="sf-button--text">Help & FAQs</SfButton>
       </template>
       <template #right>
-        <SfImage style="margin-right: var(--spacer-sm)" src="/assets/storybook/SfTopBar/currency.svg" alt="currency"/>
+        <div style="margin-right: 27px">Location:</div>
         <SfImage src="/assets/storybook/SfTopBar/flag.png" alt="flag of the USA"/>
       </template>
     </SfTopBar>`,
@@ -58,14 +52,11 @@ storiesOf("Organisms|TopBar", module)
     components: { SfTopBar, SfButton, SfImage },
     template: `<SfTopBar>
       <template #center>
-      <div style="display: flex;" class="desktop-only">
-        <p style="margin: 0 var(--spacer-sm) 0 0; font-size: var(--font-size--base); color: var(--c-link);">Download our application.</p>
-        <SfButton style="padding: 0" class="sf-button--text">Find out more</SfButton>
-      </div>
-      <SfImage class="smartphone-only" src="/assets/storybook/SfTopBar/logo.svg" alt="logo"/>
+        <p style="margin-right: 5px;">Download our application.</p>
+        <SfButton class="sf-button--text">Find out more</SfButton>
       </template>
       <template #left>
-        <SfButton style="padding: 0" class="sf-button--text">Help & FAQs</SfButton>
+        <SfButton class="sf-button--text">Help & FAQs</SfButton>
       </template>
       <template #right>
         CUSTOM RIGHT

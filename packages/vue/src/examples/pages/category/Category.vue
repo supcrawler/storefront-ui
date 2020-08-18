@@ -37,7 +37,7 @@
         <div class="navbar__counter">
           <span class="navbar__label desktop-only">Products found: </span>
           <span class="desktop-only">280</span>
-          <span class="navbar__label smartphone-only">280 Items</span>
+          <span class="navbar__label mobile-only">280 Items</span>
         </div>
         <div class="navbar__view">
           <span class="navbar__view-label desktop-only">View</span>
@@ -226,7 +226,7 @@
           @change="filter.selected = !filter.selected"
         />
       </div>
-      <SfAccordion class="filters smartphone-only">
+      <SfAccordion class="filters mobile-only">
         <SfAccordionItem header="Collection" class="filters__accordion-item">
           <SfFilter
             v-for="filter in filters.collection"
@@ -646,8 +646,8 @@ export default {
     }
   }
   &__title {
-    --heading-title-font-weight: var(--font-weight--light);
-    --heading-title-font-size: var(--font-size--xl);
+    --heading-title-font-weight: var(--font-light);
+    --heading-title-font-size: var(--font-xl);
   }
   &__filters-icon {
     margin: 0 var(--spacer-sm) 0 0;
@@ -655,9 +655,6 @@ export default {
   &__filters-button {
     display: flex;
     align-items: center;
-    @include for-mobile {
-      order: 1;
-    }
     svg {
       fill: var(--c-text-muted);
       transition: fill 150ms ease;
@@ -669,8 +666,8 @@ export default {
     }
   }
   &__label {
-    font-family: var(--font-family--secondary);
-    font-weight: var(--font-weight--normal);
+    font-family: var(--font-family-secondary);
+    font-weight: var(--font-normal);
     color: var(--c-text-muted);
     margin: 0 var(--spacer-2xs) 0 0;
   }
@@ -687,7 +684,7 @@ export default {
     margin: 0 auto 0 var(--spacer-2xl);
   }
   &__counter {
-    font-family: var(--font-family--secondary);
+    font-family: var(--font-family-secondary);
     margin: auto;
     @include for-desktop {
       margin: auto 0 auto auto;
@@ -696,11 +693,9 @@ export default {
   &__view {
     display: flex;
     align-items: center;
+    margin: 0 var(--spacer-xl);
     @include for-desktop {
       margin: 0 0 0 var(--spacer-2xl);
-    }
-    @include for-mobile {
-      order: -1;
     }
     &-icon {
       cursor: pointer;
@@ -711,8 +706,7 @@ export default {
     }
     &-label {
       margin: 0 var(--spacer-sm) 0 0;
-      font: var(--font-weight--medium) var(--font-size--xs) / 1.6
-        var(--font-family--secondary);
+      font: var(--font-medium) var(--font-xs) / 1.6 var(--font-family-secondary);
       text-decoration: underline;
     }
   }
@@ -740,7 +734,7 @@ export default {
   }
 }
 .list {
-  --menu-item-font-size: var(--font-size--sm);
+  --menu-item-font-size: var(--font-sm);
   &__item {
     &:not(:last-of-type) {
       --list-item-margin: 0 0 var(--spacer-sm) 0;
@@ -794,7 +788,7 @@ export default {
 }
 .filters {
   &__title {
-    --heading-title-font-size: var(--font-size--xl);
+    --heading-title-font-size: var(--font-xl);
     margin: var(--spacer-xl) 0 var(--spacer-base) 0;
     &:first-child {
       margin: calc(var(--spacer-xl) + var(--spacer-base)) 0 var(--spacer-xs) 0;
