@@ -1,8 +1,8 @@
 <template>
   <div>
     <SfHeading
-      title="Shipping"
-      :level="3"
+      title="2. Shipping"
+      :level="2"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
@@ -116,22 +116,20 @@
         >
           <template #label="{label}">
             <div class="sf-radio__label shipping__label">
-              <div>
-                {{ label }}
-                <SfButton
-                  class="sf-button--text shipping__action"
-                  :class="{ 'shipping__action--is-active': item.isOpen }"
-                  @click="item.isOpen = !item.isOpen"
-                  >{{ item.isOpen ? "- info" : "+ info" }}
-                </SfButton>
-              </div>
+              <div>{{ label }}</div>
               <div class="shipping__label-price">{{ item.price }}</div>
             </div>
           </template>
           <template #description="{description}">
             <div class="sf-radio__description shipping__description">
               <div class="shipping__delivery">
-                <span>{{ item.delivery }}</span>
+                <p>{{ item.delivery }}</p>
+                <SfButton
+                  class="sf-button--text color-secondary shipping__action"
+                  :class="{ 'shipping__action--is-active': item.isOpen }"
+                  @click="item.isOpen = !item.isOpen"
+                  >info
+                </SfButton>
               </div>
               <transition name="sf-fade">
                 <div v-if="item.isOpen" class="shipping__info">
@@ -142,14 +140,14 @@
           </template>
         </SfRadio>
       </div>
-      <div class="form__action">
+      <div class="form__action mobile-only">
         <SfButton
           class="sf-button--full-width form__action-button"
           @click="$emit('click:next')"
           >Continue to payment
         </SfButton>
         <SfButton
-          class="sf-button--full-width sf-button--underlined color-secondary form__action-button form__action-button--secondary smartphone-only"
+          class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
           >Go back
         </SfButton>
@@ -280,7 +278,10 @@ export default {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: var(--spacer-xl) 0;
+    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
+    &:last-of-type {
+      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) 0;
+    }
   }
 }
 .form {
@@ -290,6 +291,7 @@ export default {
   }
   &__action-button {
     &:first-child {
+      --button-height: 4.0625rem;
       margin: var(--spacer-sm) 0 0 0;
     }
     &--secondary {
@@ -306,7 +308,7 @@ export default {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    margin: 0 var(--spacer-sm) 0 0;
+    margin: 0 var(--spacer-2xl) 0 0;
     &:last-of-type {
       margin: 0 calc(var(--spacer-2xl) - var(--spacer-sm)) 0 0;
     }
@@ -324,8 +326,8 @@ export default {
       flex: 0 0 100%;
       display: flex;
     }
-    &__action-button {
-      --button-width: 25rem;
+    &__button {
+      --button-width: auto;
     }
     &__radio-group {
       flex: 0 0 calc(100% + var(--spacer-sm));
@@ -350,7 +352,7 @@ export default {
     justify-content: flex-start;
     align-items: flex-end;
     &-price {
-      font-size: var(--font-size--lg);
+      font-size: var(--font-lg);
       @include for-mobile {
         order: -1;
         margin: 0 var(--spacer-xs) 0 0;

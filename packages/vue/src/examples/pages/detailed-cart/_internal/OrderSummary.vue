@@ -34,13 +34,8 @@
         @click="$emit('click:next')"
         >Go to checkout</SfButton
       >
-      <SfButton
-        class="sf-button--full-width actions__button color-secondary desktop-only"
-        @click="$emit('click:back')"
-        >Go back shopping</SfButton
-      >
       <div class="actions__email">
-        <SfCharacteristic icon="mail" size-icon="15px" color-icon="#0468DB">
+        <SfCharacteristic icon="mail" size-icon="20px" color-icon="secondary">
           <template #text>
             <SfButton
               class="sf-button--text actions__button actions__button--secondary"
@@ -155,21 +150,20 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-title-font-weight: var(--font-weight--bold);
-  --heading-title-font-size: var(--h4-font-size);
   @include for-desktop {
     --heading-title-margin: 0 0 var(--spacer-2xl) 0;
-    --heading-title-font-weight: var(--font-weight--semibold);
+    --heading-title-font-size: var(--h3-font-size);
+    --heading-title-font-weight: var(--font-semibold);
   }
 }
 .property {
   margin: var(--spacer-base) 0;
   @include for-mobile {
-    --property-name-font-size: var(--font-size--base);
-    --property-value-font-size: var(--font-size--lg);
-    --property-value-font-weight: var(--font-weight--semibold);
+    --property-name-font-size: var(--font-base);
+    --property-value-font-size: var(--font-lg);
+    --property-value-font-weight: var(--font-semibold);
     &__total {
-      --property-value-font-weight: var(--font-weight--bold);
+      --property-value-font-weight: var(--font-bold);
     }
   }
   &:last-of-type {
@@ -187,22 +181,21 @@ export default {
 }
 .actions {
   &__email {
-    margin: var(--spacer-lg) auto 0;
+    margin: var(--spacer-lg) 0 0 0;
   }
   &__button {
     margin: var(--spacer-sm) 0;
     &--secondary {
-      margin: 0;
+      margin: 0 0 0 var(--spacer-xs);
       text-align: left;
     }
   }
 }
 .info {
-  margin: var(--spacer-lg) 0 var(--spacer-xl);
-  color: var(--c-link);
-  font-family: var(--font-family--primary);
-  font-size: var(--font-size--base);
-  font-weight: var(--font-weight--light);
+  margin: var(--spacer-2xl) 0;
+  color: var(--c-dark-variant);
+  font-family: var(--font-family-primary);
+  font-size: var(--font-xs);
   line-height: 1.6;
   &__list {
     padding: 0;

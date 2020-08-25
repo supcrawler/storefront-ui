@@ -1,8 +1,8 @@
 <template>
   <div>
     <SfHeading
-      title="Billing address"
-      :level="3"
+      title="3. Billing address"
+      :level="2"
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
@@ -231,14 +231,14 @@
           />
         </div>
       </transition>
-      <div class="form__action">
+      <div class="form__action mobile-only">
         <SfButton
           class="sf-button--full-width form__action-button"
           @click="$emit('click:next')"
           >Review order
         </SfButton>
         <SfButton
-          class="sf-button--full-width sf-button--underlined color-secondary form__action-button form__action-button--secondary smartphone-only"
+          class="sf-button--full-width sf-button--text color-secondary form__action-button form__action-button--secondary"
           @click="$emit('click:back')"
         >
           Go back
@@ -406,7 +406,10 @@ export default {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: 0 var(--spacer-xl) 0;
+    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
+    &:last-of-type {
+      --heading-padding: var(--spacer-xs) 0 var(--spacer-base) var(--spacer-xs);
+    }
   }
 }
 .form {
@@ -420,6 +423,7 @@ export default {
   }
   &__action-button {
     &:first-child {
+      --button-height: 4.0625rem;
       margin: var(--spacer-xl) 0 0 0;
     }
     &--secondary {
@@ -444,9 +448,6 @@ export default {
     &__action {
       flex: 0 0 100%;
       display: flex;
-    }
-    &__action-button {
-      --button-width: 25rem;
     }
   }
 }
@@ -483,7 +484,7 @@ export default {
     flex: 1;
   }
   &__label {
-    font-size: var(--font-size--lg);
+    font-size: var(--font-lg);
     padding: var(--spacer-sm) 0 0 0;
     flex: 1;
   }
