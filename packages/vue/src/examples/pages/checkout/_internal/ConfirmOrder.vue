@@ -1,11 +1,11 @@
 <template>
   <div id="confirm-order">
     <SfHeading
-      title="Order details"
-      :level="3"
+      title="4. Order details"
+      :level="2"
       class="sf-heading--left sf-heading--no-underline title"
     />
-    <SfAccordion class="accordion smartphone-only">
+    <SfAccordion class="accordion mobile-only">
       <SfAccordionItem header="Personal Details">
         <div class="accordion__item">
           <div class="accordion__content">
@@ -163,7 +163,7 @@
         </SfTableData>
       </SfTableRow>
     </SfTable>
-    <div class="summary smartphone-only">
+    <div class="summary mobile-only">
       <div class="summary__content">
         <SfHeading
           title="Totals"
@@ -200,7 +200,7 @@
         </SfCheckbox>
       </div>
     </div>
-    <div class="characteristics smartphone-only">
+    <div class="characteristics mobile-only">
       <SfCharacteristic
         v-for="characteristic in characteristics"
         :key="characteristic.title"
@@ -211,44 +211,57 @@
         class="characteristics__item"
       />
     </div>
-    <div class="totals desktop-only">
-      <SfProperty
-        name="Subtotal"
-        :value="subtotal"
-        class="sf-property--full-width property__subtotal"
-      >
-      </SfProperty>
-      <SfProperty
-        name="Shipping"
-        :value="shippingMethod.price"
-        class="sf-property--full-width property"
-      >
-      </SfProperty>
-      <SfDivider class="divider" />
-      <SfProperty
-        name="Total price"
-        :value="total"
-        class="sf-property--full-width sf-property--large property__total"
-      >
-      </SfProperty>
-      <SfCheckbox v-model="terms" name="terms" class="totals__terms">
-        <template #label>
-          <div class="sf-checkbox__label">
-            I agree to <a href="#">Terms and conditions</a>
-          </div>
-        </template>
-      </SfCheckbox>
-    </div>
-    <div class="actions">
+    <div class="actions mobile-only">
       <SfButton class="sf-button--full-width actions__button"
         >Place my order
       </SfButton>
       <SfButton
-        class="sf-button--full-width sf-button--underlined color-secondary actions__button actions__button--secondary smartphone-only"
+        class="sf-button--full-width sf-button--text color-secondary actions__button actions__button--secondary"
         @click="$emit('click:back')"
       >
         Go back
       </SfButton>
+    </div>
+    <div class="totals desktop-only">
+      <div class="totals__element">
+        <SfCheckbox v-model="terms" name="terms" class="totals__terms">
+          <template #label>
+            <div class="sf-checkbox__label">
+              I agree to <a href="#">Terms and conditions</a>
+            </div>
+          </template>
+        </SfCheckbox>
+        <div class="promo-code">
+          <SfInput
+            v-model="promoCode"
+            name="promoCode"
+            placeholder="Enter promo code"
+            class="sf-input--filled promo-code__input"
+          />
+          <SfCircleIcon class="promo-code__circle-icon" icon="check" />
+        </div>
+      </div>
+      <div class="totals__element">
+        <SfProperty
+          name="Subtotal"
+          :value="subtotal"
+          class="sf-property--full-width property"
+        >
+        </SfProperty>
+        <SfProperty
+          name="Shipping"
+          :value="shippingMethod.price"
+          class="sf-property--full-width property"
+        >
+        </SfProperty>
+        <SfDivider class="divider" />
+        <SfProperty
+          name="Total price"
+          :value="total"
+          class="sf-property--full-width sf-property--large property__total"
+        >
+        </SfProperty>
+      </div>
     </div>
   </div>
 </template>
@@ -257,11 +270,13 @@ import {
   SfHeading,
   SfTable,
   SfCheckbox,
+  SfCircleIcon,
   SfCharacteristic,
   SfCollectedProduct,
   SfDivider,
   SfButton,
   SfImage,
+  SfInput,
   SfPrice,
   SfProperty,
   SfAccordion,
@@ -272,11 +287,13 @@ export default {
     SfHeading,
     SfTable,
     SfCheckbox,
+    SfCircleIcon,
     SfCharacteristic,
     SfCollectedProduct,
     SfDivider,
     SfButton,
     SfImage,
+    SfInput,
     SfPrice,
     SfProperty,
     SfAccordion,
@@ -357,7 +374,7 @@ export default {
   --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-padding: var(--spacer-xl) 0;
+    --heading-padding: var(--spacer-2xl) 0 var(--spacer-base) 0;
   }
 }
 .table {
@@ -392,11 +409,13 @@ export default {
   flex-direction: column;
 }
 .totals {
-  &__terms {
-    margin-top: var(--spacer-xl);
-  }
-  &__element:first-child {
-    margin-bottom: var(--spacer-base);
+  display: flex;
+  justify-content: space-between;
+  &__element {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    flex: 0 0 18.75rem;
   }
 }
 .promo-code {
@@ -421,8 +440,8 @@ export default {
 }
 .property {
   margin: 0 0 var(--spacer-base) 0;
-  --property-value-font-weight: var(--font-weight--semibold);
-  --property-value-font-size: var(--font-size--base);
+  --property-value-font-weight: var(--font-semibold);
+  --property-value-font-size: var(--font-base);
   @include for-desktop {
     margin: 0 0 var(--spacer-sm) 0;
     &__total {
@@ -431,7 +450,7 @@ export default {
   }
 }
 .divider {
-  --divider-border-color: var(--c-primary);
+  --divider-border-color: var(--c-white);
   --divider-width: 100%;
   --divider-margin: 0 0 var(--spacer-base) 0;
 }
@@ -494,17 +513,16 @@ export default {
   margin: 0 0 var(--spacer-base) 0;
   color: var(--c-text);
   &__label {
-    font-weight: var(--font-weight--normal);
+    font-weight: 400;
   }
 }
 .actions {
   &__button {
-    margin-top: var(--spacer-xl);
+    &:first-child {
+      --button-height: 4.0625rem;
+    }
     &--secondary {
       margin: var(--spacer-base) 0;
-    }
-    @include for-desktop {
-      --button-width: 25rem;
     }
   }
 }
