@@ -6,10 +6,10 @@
   color: var(--alert-color);
   @include font(
     --alert-font,
-    var(--font-weight--normal),
-    var(--font-size--base),
+    var(--font-normal),
+    var(--font-sm),
     1.6,
-    var(--font-family--primary)
+    var(--font-family-secondary)
   );
   &__message {
     margin: var(--alert-message-margin, 0 0 0 var(--spacer-xs));
