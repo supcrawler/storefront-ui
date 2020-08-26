@@ -40,13 +40,13 @@ storiesOf("Organisms|CollectedProduct", module)
         default: number("imageHeight", 200, {}, "Props"),
       },
       title: {
-        default: text("title", "Cotton Sweater Modern Style", "Props"),
+        default: text("title", "Cotton Sweater", "Props"),
       },
       regularPrice: {
         default: text("regularPrice", "$10,99", "Props"),
       },
       specialPrice: {
-        default: text("specialPrice", "", "Props"),
+        default: text("specialPrice", "$5,09", "Props"),
       },
     },
     data() {
@@ -66,7 +66,7 @@ storiesOf("Organisms|CollectedProduct", module)
         :special-price="specialPrice"
     >
       <template #configuration>
-        <div class="sf-collected-product__configuration" :style="{margin: '1rem 0 0 0'}">
+        <div :style="{margin: '1rem 0 0 0'}">
           <SfProperty name="Size" value="XS"/>
           <SfProperty name="Color" value="white"/>
         </div>
