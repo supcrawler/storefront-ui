@@ -2,7 +2,12 @@
   <div class="sf-rating">
     <!--@slot custom icon for finalScore. Provide single icon that will be automatically repeated -->
     <slot v-for="index in parseInt(finalScore, 10)" name="icon-positive">
-      <SfIcon :key="`p${index}`" class="sf-rating__icon" icon="star" />
+      <SfIcon
+        :key="`p${index}`"
+        size="0.875rem"
+        class="sf-rating__icon"
+        icon="star"
+      />
     </slot>
     <!--@slot custom icon for negative (left) finalScore. Provide single icon that will be automatically repeated -->
     <slot
@@ -11,6 +16,7 @@
     >
       <SfIcon
         :key="`n${index}`"
+        size="0.875rem"
         class="sf-rating__icon sf-rating__icon--negative"
         icon="star"
       />
