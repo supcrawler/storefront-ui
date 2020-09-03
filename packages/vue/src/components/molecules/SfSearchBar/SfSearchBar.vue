@@ -1,7 +1,6 @@
 <template>
   <div class="sf-search-bar">
     <input
-      v-focus
       class="sf-search-bar__input"
       type="search"
       :value="value"
@@ -22,12 +21,8 @@
 </template>
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import { focus } from "../../../utilities/directives";
 export default {
   name: "SfSearchBar",
-  directives: {
-    focus,
-  },
   components: { SfIcon },
   inheritAttrs: false,
   props: {

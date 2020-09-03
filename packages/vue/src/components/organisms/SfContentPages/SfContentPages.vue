@@ -3,7 +3,7 @@
     <SfBar
       :back="isActive"
       :title="active ? active : title"
-      class="smartphone-only"
+      class="mobile-only"
       @click:back="updatePage()"
     />
     <section

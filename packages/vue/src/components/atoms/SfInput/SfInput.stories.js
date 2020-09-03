@@ -132,12 +132,7 @@ storiesOf("Atoms|Input", module)
         :has-show-password="hasShowPassword"
         >
       <template #label="{label}">
-            <SfIcon 
-              icon="heart_fill" 
-              size="10px" 
-              :style="disabled ? {'--icon-color': 'var(--c-text-disabled)'} : ''"
-              style="margin-right: 4px; display: inline-block"
-            />{{label}}
+            <SfIcon icon="heart_fill" size="10px" style="margin-right: 4px; display: inline-block"/>{{label}}
       </template>
     </SfInput>`,
   }))
@@ -239,7 +234,7 @@ storiesOf("Atoms|Input", module)
         default: text("errorMessage", "Required.", "Props"),
       },
       valid: {
-        default: boolean("valid", true, "Props"),
+        default: boolean("valid", false, "Props"),
       },
       required: {
         default: boolean("required", false, "Props"),

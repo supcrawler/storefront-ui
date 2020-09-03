@@ -7,7 +7,9 @@
       class="tab-orphan"
     >
       <SfTab title="Change the address">
-        <p class="message">Keep your addresses and contact details updated.</p>
+        <p class="message">
+          Keep your addresses and contact details updated.
+        </p>
         <div class="form">
           <SfInput
             v-model="firstName"
@@ -119,7 +121,7 @@
                 color="gray"
                 size="14px"
                 role="button"
-                class="smartphone-only"
+                class="mobile-only"
                 @click="deleteAddress(key)"
               />
               <SfButton @click="changeAddress(key)">Change</SfButton>
