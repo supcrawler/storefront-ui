@@ -6,11 +6,11 @@ import {
   number,
   optionsKnob as options,
 } from "@storybook/addon-knobs";
-import { SfCollectedProduct, SfButton } from "@storefront-ui/vue";
+import { SfCollectedProduct, SfProperty, SfButton } from "@storefront-ui/vue";
 storiesOf("Organisms|CollectedProduct", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
-    components: { SfCollectedProduct, SfButton },
+    components: { SfCollectedProduct, SfProperty, SfButton },
     props: {
       customClass: {
         default: options(
@@ -65,10 +65,19 @@ storiesOf("Organisms|CollectedProduct", module)
         :regular-price="regularPrice"
         :special-price="specialPrice"
     >
+      <template #configuration>
+        <div class="sf-collected-product__configuration" :style="{margin: '1rem 0 0 0'}">
+          <SfProperty name="Size" value="XS"/>
+          <SfProperty name="Color" value="white"/>
+        </div>
+      </template>
+      <template #actions>
+          <SfButton class="sf-button--text desktop-only">Save for later</SfButton>
+      </template>
     </SfCollectedProduct>`,
   }))
   .add("[slot] actions", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct, SfProperty },
     props: {
       customClass: {
         default: options(
@@ -129,7 +138,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] configuration", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct, SfProperty },
     props: {
       customClass: {
         default: options(
@@ -190,7 +199,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] remove", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct, SfProperty },
     props: {
       customClass: {
         default: options(
@@ -251,7 +260,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] image", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct, SfProperty },
     props: {
       customClass: {
         default: options(
@@ -312,7 +321,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] input", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct, SfProperty },
     props: {
       customClass: {
         default: options(
@@ -373,7 +382,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] title", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct, SfProperty },
     props: {
       customClass: {
         default: options(
@@ -434,7 +443,7 @@ storiesOf("Organisms|CollectedProduct", module)
     </SfCollectedProduct>`,
   }))
   .add("[slot] price", () => ({
-    components: { SfCollectedProduct},
+    components: { SfCollectedProduct, SfProperty },
     props: {
       customClass: {
         default: options(
