@@ -142,7 +142,7 @@ export default {
       return this.$route;
     },
     componentIs() {
-      return this.hasRouter ? "SfLink" : "SfButton";
+      return this.hasRouter ? "sf-link" : "sf-button";
     },
     currentPage() {
       return this.hasRouter

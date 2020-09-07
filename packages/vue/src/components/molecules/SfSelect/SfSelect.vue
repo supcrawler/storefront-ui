@@ -2,7 +2,7 @@
   <div
     class="sf-select"
     :class="{
-      'sf-select--is-selected': selectedValue || placeholder,
+      'sf-select--is-selected': selected || placeholder,
       'sf-select--is-required': required,
       'sf-select--is-disabled': disabled,
       'sf-select--is-invalid': !valid,
@@ -13,13 +13,7 @@
         {{ label }}
       </slot>
     </label>
-    <select
-      :id="label"
-      v-model="selectedValue"
-      v-focus
-      class="sf-select__dropdown"
-      @change="$emit('selected', $event.target.value)"
-    >
+    <select :id="label" v-model="selected" v-focus class="sf-select__dropdown">
       <!-- empty option by default, may be used as placeholder -->
       <option
         class="sf-select__placeholder sf-select__option"
@@ -27,15 +21,14 @@
         selected
         value
       >
-        <slot name="placeholder" v-bind="{ placeholder }" />
-        {{ placeholder }}
+        <slot name="placeholder" :placeholder="placeholder" />{{ placeholder }}
       </option>
       <slot />
     </select>
-    <div class="sf-select__error-message">
+    <div class="sf-component-select__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
-        <slot v-if="!valid" name="errorMessage" v-bind="{ errorMessage }">
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
           <span> {{ errorMessage }} </span>
         </slot>
       </transition>
@@ -56,6 +49,13 @@ export default {
      */
     label: {
       type: String,
+      default: "",
+    },
+    /**
+     * Selected item value
+     */
+    selected: {
+      type: [String, Number, Object],
       default: "",
     },
     /**
@@ -94,10 +94,10 @@ export default {
       default: "",
     },
   },
-  data() {
-    return {
-      selectedValue: "",
-    };
+  computed: {
+    isSelected() {
+      return this.selected;
+    },
   },
 };
 </script>

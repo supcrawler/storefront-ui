@@ -110,7 +110,8 @@ module.exports = {
 ["/components/select", "Select"],
 ["/components/slidingsection", "Sliding Section"],
 ["/components/steps", "Steps"],
-["/components/sticky", "Sticky"]]
+["/components/sticky", "Sticky"],
+["/components/tile", "Tile"]]
  },
 { 
  title: "Organisms",

@@ -13,5 +13,10 @@ export default {
       default: "",
     },
   },
+  computed: {
+    selected() {
+      return this.$parent.selected;
+    },
+  },
 };
 </script>
