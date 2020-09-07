@@ -11,9 +11,9 @@
       <slot name="badge" v-bind="{ selected, hasBadge }">
         <SfBadge
           v-if="selected && hasBadge"
-          class="sf-color__badge smartphone-only"
+          class="sf-color__badge mobile-only"
         >
-          <SfIcon aria-hidden="true" icon="check" size="16px" color="white" />
+          <SfIcon aria-hidden="true" icon="check" size="8px" color="white" />
         </SfBadge>
       </slot>
     </transition>
