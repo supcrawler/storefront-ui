@@ -34,7 +34,7 @@
             <SfHeading
               v-if="title"
               :title="title"
-              :description="subtitle"
+              :subtitle="subtitle"
               :level="headingLevel"
               class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
             />

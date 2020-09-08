@@ -8,7 +8,7 @@
       <SfHeading
         :level="levelHeading"
         :title="titleHeading"
-        :description="subtitleHeading"
+        :subtitle="subtitleHeading"
         :class="{ 'sf-heading--underline': hasUnderlinedModifier }"
       />
     </slot>

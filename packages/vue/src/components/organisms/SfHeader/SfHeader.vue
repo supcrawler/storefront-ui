@@ -4,7 +4,7 @@
     :class="{ 'sf-header--is-sticky': sticky, 'sf-header--is-hidden': hidden }"
   >
     <div class="sf-header__wrapper">
-      <header ref="header" class="sf-header__header">
+      <header ref="header">
         <!--@slot Use this slot to replace logo with text or image-->
         <slot name="logo" v-bind="{ logo, title }">
           <SfLink link="/">
@@ -55,7 +55,6 @@
               <SfButton
                 v-if="accountIcon"
                 class="sf-button--pure sf-header__action"
-                data-testid="accountIcon"
                 @click="$emit('click:account')"
               >
                 <SfIcon
@@ -69,7 +68,6 @@
               <SfButton
                 v-if="wishlistIcon"
                 class="sf-button--pure sf-header__action"
-                data-testid="wishlistIcon"
                 @click="$emit('click:wishlist')"
               >
                 <SfIcon
@@ -86,7 +84,6 @@
               <SfButton
                 v-if="cartIcon"
                 class="sf-button--pure sf-header__action"
-                data-testid="cartIcon"
                 @click="$emit('click:cart')"
               >
                 <SfIcon

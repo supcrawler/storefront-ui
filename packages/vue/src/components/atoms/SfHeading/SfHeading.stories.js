@@ -30,15 +30,15 @@ storiesOf("Atoms|Heading", module)
       title: {
         default: text("title", "Show how YOU wear it", "Props"),
       },
-      description: {
-        default: text("description", "#YOURLOOK", "Props"),
+      subtitle: {
+        default: text("subtitle", "#YOURLOOK", "Props"),
       },
     },
     template: `<SfHeading
       :class="customClass"
       :level="level"
       :title="title"
-      :description="description"/>`,
+      :subtitle="subtitle"/>`,
   }))
   .add("[slot] title", () => ({
     components: {
@@ -65,15 +65,15 @@ storiesOf("Atoms|Heading", module)
       title: {
         default: text("title", "Show how YOU wear it", "Props"),
       },
-      description: {
-        default: text("description", "#YOURLOOK", "Props"),
+      subtitle: {
+        default: text("subtitle", "#YOURLOOK", "Props"),
       },
     },
     template: `<SfHeading
       :class="customClass"
       :level="level"
       :title="title"
-      :description="description">
+      :subtitle="subtitle">
       <template #title="{title}">
         <h2 style="display: flex; align-items: center">
           <SfIcon icon="heart" size="xxs" style="margin-right: 1rem"/> {{title}}
@@ -81,7 +81,7 @@ storiesOf("Atoms|Heading", module)
       </template>  
     </SfHeading>`,
   }))
-  .add("[slot] description", () => ({
+  .add("[slot] subtitle", () => ({
     components: {
       SfHeading,
       SfIcon,
@@ -106,18 +106,18 @@ storiesOf("Atoms|Heading", module)
       title: {
         default: text("title", "Show how YOU wear it", "Props"),
       },
-      description: {
-        default: text("description", "#YOURLOOK", "Props"),
+      subtitle: {
+        default: text("subtitle", "#YOURLOOK", "Props"),
       },
     },
     template: `<SfHeading
       :class="customClass"
       :level="level"
       :title="title"
-      :description="description">
-      <template #description="{description}">
+      :subtitle="subtitle">
+      <template #subtitle="{subtitle}">
         <div style="display: flex; align-items: center">
-          {{description}} <SfIcon icon="notify" size="xxs" style="margin-left: 1rem"/>
+          {{subtitle}} <SfIcon icon="notify" size="xxs" style="margin-left: 1rem"/>
         </div>
       </template>        
     </SfHeading>`,
