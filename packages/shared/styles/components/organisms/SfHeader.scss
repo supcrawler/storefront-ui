@@ -123,7 +123,7 @@
     transform: var(--header-wrapper-transform);
     box-shadow: var(--header-box-shadow);
   }
-  &__header {
+  header {
     display: flex;
     flex-wrap: var(--header-flex-wrap, wrap);
     align-items: center;

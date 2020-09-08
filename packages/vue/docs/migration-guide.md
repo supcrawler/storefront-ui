@@ -117,16 +117,6 @@ Before | v0.7.0 | v0.9.0
 ------------ | ------------ | ------------
 undefined | --c-text-disabled: var(--_c-gray-accent) | --c-text-disabled: var(--_c-gray-accent) -->
 
-
-### Classes
-
-**Breakpoints**
-
-v0.8.0 | v0.9.0
------------- | ------------
-.mobile-only | .smartphone-only
-
-
 ### Deletions
 
 1. removed viewport addon on Storybook
@@ -148,15 +138,13 @@ SfSearchBar| - | iconSize
 SfSearchBar| - | iconColor  
 -->
 
-Component | Before | v0.8.0 | Info
+Component | Before | v0.8.0
 ------------ | ------------ | ------------
 SfSearchBar| - | iconSize
 SfSearchBar| - | iconColor 
 SfImage| - | srcset (String, Array) 
 SfAccordion | open (String) | open ("all") 
 SfSearchBar | - | icon (Object) 
-SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
-
 
 ### Changes
 
@@ -165,44 +153,5 @@ SfDropdown| - | button | 'opener' slot (default SfButton) added inside component
 3. SfScrollable slot for show/hide button was added 
 4. SfSelect changed to native select with error messages and native placeholder
 
-### Deletions
-
-### Additions
-
-### Changes
-
-- **Props**
-
-Component | Before | v0.9.0
------------- | ------------ | ------------
-SfHeading | subtitle | description
-
-- **Custom properties**
-
-Component | Before | v0.9.0
------------- | ------------ | ------------
-SfHeading | --heading-subtitle-margin | --heading-description-margin
-SfHeading | --heading-subtitle-color | --heading-description-color
-SfHeading | --heading-subtitle-font-size | --heading-description-font-size
-SfHeading | --heading-subtitle-font-family | --heading-description-font-family
-
-- **Slots**
-
-Component | Before | v0.9.0
------------- | ------------ | ------------
-SfHeading | subtitle | description
 
 ## Release notes
-
-## Components with data-testid
-
-Before | v0.9.0
------------- | ------------
-- | SfBreadcrumbs
-- | SfBullets
-- | SfCheckbox
-- | SfColor
-- | SfInput
-- | SfQuantitySelector
-- | SfMenuItem
-- | SfHeader

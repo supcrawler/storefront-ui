@@ -5,7 +5,6 @@ import {
   select,
   boolean,
   object,
-  number
 } from "@storybook/addon-knobs";
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
@@ -34,9 +33,6 @@ storiesOf("Atoms|Icon", module)
       badgeLabel: {
         default: text("badgeLabel", "99", "Props"),
       },
-      coverage: {
-        default: number("coverage (0-1)", 1, "Props"),
-      }
     },
     components: { SfIcon },
     template: `<SfIcon
@@ -45,8 +41,7 @@ storiesOf("Atoms|Icon", module)
       :color="color"
       :view-box="viewBox"
       :has-badge="hasBadge"
-      :badge-label="badgeLabel"
-      :coverage="coverage"/>`,
+      :badge-label="badgeLabel"/>`,
   }))
   .add("Available icons", () => ({
     components: { SfIcon },
@@ -91,9 +86,6 @@ storiesOf("Atoms|Icon", module)
       badgeLabel: {
         default: text("badgeLabel", "99", "Props"),
       },
-      coverage: {
-        default: number("coverage (0-1)", 1, "Props"),
-      }
     },
     components: { SfIcon },
     template: `<SfIcon
@@ -102,8 +94,7 @@ storiesOf("Atoms|Icon", module)
       :color="color"
       :view-box="viewBox" 
       :has-badge="hasBadge"
-      :badge-label="badgeLabel"
-      :coverage="coverage"/>`,
+      :badge-label="badgeLabel"/>`,
   }))
   .add("[slot] default", () => ({
     props: {
