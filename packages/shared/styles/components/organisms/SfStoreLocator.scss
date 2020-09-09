@@ -29,8 +29,14 @@
   &__media {
     flex: var(--store-media-flex, 0 0 7rem);
   }
-  &__icon {
-    margin: var(--store-icon-padding, var(--spacer-xl))
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+  &__heading,
+  &__address {
+    display: flex;
+    justify-content: flex-start;
   }
   &__address {
     margin: var(--store-item-addres-margin, 0 0 var(--spacer-base) 0);
