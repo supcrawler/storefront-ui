@@ -24,6 +24,7 @@ module.exports = {
           ['/import-stories', 'Import stories to your Storybook'],
           ['/customization', 'Customization'],
           ['/migration-guide', 'Migration Guide'],
+          ['/pull-off-components', 'Pull off components'],
           ['/meet-the-team', 'Meet the core team'],
         ]
       },
@@ -77,8 +78,7 @@ module.exports = {
 ["/components/price", "Price"],
 ["/components/property", "Property"],
 ["/components/quantityselector", "Quantity Selector"],
-["/components/rating", "Rating"],
-["/components/textarea", "Textarea"]]
+["/components/rating", "Rating"]]
  },
 { 
  title: "Molecules",
