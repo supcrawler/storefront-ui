@@ -21,7 +21,7 @@ storiesOf("Molecules|Characteristic", module)
         ),
       },
       icon: {
-        default: select("icon", iconsNames, "safety", "Props"),
+        default: select("icon", iconsNames, "info_shield", "Props"),
       },
       sizeIcon: {
         default: select("sizeIcon", ["", ...sizes], "", "Props"),

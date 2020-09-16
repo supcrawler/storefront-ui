@@ -13,7 +13,12 @@ storiesOf("Molecules|Steps", module)
     data() {
       return {
         active: 0,
-        steps: ["Details", "Shipping", "Payment", "Review"],
+        steps: [
+          "Personal details",
+          "Shipping",
+          "Billing address",
+          "Order review",
+        ],
       };
     },
     template: `<SfSteps

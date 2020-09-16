@@ -17,8 +17,6 @@ storiesOf("Atoms|QuantitySelector", module)
           {
             "sf-quantity-selector--secondary":
               "sf-quantity-selector--secondary",
-            "sf-quantity-selector--transparent":
-              "sf-quantity-selector--transparent",
           },
           "",
           { display: "multi-select" },

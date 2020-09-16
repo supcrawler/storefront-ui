@@ -316,7 +316,9 @@ export default {
     },
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`;
+      return `${defaultClass} ${
+        this.isOnWishlist ? "sf-product-card--on-wishlist" : ""
+      }`;
     },
   },
   methods: {

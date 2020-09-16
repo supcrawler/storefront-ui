@@ -1,5 +1,8 @@
 <template>
-  <div class="sf-header" :class="{ 'is-sticky': sticky, 'is-hidden': hidden }">
+  <div
+    class="sf-header"
+    :class="{ 'sf-header--is-sticky': sticky, 'sf-header--is-hidden': hidden }"
+  >
     <div class="sf-header__wrapper">
       <header ref="header" class="sf-header__header">
         <!--@slot Use this slot to replace logo with text or image-->
@@ -59,7 +62,7 @@
                   :icon="accountIcon"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon is-active': activeIcon === 'account',
+                    'sf-header__icon--is-active': activeIcon === 'account',
                   }"
                 />
               </SfButton>
@@ -76,7 +79,7 @@
                   :badge-label="wishlistItemsQty"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon is-active': activeIcon === 'wishlist',
+                    'sf-header__icon--is-active': activeIcon === 'wishlist',
                   }"
                 />
               </SfButton>
@@ -93,7 +96,7 @@
                   :badge-label="cartItemsQty"
                   size="1.25rem"
                   :class="{
-                    'sf-header__icon is-active': activeIcon === 'cart',
+                    'sf-header__icon--is-active': activeIcon === 'cart',
                   }"
                 />
               </SfButton>

@@ -4,7 +4,7 @@
     class="sf-grouped-product"
     :class="{
       glide: hasCarousel,
-      'without-carousel': !hasCarousel,
+      'sf-grouped-product--without-carousel': !hasCarousel,
     }"
   >
     <div :class="{ glide__track: true }" data-glide-el="track">

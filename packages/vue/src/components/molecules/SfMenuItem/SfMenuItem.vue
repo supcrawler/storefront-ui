@@ -21,7 +21,7 @@
       <SfIcon
         v-if="icon"
         :icon="icon"
-        class="sf-menu-item__mobile-nav-icon smartphone-only"
+        class="sf-menu-item__mobile-nav-icon mobile-only"
         size="14px"
       />
     </slot>

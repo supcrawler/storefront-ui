@@ -22,22 +22,19 @@
   &__breadcrumb {
     @include font(
       --breadcrumbs-font,
-      var(--font-weight--normal),
-      var(--font-size--xs),
+      var(--font-normal),
+      var(--font-sm),
       1.6,
-      var(--font-family--secondary)
+      var(--font-family-secondary)
     );
     --link-color: var(--c-text-muted);
     --link-text-decoration: none;
     &:hover {
       --link-color: var(--c-text);
     }
-    &.current {
+    &--current {
       --link-color: var(--c-text);
       cursor: default;
     }
-  }
-  @include for-desktop {
-    --breadcrumbs-font-size: var(--font-size--sm);
   }
 }

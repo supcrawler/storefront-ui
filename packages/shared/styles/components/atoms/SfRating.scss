@@ -2,7 +2,6 @@
 .sf-rating {
   display: flex;
   &__icon {
-    --icon-size: 0.875rem;
     --icon-color: var(--c-primary);
     --icon-color-negative: var(--c-gray-variant);
     &--negative {
@@ -10,4 +9,3 @@
     }
   }
 }
-// --c-text-disabled

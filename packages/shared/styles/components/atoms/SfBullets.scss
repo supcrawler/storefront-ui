@@ -10,18 +10,18 @@
   @include box-shadow(
     --bullet-box-shadow,
     0px,
-    4px,
+    3px,
     4px,
     0px,
     var(--c-black),
   );
   --bullet-box-shadow-opacity: 0;
   &:hover,
-  &.is-active {
+  &--active {
     transform: scale3d(1.25, 1.25, 1);
     --bullet-box-shadow-opacity: 0.25;
   }
-  &.is-active {
+  &--active {
     --bullet-background: var(--c-primary);
     cursor: default;
   }
