@@ -46,7 +46,6 @@
 import { focus } from "../../../utilities/directives";
 import SfSelectOption from "./_internal/SfSelectOption.vue";
 import Vue from "vue";
-
 Vue.component("SfSelectOption", SfSelectOption);
 export default {
   name: "SfSelect",

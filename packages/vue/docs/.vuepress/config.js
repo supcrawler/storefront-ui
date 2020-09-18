@@ -78,8 +78,7 @@ module.exports = {
 ["/components/price", "Price"],
 ["/components/property", "Property"],
 ["/components/quantityselector", "Quantity Selector"],
-["/components/rating", "Rating"],
-["/components/textarea", "Textarea"]]
+["/components/rating", "Rating"]]
  },
 { 
  title: "Molecules",

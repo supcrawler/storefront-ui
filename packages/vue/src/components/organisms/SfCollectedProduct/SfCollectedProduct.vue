@@ -16,19 +16,10 @@
             :special="specialPrice"
           />
         </slot>
-        <div class="sf-collected-product__configuration">
-          <slot name="configuration">
-            <SfProperty name="Size" value="XS" />
-            <SfProperty name="Color" value="white" />
-          </slot>
-        </div>
+        <slot name="configuration" />
       </div>
       <div class="sf-collected-product__actions">
-        <slot name="actions">
-          <SfButton class="sf-button--text desktop-only"
-            >Save for later</SfButton
-          >
-        </slot>
+        <slot name="actions" />
       </div>
     </div>
     <div class="sf-collected-product__aside">
@@ -82,7 +73,6 @@ import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfQuantitySelector from "../../atoms/SfQuantitySelector/SfQuantitySelector.vue";
 import SfLink from "../../atoms/SfLink/SfLink.vue";
-import SfProperty from "../../atoms/SfProperty/SfProperty.vue";
 export default {
   name: "SfCollectedProduct",
   components: {
@@ -93,7 +83,6 @@ export default {
     SfPrice,
     SfQuantitySelector,
     SfLink,
-    SfProperty,
   },
   model: {
     prop: "qty",
