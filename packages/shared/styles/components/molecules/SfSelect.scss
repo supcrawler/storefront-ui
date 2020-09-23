@@ -45,8 +45,7 @@
   &__option {           
     @include background(
       --select-option-background,
-      var(--_select-option-background-image),
-      var(--_select-option-background-color, var(--c-white))
+      var(--c-white)
     ); 
     @include font(
       --select-option-font,
