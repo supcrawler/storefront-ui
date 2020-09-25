@@ -190,7 +190,6 @@ SfAccordion | open (String) | open ("all")
 SfSearchBar | - | icon (Object) 
 SfDropdown| - | button | 'opener' slot (default SfButton) added inside component to open content on 'click:open' event
 
-
 ### Changes
 
 1. SfCheckbox moved from atoms to molecules
