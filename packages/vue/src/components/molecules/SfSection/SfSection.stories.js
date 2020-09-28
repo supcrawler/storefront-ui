@@ -14,6 +14,10 @@ storiesOf("Molecules|Section", module)
       customClass: {
         default: options(
           "CSS modifiers",
+          {
+            "sf-section--underline": "sf-section--underline",
+          },
+          "sf-section--underline",
           { display: "multi-select" },
           "CSS Modifiers"
         ),
@@ -43,6 +47,10 @@ storiesOf("Molecules|Section", module)
       customClass: {
         default: options(
           "CSS modifiers",
+          {
+            "sf-section--underline": "sf-section--underline",
+          },
+          "sf-section--underline",
           { display: "multi-select" },
           "CSS Modifiers"
         ),
