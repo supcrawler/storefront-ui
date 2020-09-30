@@ -15,9 +15,9 @@
           />
           <SfIcon
             icon="drag"
-            size="42px"
-            color="#E0E0E1"
-            class="product__drag-icon smartphone-only"
+            size="xl"
+            color="gray-secondary"
+            class="product__drag-icon mobile-only"
           />
         </div>
         <div class="product__price-and-rating">
@@ -32,7 +32,9 @@
                 ({{ product.reviews.length }})
               </a>
             </div>
-            <SfButton class="sf-button--text">Read all reviews</SfButton>
+            <SfButton class="sf-button--text desktop-only"
+              >Read all reviews</SfButton
+            >
           </div>
         </div>
         <div>
@@ -42,20 +44,20 @@
           <SfButton class="sf-button--text desktop-only product__guide">
             Size guide
           </SfButton>
-          <SfSelect
+          <SfComponentSelect
             v-model="selectedSize"
             label="Size"
             class="sf-select--underlined product__select-size"
             :reqired="true"
           >
-            <SfSelectOption
+            <SfComponentSelectOption
               v-for="(size, key) in product.sizes"
               :key="key"
               :value="size"
             >
               <SfProductOption :label="size"></SfProductOption>
-            </SfSelectOption>
-          </SfSelect>
+            </SfComponentSelectOption>
+          </SfComponentSelect>
           <div class="product__colors desktop-only">
             <p class="product__color-label">Color:</p>
             <SfColor
@@ -92,7 +94,7 @@
                 class="product__property"
               >
                 <template v-if="detailed.name === 'Category'" #value>
-                  <SfButton class="sf-button--text product__property__button">
+                  <SfButton class="sf-button--text">
                     {{ detailed.value }}</SfButton
                   >
                 </template>
@@ -107,7 +109,7 @@
                 :message="review.message"
                 :max-rating="review.rating.max"
                 :rating="review.rating.rate"
-                :char-limit="231"
+                :char-limit="250"
                 read-more-text="Read more"
                 hide-full-text="Read less"
                 class="product__review"
@@ -147,7 +149,7 @@ import {
   SfReview,
   SfAddToCart,
   SfColor,
-  SfSelect,
+  SfComponentSelect,
   SfProductOption,
   SfBreadcrumbs,
 } from "@storefront-ui/vue";
@@ -165,7 +167,7 @@ export default {
     SfReview,
     SfAddToCart,
     SfColor,
-    SfSelect,
+    SfComponentSelect,
     SfProductOption,
     SfBreadcrumbs,
   },
@@ -215,7 +217,7 @@ export default {
         },
         details: [
           {
-            name: "Product Code",
+            name: "Code",
             value: 435435,
           },
           {
@@ -330,21 +332,17 @@ export default {
     display: flex;
   }
   &__info {
-    margin: var(--spacer-xs) auto;
+    margin: var(--spacer-sm) auto var(--spacer-xs);
     @include for-desktop {
       max-width: 32.625rem;
       margin: 0 0 0 7.5rem;
     }
   }
   &__header {
-    --heading-title-color: var(--c-link);
-    --heading-title-font-weight: var(--font-weight--bold);
-    --heading-padding: 0;
     margin: 0 var(--spacer-sm);
     display: flex;
     justify-content: space-between;
     @include for-desktop {
-      --heading-title-font-weight: var(--font-weight--semibold);
       margin: 0 auto;
     }
   }
@@ -352,7 +350,7 @@ export default {
     animation: moveicon 1s ease-in-out infinite;
   }
   &__price-and-rating {
-    margin: 0 var(--spacer-sm) var(--spacer-base);
+    margin: var(--spacer-xs) var(--spacer-sm) var(--spacer-base);
     align-items: center;
     @include for-desktop {
       display: flex;
@@ -363,16 +361,15 @@ export default {
   &__rating {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
-    margin: var(--spacer-xs) 0 var(--spacer-xs);
+    margin: var(--spacer-xs) 0 0 0;
   }
   &__count {
     @include font(
       --count-font,
-      var(--font-weight--normal),
-      var(--font-size--sm),
+      var(--font-normal),
+      var(--font-sm),
       1.4,
-      var(--font-family--secondary)
+      var(--font-family-secondary)
     );
     color: var(--c-text);
     text-decoration: none;
@@ -382,10 +379,10 @@ export default {
     color: var(--c-link);
     @include font(
       --product-description-font,
-      var(--font-weight--light),
-      var(--font-size--base),
+      var(--font-light),
+      var(--font-base),
       1.6,
-      var(--font-family--primary)
+      var(--font-family-primary)
     );
   }
   &__select-size {
@@ -397,10 +394,10 @@ export default {
   &__colors {
     @include font(
       --product-color-font,
-      var(--font-weight--normal),
-      var(--font-size--lg),
+      var(--font-normal),
+      var(--font-lg),
       1.6,
-      var(--font-family--secondary)
+      var(--font-family-secondary)
     );
     display: flex;
     align-items: center;
@@ -429,34 +426,37 @@ export default {
   }
   &__tabs {
     margin: var(--spacer-lg) auto var(--spacer-2xl);
-    --tabs-title-font-size: var(--font-size--lg);
     @include for-desktop {
       margin-top: var(--spacer-2xl);
+      --tabs-content-tab-padding: 3.5rem 0 0 0;
     }
   }
   &__property {
     margin: var(--spacer-base) 0;
-    &__button {
-      --button-font-size: var(--font-size--base);
-    }
   }
   &__review {
     padding-bottom: 24px;
     border-bottom: var(--c-light) solid 1px;
     margin-bottom: var(--spacer-base);
+    &:last-of-type {
+      border: none;
+      padding-bottom: 0;
+      margin-bottom: 0;
+    }
+    @include for-desktop {
+      padding-bottom: 0;
+    }
   }
   &__additional-info {
-    color: var(--c-link);
     @include font(
       --additional-info-font,
-      var(--font-weight--light),
-      var(--font-size--sm),
+      var(--font-light),
+      var(--font-base),
       1.6,
-      var(--font-family--primary)
+      var(--font-family-primary)
     );
     &__title {
-      font-weight: var(--font-weight--normal);
-      font-size: var(--font-size--base);
+      font-weight: var(--font-bold);
       margin: 0 0 var(--spacer-sm);
       &:not(:first-child) {
         margin-top: 3.5rem;

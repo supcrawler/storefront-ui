@@ -157,7 +157,7 @@ export default {
   &__button {
     --button-width: 100%;
     @include for-desktop {
-      --button-width: 17.5rem;
+      --button-width: auto;
     }
   }
 }
@@ -166,8 +166,9 @@ export default {
   color: var(--c-dark-variant);
 }
 .notice {
+  max-width: 31rem;
   margin: var(--spacer-base) 0 0 0;
-  font-size: var(--font-size--sm);
+  font-size: var(--font-2xs);
 }
 a {
   color: var(--c-primary);

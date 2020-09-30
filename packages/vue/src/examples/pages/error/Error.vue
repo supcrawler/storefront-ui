@@ -12,7 +12,7 @@
     />
     <div class="actions">
       <SfButton class="sf-button--full-width actions__button">
-        Return home
+        Return to home
       </SfButton>
       <SfButton class="sf-button--full-width sf-button--text actions__button">
         Back
@@ -43,21 +43,23 @@ export default {
   }
 }
 .image {
-  --image-width: 14.375rem;
-  padding: var(--spacer-xl) 0 var(--spacer-sm);
+  --image-width: 12.3125rem;
+  padding: var(--spacer-xl) 0;
   @include for-desktop {
-    --image-width: 25.75rem;
+    --image-width: 22rem;
+    padding: var(--spacer-2xl) 0;
   }
 }
 .heading {
-  --heading-title-margin: 0 0 var(--spacer-sm);
+  --heading-title-margin: 0 0 var(--spacer-base);
   --heading-title-color: var(--c-primary);
-  --heading-title-font-weight: var(--font-weight--semibold);
-  --heading-description-color: var(--c-text-muted);
-  --heading-description-font-size: var(--font-size--base);
+  --heading-description-color: var(--c-secondary-variant);
+  --heading-description-font-size: var(--font-base);
   --heading-description-margin: 0 var(--spacer-base);
-  --heading-description-font-family: var(--font-family--primary);
+  --heading-description-font-family: var(--font-family-primary);
+  --heading-title-font-weight: var(--font-semibold);
   @include for-desktop {
+    --heading-title-font-size: 5rem;
     --heading-description-margin: 0;
   }
 }
@@ -70,13 +72,13 @@ export default {
   margin: var(--spacer-xl) 0 0 0;
   &__button {
     &:last-child {
-      margin: var(--spacer-sm) 0;
+      margin: var(--spacer-base) 0;
     }
   }
   @include for-desktop {
-    margin: var(--spacer-lg) 0 0 0;
+    margin: var(--spacer-2xl) 0 0 0;
     &__button {
-      --button-width: 25rem;
+      --button-width: 20.9375rem;
     }
   }
 }
