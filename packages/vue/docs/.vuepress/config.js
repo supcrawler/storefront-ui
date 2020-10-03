@@ -10,7 +10,6 @@ module.exports = {
       { text: 'Home', link: '/' },
       { text: 'Introduction', link: '/guide' },
       { text: 'Customization', link: '/customization' },
-      { text: 'Contributing', link: '/contributing/become-a-contributor' },
       { text: 'Storybook', link: 'http://storybook.storefrontui.io' },
       { text: 'GitHub', link: 'https://github.com/DivanteLtd/storefront-ui' }
     ],
@@ -24,7 +23,7 @@ module.exports = {
           ['/getting-started', 'Getting started'],
           ['/import-stories', 'Import stories to your Storybook'],
           ['/customization', 'Customization'],
-          ['/migration-guide', 'Releases & Migration'],
+          ['/migration-guide', 'Migration Guide'],
           ['/pull-off-components', 'Pull off components'],
           ['/meet-the-team', 'Meet the core team'],
         ]
@@ -42,6 +41,7 @@ module.exports = {
           ['/contributing/issue-report-guidelines', 'How to report an issue'],
         ],
       },
+      ['/faq', 'FAQ'],
       {
         title: 'Styles & Designs',
         collapsable: false,
@@ -51,7 +51,6 @@ module.exports = {
           ['/design/working-with-designs', 'Working with Designs']
         ],
       },
-      ['/faq', 'FAQ'],
       {
         title: 'Components',
         collapsable: false,
