@@ -56,10 +56,13 @@
       var(--font-family--secondary)
     ); 
   }
+  .sf-select__dropdown:active .sf-select__placeholder {
+    display: var(--select-placeholder-display, none);
+  }
   .sf-select__dropdown:active {
     --select-label-color: var(--c-text-muted);
     --select-dropdown-border-color: var(--c-primary);
-    --select-dropdown-color: var(--c-link);
+    --select-dropdown-color: var(--c-text-muted);
   }
   &__label .sf-select__dropdown:active {
     top: 0;
