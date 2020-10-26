@@ -109,7 +109,6 @@ module.exports = {
 ["/components/bar", "Bar"],
 ["/components/bottommodal", "Bottom Modal"],
 ["/components/calltoaction", "Call To Action"],
-["/components/categorycard", "Category Card"],
 ["/components/characteristic", "Characteristic"],
 ["/components/checkbox", "Checkbox"],
 ["/components/colorpicker", "Color Picker"],
