@@ -47,7 +47,6 @@
       >
         <SfProductCard
           :image="product.image"
-          :colors="!isMobile ? product.colors : []"
           :title="product.title"
           :regular-price="product.price.regular"
           :special-price="product.price.special"
@@ -59,7 +58,6 @@
           :badge-label="product.badgeLabel"
           :badge-color="product.badgeColor"
           @click:wishlist="toggleWishlist(index)"
-          @click:colors="handleSelectedColor($event, index)"
         />
       </SfCarouselItem>
     </SfCarousel>
@@ -118,11 +116,6 @@ import {
   SfProductCard,
   SfImage,
 } from "@storefront-ui/vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
-
 export default {
   name: "Home",
   components: {
@@ -211,22 +204,6 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -237,33 +214,6 @@ export default {
           reviews: 8,
           badgeLabel: "-50%",
           badgeColor: "color-primary",
-          colors: [
-            {
-              label: "Green",
-              value: "green",
-              color: "#AAAA00",
-              selected: false,
-            },
-            { label: "Blue", value: "blue", color: "#0099AA", selected: false },
-            {
-              label: "Vivid red",
-              value: "vivid red",
-              color: "#aa1100",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -274,28 +224,6 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
-          colors: [
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -306,28 +234,6 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
-          colors: [
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -338,28 +244,6 @@ export default {
           reviews: 8,
           badgeLabel: "-10%",
           badgeColor: "color-primary",
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -370,21 +254,6 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -395,28 +264,6 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -427,28 +274,6 @@ export default {
           reviews: 8,
           badgeLabel: "",
           badgeColor: "color-primary",
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
       ],
       instagramFeed: [
@@ -495,23 +320,10 @@ export default {
       ],
     };
   },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
-  },
   methods: {
     toggleWishlist(index) {
       return (this.products[index].isOnWishlist = !this.products[index]
         .isOnWishlist);
-    },
-    handleSelectedColor(color, index) {
-      this.products[index].colors.map((el) => {
-        if (el.label === color.label) {
-          color.selected = !color.selected;
-        }
-      });
     },
   },
 };

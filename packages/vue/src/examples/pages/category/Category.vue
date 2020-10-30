@@ -98,7 +98,6 @@
             v-for="(product, i) in products"
             :key="product.id"
             :style="{ '--index': i }"
-            :colors="product.colors"
             :title="product.title"
             :image="product.image"
             :regular-price="product.price.regular"
@@ -109,7 +108,6 @@
             :show-add-to-cart-button="true"
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
-            @click:colors="handleSelectedColor($event, i)"
           />
         </transition-group>
         <transition-group
@@ -433,28 +431,6 @@ export default {
           rating: { max: 5, score: 5 },
           reviewsCount: 8,
           isOnWishlist: true,
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -466,28 +442,6 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -499,28 +453,6 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -532,28 +464,6 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -565,28 +475,6 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -598,28 +486,6 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -631,28 +497,6 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 6,
           isOnWishlist: false,
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
         {
           title: "Cream Beach Bag",
@@ -664,28 +508,6 @@ export default {
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
           isOnWishlist: false,
-          colors: [
-            { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-            { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-            {
-              label: "Vivid rose",
-              value: "vivid rose",
-              color: "#DB5593",
-              selected: false,
-            },
-            {
-              label: "Peach",
-              value: "peach",
-              color: "#F59F93",
-              selected: false,
-            },
-            {
-              label: "Citrus",
-              value: "citrus",
-              color: "#FFEE97",
-              selected: false,
-            },
-          ],
         },
       ],
       filters: {
@@ -793,13 +615,6 @@ export default {
     },
     toggleWishlist(index) {
       this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
-    },
-    handleSelectedColor(color, index) {
-      this.products[index].colors.map((el) => {
-        if (el.label === color.label) {
-          color.selected = !color.selected;
-        }
-      });
     },
   },
 };
