@@ -186,20 +186,21 @@ This change follows [css guideline](https://github.com/chris-pearce/css-guidelin
 
   1. `SfTextArea`
   2. `SfAddressPicker`
-  3. `SfCard`
 
 ### Props
 
-Component | Before | v0.9.1
+Component | Before | v0.10.0
 ------------ | ------------ | ------------
 SfIcon | - | coverage 
 SfRating | - | icon 
+SfProductCard | - | colors
 
 ### Slots
 
-Component | Before | v0.9.1 | Info
+Component | Before | v0.10.0 | Info
 ------------ | ------------ | ------------ | ------------
 SfDropdown | - | opener
+SfProductCard | - | colors | slot for custom colors
 
 ### Components with data-testid
 
