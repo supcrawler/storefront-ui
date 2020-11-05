@@ -3,10 +3,6 @@
     :is="tag"
     v-focus
     class="sf-button"
-    :class="{
-      'is-disabled--button': buttonActive,
-      'is-disabled--link': linkActive,
-    }"
     v-bind="$attrs"
     :disabled="disabled"
     :link="link"
@@ -46,12 +42,6 @@ export default {
   computed: {
     tag() {
       return this.link ? "SfLink" : "button";
-    },
-    linkActive() {
-      return this.link && this.disabled;
-    },
-    buttonActive() {
-      return !this.link && this.disabled;
     },
   },
 };

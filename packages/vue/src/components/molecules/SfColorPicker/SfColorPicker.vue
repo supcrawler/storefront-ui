@@ -16,10 +16,6 @@
         </slot>
       </div>
       <div v-else key="color-picker-colors" class="sf-color-picker__colors">
-        <SfOverlay
-          :visible="isOpen"
-          class="sf-color-picker__colors__overlay smartphone-only"
-        />
         <!-- @slot Use this slot to replace label. -->
         <slot name="label" v-bind="{ label }">
           <div v-if="label" class="sf-color-picker__label smartphone-only">
@@ -47,11 +43,9 @@
 <script>
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfOverlay from "../../atoms/SfOverlay/SfOverlay.vue";
-
 export default {
   name: "SfColorPicker",
-  components: { SfIcon, SfButton, SfOverlay },
+  components: { SfIcon, SfButton },
   props: {
     /**
      * ColorPicker is open

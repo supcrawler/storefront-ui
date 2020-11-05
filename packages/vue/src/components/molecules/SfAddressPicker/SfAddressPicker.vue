@@ -11,10 +11,6 @@ import Vue from "vue";
 Vue.component("SfAddress", SfAddress);
 export default {
   name: "SfAddressPicker",
-  model: {
-    prop: "selected",
-    event: "change",
-  },
   props: {
     selected: {
       type: String,
@@ -23,7 +19,7 @@ export default {
   },
   data() {
     return {
-      selectedValue: this.selected,
+      checked: this.selected,
     };
   },
   provide() {
@@ -32,19 +28,13 @@ export default {
       setSelectedValue: this.setSelectedValue,
     };
   },
-  watch: {
-    selected(newVal) {
-      this.selectedValue = newVal;
-    },
-  },
   methods: {
     getSelectedValue() {
-      return this.selectedValue;
+      return this.checked;
     },
     setSelectedValue(newVal) {
       const newValue = newVal;
-      this.selectedValue = newValue;
-      this.$emit("change", newValue);
+      this.checked = newValue;
     },
   },
 };

@@ -101,24 +101,6 @@
         error-message="Please choose your country."
         @blur="emailBlur = false"
       />
-      <SfTextarea
-        v-model="message"
-        class="form__element"
-        label="Message"
-        name="message"
-        cols="80"
-        rows="25"
-        maxlength="400"
-        minlength="10"
-        wrap="soft"
-        :readonly="true"
-        placeholder="type a message"
-        required
-        :valid="messageBlur || validMessage(message)"
-        error-message="Please type minimum 10 characters and maximum 400."
-        @blur="messageBlur = false"
-      >
-      </SfTextarea>
       <div class="form__action">
         <SfButton type="submit" @click.prevent="submit">Submit</SfButton>
         <SfButton
@@ -131,19 +113,13 @@
   </div>
 </template>
 <script>
-import {
-  SfInput,
-  SfComponentSelect,
-  SfButton,
-  SfTextarea,
-} from "@storefront-ui/vue";
+import { SfInput, SfComponentSelect, SfButton } from "@storefront-ui/vue";
 export default {
   name: "Default",
   components: {
     SfButton,
     SfInput,
     SfComponentSelect,
-    SfTextarea,
   },
   data() {
     return {
@@ -218,8 +194,6 @@ export default {
         "United Kingdom",
         "Vatican City",
       ],
-      message: "",
-      messageBlur: true,
     };
   },
   methods: {
@@ -233,7 +207,6 @@ export default {
       this.countryBlur = false;
       this.phoneNumberBlur = false;
       this.emailBlur = false;
-      this.messageBlur = false;
       if (
         this.validEmail(this.email) &&
         this.validPhoneNumber(this.phoneNumber) &&
@@ -243,8 +216,7 @@ export default {
         this.validApartment(this.apartment) &&
         this.validCity(this.city) &&
         this.validZipCode(this.zipCode) &&
-        this.validCountry(this.country) &&
-        this.validMessage(this.message)
+        this.validCountry(this.country)
       ) {
         this.valid = true;
       }
@@ -280,9 +252,6 @@ export default {
       const regex = /(.+)@(.+){2,}\.(.+){2,}/;
       return regex.test(email.toLowerCase());
     },
-    validMessage(message) {
-      return !!message && message.length > 10 && message.length <= 400;
-    },
     submit() {
       this.validate();
       if (this.valid) {
@@ -299,7 +268,6 @@ export default {
       this.lastName = "";
       this.firstName = "";
       this.apartment = "";
-      this.message = "";
     },
   },
 };

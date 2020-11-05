@@ -42,8 +42,12 @@
     outline: none;       
     @include border(--select-dropdown-border, 0 0 0 0, solid, var(--c-secondary));
   }
-  &__option {
-    background: var(--select-option-background, var(--c-white));   
+  &__option {           
+    @include background(
+      --select-option-background,      
+      var(--_select-option-background-color, var(--c-white)),
+      var(--_select-option-background-image)
+    ); 
     @include font(
       --select-option-font,
       var(--font-weight--normal),
@@ -52,10 +56,13 @@
       var(--font-family--secondary)
     ); 
   }
+  .sf-select__dropdown:active .sf-select__placeholder {
+    display: var(--select-placeholder-display, none);
+  }
   .sf-select__dropdown:active {
     --select-label-color: var(--c-text-muted);
     --select-dropdown-border-color: var(--c-primary);
-    --select-dropdown-color: var(--c-link);
+    --select-dropdown-color: var(--c-text-muted);
   }
   &__label .sf-select__dropdown:active {
     top: 0;

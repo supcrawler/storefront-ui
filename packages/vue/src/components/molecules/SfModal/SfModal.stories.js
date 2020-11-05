@@ -38,7 +38,7 @@ storiesOf("Molecules|Modal", module)
         <form action="">
           <input type="text">
           <input type="text">
-          <button type="button">hello</button>
+          <button>hello</button>
         </form>
       </SfModal>`,
   }))

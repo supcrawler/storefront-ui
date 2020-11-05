@@ -30,11 +30,11 @@
         <div
           v-if="outsideZoom && pictureSelected"
           ref="outSide"
+          class="sf-gallery__zoom"
           :style="{ width: `${imageWidth}px`, height: `${imageHeight}px` }"
         >
           <SfImage
             ref="imgZoom"
-            class="sf-gallery__zoom"
             :src="pictureSelected"
             :width="imageWidth"
             :height="imageHeight"
@@ -222,18 +222,17 @@ export default {
         this.eventHover = $event;
         if (this.outsideZoom) {
           this.positionStatic = this.positionObject(index);
-          this.$refs.imgZoom.$el.children[0].style.cssText =
-            "top: 0; transform: scale(2);";
-          this.$refs.imgZoom.$el.children[0].style.transformOrigin = `${
+          this.$refs.imgZoom.$refs.image.style.transformOrigin = `${
             $event.clientX - this.positionStatic.x
           }px ${$event.clientY - this.positionStatic.y}px`;
         } else {
           this.positionStatic = this.positionObject(index);
-          this.$refs.sfGalleryBigImage[index].$el.children[0].style.cssText =
-            "top: 0; transform: scale(2);";
+          this.$refs.sfGalleryBigImage[index].$refs.image.style.top = "0";
+          this.$refs.sfGalleryBigImage[index].$refs.image.style.transform =
+            "scale(2)";
           this.$refs.sfGalleryBigImage[
             index
-          ].$el.children[0].style.transformOrigin = `${
+          ].$refs.image.style.transformOrigin = `${
             $event.clientX - this.positionStatic.x
           }px ${$event.clientY - this.positionStatic.y}px`;
         }
@@ -242,9 +241,9 @@ export default {
     removeZoom(index) {
       if (this.enableZoom) {
         this.pictureSelected = "";
-        if (this.outsideZoom) return;
-        this.$refs.sfGalleryBigImage[index].$el.children[0].style.transform =
-          "scale(1)";
+        this.$refs.sfGalleryBigImage[index].$refs.image.style.transform =
+          "translate3d(0, -50%, 0)";
+        this.$refs.sfGalleryBigImage[index].$refs.image.style.top = "50%";
       }
     },
   },

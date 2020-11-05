@@ -14,9 +14,7 @@ import {
   SfList,
   SfMenuItem,
   SfBottomNavigation,
-  SfBanner,
-  SfOverlay,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 storiesOf("Organisms|Header", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
@@ -153,8 +151,6 @@ storiesOf("Organisms|Header", module)
       SfMegaMenu,
       SfLink,
       SfMenuItem,
-      SfBanner,
-      SfOverlay,
     },
     data() {
       return {
@@ -308,24 +304,6 @@ storiesOf("Organisms|Header", module)
             ],
           },
         ],
-        banners: [
-          {
-            title: "THE OFFICE LIFE",
-            subtitle: "T-shirts",
-            pictures: {
-              mobile: "/assets/storybook/SfMegaMenu/bannerSandals.jpg",
-              desktop: "/assets/storybook/SfMegaMenu/bannerSandals.jpg",
-            },
-          },
-          {
-            title: "ECO SANDALS",
-            subtitle: "T-shirts",
-            pictures: {
-              mobile: "/assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
-              desktop: "/assets/storybook/SfMegaMenu/bannerBeachBag.jpg",
-            },
-          },
-        ],
         searchValue: "",
       };
     },
@@ -336,7 +314,6 @@ storiesOf("Organisms|Header", module)
     },
     template: `
     <div>
-      <SfOverlay :visible="!!currentCategory" />
       <SfHeader
       :logo="shopLogo"
       :title="shopName"
@@ -382,18 +359,6 @@ storiesOf("Organisms|Header", module)
                     </SfListItem>
                   </SfList>
                 </SfMegaMenuColumn>
-                <SfMegaMenuColumn v-if="currentCategory === 'Clothing'" title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured">
-                <div class="sb-mega-menu__banners">
-                  <SfBanner
-                    v-for="(banner, key) in banners"
-                    :key="key"
-                    :title="banner.title"
-                    :subtitle="banner.subtitle"
-                    :image="banner.pictures"
-                    class="sb-mega-menu__banner"
-                  />
-                </div>
-              </SfMegaMenuColumn>
               </SfMegaMenu>
             </SfHeaderNavigationItem>
           </SfHeaderNavigation>
