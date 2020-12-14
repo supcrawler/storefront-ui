@@ -1,12 +1,40 @@
-import "./SfImage.stories.scss";
 import { storiesOf } from "@storybook/vue";
-import { withKnobs, text, number, object } from "@storybook/addon-knobs";
-import SfImage from "./SfImage.vue";
-
+import {
+  withKnobs,
+  text,
+  boolean,
+  number,
+  object,
+} from "@storybook/addon-knobs";
+import { SfImage, SfArrow } from "@storefront-ui/vue";
 storiesOf("Atoms|Image", module)
   .addDecorator(withKnobs)
   .add("Common", () => ({
+    components: { SfImage },
     props: {
+      srcset: {
+        default: object(
+          "srcset",
+          [
+            {
+              src: `/assets/storybook/SfImage/product-109x164.webp`,
+              media: `(max-width: 480px)`,
+              type: `image/webp`,
+            },
+            {
+              src: `/assets/storybook/SfImage/product-109x164.webp`,
+              media: `(min-width: 480px) and (max-width: 720px)`,
+              type: `image/webp`,
+            },
+            {
+              src: `/assets/storybook/SfImage/product-216x326.jpg`,
+              media: `(min-width: 1240px)`,
+              type: `image/jpg`,
+            },
+          ],
+          "Props"
+        ),
+      },
       src: {
         default: text(
           "src",
@@ -15,30 +43,7 @@ storiesOf("Atoms|Image", module)
         ),
       },
       alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
-      },
-      srcsets: {
-        default: object(
-          "srcsets",
-          [
-            {
-              src: "/assets/storybook/SfImage/product-109x164.webp",
-              width: 109,
-              breakpoint: 480,
-            },
-            {
-              src: "/assets/storybook/SfImage/product-216x326.jpg",
-              width: 1200,
-              breakpoint: 1200,
-            },
-            {
-              src: "/assets/storybook/SfImage/product-109x164.webp",
-              width: "400px",
-              breakpoint: 768,
-            },
-          ],
-          "Props"
-        ),
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
       },
       width: {
         default: number("width", 216, {}, "Props"),
@@ -46,17 +51,26 @@ storiesOf("Atoms|Image", module)
       height: {
         default: number("height", 326, {}, "Props"),
       },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "0px", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
     },
-    components: { SfImage },
     template: `<SfImage
         :src="src"
-        :srcsets="srcsets"
-        :width="width"
-        :height="height"
         :alt="alt"
+        :lazy="lazy"
+        :rootMargin="rootMargin"
+        :threshold="threshold"
       />`,
   }))
-  .add("With src only", () => ({
+  .add("With src", () => ({
+    components: { SfImage },
     props: {
       src: {
         default: text(
@@ -66,156 +80,201 @@ storiesOf("Atoms|Image", module)
         ),
       },
       alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
       },
-      width: {
-        default: text("width", "", "Props"),
+      lazy: {
+        default: boolean("lazy", true, "Props"),
       },
-      height: {
-        default: text("height", "", "Props"),
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
       },
-      srcsets: {
-        default: object("srcsets", [], "Props"),
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
       },
     },
+    template: `<SfImage
+        :src="src"
+        :alt="alt"
+        :lazy="lazy"
+        :rootMargin="rootMargin"
+        :threshold="threshold"
+      />`,
+  }))
+  .add("With srcset as string", () => ({
     components: { SfImage },
+    props: {
+      srcset: {
+        default: text(
+          "srcset",
+          "/assets/storybook/SfImage/product-109x164.jpg 109w, /assets/storybook/SfImage/product-216x326.jpg 216w",
+          "Props"
+        ),
+      },
+      src: {
+        default: text(
+          "src",
+          "/assets/storybook/SfImage/product-216x326.jpg",
+          "Props"
+        ),
+      },
+      sizes: {
+        default: text("sizes", "(max-width: 1024px) 109px, 216px", "Props"),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
+      },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "0px", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
+    },
+    template: `<SfImage
+        :src="src"
+        :alt="alt"
+        :lazy="lazy"
+        :rootMargin="rootMargin"
+        :threshold="threshold"
+      />`,
+  }))
+  .add("Without width and height", () => ({
+    components: { SfImage },
+    props: {
+      src: {
+        default: text(
+          "src",
+          "/assets/storybook/SfImage/product-216x326.jpg",
+          "Props"
+        ),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
+      },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "0px", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
+    },
+    template: `<SfImage
+        :src="src"
+        :alt="alt"
+        :lazy="lazy"
+        :rootMargin="rootMargin"
+        :threshold="threshold"
+      />`,
+	}))
+	.add("With progressive loading", () => ({
+    components: { SfImage, SfArrow },
+    props: {
+      srcset: {
+        default: object(
+          "srcset",
+          [
+            {
+              src: `/assets/storybook/SfImage/product-109x164.webp`,
+              media: `(max-width: 480px)`,
+              type: `image/webp`,
+            },
+            {
+              src: `/assets/storybook/SfImage/product-109x164.webp`,
+              media: `(min-width: 480px) and (max-width: 720px)`,
+              type: `image/webp`,
+            },
+            {
+              src: `/assets/storybook/SfImage/product-216x326.jpg`,
+              media: `(min-width: 1240px)`,
+              type: `image/jpg`,
+            },
+          ],
+          "Props"
+        ),
+      },
+      src: {
+        default: text(
+          "src",
+          "/assets/storybook/SfImage/placeholder.png",
+          "Props"
+        ),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
+      },
+      width: {
+        default: number("width", 216, {}, "Props"),
+      },
+      height: {
+        default: number("height", 326, {}, "Props"),
+      },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0.5, {}, "Props"),
+      },
+    },
+    template: `
+    <div>
+      <SfArrow class="sf-arrow--down" style="margin: 20vh auto 100vh auto"/>
+      <SfImage
+          :src="src"
+          :srcset="srcset"
+          :alt="alt"
+          :lazy="lazy"
+          :rootMargin="rootMargin"
+          :threshold="threshold"
+        />
+    </div>`,
+  }))
+  .add("[slot] default", () => ({
+    components: { SfImage },
+    props: {
+      src: {
+        default: text(
+          "src",
+          "/assets/storybook/SfImage/product-216x326.jpg",
+          "Props"
+        ),
+      },
+      alt: {
+        default: text("alt", "Vila stripe maxi shirt dress", "Props"),
+      },
+      width: {
+        default: number("width", 216, {}, "Props"),
+      },
+      height: {
+        default: number("height", 326, {}, "Props"),
+      },
+      lazy: {
+        default: boolean("lazy", true, "Props"),
+      },
+      rootMargin: {
+        default: text("rootMargin", "0px", "Props"),
+      },
+      threshold: {
+        default: number("threshold", 0, {}, "Props"),
+      },
+    },
     template: `<SfImage
       :src="src"
-      :srcsets="srcsets"
+      :alt="alt"
       :width="width"
       :height="height"
-      :alt="alt"
-    />`,
-  }))
-  .add("With breakpoints", () => ({
-    props: {
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
-      },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
-      },
-      srcsets: {
-        default: object(
-          "srcsets with breakpoints",
-          [
-            {
-              src: "/assets/storybook/SfImage/product-109x164.webp",
-              width: 109,
-              breakpoint: 480,
-            },
-            {
-              src: "/assets/storybook/SfImage/product-216x326.jpg",
-              width: 1200,
-              breakpoint: 1200,
-            },
-            {
-              src: "/assets/storybook/SfImage/product-109x164.webp",
-              width: "400px",
-              breakpoint: 768,
-            },
-          ],
-          "Props"
-        ),
-      },
-      width: {
-        default: text("width", "", "Props"),
-      },
-      height: {
-        default: text("height", "", "Props"),
-      },
-    },
-    components: { SfImage },
-    template: `<SfImage
-        :src="src"
-        :srcsets="srcsets"
-        :width="width"
-        :height="height"
-        :alt="alt"
-      />`,
-  }))
-  .add("With resolutions", () => ({
-    props: {
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
-      },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
-      },
-      srcsets: {
-        default: object(
-          "srcsets with resolutions",
-          [
-            {
-              src: "/assets/storybook/SfImage/product-109x164.webp",
-              resolution: 1,
-            },
-            {
-              src: "/assets/storybook/SfImage/product-216x326.jpg",
-              resolution: 1.5,
-            },
-            {
-              src: "/assets/storybook/SfImage/product-109x164.webp",
-              resolution: 2,
-            },
-          ],
-          "Props"
-        ),
-      },
-      width: {
-        default: text("width", "", "Props"),
-      },
-      height: {
-        default: text("height", "", "Props"),
-      },
-    },
-    components: { SfImage },
-    template: `<SfImage
-        :src="src"
-        :srcsets="srcsets"
-        :width="width"
-        :height="height"
-        :alt="alt"
-      />`,
-  }))
-  .add("With accessibility", () => ({
-    props: {
-      src: {
-        default: text(
-          "src",
-          "/assets/storybook/SfImage/product-216x326.jpg",
-          "Props"
-        ),
-      },
-      alt: {
-        default: text("alt", "Vila stripe maxi shirt dress", "Attributes"),
-      },
-      width: {
-        default: text("width", "", "Props"),
-      },
-      height: {
-        default: text("height", "", "Props"),
-      },
-    },
-    components: { SfImage },
-    template: `<div>
-      <p>
-        <span style="color:red">Red</span> highlight when no Alt text found.
-      </p>
-      <SfImage
-        :src="src"
-        :srcsets="srcsets"
-        :width="width"
-        :height="height"
-        :alt="alt"
-      >Text</SfImage>
-      </div>`,
+      :lazy="lazy"
+      :rootMargin="rootMargin"
+      :threshold="threshold"
+    >
+      CUSTOM OVERLAY CONTENT
+    </SfImage>`,
   }));
