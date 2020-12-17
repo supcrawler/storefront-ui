@@ -1,21 +1,12 @@
-<template functional>
-  <div
-    :class="[data.class, data.staticClass, 'sf-property']"
-    :style="[data.style, data.staticStyle]"
-    v-bind="data.attrs"
-    v-on="listeners"
-  >
+<template>
+  <div class="sf-property">
     <!-- @slot Use this slot to replace property name -->
-    <slot name="name" v-bind="{ props }">
-      <span :class="[data.class, data.staticClass, 'sf-property__name']">
-        {{ props.name }}
-      </span>
+    <slot name="name" v-bind="{ name }">
+      <span class="sf-property__name">{{ name }}</span>
     </slot>
     <!-- @slot Use this slot to replace property value -->
-    <slot name="value" v-bind="{ props }">
-      <span :class="[data.class, data.staticClass, 'sf-property__value']">
-        {{ props.value }}
-      </span>
+    <slot name="value" v-bind="{ value }">
+      <span class="sf-property__value">{{ value }}</span>
     </slot>
   </div>
 </template>
