@@ -24,7 +24,14 @@ storiesOf("Organisms|CollectedProduct", module)
         ),
       },
       image: {
-        default: text("image", "/assets/storybook/Home/productB.jpg", "Props"),
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props"),
@@ -79,7 +86,14 @@ storiesOf("Organisms|CollectedProduct", module)
         ),
       },
       image: {
-        default: text("image", "/assets/storybook/Home/productB.jpg", "Props"),
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props"),
@@ -137,7 +151,14 @@ storiesOf("Organisms|CollectedProduct", module)
         ),
       },
       image: {
-        default: text("image", "/assets/storybook/Home/productB.jpg", "Props"),
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props"),
@@ -195,7 +216,14 @@ storiesOf("Organisms|CollectedProduct", module)
         ),
       },
       image: {
-        default: text("image", "/assets/storybook/Home/productB.jpg", "Props"),
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props"),
@@ -253,7 +281,14 @@ storiesOf("Organisms|CollectedProduct", module)
         ),
       },
       image: {
-        default: text("image", "/assets/storybook/Home/productB.jpg", "Props"),
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props"),
@@ -311,7 +346,14 @@ storiesOf("Organisms|CollectedProduct", module)
         ),
       },
       image: {
-        default: text("image", "/assets/storybook/Home/productB.jpg", "Props"),
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props"),
@@ -369,7 +411,14 @@ storiesOf("Organisms|CollectedProduct", module)
         ),
       },
       image: {
-        default: text("image", "/assets/storybook/Home/productB.jpg", "Props"),
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props"),
@@ -423,7 +472,14 @@ storiesOf("Organisms|CollectedProduct", module)
         ),
       },
       image: {
-        default: text("image", "/assets/storybook/Home/productB.jpg", "Props"),
+        default: object(
+          "image",
+          {
+            mobile: { url: "/assets/storybook/Home/productB.jpg" },
+            desktop: { url: "/assets/storybook/Home/productB.jpg" },
+          },
+          "Props"
+        ),
       },
       imageWidth: {
         default: number("imageWidth", 140, {}, "Props"),

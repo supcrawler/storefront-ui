@@ -19,17 +19,24 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: text(
+        default: object(
           "image",
-          "/assets/storybook/SfGroupedProduct/product-white.png",
+          {
+            mobile: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+            desktop: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+          },
           "Props"
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 82, {}, "Props"),
+        default: number("imageWidth", 328, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 112, {}, "Props"),
+        default: number("imageHeight", 448, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -86,11 +93,14 @@ storiesOf("Organisms|GroupedProduct", module)
       return {
         products: [
           {
-            image: text(
-              "image",
-              "/assets/storybook/SfGroupedProduct/product-white.png",
-              "Product 1"
-            ),
+            image: {
+              mobile: {
+                url: "/assets/storybook/SfGroupedProduct/product-white.png",
+              },
+              desktop: {
+                url: "/assets/storybook/SfGroupedProduct/product-white.png",
+              },
+            },
             sku: "MSD23-345-324",
             title: "Leave white brooch",
             priceRegular: "$10,99",
@@ -103,11 +113,14 @@ storiesOf("Organisms|GroupedProduct", module)
             ],
           },
           {
-            image: text(
-              "image",
-              "/assets/storybook/SfGroupedProduct/product-white.png",
-              "Product 2"
-            ),
+            image: {
+              mobile: {
+                url: "/assets/storybook/SfGroupedProduct/product-black.png",
+              },
+              desktop: {
+                url: "/assets/storybook/SfGroupedProduct/product-black.png",
+              },
+            },
             sku: "MSD23-345-324",
             title: "Leave black brooch",
             priceRegular: "$10,99",
@@ -120,11 +133,14 @@ storiesOf("Organisms|GroupedProduct", module)
             ],
           },
           {
-            image: text(
-              "image",
-              "/assets/storybook/SfGroupedProduct/product-black.png",
-              "Product 3"
-            ),
+            image: {
+              mobile: {
+                url: "/assets/storybook/SfGroupedProduct/product-green.png",
+              },
+              desktop: {
+                url: "/assets/storybook/SfGroupedProduct/product-green.png",
+              },
+            },
             sku: "MSD23-345-324",
             title: "Leave green brooch",
             priceRegular: "$10,99",
@@ -150,8 +166,8 @@ storiesOf("Organisms|GroupedProduct", module)
           :qty="product.productQty"
           @input="product.productQty = $event"
           :image="product.image"
-          image-width="82"
-          image-height="auto"
+          image-width="328"
+          image-height="448"
           :title="product.title"
           :price-regular="product.priceRegular"
           :price-special="product.priceSpecial"
@@ -173,17 +189,24 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: text(
+        default: object(
           "image",
-          "/assets/storybook/SfGroupedProduct/product-white.png",
+          {
+            mobile: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+            desktop: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+          },
           "Props"
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 82, {}, "Props"),
+        default: number("imageWidth", 328, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 112, {}, "Props"),
+        default: number("imageHeight", 448, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -235,17 +258,24 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: text(
+        default: object(
           "image",
-          "/assets/storybook/SfGroupedProduct/product-white.png",
+          {
+            mobile: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+            desktop: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+          },
           "Props"
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 82, {}, "Props"),
+        default: number("imageWidth", 328, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 112, {}, "Props"),
+        default: number("imageHeight", 448, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -297,17 +327,24 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: text(
+        default: object(
           "image",
-          "/assets/storybook/SfGroupedProduct/product-white.png",
+          {
+            mobile: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+            desktop: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+          },
           "Props"
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 82, {}, "Props"),
+        default: number("imageWidth", 328, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 112, {}, "Props"),
+        default: number("imageHeight", 448, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -359,17 +396,24 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: text(
+        default: object(
           "image",
-          "/assets/storybook/SfGroupedProduct/product-white.png",
+          {
+            mobile: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+            desktop: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+          },
           "Props"
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 82, {}, "Props"),
+        default: number("imageWidth", 328, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 112, {}, "Props"),
+        default: number("imageHeight", 448, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -423,17 +467,24 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: text(
+        default: object(
           "image",
-          "/assets/storybook/SfGroupedProduct/product-white.png",
+          {
+            mobile: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+            desktop: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+          },
           "Props"
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 82, {}, "Props"),
+        default: number("imageWidth", 328, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 112, {}, "Props"),
+        default: number("imageHeight", 448, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),
@@ -485,17 +536,24 @@ storiesOf("Organisms|GroupedProduct", module)
         default: boolean("hasCarousel", false, "Props"),
       },
       image: {
-        default: text(
+        default: object(
           "image",
-          "/assets/storybook/SfGroupedProduct/product-white.png",
+          {
+            mobile: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+            desktop: {
+              url: "/assets/storybook/SfGroupedProduct/product-white.png",
+            },
+          },
           "Props"
         ),
       },
       imageWidth: {
-        default: number("imageWidth", 82, {}, "Props"),
+        default: number("imageWidth", 328, {}, "Props"),
       },
       imageHeight: {
-        default: number("imageHeight", 112, {}, "Props"),
+        default: number("imageHeight", 448, {}, "Props"),
       },
       imageLazy: {
         default: boolean("imageLazy", true, "Props"),

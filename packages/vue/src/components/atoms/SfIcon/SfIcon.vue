@@ -94,14 +94,6 @@ export default {
       type: String,
       default: "0 0 24 24",
     },
-    hasBadge: {
-      type: Boolean,
-      default: false,
-    },
-    badgeLabel: {
-      type: String,
-      default: "",
-    },
     /**
      * The fraction in which the icon is partially collored with --icon-color value and the rest with --icon-color-negative.
      * To be used in SfRating.
