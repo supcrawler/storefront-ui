@@ -1,12 +1,7 @@
+import { storiesOf } from "@storybook/vue";
 import { SfList, SfMenuItem } from "@storefront-ui/vue";
-export default {
-  title: "Organisms/List",
-  component: SfList,
-};
-
-const Template = (args, { argTypes }) => ({
-  components: { SfList },
-  props: Object.keys(argTypes),
+storiesOf("Organisms|List", module).add("Common", () => ({
+  components: { SfList, SfMenuItem },
   data() {
     return {
       items: [
@@ -20,17 +15,13 @@ const Template = (args, { argTypes }) => ({
       ],
     };
   },
-  template: `
-  <SfList :style="{maxWidth: '186px'}">
-    <SfListItem 
-      v-for="item in items" 
-      :key="item.label" 
-      :style="{'--list-item-margin':'24px 0'}"
-    >
-      {{item.label}}: {{item.count}}
-    </SfListItem>
-  </SfList>`,
-});
-
-export const Common = Template.bind({});
-Common.args = {};
+  template: `<SfList :style="{maxWidth: '186px'}">
+      <SfListItem 
+        v-for="item in items" 
+        :key="item.label" 
+        :style="{'--list-item-margin':'24px 0'}"
+      >
+        <SfMenuItem :label="item.label" :count="item.count"/>
+      </SfListItem>
+    </SfList>`,
+}));

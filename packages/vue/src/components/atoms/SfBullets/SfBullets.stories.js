@@ -1,91 +1,64 @@
+import { storiesOf } from "@storybook/vue";
+import { withKnobs, number } from "@storybook/addon-knobs";
 import { SfBullets } from "@storefront-ui/vue";
-
-export default {
-  title: "Atoms/Bullets",
-  component: SfBullets,
-  argTypes: {
-    total: {
-      control: {
-        type: "number",
-      },
-      table: {
-        category: "Props",
-      },
-      defaultValue: 0,
-    },
-    current: {
-      control: "number",
-      defaultValue: 0,
-      table: {
-        category: "Props",
+storiesOf("Atoms|Bullets", module)
+  .addDecorator(withKnobs)
+  .add("Common", () => ({
+    props: {
+      total: {
+        default: number("total", 3, {}, "Props"),
       },
     },
-    click: { action: "set Value of current", table: { category: "Events" } },
-  },
-};
-
-const Template = (args, { argTypes }) => ({
-  components: { SfBullets },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      curr: this.current,
-    };
-  },
-  template: `
-  <SfBullets
-    :total="total"
-    :current="curr"
-    @click="value => curr = value"
-  />`,
-});
-
-export const Common = Template.bind({});
-Common.args = {
-  total: 3,
-  current: 1,
-};
-
-export const WithActiveSlot = (args, { argTypes }) => ({
-  components: { SfBullets },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      curr: this.current,
-    };
-  },
-  template: `
-    <SfBullets
+    components: { SfBullets },
+    data() {
+      return {
+        current: 1,
+      };
+    },
+    template: `<SfBullets
       :total="total"
-      :current="curr"
-      @click="value => curr = value">
+      :current="current"
+      @click="value => current = value"/>`,
+  }))
+  .add("[slot] active", () => ({
+    props: {
+      total: {
+        default: number("total", 3, {}, "Props"),
+      },
+    },
+    components: { SfBullets },
+    data() {
+      return {
+        current: 1,
+      };
+    },
+    template: `<SfBullets
+      :total="total"
+      :current="current"
+      @click="value => current = value">
       <template #active>
-        <li style="width: 10px; height: 10px; background-color:#9EE2B0"/>
+        <li style="width: 10px; height: 10px; background-color:#9EE2B0"></li>
       </template>
     </SfBullets>`,
-});
-
-WithActiveSlot.args = {
-  total: 3,
-};
-
-export const WithInactiveSlot = (args, { argTypes }) => ({
-  components: { SfBullets },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      curr: this.current,
-    };
-  },
-  template: `
-    <SfBullets
+  }))
+  .add("[slot] inactive", () => ({
+    props: {
+      total: {
+        default: number("total", 3, {}, "Props"),
+      },
+    },
+    components: { SfBullets },
+    data() {
+      return {
+        current: 1,
+      };
+    },
+    template: `<SfBullets
       :total="total"
-      :current="curr"
-      @click="value => curr = value">
-      <template #inactive>
-      <li style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"/>
+      :current="current"
+      @click="value => current = value">
+      <template #inactive="{index, go}">
+        <li @click="go(index)" style="width: 10px; height: 10px; background-color:#CCC; transform: rotate(45deg)"></li>
       </template>
     </SfBullets>`,
-});
-
-WithInactiveSlot.args = { ...Common.args };
+  }));

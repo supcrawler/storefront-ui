@@ -8,6 +8,8 @@
         :icon="icon"
         :color="iconColor"
         :size="iconSize"
+        :badge-label="badgeLabel"
+        :has-badge="hasBadge"
       />
     </slot>
   </SfButton>
@@ -37,6 +39,14 @@ export default {
     disabled: {
       type: Boolean,
       default: false,
+    },
+    hasBadge: {
+      type: Boolean,
+      default: false,
+    },
+    badgeLabel: {
+      type: String,
+      default: "",
     },
   },
 };
