@@ -77,9 +77,7 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage :src="image.url" :alt="image.content">{{
-              image.content
-            }}</SfImage>
+            <SfImage :src="image">{{ image.content }}</SfImage>
           </div>
         </div>
       </div>
@@ -93,13 +91,13 @@
       <template #call-to-action>
         <div class="app-banner__call-to-action">
           <SfButton class="app-banner__button" aria-label="Go to Apple Product">
-            <SfImage src="/assets/storybook/Home/apple.png" alt="Apple" />
+            <SfImage src="/assets/storybook/Home/apple.png" />
           </SfButton>
           <SfButton
             class="app-banner__button"
             aria-label="Go to Google Product"
           >
-            <SfImage src="/assets/storybook/Home/google.png" alt="Google" />
+            <SfImage src="/assets/storybook/Home/google.png" />
           </SfButton>
         </div>
       </template>
@@ -282,21 +280,41 @@ export default {
         [
           {
             content: "angelina_trn",
-            url: "/assets/storybook/Home/imageA.png",
+            mobile: {
+              url: "/assets/storybook/Home/imageA.png",
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageA.png",
+            },
           },
           {
             content: "angelina_trn",
-            url: "/assets/storybook/Home/imageB.png",
+            mobile: {
+              url: "/assets/storybook/Home/imageB.png",
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageB.png",
+            },
           },
         ],
         [
           {
             content: "angelina_trn",
-            url: "/assets/storybook/Home/imageC.jpg",
+            mobile: {
+              url: "/assets/storybook/Home/imageC.jpg",
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageC.jpg",
+            },
           },
           {
             content: "angelina_trn",
-            url: "/assets/storybook/Home/imageD.jpg",
+            mobile: {
+              url: "/assets/storybook/Home/imageD.jpg",
+            },
+            desktop: {
+              url: "/assets/storybook/Home/imageD.jpg",
+            },
           },
         ],
       ],
@@ -323,7 +341,6 @@ export default {
 }
 .hero {
   --hero-item-background-position: center;
-  --hero-item-container-width: 60%;
 }
 .match-with-it {
   display: flex;
