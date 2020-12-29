@@ -1,14 +1,12 @@
+import { storiesOf } from "@storybook/vue";
 import Static from "./Static";
-export default {
-  title: "Pages/Static",
-  component: Static,
-};
-
-const Template = (args, { argTypes }) => ({
+storiesOf("Pages|Static", module).add("Common", () => ({
   components: { Static },
-  props: Object.keys(argTypes),
+  mounted() {
+    document.body.style.setProperty("margin", "0");
+  },
+  beforeDestroy() {
+    document.body.style.removeProperty("margin");
+  },
   template: `<Static />`,
-});
-
-export const Common = Template.bind({});
-Common.args = {};
+}));

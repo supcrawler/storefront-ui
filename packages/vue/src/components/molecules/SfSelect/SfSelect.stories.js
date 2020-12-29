@@ -1,6 +1,12 @@
+import { storiesOf } from "@storybook/vue";
+import {
+  withKnobs,
+  text,
+  boolean,
+  optionsKnob as options,
+} from "@storybook/addon-knobs";
 import { SfSelect, SfProductOption } from "@storefront-ui/vue";
-
-const options = [
+const optionsList = [
   { value: "" },
   { value: "amaranth", color: "#E52B50", label: "Amaranth" },
   { value: "amber", color: "#FFBF00", label: "Amber" },
@@ -8,193 +14,227 @@ const options = [
   { value: "bluetiful", color: "#3C69E7", label: "Bluetiful" },
   { value: "buff", color: "#F0DC82", label: "Buff" },
 ];
-
-export default {
-  title: "Molecules/Select",
-  component: SfSelect,
-  argTypes: {
-    classes: {
-      control: {
-        type: "select",
-        options: ["sf-select--underlined", ""],
+const knobOptionsList = optionsList.reduce(
+  (a, c) => ({ ...a, [c.label]: c.value }),
+  {}
+);
+storiesOf("Molecules|Select", module)
+  .addDecorator(withKnobs)
+  .add("Common", () => ({
+    components: { SfSelect, SfProductOption },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-select--underlined": "sf-select--underlined",
+          },
+          "sf-select--underlined",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
       },
-      table: {
-        category: "CSS Modifiers",
-        defaultValue: {
-          summary: "",
-        },
+      label: {
+        default: text("label", "Color", "Props"),
+      },
+      required: {
+        default: boolean("required", false, "Props"),
+      },
+      valid: {
+        default: boolean("valid", true, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Color", "Props"),
+      },
+      placeholder: {
+        default: text("placeholder", "select color", "Props"),
+      },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
       },
     },
-    label: {
-      control: "text",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: "",
-        },
-      },
-      description: "Select field label",
+    data() {
+      return {
+        options: optionsList,
+      };
     },
-    value: {
-      control: "text",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: "",
-        },
+    methods: {
+      alert(label) {
+        console.log(label);
       },
-      description: "Value selected",
     },
-    placeholder: {
-      control: "text",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: "",
-        },
+    template: `
+      <SfSelect
+        v-model="selectedValue"
+        :class="customClass"
+        :label="label"
+        :required="required"
+        :valid="valid"
+        :disabled="disabled"
+        :error-message="errorMessage"
+        :placeholder="placeholder"       
+        @input="alert(selectedValue)"
+        style="max-width: 30rem; margin: 10px;"
+      >
+        <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+        </SfSelectOption>
+      </SfSelect>`,
+  }))
+  .add("[slot] label", () => ({
+    components: { SfSelect, SfProductOption },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-select--underlined": "sf-select--underlined",
+            "sf-select--no-chevron": "sf-select--no-chevron",
+          },
+          "sf-select--underlined",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
       },
-      description: "Placeholder",
-    },
-    errorMessage: {
-      control: "text",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: "This field is not correct.",
-        },
+      label: {
+        default: text("label", "Color", "Props"),
       },
-      description:
-        "Error message value of form select. It will be appeared if `valid` is `true`.",
-    },
-    required: {
-      control: "boolean",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: false,
-        },
+      required: {
+        default: boolean("required", false, "Props"),
       },
-      description: "Required field?",
-    },
-    disabled: {
-      control: "boolean",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: false,
-        },
+      valid: {
+        default: boolean("valid", true, "Props"),
       },
-      description: "Disabled status of form select",
-    },
-    valid: {
-      control: "boolean",
-      table: {
-        category: "Props",
-        defaultValue: {
-          summary: true,
-        },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
       },
-      description: "Validate value of form select",
+      errorMessage: {
+        default: text("errorMessage", "Color", "Props"),
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
+      },
     },
-    input: { action: "Selected", table: { category: "Events" } },
-  },
-};
-
-const Template = (args, { argTypes }) => ({
-  components: { SfSelect, SfProductOption },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      options,
-    };
-  },
-  template: `
-  <SfSelect
-    v-model="selectedValue"
-    :class="classes"
-    :label="label"
-    :required="required"
-    :valid="valid"
-    :disabled="disabled"
-    :error-message="errorMessage"
-    :placeholder="placeholder"       
-    @input="input"
-    style="max-width: 30rem; margin: 10px;"
-  >
-    <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-      <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
-    </SfSelectOption>
-  </SfSelect>`,
-});
-
-export const Common = Template.bind({});
-Common.args = {
-  label: "Color",
-};
-
-export const Invalid = Template.bind({});
-Invalid.args = {
-  ...Common.args,
-  valid: false,
-};
-
-export const Required = Template.bind({});
-Required.args = {
-  ...Common.args,
-  required: true,
-};
-
-export const Disabled = Template.bind({});
-Disabled.args = {
-  ...Common.args,
-  disabled: true,
-};
-
-export const WithPlaceholder = Template.bind({});
-WithPlaceholder.args = {
-  ...Common.args,
-  placeholder: "Select something",
-};
-
-export const Underlined = Template.bind({});
-Underlined.args = {
-  ...Common.args,
-  classes: "sf-select--underlined",
-};
-
-export const HasSelectedValue = Template.bind({});
-HasSelectedValue.args = {
-  ...Common.args,
-  value: "amber",
-};
-
-export const UseLabelSlot = (args, { argTypes }) => ({
-  components: { SfSelect, SfProductOption },
-  props: Object.keys(argTypes),
-  data() {
-    return {
-      options,
-    };
-  },
-  template: `
-  <SfSelect
-    v-model="selectedValue"
-    :class="classes"
-    :label="label"
-    :required="required"
-    :valid="valid"
-    :disabled="disabled"
-    :error-message="errorMessage"
-    :placeholder="placeholder"       
-    @input="input"
-    style="max-width: 30rem; margin: 10px;"
-  >
-    <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
-      <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
-    </SfSelectOption>
-    <template #label>
-      CUSTOM LABEL
-    </template>
-  </SfSelect>`,
-});
-UseLabelSlot.args = { ...Common.args };
+    data() {
+      return {
+        options: optionsList,
+      };
+    },
+    methods: {
+      alert(label) {
+        console.log(label);
+      },
+    },
+    template: `<div style="max-width: 30rem">    
+      <SfSelect
+        v-model="selectedValue"
+        :class="customClass"
+        :label="label"
+        :required="required"
+        :valid="valid"
+        :disabled="disabled"  
+        :error-message="errorMessage"
+        :placeholder="placeholder" 
+        @input="alert(selectedValue)"   
+        >
+        <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+        </SfSelectOption>
+        <template #label>
+          CUSTOM LABEL
+        </template>
+      </SfSelect>
+    </div>`,
+  }))
+  .add("[slot] errorMessage", () => ({
+    components: { SfSelect, SfProductOption },
+    props: {
+      customClass: {
+        default: options(
+          "CSS modifiers",
+          {
+            "sf-select--underlined": "sf-select--underlined",
+          },
+          "sf-select--underlined",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      label: {
+        default: text("label", "Color", "Props"),
+      },
+      required: {
+        default: boolean("required", false, "Props"),
+      },
+      valid: {
+        default: boolean("valid", false, "Props"),
+      },
+      disabled: {
+        default: boolean("disabled", false, "Props"),
+      },
+      errorMessage: {
+        default: text("errorMessage", "Color", "Props"),
+      },
+      placeholder: {
+        default: text("placeholder", "", "Props"),
+      },
+      selectedValue: {
+        default: options(
+          "selectedValue",
+          knobOptionsList,
+          optionsList[0].value,
+          { display: "select" },
+          "Data"
+        ),
+      },
+    },
+    data() {
+      return {
+        options: optionsList,
+      };
+    },
+    methods: {
+      alert(label) {
+        console.log(label);
+      },
+    },
+    template: `<div style="max-width: 30rem">
+      <SfSelect
+        v-model="selectedValue"
+        :class="customClass"
+        :label="label"
+        :required="required"
+        :valid="valid"
+        :error-message="errorMessage"
+        :disabled="disabled"
+        @input="alert(selectedValue)"
+        >
+        <SfSelectOption v-for="(option, key) in options" :key="key" :value="option.value">
+          <SfProductOption :color="option.color" :label="option.label"></SfProductOption>
+        </SfSelectOption>
+        <template #errorMessage>
+          <span>
+            CUSTOM ERROR MESSAGE
+          </span>
+        </template>
+      </SfSelect>
+    </div>`,
+  }));

@@ -8,26 +8,24 @@
         </ul>
       </div>
     </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__control--left">
-      <!-- @slot slot for icon moving to the previous item  -->
+    <div v-if="numberOfPages > 1" class="sf-hero__controls">
+      <!--@slot slot for icon moving to the previous item -->
       <slot name="prev" v-bind="{ go: () => go('prev') }">
-        <SfButton class="sf-button--pure" @click.stop="go('prev')">
+        <div @click="go('prev')">
           <SfArrow
-            class="sf-arrow sf-arrow--transparent"
+            class="sf-arrow sf-arrow--transparent sf-hero__controls__arrow"
             aria-label="previous"
           />
-        </SfButton>
+        </div>
       </slot>
-    </div>
-    <div v-if="numberOfPages > 1" class="sf-hero__control--right">
-      <!-- @slot slot for icon moving to the next item  -->
+      <!--@slot slot for icon moving to the next item -->
       <slot name="next" v-bind="{ go: () => go('next') }">
-        <SfButton class="sf-button--pure" @click.stop="go('next')">
+        <div @click="go('next')">
           <SfArrow
-            class="sf-arrow sf-arrow--right sf-arrow--transparent"
+            class="sf-arrow sf-arrow--right sf-arrow--transparent sf-hero__controls__arrow"
             aria-label="next"
           />
-        </SfButton>
+        </div>
       </slot>
     </div>
     <div v-if="numberOfPages > 1" class="sf-hero__bullets">
@@ -46,7 +44,6 @@
 import Vue from "vue";
 import SfHeroItem from "./_internal/SfHeroItem.vue";
 import SfArrow from "../../atoms/SfArrow/SfArrow.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfBullets from "../../atoms/SfBullets/SfBullets.vue";
 import Glide from "@glidejs/glide";
 Vue.component("SfHeroItem", SfHeroItem);
@@ -55,7 +52,6 @@ export default {
   components: {
     SfArrow,
     SfBullets,
-    SfButton,
   },
   props: {
     /**

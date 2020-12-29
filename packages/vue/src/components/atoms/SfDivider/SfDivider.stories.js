@@ -1,13 +1,6 @@
+import { storiesOf } from "@storybook/vue";
 import { SfDivider } from "@storefront-ui/vue";
-
-export default {
-  title: "Atoms/Divider",
-  component: SfDivider,
-};
-
-const Template = (args, { argTypes }) => ({
+storiesOf("Atoms|Divider", module).add("Common", () => ({
   components: { SfDivider },
   template: `<SfDivider />`,
-});
-
-export const Common = Template.bind({});
+}));
