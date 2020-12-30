@@ -5,9 +5,7 @@ import {
   SfImage,
   SfButton,
   SfMenuItem,
-  SfInput,
 } from "@storefront-ui/vue";
-import "./SfFooter.stories.scss";
 
 export default {
   title: "Organisms/Footer",
@@ -44,7 +42,6 @@ const Template = (args, { argTypes }) => ({
     SfImage,
     SfButton,
     SfMenuItem,
-    SfInput,
   },
   props: Object.keys(argTypes),
   data() {
@@ -88,21 +85,8 @@ const Template = (args, { argTypes }) => ({
         </SfList>
         <div v-else class="sb-footer__social">
           <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture" class="sb-social-icon"/>
-        </div>        
+        </div>
       </SfFooterColumn>
-      <SfFooterColumn title="Language">
-        <SfButton>
-          <SfImage
-            src="/assets/storybook/SfTopBar/flag.png"
-            alt="flag of the USA"
-          />
-          English
-        </SfButton>
-      </SfFooterColumn>
-      <div>
-        <SfInput class="sf-input--outline" type="text" />
-        <SfButton>Subscribe</SfButton>
-      </div>
     </SfFooter>`,
 });
 
