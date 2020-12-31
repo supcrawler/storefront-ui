@@ -1,16 +1,9 @@
 import Vue from "vue";
 let observer;
 const isMobileMax = 1023;
-const isMobileMin = 1024;
-export const onMediaMatchMobile = (e) => {
-  if (!e.matches) return;
-  console.log("mobile", observer);
-  e.matches ? (observer.isMobile = true) : null;
-};
-export const onMediaMatchDesktop = (e) => {
-  if (!e.matches) return;
-  console.log("desktop", observer);
-  e.matches ? (observer.isMobile = false) : null;
+export const onMediaMatch = (e) => {
+  if (typeof e.matches === null) return;
+  e.matches ? (observer.isMobile = true) : (observer.isMobile = false);
 };
 export const setupListener = () => {
   if (
@@ -23,14 +16,9 @@ export const setupListener = () => {
   observer.isMobile =
     Math.max(document.documentElement.clientWidth, window.innerWidth) <=
     isMobileMax;
-  console.log("setup", observer.isMobile);
   window
     .matchMedia(`(max-width: ${isMobileMax}px)`)
-    .addListener(onMediaMatchMobile);
-  window
-    .matchMedia(`(min-width: ${isMobileMin}px)`)
-    .addListener(onMediaMatchDesktop);
-  observer.isInitialized = true;
+    .addListener(onMediaMatch);
 };
 export const tearDownListener = () => {
   if (
@@ -40,10 +28,7 @@ export const tearDownListener = () => {
   ) {
     window
       .matchMedia(`(max-width: ${isMobileMax}px)`)
-      .removeListener(onMediaMatchMobile);
-    window
-      .matchMedia(`(min-width: ${isMobileMin}px)`)
-      .removeListener(onMediaMatchDesktop);
+      .removeListener(onMediaMatch);
   }
 };
 export const mapMobileObserver = () => {
@@ -66,13 +51,12 @@ export const mapMobileObserver = () => {
     },
     mobileObserverClients: {
       get() {
-        console.log("get clients", observer.clients);
-        return observer ? observer.clients : 0;
+        observer ? observer.clients : 0;
       },
     },
     mobileObserverIsInitialized: {
       get() {
-        return observer ? observer.isInitialized : false;
+        observer ? observer.isInitialized : false;
       },
     },
   };
@@ -80,7 +64,6 @@ export const mapMobileObserver = () => {
 export const unMapMobileObserver = () => {
   if (observer) {
     observer.clients -= 1;
-    console.log(observer.clients);
     if (observer.clients === 0) {
       observer = null;
       tearDownListener();
