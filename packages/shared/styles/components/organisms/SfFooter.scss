@@ -1,18 +1,17 @@
 @import "../../helpers";
-.sf-footer-column {  
-  --icon-color: var(--c-white);
+.sf-footer-column {
   box-sizing: border-box;
   flex: 0 0 var(--_footer-column-width);
   justify-content: space-between;
   &__title {
-    color: var(--footer-column-title-color, var(--c-white));
+    color: var(--footer-column-title-color, var(--c-link));
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
     border: 0;
     padding: var(--footer-column-title-padding, var(--spacer-base));
-    background: var(--footer-column-title-background, var(--c-secondary));
+    background: var(--footer-column-title-background, var(--c-light));
     text-transform: uppercase;
     @include font(
       --footer-column-title-font,
@@ -24,9 +23,8 @@
     cursor: default;
   }
   &__chevron {
-    --chevron-color: var(--c-white);
-    display: var(--footer-column-chevron-display);    
-  }  
+    display: var(--footer-column-chevron-display);
+  }
   & .sf-list__item {
     --list-item-margin: var(
       --footer-column-item-padding,
@@ -34,20 +32,18 @@
     );
     --menu-item-label-color: var(
       --footer-column-item-color,
-      var(--c-white)
+      var(--c-link)
     );
   }
   @include for-desktop {
-    margin: 0 0 var(--spacer-xl) 0;
     --footer-column-title-padding: var(--spacer-sm) 0;
-    --footer-column-title-background: var(--c-secondary);
+    --footer-column-title-background: transparent;
     --footer-column-title-font-weight: var(--font-weight--normal);
     --footer-column-chevron-display: none;
     --footer-column-item-padding: var(--spacer-xs) 0;
   }
 }
 .sf-footer {
-  background: var(--c-secondary);
   &__container {
     box-sizing: border-box;
     display: var(--footer-display);
@@ -57,19 +53,6 @@
     margin: var(--footer-margin);
     padding: var(--footer-padding);
   }
-  &__bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: var(--spacer-xs) 0;    
-    padding: 0 0 var(--spacer-xl) 0;
-    &-logo {
-      --image-width: auto;
-      --image-height: 2.125rem;
-      flex: 0 0 auto;
-      padding: var(--spacer-xl) 0 0 0;
-    }
-  }  
   @include for-desktop {
     --footer-display: flex;
     --footer-flex-wrap: wrap;
