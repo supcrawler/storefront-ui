@@ -77,22 +77,22 @@
         required
         @input="updateField('zipCode', $event)"
       />
-      <SfSelect
+      <SfComponentSelect
         v-model="country"
         :value="country"
-        placeholder="Country"
-        class="form__element form__element--half form__element--half-even form__select sf-select--underlined"
+        label="Country"
+        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
         required
         @change="updateField('country', $event)"
       >
-        <SfSelectOption
+        <SfComponentSelectOption
           v-for="countryOption in countries"
           :key="countryOption"
           :value="countryOption"
         >
           {{ countryOption }}
-        </SfSelectOption>
-      </SfSelect>
+        </SfComponentSelectOption>
+      </SfComponentSelect>
       <SfInput
         v-model="phoneNumber"
         :value="phoneNumber"
@@ -117,7 +117,7 @@
       class="sf-heading--left sf-heading--no-underline title"
     />
     <div class="form">
-      <div class="payment-methods">
+      <div class="form__element payment-methods">
         <SfRadio
           v-for="item in paymentMethods"
           :key="item.value"
@@ -143,7 +143,6 @@
               <template v-else>
                 <SfImage
                   :src="`/assets/storybook/checkout/${item.value}.png`"
-                  :alt="item.value"
                   class="payment-image"
                   :lazy="false"
                 />
@@ -176,36 +175,36 @@
               >Expiry date:</span
             >
             <div class="credit-card-form__element">
-              <SfSelect
+              <SfComponentSelect
                 v-model="cardMonth"
                 :value="cardMonth"
                 label="Month"
-                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-select--underlined"
+                class="credit-card-form__input credit-card-form__input--with-spacer form__select sf-component-select--underlined"
                 @change="updateField('cardMonth', $event)"
               >
-                <SfSelectOption
+                <SfComponentSelectOption
                   v-for="monthOption in months"
                   :key="monthOption"
                   :value="monthOption"
                 >
                   {{ monthOption }}
-                </SfSelectOption>
-              </SfSelect>
-              <SfSelect
+                </SfComponentSelectOption>
+              </SfComponentSelect>
+              <SfComponentSelect
                 v-model="cardYear"
                 :value="cardYear"
                 label="Year"
-                class="credit-card-form__input form__select sf-select--underlined"
+                class="credit-card-form__input form__select sf-component-select--underlined"
                 @change="updateField('cardYear', $event)"
               >
-                <SfSelectOption
+                <SfComponentSelectOption
                   v-for="yearOption in years"
                   :key="yearOption"
                   :value="yearOption"
                 >
                   {{ yearOption }}
-                </SfSelectOption>
-              </SfSelect>
+                </SfComponentSelectOption>
+              </SfComponentSelect>
             </div>
           </div>
           <div class="credit-card-form__group">
@@ -232,6 +231,19 @@
           />
         </div>
       </transition>
+      <div class="form__action">
+        <SfButton
+          class="sf-button--full-width form__action-button"
+          @click="$emit('click:next')"
+          >Review order
+        </SfButton>
+        <SfButton
+          class="sf-button--full-width sf-button--underlined color-secondary form__action-button form__action-button--secondary smartphone-only"
+          @click="$emit('click:back')"
+        >
+          Go back
+        </SfButton>
+      </div>
     </div>
   </div>
 </template>
@@ -240,7 +252,7 @@ import {
   SfHeading,
   SfInput,
   SfButton,
-  SfSelect,
+  SfComponentSelect,
   SfRadio,
   SfImage,
   SfCheckbox,
@@ -252,7 +264,7 @@ export default {
     SfHeading,
     SfInput,
     SfButton,
-    SfSelect,
+    SfComponentSelect,
     SfRadio,
     SfImage,
     SfCheckbox,
@@ -391,93 +403,76 @@ export default {
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 .title {
-  --heading-padding: var(--spacer-xl) 0 var(--spacer-lg);
-  --heading-title-font-weight: var(--font-weight--bold);
-  &:not(:first-of-type) {
-    --heading-padding: var(--spacer-xl) 0;
-    border-bottom: 2px solid var(--c-light);
-  }
+  --heading-padding: var(--spacer-base) 0;
   @include for-desktop {
     --heading-title-font-size: var(--h3-font-size);
-    --heading-title-font-weight: var(--font-weight--semibold);
     --heading-padding: var(--spacer-xl) 0;
   }
 }
 .form {
-  &__element {
-    margin: 0 0 var(--spacer-base) 0;
-    --input-label-font-size: var(--font-size--base);
-    --input-label-top: 80%;
-    &:last-of-type {
-      margin: 0;
-    }
-  }
   &__checkbox {
-    margin: 0 0 var(--spacer-xl) 0;
+    --checkbox-label-color: var(--c-dark-variant);
+    margin: 0 0 var(--spacer-sm) 0;
   }
   &__group {
     display: flex;
     align-items: center;
   }
-  &__select {
-    display: flex;
-    align-items: center;
-    --select-option-font-size: var(--font-size--base);
-    --select-dropdown-color: blue;
-    ::v-deep .sf-select__dropdown {
-      margin: 0 0 2px 0;
-      font-size: var(--font-size--base);
-      font-family: var(--font-family--secondary);
-      color: var(--c-link);
+  &__action-button {
+    &:first-child {
+      margin: var(--spacer-xl) 0 0 0;
+    }
+    &--secondary {
+      margin: var(--spacer-base) 0;
     }
   }
   @include for-desktop {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    margin: 0 var(--spacer-2xl) 0 var(--spacer-xs);
     &__element {
-      margin: 0 0 var(--spacer-sm) 0;
+      padding: 0 0 var(--spacer-xs) 0;
       flex: 0 0 100%;
       &--half {
         flex: 1 1 50%;
         &-even {
-          padding: 0 0 0 var(--spacer-base);
+          padding: 0 0 0 var(--spacer-xl);
         }
       }
     }
-    &__checkbox {
-      margin: 0 0 var(--spacer-xl) 0;
+    &__action {
+      flex: 0 0 100%;
+      display: flex;
+    }
+    &__action-button {
+      --button-width: 25rem;
     }
   }
 }
 .payment-methods {
-  border-bottom: solid 2px var(--c-light);
-  padding: 0 0 var(--spacer-base) 0;
-  margin-bottom: var(--spacer-lg);
+  border: 1px solid var(--c-light);
+  border-width: 0 0 1px 0;
+  padding: 0 0 var(--spacer-sm) 0;
   @include for-desktop {
     display: flex;
     justify-content: space-between;
-    margin-bottom: var(--spacer-xl);
     padding: var(--spacer-xs) 0;
-    width: 100%;
+    border-width: 1px 0;
   }
 }
 .payment-method {
   --radio-container-align-items: center;
-  --radio-container-padding: var(--spacer-base) var(--spacer-sm) 0;
+  --radio-container-padding: var(--spacer-sm) 0;
   --ratio-content-margin: 0 0 0 var(--spacer-lg);
   --radio-background: transparent;
-  color: var(--c-link);
   white-space: nowrap;
-  ::v-deep .sf-image {
-    width: 3.125rem;
-  }
   @include for-desktop {
     --radio-container-padding: var(--spacer-sm);
   }
 }
 .credit-card-form {
-  width: 100%;
+  padding: var(--spacer-xl) 0 0 0;
   &__group {
     display: flex;
     align-items: flex-start;
@@ -488,25 +483,22 @@ export default {
     flex: 1;
   }
   &__label {
-    font-size: var(--font-size--base);
-    font-family: var(--font-family--secondary);
-    color: var(--c-link);
+    font-size: var(--font-size--lg);
     padding: var(--spacer-sm) 0 0 0;
     flex: 1;
   }
   &__button {
-    --button-padding: var(--spacer-base) 0 0 var(--spacer-sm);
+    --button-padding: var(--spacer-sm) 0 0 var(--spacer-sm);
     text-align: right;
     flex: 1;
   }
   &__input {
-    --input-label-top: 80%;
-    --input-label-font-size: var(--font-size--base);
     flex: 1;
     padding: 0 0 var(--spacer-sm) 0;
   }
   @include for-desktop {
-    width: 38.125rem;
+    width: 100%;
+    padding: var(--spacer-lg) var(--spacer-xl);
     &__element {
       display: flex;
     }

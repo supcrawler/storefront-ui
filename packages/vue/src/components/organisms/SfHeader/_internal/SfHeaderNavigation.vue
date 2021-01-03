@@ -1,6 +1,6 @@
 <template>
   <div class="sf-header-navigation" v-on="$listeners">
-    <div class="sf-header-navigation__menu">
+    <div v-if="!isVisibleOnMobile" class="sf-header-navigation__menu">
       <slot />
     </div>
     <SfSidebar
@@ -20,10 +20,11 @@ export default {
   components: {
     SfSidebar,
   },
-  props: {
-    isVisibleOnMobile: {
-      type: Boolean,
-      default: false,
+  inject: ["mobileObserver"],
+  computed: {
+    isVisibleOnMobile() {
+      console.log("navigation", this.mobileObserver.isMobile);
+      return this.mobileObserver.isMobile;
     },
   },
 };
