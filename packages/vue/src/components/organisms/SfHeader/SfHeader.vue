@@ -16,14 +16,14 @@
         </slot>
         <div class="sf-header__aside">
           <!-- @slot Use this slot for language or currency selector -->
-          <slot name="aside" v-bind="{ isVisibleOnMobile }" />
+          <slot name="aside" />
         </div>
         <div class="sf-header__actions">
           <nav
             class="sf-header__navigation"
             :class="{ 'is-visible': isNavVisible }"
           >
-            <slot name="navigation" v-bind="{ isVisibleOnMobile }"></slot>
+            <slot name="navigation"></slot>
           </nav>
           <!--@slot Use this slot to replace default search bar-->
           <slot name="search" v-bind="{ searchValue, searchPlaceholder }">
@@ -134,7 +134,7 @@ export default {
      * Header logo
      */
     logo: {
-      type: [String, Object],
+      type: String,
       default: "",
     },
     /**
@@ -190,7 +190,7 @@ export default {
       default: "",
     },
     /**
-     * Header wishlist items quantity
+     * Header cart items quantity
      */
     wishlistItemsQty: {
       type: [String, Number],
@@ -211,12 +211,15 @@ export default {
       default: false,
     },
     /**
-     * Is nav slot visible at mobile view
+     * Header search on mobile
      */
     isNavVisible: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Is nav slot visible at mobile view
+     */
   },
   data() {
     return {
@@ -228,15 +231,7 @@ export default {
       animationStart: null,
       animationLong: null,
       animationDuration: 300,
-      isVisibleOnMobile: false,
     };
-  },
-  provide() {
-    const mobileObserver = Vue.observable({});
-    Object.defineProperty(mobileObserver, "isMobile", {
-      get: () => this.isMobile,
-    });
-    return { mobileObserver };
   },
   computed: {
     ...mapMobileObserver(),

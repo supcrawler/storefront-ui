@@ -1,16 +1,9 @@
 import Vue from "vue";
 let observer;
 const isMobileMax = 1023;
-const isMobileMin = 1024;
-export const onMediaMatchMobile = (e) => {
+export const onMediaMatch = (e) => {
   if (!e.matches) return;
-  console.log("mobile", observer);
-  e.matches ? (observer.isMobile = true) : null;
-};
-export const onMediaMatchDesktop = (e) => {
-  if (!e.matches) return;
-  console.log("desktop", observer);
-  e.matches ? (observer.isMobile = false) : null;
+  observer.isMobile = e.matches;
 };
 export const setupListener = () => {
   if (
@@ -23,13 +16,7 @@ export const setupListener = () => {
   observer.isMobile =
     Math.max(document.documentElement.clientWidth, window.innerWidth) <=
     isMobileMax;
-  console.log("setup", observer.isMobile);
-  window
-    .matchMedia(`(max-width: ${isMobileMax}px)`)
-    .addListener(onMediaMatchMobile);
-  window
-    .matchMedia(`(min-width: ${isMobileMin}px)`)
-    .addListener(onMediaMatchDesktop);
+  window.matchMedia(`(max-width: ${isMobileMax}px)`).addListener(onMediaMatch);
   observer.isInitialized = true;
 };
 export const tearDownListener = () => {
@@ -40,10 +27,7 @@ export const tearDownListener = () => {
   ) {
     window
       .matchMedia(`(max-width: ${isMobileMax}px)`)
-      .removeListener(onMediaMatchMobile);
-    window
-      .matchMedia(`(min-width: ${isMobileMin}px)`)
-      .removeListener(onMediaMatchDesktop);
+      .removeListener(onMediaMatch);
   }
 };
 export const mapMobileObserver = () => {
@@ -66,7 +50,6 @@ export const mapMobileObserver = () => {
     },
     mobileObserverClients: {
       get() {
-        console.log("get clients", observer.clients);
         return observer ? observer.clients : 0;
       },
     },
@@ -80,7 +63,6 @@ export const mapMobileObserver = () => {
 export const unMapMobileObserver = () => {
   if (observer) {
     observer.clients -= 1;
-    console.log(observer.clients);
     if (observer.clients === 0) {
       observer = null;
       tearDownListener();
