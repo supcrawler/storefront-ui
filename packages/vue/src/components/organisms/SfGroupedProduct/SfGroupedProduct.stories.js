@@ -1,6 +1,6 @@
 import { SfGroupedProduct, SfProperty } from "@storefront-ui/vue";
 export default {
-  title: "Components/Organisms/GroupedProduct",
+  title: "Organisms/GroupedProduct",
   component: SfGroupedProduct,
   argTypes: {
     settings: {

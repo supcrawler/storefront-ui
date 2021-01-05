@@ -28,7 +28,7 @@ const options = [
 ];
 
 export default {
-  title: "Components/Molecules/Scrollable",
+  title: "Molecules/Scrollable",
   component: SfScrollable,
   argTypes: {
     maxContentHeight: {

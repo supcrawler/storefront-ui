@@ -1,7 +1,7 @@
 import { SfBar } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Molecules/Bar",
+  title: "Molecules/Bar",
   component: SfBar,
   argTypes: {
     title: {

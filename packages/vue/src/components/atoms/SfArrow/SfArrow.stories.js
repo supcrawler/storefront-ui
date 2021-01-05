@@ -1,7 +1,7 @@
 import { SfArrow, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Arrow",
+  title: "Atoms/Arrow",
   component: SfArrow,
   argTypes: {
     disabled: {

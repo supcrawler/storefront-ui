@@ -1,7 +1,7 @@
 import { SfBullets } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Bullets",
+  title: "Atoms/Bullets",
   component: SfBullets,
   argTypes: {
     total: {
