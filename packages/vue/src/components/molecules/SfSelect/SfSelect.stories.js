@@ -10,7 +10,7 @@ const options = [
 ];
 
 export default {
-  title: "Components/Molecules/Select",
+  title: "Molecules/Select",
   component: SfSelect,
   argTypes: {
     classes: {

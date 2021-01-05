@@ -1,7 +1,7 @@
 import { SfInput, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Input",
+  title: "Atoms/Input",
   component: SfInput,
   argTypes: {
     classes: {

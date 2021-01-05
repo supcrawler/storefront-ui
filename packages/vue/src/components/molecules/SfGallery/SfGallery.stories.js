@@ -1,7 +1,7 @@
 import { SfGallery } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Molecules/Gallery",
+  title: "Molecules/Gallery",
   component: SfGallery,
   argTypes: {
     images: {

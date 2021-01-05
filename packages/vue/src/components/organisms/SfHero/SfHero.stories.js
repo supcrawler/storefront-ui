@@ -1,7 +1,7 @@
 import { SfHero } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Organisms/Hero",
+  title: "Organisms/Hero",
   component: SfHero,
   argTypes: {
     classes: {

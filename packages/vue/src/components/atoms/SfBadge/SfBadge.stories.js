@@ -1,7 +1,7 @@
 import { SfBadge, SfIcon } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Badge",
+  title: "Atoms/Badge",
   component: SfBadge,
   argTypes: {
     classes: {

@@ -1,6 +1,6 @@
 import { SfTopBar, SfButton, SfImage } from "@storefront-ui/vue";
 export default {
-  title: "Components/Organisms/TopBar",
+  title: "Organisms/TopBar",
   component: SfTopBar,
 };
 

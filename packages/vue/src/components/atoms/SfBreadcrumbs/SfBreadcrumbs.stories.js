@@ -1,7 +1,7 @@
 import { SfBreadcrumbs } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Breadcrumbs",
+  title: "Atoms/Breadcrumbs",
   component: SfBreadcrumbs,
   argTypes: {
     breadcrumbs: {

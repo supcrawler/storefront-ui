@@ -42,7 +42,7 @@ const pages = [
   },
 ];
 export default {
-  title: "Components/Organisms/ContentPages",
+  title: "Organisms/ContentPages",
   component: SfContentPages,
   argTypes: {
     title: {

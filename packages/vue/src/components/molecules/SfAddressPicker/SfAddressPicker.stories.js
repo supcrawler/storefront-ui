@@ -1,7 +1,7 @@
 import SfAddressPicker from "./SfAddressPicker.vue";
 
 export default {
-  title: "Components/Molecules/AddressPicker",
+  title: "Molecules/AddressPicker",
   component: SfAddressPicker,
   argTypes: {
     name: {

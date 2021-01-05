@@ -1,7 +1,7 @@
 import { SfProperty, SfBadge } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Property",
+  title: "Atoms/Property",
   component: SfProperty,
   argTypes: {
     classes: {
