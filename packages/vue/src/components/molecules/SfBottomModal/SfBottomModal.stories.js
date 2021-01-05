@@ -7,7 +7,7 @@ import {
 } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Molecules/BottomModal",
+  title: "Molecules/BottomModal",
   component: SfBottomModal,
   argTypes: {
     transition: {

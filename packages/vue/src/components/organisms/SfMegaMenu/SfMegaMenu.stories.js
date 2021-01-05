@@ -38,7 +38,7 @@ const categories = [
 ];
 
 export default {
-  title: "Components/Organisms/MegaMenu",
+  title: "Organisms/MegaMenu",
   component: SfMegaMenu,
   argTypes: {
     title: {

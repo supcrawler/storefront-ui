@@ -8,7 +8,7 @@ import {
 } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Organisms/Footer",
+  title: "Organisms/Footer",
   component: SfFooter,
   argTypes: {
     open: {

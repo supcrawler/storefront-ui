@@ -1,7 +1,7 @@
 import { SfButton } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Button",
+  title: "Atoms/Button",
   component: SfButton,
   argTypes: {
     classes: {

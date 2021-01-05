@@ -2,7 +2,7 @@ import { SfCallToAction } from "@storefront-ui/vue";
 import image from "../../../../public/assets/storybook/Home/newsletter.jpg";
 
 export default {
-  title: "Components/Molecules/CallToAction",
+  title: "Molecules/CallToAction",
   component: SfCallToAction,
   decorators: [
     () => ({ template: '<div style="max-width:1024px;"><story /></div>' }),
