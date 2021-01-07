@@ -2,7 +2,7 @@ import { SfCard } from "@storefront-ui/vue";
 import cardImg from "../../../../public/assets/storybook/SfCard/card.jpg";
 
 export default {
-  title: "Components/Molecules/Card",
+  title: "Molecules/Card",
   component: SfCard,
   argTypes: {
     title: {
