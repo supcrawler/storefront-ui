@@ -129,7 +129,7 @@ export default {
       },
     },
     picture: {
-      control: "string",
+      control: "object",
       table: {
         category: "SfStore Props",
       },

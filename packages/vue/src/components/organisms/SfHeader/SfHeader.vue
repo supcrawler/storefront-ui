@@ -134,7 +134,7 @@ export default {
      * Header logo
      */
     logo: {
-      type: String,
+      type: [String, Object],
       default: "",
     },
     /**
@@ -190,7 +190,7 @@ export default {
       default: "",
     },
     /**
-     * Header cart items quantity
+     * Header wishlist items quantity
      */
     wishlistItemsQty: {
       type: [String, Number],
@@ -211,15 +211,12 @@ export default {
       default: false,
     },
     /**
-     * Header search on mobile
+     * Is nav slot visible on mobile view
      */
     isNavVisible: {
       type: Boolean,
       default: false,
     },
-    /**
-     * Is nav slot visible at mobile view
-     */
   },
   data() {
     return {
@@ -232,6 +229,13 @@ export default {
       animationLong: null,
       animationDuration: 300,
     };
+  },
+  provide() {
+    const mobileObserver = Vue.observable({});
+    Object.defineProperty(mobileObserver, "isMobile", {
+      get: () => this.isMobile,
+    });
+    return { mobileObserver };
   },
   computed: {
     ...mapMobileObserver(),
