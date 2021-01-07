@@ -16,7 +16,7 @@ export default {
       default: "",
     },
     /**
-     * Page nav icon
+     * Page nav title
      */
     icon: {
       type: [String, Array],

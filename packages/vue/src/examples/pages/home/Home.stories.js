@@ -1,14 +1,12 @@
+import { storiesOf } from "@storybook/vue";
 import Home from "./Home";
-export default {
-  title: "Pages/Home",
-  component: Home,
-};
-
-const Template = (args, { argTypes }) => ({
+storiesOf("Pages|Home", module).add("Common", () => ({
   components: { Home },
-  props: Object.keys(argTypes),
+  mounted() {
+    document.body.style.setProperty("margin", "0");
+  },
+  beforeDestroy() {
+    document.body.style.removeProperty("margin");
+  },
   template: `<Home />`,
-});
-
-export const Common = Template.bind({});
-Common.args = {};
+}));

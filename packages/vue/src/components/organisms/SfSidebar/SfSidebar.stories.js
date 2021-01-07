@@ -1,152 +1,216 @@
+import { storiesOf } from "@storybook/vue";
+import {
+  withKnobs,
+  text,
+  number,
+  boolean,
+  optionsKnob as options,
+} from "@storybook/addon-knobs";
+import {
+  withDataToggle,
+  dataToggleMixin,
+} from "@storefront-ui/vue/config/storybook/decorators";
 import { SfSidebar } from "@storefront-ui/vue";
-export default {
-  title: "Components/Organisms/Sidebar",
-  component: SfSidebar,
-  argTypes: {
-    classes: {
-      control: {
-        type: "select",
-        options: ["sf-sidebar--right", ""],
+storiesOf("Organisms|Sidebar", module)
+  .addDecorator(withKnobs)
+  .addDecorator(withDataToggle("isSidebarOpen"))
+  .add("Common", () => ({
+    components: { SfSidebar },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
       },
-      table: {
-        category: "CSS Modifiers",
+      title: {
+        default: text("title", "My Cart", "Props"),
       },
-    },
-    title: {
-      control: "text",
-      table: {
-        category: "Props",
+      subtitle: {
+        default: text("subtitle", "", "Props"),
       },
-    },
-    subtitle: {
-      control: "text",
-      table: {
-        category: "Props",
+      headingLevel: {
+        default: number("headingLevel", 3, {}, "Props"),
       },
-    },
-    headingLevel: {
-      control: "number",
-      table: {
-        category: "Props",
+      overlay: {
+        default: boolean("overlay", true, "Props"),
       },
-    },
-    button: {
-      control: "boolean",
-      table: {
-        category: "Props",
+      button: {
+        default: boolean("button", true, "Props"),
       },
-      defaultValue: true,
-    },
-    visible: {
-      control: "boolean",
-      table: {
-        category: "Props",
+      persistent: {
+        default: boolean("persistent", false, "Props"),
       },
     },
-    persistent: {
-      control: "boolean",
-      table: {
-        category: "Props",
+    mixins: [dataToggleMixin("isSidebarOpen")],
+    template: `<SfSidebar
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :title="title"
+        :subtitle="subtitle"
+        :heading-level="headingLevel"
+        :button="button"
+        :overlay="overlay"
+        :class="customClass"
+        :persistent="persistent"
+      >
+        Total items: 0
+      </SfSidebar>`,
+  }))
+  .add("On the right", () => ({
+    components: { SfSidebar },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right",
+          },
+          "sf-sidebar--right sf-sidebar--icon",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text("title", "My Cart", "Props"),
+      },
+      subtitle: {
+        default: text("subtitle", "", "Props"),
+      },
+      headingLevel: {
+        default: number("headingLevel", 3, {}, "Props"),
+      },
+      overlay: {
+        default: boolean("overlay", true, "Props"),
+      },
+      button: {
+        default: boolean("button", true, "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
       },
     },
-    overlay: {
-      control: "boolean",
-      table: {
-        category: "Props",
+    mixins: [dataToggleMixin("isSidebarOpen")],
+    template: `<SfSidebar
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :title="title"
+        :subtitle="subtitle"
+        :heading-level="headingLevel"
+        :button="button"
+        :overlay="overlay"
+        :class="customClass"
+        :persistent="persistent"
+      >
+        Total items: 0
+      </SfSidebar>`,
+  }))
+  .add("[slot] title", () => ({
+    components: { SfSidebar },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
       },
-      defaultValue: true,
+      title: {
+        default: text("title", "My Cart", "Props"),
+      },
+      subtitle: {
+        default: text("subtitle", "", "Props"),
+      },
+      headingLevel: {
+        default: number("headingLevel", 3, {}, "Props"),
+      },
+      overlay: {
+        default: boolean("overlay", true, "Props"),
+      },
+      button: {
+        default: boolean("button", true, "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
     },
-    close: { action: "Close sidebar clicked", table: { category: "Events" } },
-  },
-};
-
-const Template = (args, { argTypes }) => ({
-  components: { SfSidebar },
-  props: Object.keys(argTypes),
-  template: `
-  <SfSidebar
-    :visible="visible"
-    @close="close"
-    :title="title"
-    :subtitle="subtitle"
-    :heading-level="headingLevel"
-    :button="button"
-    :overlay="overlay"
-    :class="classes"
-    :persistent="persistent"
-  >
-    Total items: 0
-  </SfSidebar>`,
-});
-
-export const Common = Template.bind({});
-Common.args = {
-  visible: true,
-  title: "My Cart",
-};
-
-export const OnTheRight = Template.bind({});
-OnTheRight.args = {
-  ...Common.args,
-  classes: "sf-sidebar--right",
-};
-
-export const NoOverlay = Template.bind({});
-NoOverlay.args = {
-  ...Common.args,
-  overlay: false,
-};
-
-export const Persistent = Template.bind({});
-Persistent.args = {
-  ...Common.args,
-  persistent: true,
-};
-
-export const UseTitleSlot = (args, { argTypes }) => ({
-  components: { SfSidebar },
-  props: Object.keys(argTypes),
-  template: `
-  <SfSidebar
-    :visible="visible"
-    @close="close"
-    :title="title"
-    :subtitle="subtitle"
-    :heading-level="headingLevel"
-    :button="button"
-    :overlay="overlay"
-    :class="classes"
-    :persistent="persistent"
-  >
-    <template #title="{title, subtitle, headingLevel}">
-      <div>CUSTOM TITLE</div>
-    </template>
-    Total items: 0
-  </SfSidebar>`,
-});
-UseTitleSlot.args = { ...Common.args };
-
-export const UseCircleIconSlot = (args, { argTypes }) => ({
-  components: { SfSidebar },
-  props: Object.keys(argTypes),
-  template: `
-  <SfSidebar
-    :visible="visible"
-    @close="close"
-    :title="title"
-    :subtitle="subtitle"
-    :heading-level="headingLevel"
-    :button="button"
-    :overlay="overlay"
-    :class="classes"
-    :persistent="persistent"
-  >
-    <template #circle-icon="{close}">
-      <div 
-        :style="{position: 'absolute', top: '3rem', right: '-20px', fontSize: '42px', cursor: 'pointer'}" 
-        @click="close">🙊</div>
-    </template>
-    Total items: 0
-  </SfSidebar>`,
-});
-UseCircleIconSlot.args = { ...Common.args };
+    mixins: [dataToggleMixin("isSidebarOpen")],
+    template: `<SfSidebar
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :title="title"
+        :subtitle="subtitle"
+        :heading-level="headingLevel"
+        :button="button"
+        :overlay="overlay"
+        :class="customClass"
+        :persistent="persistent"
+    >
+      <template #title="{title, subtitle, headingLevel}">
+        <div>CUSTOM TITLE</div>
+      </template>
+      Total items: 0
+    </SfSidebar>`,
+  }))
+  .add("[slot] circle-icon", () => ({
+    components: { SfSidebar },
+    props: {
+      customClass: {
+        default: options(
+          "CSS Modifiers",
+          {
+            "sf-sidebar--right": "sf-sidebar--right",
+          },
+          "",
+          { display: "multi-select" },
+          "CSS Modifiers"
+        ),
+      },
+      title: {
+        default: text("title", "My Cart", "Props"),
+      },
+      subtitle: {
+        default: text("subtitle", "", "Props"),
+      },
+      headingLevel: {
+        default: number("headingLevel", 3, {}, "Props"),
+      },
+      overlay: {
+        default: boolean("overlay", true, "Props"),
+      },
+      button: {
+        default: boolean("button", true, "Props"),
+      },
+      persistent: {
+        default: boolean("persistent", false, "Props"),
+      },
+    },
+    mixins: [dataToggleMixin("isSidebarOpen")],
+    template: `<SfSidebar
+        :visible="isSidebarOpen"
+        @close="isSidebarOpen = false"
+        :title="title"
+        :subtitle="subtitle"
+        :heading-level="headingLevel"
+        :button="button"
+        :overlay="overlay"
+        :class="customClass"
+        :persistent="persistent"
+      >
+        <template #circle-icon="{close}">
+          <div 
+            :style="{position: 'absolute', top: '3rem', right: '-20px', fontSize: '42px', cursor: 'pointer'}" 
+            @click="close">🙊</div>
+        </template>
+        Total items: 0
+      </SfSidebar>`,
+  }));

@@ -8,6 +8,7 @@
           image,
           title,
           imagePlaceholder,
+          imageLazy,
           imagePictureBreakpoint,
         }"
       >
@@ -17,6 +18,7 @@
           :width="imageWidth"
           :height="imageHeight"
           :placeholder="imagePlaceholder"
+          :lazy="imageLazy"
           :image-picture-breakpoint="imagePictureBreakpoint"
           class="sf-grouped-product-item__image"
         />
@@ -78,7 +80,7 @@ export default {
      * Product image
      */
     image: {
-      type: String,
+      type: [String, Object],
       default: "",
     },
     /**
@@ -101,6 +103,13 @@ export default {
     imagePlaceholder: {
       type: String,
       default: "",
+    },
+    /**
+     * Product image lazy loading
+     */
+    imageLazy: {
+      type: Boolean,
+      default: true,
     },
     /**
      * Product image picture breakpoint

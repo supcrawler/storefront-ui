@@ -1,11 +1,6 @@
+import { storiesOf } from "@storybook/vue";
 import MyAccount from "./MyAccount";
-export default {
-  title: "Pages/MyAccount",
-  component: MyAccount,
-};
-
-const Template = (args, { argTypes }) => ({
+storiesOf("Pages|My account", module).add("Common", () => ({
   components: { MyAccount },
-  props: Object.keys(argTypes),
   template: `<MyAccount />`,
-});
+}));
