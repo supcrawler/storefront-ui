@@ -1,14 +1,9 @@
 import Vue from "vue";
 let observer;
 const isMobileMax = 1023;
-const isMobileMin = 1024;
-export const onMediaMatchMobile = (e) => {
-  if (!e.matches) return;
-  e.matches ? (observer.isMobile = true) : null;
-};
-export const onMediaMatchDesktop = (e) => {
-  if (!e.matches) return;
-  e.matches ? (observer.isMobile = false) : null;
+export const onMediaMatch = (e) => {
+  if (typeof e.matches === null) return;
+  observer.isMobile = !!e.matches;
 };
 export const setupListener = () => {
   if (
@@ -21,12 +16,7 @@ export const setupListener = () => {
   observer.isMobile =
     Math.max(document.documentElement.clientWidth, window.innerWidth) <=
     isMobileMax;
-  window
-    .matchMedia(`(max-width: ${isMobileMax}px)`)
-    .addListener(onMediaMatchMobile);
-  window
-    .matchMedia(`(min-width: ${isMobileMin}px)`)
-    .addListener(onMediaMatchDesktop);
+  window.matchMedia(`(max-width: ${isMobileMax}px)`).addListener(onMediaMatch);
   observer.isInitialized = true;
 };
 export const tearDownListener = () => {
@@ -37,10 +27,7 @@ export const tearDownListener = () => {
   ) {
     window
       .matchMedia(`(max-width: ${isMobileMax}px)`)
-      .removeListener(onMediaMatchMobile);
-    window
-      .matchMedia(`(min-width: ${isMobileMin}px)`)
-      .removeListener(onMediaMatchDesktop);
+      .removeListener(onMediaMatch);
   }
 };
 export const mapMobileObserver = () => {
