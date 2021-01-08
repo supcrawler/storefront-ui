@@ -1,6 +1,6 @@
 import { SfPagination } from "@storefront-ui/vue";
 export default {
-  title: "Components/Molecules/Pagination",
+  title: "Molecules/Pagination",
   component: SfPagination,
   argTypes: {
     total: {

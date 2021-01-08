@@ -1,7 +1,7 @@
 import { SfCheckbox } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Molecules/Checkbox",
+  title: "Molecules/Checkbox",
   component: SfCheckbox,
   argTypes: {
     name: {

@@ -5,7 +5,7 @@ import { SfCharacteristic } from "@storefront-ui/vue";
 const iconsNames = Object.keys(icons);
 
 export default {
-  title: "Components/Molecules/Characteristic",
+  title: "Molecules/Characteristic",
   component: SfCharacteristic,
   argTypes: {
     sizeIcon: {

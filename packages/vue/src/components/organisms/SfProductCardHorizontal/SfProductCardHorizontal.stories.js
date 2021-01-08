@@ -25,7 +25,7 @@ const selectOptions = {
 };
 
 export default {
-  title: "Components/Organisms/ProductCardHorizontal",
+  title: "Organisms/ProductCardHorizontal",
   component: SfProductCardHorizontal,
   decorators: [
     () => ({

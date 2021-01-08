@@ -1,7 +1,7 @@
 import { SfAddToCart } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Molecules/AddToCart",
+  title: "Molecules/AddToCart",
   component: SfAddToCart,
   decorators: [
     () => ({ template: '<div style="max-width: 21.25rem"><story /></div>' }),

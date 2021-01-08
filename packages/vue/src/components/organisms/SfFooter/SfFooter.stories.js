@@ -5,10 +5,12 @@ import {
   SfImage,
   SfButton,
   SfMenuItem,
+  SfInput,
+  SfLink,
 } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Organisms/Footer",
+  title: "Organisms/Footer",
   component: SfFooter,
   argTypes: {
     open: {
@@ -31,6 +33,18 @@ export default {
         category: "Props",
       },
     },
+    logo: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
+    title: {
+      control: "text",
+      table: {
+        category: "Props",
+      },
+    },
   },
 };
 
@@ -42,6 +56,8 @@ const Template = (args, { argTypes }) => ({
     SfImage,
     SfButton,
     SfMenuItem,
+    SfInput,
+    SfLink,
   },
   props: Object.keys(argTypes),
   data() {
@@ -63,11 +79,11 @@ const Template = (args, { argTypes }) => ({
           title: "Payment & delivery",
           items: ["Purchase terms", "Guarantee"],
         },
-        {
-          title: "Social",
-          pictures: ["facebook", "pinterest", "twitter", "youtube"],
-        },
       ],
+      social: {
+        title: "Social",
+        pictures: ["Facebook", "Pinterest", "Twitter", "Google", "Youtube"],
+      },
     };
   },
   template: `
@@ -75,22 +91,63 @@ const Template = (args, { argTypes }) => ({
       :column="column"
       :multiple="multiple"
       :open="open"
-      class="sb-footer"
+      :logo="logo"
+      :title="title"
     >
       <SfFooterColumn v-for="column in columns" :key="column.title" :title="column.title">        
-        <SfList v-if="column.items">
+        <SfList>
           <SfListItem v-for="item in column.items" :key="item">
             <SfMenuItem :label="item"/>
           </SfListItem>
-        </SfList>
-        <div v-else class="sb-footer__social">
-          <SfImage v-for="picture in column.pictures" :key="picture" width="12" height="12" :src="'/assets/storybook/SfFooter/'+picture+'.svg'" :alt="picture" class="sb-social-icon"/>
-        </div>
+        </SfList>      
       </SfFooterColumn>
+      <SfFooterColumn title="social.title" class="desktop-only">
+        <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+' Icon.svg'" :alt="picture" style="width: 32px; height: 32px;"/>
+      </SfFooterColumn> 
+      <SfFooterColumn title="Language" class="desktop-only">
+        <SfButton class="sf-button--pure" style="display: flex; justify-content: space-between; ">
+          <SfImage
+            src="/assets/storybook/SfFooter/flag.png"
+            alt="flag of the USA"
+          />
+          English
+        </SfButton>
+      </SfFooterColumn>
+      <SfFooterColumn class="desktop-only">
+        <template>
+          <div class="sb-footer__input">
+            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address"/>
+            <SfButton>Subscribe</SfButton>
+          </div>
+        </template>
+      </SfFooterColumn>
+      <SfFooterColumn>
+        <div style="display: flex; flex-direction: column; jusify-content: space-around; align-items:center; width: 100%;">
+          <div class="sf-footer-column__title" style="align-self: flex-start; width: auto;">
+            Social
+          </div>
+          <div class="sb-footer__bottom-social" style="display: flex; justfy-content: space-around; width: 100%;">
+            <SfImage v-for="picture in social.pictures" :key="picture" :src="'/assets/storybook/SfFooter/'+picture+' Icon.svg'" :alt="picture" class="sb-social-icon"/>
+          </div>
+          <div style="display: flex; align-items: center; justify-content: center;">
+            <SfInput class="sf-input--outline" type="text" placeholder="Type your email address" style="min-height: 32px; width: 242px;"/>
+            <SfButton style="width: 116px;">Subscribe</SfButton>
+          </div>
+          <SfLink link="#" class="smartphone-only">
+            <SfImage
+              :src="logo"
+              :alt="title"
+              class="sf-footer__bottom-logo"
+            />            
+          </SfLink>
+        </div>  
+      </SfFooterColumn>  
     </SfFooter>`,
 });
 
 export const Common = Template.bind({});
 Common.args = {
   open: ["About us", "Help", "Social"],
+  title: "Storefront UI",
+  logo: "/assets/logo.svg",
 };

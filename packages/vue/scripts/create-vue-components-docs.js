@@ -154,7 +154,6 @@ function getComponentInfoFromPath(pathComponentVue) {
   };
 }
 function getComponentInfoFromMd(pathComponentMd) {
-  if (pathComponentMd.includes("_internal")) return;
   const contentComponentFile = readComponentMd(pathComponentMd);
   if (!contentComponentFile) {
     console.warn(

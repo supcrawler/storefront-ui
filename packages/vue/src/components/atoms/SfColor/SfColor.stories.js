@@ -1,7 +1,7 @@
 import { SfColor } from "@storefront-ui/vue";
 
 export default {
-  title: "Components/Atoms/Color",
+  title: "Atoms/Color",
   component: SfColor,
   argTypes: {
     color: {
