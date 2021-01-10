@@ -1,6 +1,6 @@
 import { SfHeader } from "@storefront-ui/vue";
 export default {
-  title: "Components/Organisms/Header",
+  title: "Organisms/Header",
   component: SfHeader,
   argTypes: {
     classes: {

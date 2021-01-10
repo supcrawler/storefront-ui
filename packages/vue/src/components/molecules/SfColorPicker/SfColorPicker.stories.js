@@ -2,7 +2,7 @@ import SfColorPicker from "./SfColorPicker.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
 
 export default {
-  title: "Components/Molecules/ColorPicker",
+  title: "Molecules/ColorPicker",
   component: SfColorPicker,
   decorators: [
     () => ({

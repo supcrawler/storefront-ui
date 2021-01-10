@@ -1,6 +1,6 @@
 import { SfRadio } from "@storefront-ui/vue";
 export default {
-  title: "Components/Molecules/Radio",
+  title: "Molecules/Radio",
   component: SfRadio,
   argTypes: {
     classes: {

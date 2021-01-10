@@ -1,6 +1,6 @@
 import { SfSidebar } from "@storefront-ui/vue";
 export default {
-  title: "Components/Organisms/Sidebar",
+  title: "Organisms/Sidebar",
   component: SfSidebar,
   argTypes: {
     classes: {

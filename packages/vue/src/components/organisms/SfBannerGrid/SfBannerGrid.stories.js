@@ -39,7 +39,7 @@ const banners = [
 ];
 
 export default {
-  title: "Components/Organisms/BannerGrid",
+  title: "Organisms/BannerGrid",
   component: SfBannerGrid,
   argTypes: {
     bannerGrid: {

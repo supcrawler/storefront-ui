@@ -1,7 +1,7 @@
 import SfLink from "./SfLink.vue";
 
 export default {
-  title: "Components/Atoms/Link",
+  title: "Atoms/Link",
   component: SfLink,
   argTypes: {
     link: {
