@@ -1,36 +1,22 @@
-<template functional>
-  <component 
-    :is="injections.components.SfButton" 
-    :class="[data.class, data.staticClass, 'sf-arrow']" 
-    :style="[data.style, data.staticStyle]" 
-    type="button" 
-    v-bind="data.attrs" 
-    v-on="listeners"
-  >
+<template>
+  <SfButton class="sf-arrow" type="button" v-bind="$attrs" v-on="$listeners">
     <!--@slot Use this slot to replace arrow icon-->
     <slot>
-      <component 
-        :is="injections.components.SfIcon"
+      <SfIcon
         size="1.5rem"
         icon="arrow_left"
         aria-hidden="true"
-        v-bind="data.attrs"
-        v-on="listeners"
-        :class="[data.class, data.staticClass, 'sf-arrow__icon']"
+        class="sf-arrow__icon"
       />
     </slot>
-  </component>
+  </SfButton>
 </template>
 <script>
 import SfButton from "../SfButton/SfButton";
 import SfIcon from "../SfIcon/SfIcon";
 export default {
-	name: "SfArrow",
-	inject: {
-    components: {
-      default: {SfButton, SfIcon }
-    }
-  }
+  name: "SfArrow",
+  components: { SfButton, SfIcon },
 };
 </script>
 <style lang="scss">

@@ -1,40 +1,25 @@
-<template functional>
-  <component
-    :is="injections.components.SfButton"
-    :class="[data.class, data.staticClass, 'sf-circle-icon']"
-    v-bind="data.attrs"
-    :disabled="props.disabled"
-    v-on="listeners"
-  >
+<template>
+  <SfButton class="sf-circle-icon" :disabled="disabled" v-on="$listeners">
     <!--@slot Custom content that will replace default icon. can be used for inlined SVG's-->
     <slot>
-      <component
-        :is="injections.components.SfIcon"
+      <SfIcon
         aria-hidden="true"
         class="sf-circle-icon__icon"
-        v-bind="data.attrs"
-        :icon="props.icon"
-        :color="props.iconColor"
-        :size="props.iconSize"
-        :badge-label="props.badgeLabel"
-        :has-badge="props.hasBadge"
-        v-on="listeners"
+        :icon="icon"
+        :color="iconColor"
+        :size="iconSize"
       />
     </slot>
-  </component>
+  </SfButton>
 </template>
 <script>
 import SfButton from "../SfButton/SfButton.vue";
 import SfIcon from "../SfIcon/SfIcon.vue";
 export default {
   name: "SfCircleIcon",
-  inject: {
-    components: {
-      default: {
-        SfButton,
-        SfIcon,
-      },
-    },
+  components: {
+    SfButton,
+    SfIcon,
   },
   props: {
     icon: {
