@@ -1,4 +1,7 @@
-import { SfHeader } from "@storefront-ui/vue";
+import {
+  SfHeader,
+} from "@storefront-ui/vue";
+
 export default {
   title: "Components/Organisms/Header",
   component: SfHeader,
@@ -88,7 +91,14 @@ export default {
         category: "Props",
       },
     },
-    "click:cart": { action: "Clicked on cart", table: { category: "Events" } },
+    "change:search": {
+      action: "Changed search value",
+      table: { category: "Events" },
+    },
+    "click:cart": {
+      action: "Clicked on cart",
+      table: { category: "Events" },
+    },
     "click:wishlist": {
       action: "Clicked on Wishlist",
       table: { category: "Events" },
@@ -103,12 +113,6 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfHeader },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      navigation: ["women", "man", "kids"],
-      searchValue: "",
-    };
-  },
   template: `
   <SfHeader
     :class="classes"
@@ -121,7 +125,6 @@ const Template = (args, { argTypes }) => ({
     :wishlist-icon="wishlistIcon"
     :is-sticky="isSticky"
     :account-icon="accountIcon"
-    :style="spacer"
     :cart-items-qty="cartItemsQty"
     :wishlist-items-qty="wishlistItemsQty"
     @click:cart="this['click:cart']"
