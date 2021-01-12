@@ -7,7 +7,7 @@ export default {
 
 const Template = (args, { argTypes }) => ({
   components: { SfDivider },
-  template: `<div style="margin-top:10vh"> 
-		<SfDivider/> 
-	</div>`,
+  template: `<SfDivider />`,
 });
+
+export const Common = Template.bind({});

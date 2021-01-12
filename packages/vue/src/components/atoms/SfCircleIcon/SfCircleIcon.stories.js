@@ -99,7 +99,7 @@ Warning.args = {
 export const InDanger = Template.bind({});
 InDanger.args = {
   ...Primary.args,
-  classes: "color-danger",
+  classes: "color-primary",
 };
 
 export const Info = Template.bind({});

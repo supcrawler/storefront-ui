@@ -29,7 +29,6 @@ import SfBar from "./src/components/molecules/SfBar/SfBar.vue";
 import SfBottomModal from "./src/components/molecules/SfBottomModal/SfBottomModal.vue";
 import SfCallToAction from "./src/components/molecules/SfCallToAction/SfCallToAction.vue";
 import SfCard from "./src/components/molecules/SfCard/SfCard.vue";
-import SfCategoryCard from "./src/components/molecules/SfCategoryCard/SfCategoryCard.vue";
 import SfCharacteristic from "./src/components/molecules/SfCharacteristic/SfCharacteristic.vue";
 import SfCheckbox from "./src/components/molecules/SfCheckbox/SfCheckbox.vue";
 import SfColorPicker from "./src/components/molecules/SfColorPicker/SfColorPicker.vue";
@@ -103,7 +102,6 @@ export {
   SfBottomModal,
   SfCallToAction,
   SfCard,
-  SfCategoryCard,
   SfCharacteristic,
   SfCheckbox,
   SfColorPicker,
@@ -144,5 +142,5 @@ export {
   SfStoreLocator,
   SfTable,
   SfTabs,
-  SfTopBar
+  SfTopBar,
 };
