@@ -106,7 +106,6 @@ const Template = (args, { argTypes }) => ({
   data() {
     return {
       options,
-      selectedValue: "",
     };
   },
   template: `
@@ -175,7 +174,6 @@ export const UseLabelSlot = (args, { argTypes }) => ({
   data() {
     return {
       options,
-      selectedValue: "",
     };
   },
   template: `
