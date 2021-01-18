@@ -95,7 +95,7 @@ export const UseCountSlot = (args, { argTypes }) => ({
     @change="selected = !selected"
     style="max-width: 22.875rem"
   >
-  <template #count="{count}">CUSTOM COUNT</template>
+  <template #label="{label}">CUSTOM LABEL</template>
   </SfFilter>`,
 });
 UseCountSlot.args = { ...Common.args };
