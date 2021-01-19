@@ -77,7 +77,7 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage :src="image.url" :alt="image.content" width="470">{{
+            <SfImage :src="image.url" :alt="image.content">{{
               image.content
             }}</SfImage>
           </div>
