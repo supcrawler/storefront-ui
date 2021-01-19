@@ -88,6 +88,7 @@ function createLogsWithTemplate(template) {
   const others = [];
 
   entries.forEach((commit) => {
+    console.log(commit);
     const mappings = {
       features: {
         key: "feat",
@@ -148,6 +149,7 @@ function createLogsWithTemplate(template) {
       "[[others]]",
       others.length ? others.filter(Boolean).join("\n") : "N/A"
     );
+
   return output;
 }
 
@@ -212,5 +214,5 @@ module.exports = {
 };
 
 if (require.main === module) {
-  createLogsWithTemplate(TEMPLATE);
+  createLogsWithTemplate(TEMPLATE));
 }
