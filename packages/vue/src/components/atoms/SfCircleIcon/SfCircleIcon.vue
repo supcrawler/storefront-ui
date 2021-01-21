@@ -18,6 +18,7 @@
         :size="props.iconSize"
         :badge-label="props.badgeLabel"
         :has-badge="props.hasBadge"
+        v-on="listeners"
       />
     </slot>
   </component>
