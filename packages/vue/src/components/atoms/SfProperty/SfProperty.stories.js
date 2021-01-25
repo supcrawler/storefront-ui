@@ -78,7 +78,7 @@ export const WithNameSlot = (args, { argTypes }) => ({
     :class="classes"
     :name="name"
     :value="value">
-    <template #name="{props}">
+    <template #name="{name}">
       {{name}}:<br>
     </template>
   </SfProperty>`,
@@ -95,7 +95,7 @@ export const WithValueSlot = (args, { argTypes }) => ({
     :class="classes"
     :name="name"
     :value="value">
-    <template #value="{props}">
+    <template #value="{value}">
       <SfBadge>{{value}}</SfBadge>
     </template>
   </SfProperty>`,
