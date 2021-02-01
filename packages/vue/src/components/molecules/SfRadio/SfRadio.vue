@@ -14,7 +14,6 @@
         :value="value"
         :checked="isChecked"
         :disabled="disabled"
-        @change="changeHandler"
         @input="inputHandler"
       />
       <!-- @slot Custom checkmark markup (bind 'isChecked' boolean, 'disabled' boolean -->
@@ -92,9 +91,6 @@ export default {
     },
   },
   methods: {
-    changeHandler() {
-      this.$emit("change", this.value);
-    },
     inputHandler() {
       this.$emit("input", this.value);
     },
