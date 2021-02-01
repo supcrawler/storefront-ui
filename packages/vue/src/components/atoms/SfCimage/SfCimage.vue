@@ -17,7 +17,7 @@ export default {
     placeholder: {
       type: String,
       default: "",
-      validator: (value) => !value || placeholderTypes[value],
+      validator: (value) => !!value || placeholderTypes[value],
     },
     cloud: {
       type: Object,
@@ -36,6 +36,7 @@ export default {
     alt: {
       type: String,
       required: true,
+      validator: (value) => value && !!value.trim(),
     },
   },
   render(createElement, context) {

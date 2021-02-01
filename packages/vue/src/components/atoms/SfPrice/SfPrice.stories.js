@@ -48,7 +48,7 @@ export const WithSpecialSlot = (args, { argTypes }) => ({
   <SfPrice
     :regular="regular"
     :special="special">
-    <template #special="{props}">
+    <template #special="{special}">
       <SfBadge class="color-warning">{{special}}</SfBadge>
     </template>  
   </SfPrice>`,
@@ -64,9 +64,9 @@ export const WithOldSlot = (args, { argTypes }) => ({
   <SfPrice
     :regular="regular"
     :special="special">
-    <template #old="{props}">
-      <SfBadge class="color-warning">{{regular}}</SfBadge>
-    </template>
+    <template #special="{special}">
+      <SfBadge class="color-warning">{{special}}</SfBadge>
+    </template>  
   </SfPrice>`,
 });
 WithOldSlot.args = {
@@ -80,7 +80,7 @@ export const WithRegularSlot = (args, { argTypes }) => ({
   <SfPrice
     :regular="regular"
     :special="special">
-    <template #regular="{props}">
+    <template #regular="{regular, special}">
       <SfBadge>{{regular}}</SfBadge>
     </template>
   </SfPrice>`,

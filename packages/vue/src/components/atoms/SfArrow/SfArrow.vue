@@ -16,6 +16,7 @@
         aria-hidden="true"
         v-bind="data.attrs"
         :class="[data.class, data.staticClass, 'sf-arrow__icon']"
+        v-on="listeners"
       />
     </slot>
   </component>

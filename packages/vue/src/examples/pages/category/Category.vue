@@ -876,6 +876,9 @@ export default {
     --product-card-title-margin: var(--spacer-2xs) 0 0 0;
     --price-regular-font-line-height: 1;
     margin-bottom: var(--spacer-sm);
+    ::v-deep .sf-product-card__image {
+      height: 12.9375rem;
+    }
     ::v-deep .sf-product-card__price {
       margin: var(--spacer-2xs) 0 var(--spacer-xs);
     }
@@ -884,6 +887,9 @@ export default {
       margin-bottom: 0;
       --product-card-max-width: 50%;
       --product-card-title-margin: var(--spacer-base) 0 0 0;
+      ::v-deep .sf-product-card__image {
+        height: unset;
+      }
     }
   }
   &__product-card-horizontal {
@@ -993,3 +999,4 @@ export default {
   }
 }
 </style>
+0
