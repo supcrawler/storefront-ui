@@ -7,7 +7,10 @@
       :value="value"
       v-bind="$attrs"
       :placeholder="placeholder"
-      v-on="listeners"
+      @input="$emit('input', $event.target.value)"
+      @keyup.enter="$emit('enter', $event.target.value)"
+      @keyup.esc="$emit('input', '')"
+      @blur="$emit('blur')"
     />
     <!-- @slot -->
     <slot name="icon">
@@ -54,17 +57,6 @@ export default {
     icon: {
       type: Object,
       default: () => ({}),
-    },
-  },
-  computed: {
-    listeners() {
-      return {
-        ...this.$listeners,
-        input: (event) => this.$emit("input", event.target.value),
-        "keyup.enter": (event) => this.$emit("input", event.target.value),
-        "keyup.esc": () => this.$emit("input", ""),
-        blur: () => this.$emit("blur"),
-      };
     },
   },
 };
