@@ -50,20 +50,14 @@ export default {
       description: "Define color of the search icon",
     },
     input: { action: "Input changed", table: { category: "Events" } },
+    enter: { action: "Enter pressed", table: { category: "Events" } },
     blur: { action: "Not focus anymore", table: { category: "Events" } },
-    focus: { action: "Focus", table: { category: "Events" } },
-    click: { action: "Button click", table: { category: "Events" } },
   },
 };
 
 const Template = (args, { argTypes }) => ({
   components: { SfSearchBar },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      searchValue: this.value,
-    }
-  },
   computed: {
     iconCheck() {
       return this.iconSize || this.iconColor
@@ -79,12 +73,11 @@ const Template = (args, { argTypes }) => ({
   :icon="iconCheck"
   :class="classes"
   :placeholder="placeholder"
-  @click="click"
-  @blur="blur"
-  @focus="focus"
+  @enter="enter"
   @input="input"
+  @blur="blur"
   aria-label="Search"
-  v-model="searchValue"/>`,
+  v-model="value"/>`,
 });
 
 export const Common = Template.bind({});
@@ -119,21 +112,17 @@ Centered.args = {
 
 export const UseIconSlot = (args, { argTypes }) => ({
   components: { SfSearchBar },
-  data() {
-    return {
-      searchValue: this.value,
-    }
-  },
   props: Object.keys(argTypes),
   template: `
   <SfSearchBar
+    :class="customClass"
     :placeholder="placeholder"
-    @click="click"
-    @blur="blur"
-    @focus="focus"
+    @click="alert(value)"
+    @enter="enter"
     @input="input"
+    @blur="blur"
     aria-label="Search"
-    v-model="searchValue">
+    v-model="value">
     <template #icon>👀</template>
   </SfSearchBar>`,
 });
