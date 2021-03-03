@@ -43,7 +43,7 @@
         v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
-        @click="toggleIsInWishlist"
+        @click="toggleIsOnWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
@@ -271,14 +271,14 @@ export default {
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
      */
-    isInWishlistIcon: {
+    isOnWishlistIcon: {
       type: [String, Array],
       default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
-    isInWishlist: {
+    isOnWishlist: {
       type: Boolean,
       default: false,
     },
@@ -317,22 +317,22 @@ export default {
       return this.isSFColors ? `${this.badgeColor.trim()}` : "";
     },
     currentWishlistIcon() {
-      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
+      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon;
     },
     showAddedToCartBadge() {
       return !this.isAddingToCart && this.isAddedToCart;
     },
     ariaLabel() {
-      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist";
     },
     wishlistIconClasses() {
       const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
+      return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`;
     },
   },
   methods: {
-    toggleIsInWishlist() {
-      this.$emit("click:wishlist", !this.isInWishlist);
+    toggleIsOnWishlist() {
+      this.$emit("click:wishlist", !this.isOnWishlist);
     },
     onAddToCart(event) {
       event.preventDefault();
