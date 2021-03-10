@@ -5,11 +5,7 @@
         name="image"
         v-bind="{ image, title, link, imageHeight, imageWidth }"
       >
-        <SfButton
-          :link="link"
-          class="sf-button--pure sf-product-card__link"
-          v-on="$listeners"
-        >
+        <SfLink :link="link" class="sf-product-card__link">
           <template v-if="Array.isArray(image)">
             <SfImage
               v-for="(picture, key) in image.slice(0, 2)"
@@ -29,7 +25,7 @@
             :width="imageWidth"
             :height="imageHeight"
           />
-        </SfButton>
+        </SfLink>
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
@@ -101,15 +97,11 @@
       </template>
     </div>
     <slot name="title" v-bind="{ title, link }">
-      <SfButton
-        :link="link"
-        class="sf-button--pure sf-product-card__link"
-        v-on="$listeners"
-      >
+      <SfLink :link="link" class="sf-product-card__link">
         <h3 class="sf-product-card__title">
           {{ title }}
         </h3>
-      </SfButton>
+      </SfLink>
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
@@ -144,6 +136,7 @@
 <script>
 import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
 import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
+import SfLink from "../../atoms/SfLink/SfLink.vue";
 import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
 import SfRating from "../../atoms/SfRating/SfRating.vue";
 import SfImage from "../../atoms/SfImage/SfImage.vue";
@@ -157,6 +150,7 @@ export default {
     SfRating,
     SfIcon,
     SfImage,
+    SfLink,
     SfCircleIcon,
     SfBadge,
     SfButton,
