@@ -17,7 +17,6 @@
       :id="label"
       v-focus
       :value="value"
-      :disabled="disabled"
       class="sf-select__dropdown"
       @change="changeHandler"
     >
