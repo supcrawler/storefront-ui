@@ -4,11 +4,13 @@ WORKDIR /var/www
 
 COPY . .
 
-RUN cd packages/vue \
-   && yarn \
-   && yarn build-storybook
+RUN npm install \
+#  && sed -i "/^module\.exports.*/a \  base: '\/amplience\/'," ./src/.vuepress/config.js \
+#  && cat ./src/.vuepress/config.js \
+#  && npm run build
+   && cd packages/vue \
+   && yarn docs:build
 
 FROM nginx
 
-COPY .vuestorefrontcloud/docker/default.conf /etc/nginx/conf.d/default.conf
-COPY --from=build /var/www/packages/vue/storybook-static /usr/share/nginx/html
+COPY --from=build /var/www/src/.vuepress/dist /usr/share/nginx/html/amplience
