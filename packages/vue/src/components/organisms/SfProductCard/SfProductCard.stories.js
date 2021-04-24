@@ -121,10 +121,6 @@ export default {
       action: "Wishlist clicked",
       table: { category: "Events" },
     },
-    handleClick: {
-      action: "Card clicked",
-      table: { category: "Events" },
-    },
   },
 };
 
@@ -154,7 +150,6 @@ const Template = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click="handleClick"
   />`,
 });
 
@@ -166,12 +161,6 @@ Common.args = {
   maxRating: 5,
   reviewsCount: 7,
   showAddToCartButton: true,
-};
-
-export const WithLink = Template.bind({});
-WithLink.args = {
-  ...Common.args,
-  link: "https://storefrontui.io",
 };
 
 export const WithBadge = Template.bind({});
@@ -240,7 +229,6 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click="handleClick"
   >
     <template #image="{ image, title }">
       <div :style="{ height: '111px', display: 'flex', alignItems: 'center', justifyContent: 'center'}">CUSTOM IMAGE</div>
@@ -275,7 +263,6 @@ export const UseAddToCart = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click="handleClick"
   >
     <template #add-to-cart="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }">
       CUSTOM ADD TO CART
@@ -310,7 +297,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click="handleClick"
   >
     <template #title">
       CUSTOM TITLE
@@ -345,7 +331,6 @@ export const UseWishlistIconSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click="handleClick"
   >
     <template #wishlist-icon">
       CUSTOM WISHLIST ICON
@@ -380,7 +365,6 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click="handleClick"
   >
     <template #price">
       CUSTOM PRICE
@@ -415,7 +399,6 @@ export const UseReviewsSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click="handleClick"
   >
     <template #reviews">
       CUSTOM REVIEWS

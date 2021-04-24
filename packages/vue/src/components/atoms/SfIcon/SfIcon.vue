@@ -1,5 +1,5 @@
 <template>
-  <span
+  <div
     ref="icon"
     :class="['sf-icon', iconColorClass, iconSizeClass]"
     :style="iconCustomStyle"
@@ -29,7 +29,7 @@
         />
       </svg>
     </slot>
-  </span>
+  </div>
 </template>
 <script>
 import icons from "@storefront-ui/shared/icons/icons";

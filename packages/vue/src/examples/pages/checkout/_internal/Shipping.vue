@@ -266,6 +266,8 @@ export default {
 .form {
   &__element {
     margin: 0 0 var(--spacer-base) 0;
+    --input-label-top: 80%;
+    --input-label-font-size: var(--font-size--base);
     &:last-of-type {
       margin: 0;
     }
