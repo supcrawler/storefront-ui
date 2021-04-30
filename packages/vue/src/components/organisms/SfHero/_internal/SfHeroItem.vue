@@ -17,10 +17,6 @@
           </SfButton>
         </div>
       </slot>
-      <!--@slot hero item withImgTag.
-      Slot dedicated to img tags or other components with this tag (e.g. SfImage, SfCimage) that can be used as images for background. 
-      If you want to use this slot, make sure that background and image props are NOT provided.-->
-      <slot name="withImgTag" />
     </component>
   </li>
 </template>
@@ -73,13 +69,12 @@ export default {
     ...mapMobileObserver(),
     style() {
       const image = this.image;
+      const isImageString = typeof image === "string";
       const background = this.background;
       return {
-        "--_hero-item-background-image": image.mobile
-          ? `url(${image.mobile})`
-          : `url(${image})`,
-        "--_hero-item-background-desktop-image":
-          image.desktop && `url(${image.desktop})`,
+        "background-image": isImageString
+          ? `url(${image})`
+          : `url(${this.isMobile ? image.mobile : image.desktop})`,
         "--_hero-item-background-color": background,
       };
     },
