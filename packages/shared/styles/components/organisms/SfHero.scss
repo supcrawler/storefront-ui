@@ -2,13 +2,21 @@
 .sf-hero-item {
   display: flex;
   justify-content: flex-start;
+  position: relative;
   box-sizing: border-box;
   width: 100%;
   color: var(--c-text);
   @include background(
     --hero-item-background,
-    var(--_hero-item-background-color, transparent)
+    var(--_hero-item-background-color, transparent),
+    var(--_hero-item-background-image)
   );
+  img {
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+  }
   &__wrapper {
     display: flex;
     flex-direction: column;
@@ -79,6 +87,10 @@
     &__subtitle {
       width: 100%;
     }
+    --hero-item-background-image: var(
+      --_hero-item-background-desktop-image,
+      var(--_hero-item-background-image)
+    );
     &__title {
       --hero-item-font-size: var(--h1-font-size);
       width: 100%;
