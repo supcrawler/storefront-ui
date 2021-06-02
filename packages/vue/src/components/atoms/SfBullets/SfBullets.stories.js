@@ -20,12 +20,7 @@ export default {
         category: "Props",
       },
     },
-    // click: { action: "set Value of current", table: { category: "Events" } },
-  },
-  parameters: {
-    actions: {
-      handles: ['click', '.sf-bullet']
-    },
+    click: { action: "set Value of current", table: { category: "Events" } },
   },
 };
 
@@ -37,16 +32,11 @@ const Template = (args, { argTypes }) => ({
       curr: this.current,
     };
   },
-  methods: {
-    handleClick(value) {
-      this.curr = value;
-    },
-  },
   template: `
   <SfBullets
     :total="total"
     :current="curr"
-    @click="handleClick"
+    @click="value => curr = value"
   />`,
 });
 
