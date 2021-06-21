@@ -69,12 +69,7 @@
             Your feedback is important to us. Let us know what we could improve.
           </p>
           <SfButton
-            class="
-              feedback-button
-              color-secondary
-              sf-button--full-width
-              button-size
-            "
+            class="feedback-button color-secondary sf-button--full-width button-size"
             >Send my feedback</SfButton
           >
         </div>
@@ -88,7 +83,7 @@
 <script>
 import { SfHeading, SfButton, SfCallToAction } from "@storefront-ui/vue";
 export default {
-  name: "ThankYou",
+  name: "Product",
   components: {
     SfHeading,
     SfButton,
