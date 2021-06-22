@@ -66,13 +66,7 @@
       <SfComponentSelect
         v-model="country"
         label="Country"
-        class="
-          form__element
-          form__element--half
-          form__element--half-even
-          form__select
-          sf-component-select--underlined
-        "
+        class="form__element form__element--half form__element--half-even form__select sf-component-select--underlined"
         required
         :valid="countryBlur || validCountry(country)"
         error-message="Please choose your country."
@@ -134,10 +128,7 @@
       <div class="form__action">
         <SfButton type="submit" @click.prevent="submit">Submit</SfButton>
         <SfButton
-          class="
-            sf-button--text
-            form__action-button form__action-button--secondary
-          "
+          class="sf-button--text form__action-button form__action-button--secondary"
           @click="reset"
           >Reset</SfButton
         >
