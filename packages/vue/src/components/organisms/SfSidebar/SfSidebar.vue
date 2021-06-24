@@ -37,7 +37,11 @@
               :title="title"
               :description="subtitle"
               :level="headingLevel"
-              class="sf-heading--left sf-heading--no-underline sf-sidebar__title desktop-only"
+              class="
+                sf-heading--left sf-heading--no-underline
+                sf-sidebar__title
+                desktop-only
+              "
             />
           </slot>
           <!--@slot Use this slot to add sticky top content.-->
@@ -151,7 +155,10 @@ export default {
         if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
-            disableBodyScroll(this.$refs.asideContent);
+            const sidebarContent = document.getElementsByClassName(
+              "sf-sidebar__content"
+            )[0];
+            disableBodyScroll(sidebarContent);
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {
