@@ -155,10 +155,7 @@ export default {
         if (!isClient) return;
         if (value) {
           this.$nextTick(() => {
-            const sidebarContent = document.getElementsByClassName(
-              "sf-sidebar__content"
-            )[0];
-            disableBodyScroll(sidebarContent);
+            disableBodyScroll(this.$refs.asideContent);
           });
           document.addEventListener("keydown", this.keydownHandler);
         } else {
