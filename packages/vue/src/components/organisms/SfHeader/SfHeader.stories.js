@@ -24,18 +24,6 @@ export default {
         category: "Props",
       },
     },
-    logoHeight: {
-      control: "number",
-      table: {
-        category: "Props",
-      },
-    },
-    logoWidth: {
-      control: "number",
-      table: {
-        category: "Props",
-      },
-    },
     title: {
       control: "text",
       table: {
@@ -135,8 +123,6 @@ const Template = (args, { argTypes }) => ({
     :class="classes"
     :title="title"
     :logo="logo"
-    :logoHeight="logoHeight"
-    :logoWidth="logoWidth"
     :active-icon="activeIcon"
     :search-placeholder="searchPlaceholder"
     :search-value="searchValues"
