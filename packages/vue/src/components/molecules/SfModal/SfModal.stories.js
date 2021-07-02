@@ -35,12 +35,6 @@ export default {
     },
     close: { action: "Close modal clicked", table: { category: "Events" } },
   },
-  parameters: {
-    docs: {
-      inlineStories: false,
-      iframeHeight: "300px",
-    },
-  },
 };
 
 const Template = (args, { argTypes }) => ({

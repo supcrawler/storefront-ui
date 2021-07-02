@@ -55,11 +55,7 @@
           <slot name="cancel">
             <SfButton
               ref="cancel"
-              class="
-                sf-component-select__cancel
-                sf-button--full-width
-                smartphone-only
-              "
+              class="sf-component-select__cancel sf-button--full-width smartphone-only"
               @click="closeHandler"
             >
               Cancel
@@ -186,7 +182,7 @@ export default {
     },
     maxHeight() {
       if (!this.options.length) return;
-      return `${this.optionHeight * (this.size + 0.5)}px`;
+      return `${this.optionHeight * this.options.length}px`;
     },
     isActive() {
       return this.open;
