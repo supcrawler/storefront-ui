@@ -140,9 +140,6 @@ export default {
       immediate: true,
     },
   },
-  beforeDestroy() {
-    clearAllBodyScrollLocks();
-  },
   methods: {
     close() {
       this.$emit("close", false);
