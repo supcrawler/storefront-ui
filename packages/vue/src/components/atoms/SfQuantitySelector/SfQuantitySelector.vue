@@ -7,7 +7,7 @@
       :is="injections.components.SfButton"
       :disabled="props.disabled"
       class="sf-button--pure sf-quantity-selector__button"
-      data-testid="decrease"
+      data-testid="+"
       @click="$options.handleInput(props.qty - 1, listeners)"
     >
       &minus;
@@ -25,7 +25,7 @@
       :is="injections.components.SfButton"
       :disabled="props.disabled"
       class="sf-button--pure sf-quantity-selector__button"
-      data-testid="increase"
+      data-testid="-"
       @click="$options.handleInput(props.qty + 1, listeners)"
     >
       +
