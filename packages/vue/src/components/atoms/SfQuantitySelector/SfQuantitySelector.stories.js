@@ -33,20 +33,6 @@ export default {
         category: "Props",
       },
     },
-    min: {
-      control: "number",
-      defaultValue: null,
-      table: {
-        category: "Props",
-      },
-    },
-    max: {
-      control: "number",
-      defaultValue: null,
-      table: {
-        category: "Props",
-      },
-    },
   },
 };
 
@@ -62,8 +48,6 @@ const Template = (args, { argTypes }) => ({
   <SfQuantitySelector
     v-model="inputValue"
     :disabled="disabled"
-    :min="min"
-    :max="max"
     aria-label="Quantity"
     :class="classes"
   />`,

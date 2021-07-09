@@ -24,7 +24,7 @@ describe("Home page", () => {
       .eq(1)
       .click()
       .get(selectors.hero.items)
-      .last()
+      .first()
       .should("have.class", "glide__slide--active")
   });
   it("test SfBannerGrid component", () => {

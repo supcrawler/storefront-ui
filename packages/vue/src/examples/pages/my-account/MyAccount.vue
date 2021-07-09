@@ -159,5 +159,3 @@ export default {
   padding: var(--spacer-base) 0 var(--spacer-lg);
 }
 </style>
-
-<include-source />

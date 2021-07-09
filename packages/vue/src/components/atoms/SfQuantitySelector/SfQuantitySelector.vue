@@ -5,14 +5,10 @@
   >
     <component
       :is="injections.components.SfButton"
-      :disabled="
-        props.disabled || Boolean(props.min !== null && props.qty <= props.min)
-      "
+      :disabled="props.disabled"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="decrease"
-      @click="
-        $options.handleInput(props.qty - 1, listeners, props.min, props.max)
-      "
+      @click="$options.handleInput(props.qty - 1, listeners)"
     >
       &minus;
     </component>
@@ -23,18 +19,14 @@
       :disabled="props.disabled"
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
-      @input="$options.handleInput($event, listeners, props.min, props.max)"
+      @input="$options.handleInput($event, listeners)"
     />
     <component
       :is="injections.components.SfButton"
-      :disabled="
-        props.disabled || Boolean(props.max !== null && props.qty >= props.max)
-      "
+      :disabled="props.disabled"
       class="sf-button--pure sf-quantity-selector__button"
       data-testid="increase"
-      @click="
-        $options.handleInput(props.qty + 1, listeners, props.min, props.max)
-      "
+      @click="$options.handleInput(props.qty + 1, listeners)"
     >
       +
     </component>
@@ -67,26 +59,9 @@ export default {
       type: Boolean,
       default: false,
     },
-    /** Minimum allowed quantity */
-    min: {
-      type: Number,
-      default: null,
-    },
-    /** Maximum allowed quantity */
-    max: {
-      type: Number,
-      default: null,
-    },
   },
-  handleInput(qty, listeners, min, max) {
-    // adjust qty per min/max if needed
-    const minimum = min || 1;
-    if (qty < minimum || isNaN(qty)) {
-      qty = minimum;
-    } else if (max !== null && qty > max) {
-      qty = max;
-    }
-    return listeners.input && listeners.input(qty);
+  handleInput(qty, listeners) {
+    return listeners.input && listeners.input(qty < 1 || isNaN(qty) ? 1 : qty);
   },
 };
 </script>

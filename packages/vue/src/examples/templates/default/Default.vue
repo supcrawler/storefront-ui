@@ -1,6 +1,11 @@
 <template>
   <div id="default">
-    <SfHeader :logo="shopLogo" :title="shopName" active-icon="account">
+    <SfHeader
+      :logo="shopLogo"
+      :title="shopName"
+      active-icon="account"
+      is-sticky
+    >
       <template #navigation>
         <SfHeaderNavigationItem
           v-for="(category, key) in shopRootCategories"
@@ -70,5 +75,3 @@ export default {
 #default {
 }
 </style>
-
-<include-source />

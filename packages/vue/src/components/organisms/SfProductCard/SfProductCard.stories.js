@@ -27,14 +27,12 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "100%",
     },
     imageHeight: {
       control: "number",
       table: {
         category: "Props",
       },
-      defaultValue: "auto",
     },
     badgeLabel: {
       control: "text",
@@ -78,12 +76,6 @@ export default {
         category: "Props",
       },
     },
-    colors: {
-      control: "object",
-      table: {
-        category: "Props",
-      },
-    },
     wishlistIcon: {
       control: "text",
       table: {
@@ -91,13 +83,13 @@ export default {
       },
       defaultValue: "heart",
     },
-    isOnWishlistIcon: {
+    isInWishlistIcon: {
       control: "text",
       table: {
         category: "Props",
       },
     },
-    isOnWishlist: {
+    isInWishlist: {
       control: "boolean",
       table: {
         category: "Props",
@@ -155,8 +147,8 @@ const Template = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
@@ -174,68 +166,6 @@ Common.args = {
   maxRating: 5,
   reviewsCount: 7,
   showAddToCartButton: true,
-};
-
-export const WithColorPicker = (args, { argTypes }) => ({
-  components: { SfProductCard },
-  props: Object.keys(argTypes),
-  methods: {
-    handleSelectedColor(color) {
-      this.colors.map((el) => {
-        if (el.label === color.label) {
-          el.selected = !el.selected;
-        } else {
-          el.selected = false;
-        }
-      });
-    },
-  },
-  template: `
-  <SfProductCard
-    :image="image"
-    :image-width="imageWidth"
-    :image-height="imageHeight"
-    :colors="colors"
-    :badge-label="badgeLabel"
-    :badge-color="badgeColor"
-    :title="title"
-    :link="link"
-    :link-tag="linkTag"
-    :score-rating="scoreRating"
-    :max-rating="maxRating"
-    :reviews-count="reviewsCount"
-    :regular-price="regularPrice"
-    :special-price="specialPrice"
-    :wishlist-icon="wishlistIcon"
-    :is-in-wishlist-icon="isInWishlistIcon"
-    :is-in-wishlist="isInWishlist"
-    :show-add-to-cart-button="showAddToCartButton"
-    :add-to-cart-disabled="addToCartDisabled"
-    :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['click:addToCart']"
-    @click:wishlist="this['click:wishlist']"
-    @click:colors="handleSelectedColor"
-  />`,
-});
-WithColorPicker.args = {
-  ...Common.args,
-  colors: [
-    { label: "Sand", value: "sand", color: "#EDCBB9", selected: false },
-    { label: "Mint", value: "mint", color: "#ABD9D8", selected: false },
-    {
-      label: "Vivid rose",
-      value: "vivid rose",
-      color: "#DB5593",
-      selected: false,
-    },
-    { label: "Peach", value: "peach", color: "#F59F93", selected: false },
-    {
-      label: "Citrus",
-      value: "citrus",
-      color: "#FFEE97",
-      selected: false,
-    },
-  ],
 };
 
 export const WithLink = Template.bind({});
@@ -260,7 +190,7 @@ AddedToCart.args = {
 export const AddedToWishlist = Template.bind({});
 AddedToWishlist.args = {
   ...Common.args,
-  isOnWishlist: true,
+  isInWishlist: true,
 };
 
 export const WithMultipleImages = Template.bind({
@@ -303,8 +233,8 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
@@ -338,8 +268,8 @@ export const UseAddToCart = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
@@ -353,40 +283,6 @@ export const UseAddToCart = (args, { argTypes }) => ({
   </SfProductCard>`,
 });
 UseAddToCart.args = { ...Common.args };
-
-export const UseColorsSlot = (args, { argTypes }) => ({
-  components: { SfProductCard },
-  props: Object.keys(argTypes),
-  template: `
-  <SfProductCard
-    :image="image"
-    :image-width="imageWidth"
-    :image-height="imageHeight"
-    :badge-label="badgeLabel"
-    :badge-color="badgeColor"
-    :title="title"
-    :link="link"
-    :link-tag="linkTag"
-    :score-rating="scoreRating"
-    :max-rating="maxRating"
-    :reviews-count="reviewsCount"
-    :regular-price="regularPrice"
-    :special-price="specialPrice"
-    :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
-    :show-add-to-cart-button="showAddToCartButton"
-    :add-to-cart-disabled="addToCartDisabled"
-    :is-added-to-cart="isAddedToCart"
-    @click:add-to-cart="this['click:addToCart']"
-    @click:wishlist="this['click:wishlist']"
-  >
-    <template #colors="{ colors }">
-      <div style="margin-top: var(--spacer-sm);">CUSTOM COLORS</div>
-    </template>
-  </SfProductCard>`,
-});
-UseColorsSlot.args = { ...Common.args };
 
 export const UseTitleSlot = (args, { argTypes }) => ({
   components: { SfProductCard },
@@ -407,8 +303,8 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
@@ -442,8 +338,8 @@ export const UseWishlistIconSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
@@ -477,8 +373,8 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
@@ -512,8 +408,8 @@ export const UseReviewsSlot = (args, { argTypes }) => ({
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :wishlist-icon="wishlistIcon"
-    :is-on-wishlist-icon="isOnWishlistIcon"
-    :is-on-wishlist="isOnWishlist"
+    :is-in-wishlist-icon="isInWishlistIcon"
+    :is-in-wishlist="isInWishlist"
     :show-add-to-cart-button="showAddToCartButton"
     :add-to-cart-disabled="addToCartDisabled"
     :is-added-to-cart="isAddedToCart"
