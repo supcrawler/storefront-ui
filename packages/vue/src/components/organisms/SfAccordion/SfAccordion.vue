@@ -51,15 +51,6 @@ export default {
       openHeader: this.open,
     };
   },
-  watch: {
-    open(newValue, oldValue) {
-      if (newValue === oldValue) return;
-      const activeHeader = this.$children.find(
-        (accordionItem) => accordionItem.header === newValue
-      );
-      this.toggleHandler(activeHeader._uid);
-    },
-  },
   mounted() {
     this.$on("toggle", this.toggleHandler);
     this.setAsOpen();
@@ -97,7 +88,6 @@ export default {
           if (child._uid === slotId) {
             child.isOpen = !child.isOpen;
             this.openHeader = child.header;
-            this.$emit("click:open-header", child.header);
           } else {
             child.isOpen = false;
           }
