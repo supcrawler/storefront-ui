@@ -1,6 +1,6 @@
 <template>
   <transition name="sf-fade">
-    <div v-if="visible" class="sf-notification" :class="colorClass">
+    <div v-if="visible" class="sf-notification" :class="`color-${type}`">
       <!--@slot Custom notification icon. Slot content will replace default icon.-->
       <slot name="icon" v-bind="{ icon }">
         <SfIcon
@@ -115,22 +115,6 @@ export default {
           return "info_shield";
         default:
           return "info_circle";
-      }
-    },
-    colorClass() {
-      switch (this.type) {
-        case "secondary":
-          return "color-secondary";
-        case "info":
-          return "color-info";
-        case "success":
-          return "color-success";
-        case "warning":
-          return "color-warning";
-        case "danger":
-          return "color-danger";
-        default:
-          return "color-info";
       }
     },
   },
