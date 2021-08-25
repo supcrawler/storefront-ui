@@ -139,8 +139,7 @@
     }
   }  
   &.is-disabled--button,
-  &.is-disabled--button:hover,
-  &.is-disabled--button:active {
+  &.is-disabled--button:hover {
     --button-color: var(--c-text-disabled);
     --button-border-color: transparent;
     --button-background: var(--c-light);
@@ -154,7 +153,7 @@
     &.sf-button--outline {
       --button-border-color: var(--c-light);
       --button-background: transparent;
-    }
+    } 
   }
   &--underlined {
     --button-border-width: 0 0 1px 0;

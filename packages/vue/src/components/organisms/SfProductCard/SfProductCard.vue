@@ -34,9 +34,10 @@
       </slot>
       <slot name="colors" v-bind="{ colors }">
         <SfColorPicker
-          v-if="colors.length"
+          v-if="colors"
           class="sf-product-card__colors"
           label="Choose color"
+          :has-close="true"
           :is-open="!isMobile || openColorPicker"
           @click:toggle="toggleColorPicker"
         >
@@ -63,7 +64,7 @@
         :aria-label="`${ariaLabel} ${title}`"
         :class="wishlistIconClasses"
         data-testid="product-wishlist-button"
-        @click="toggleIsInWishlist"
+        @click="toggleIsOnWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
@@ -165,20 +166,21 @@
   </div>
 </template>
 <script>
-import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors";
-import SfIcon from "../../atoms/SfIcon/SfIcon.vue";
-import SfPrice from "../../atoms/SfPrice/SfPrice.vue";
-import SfRating from "../../atoms/SfRating/SfRating.vue";
-import SfImage from "../../atoms/SfImage/SfImage.vue";
-import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue";
-import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
-import SfButton from "../../atoms/SfButton/SfButton.vue";
-import SfColorPicker from "../../molecules/SfColorPicker/SfColorPicker.vue";
-import SfColor from "../../atoms/SfColor/SfColor.vue";
+import { colorsValues as SF_COLORS } from "@storefront-ui/shared/variables/colors"
+import SfIcon from "../../atoms/SfIcon/SfIcon.vue"
+import SfPrice from "../../atoms/SfPrice/SfPrice.vue"
+import SfRating from "../../atoms/SfRating/SfRating.vue"
+import SfImage from "../../atoms/SfImage/SfImage.vue"
+import SfCircleIcon from "../../atoms/SfCircleIcon/SfCircleIcon.vue"
+import SfBadge from "../../atoms/SfBadge/SfBadge.vue"
+import SfButton from "../../atoms/SfButton/SfButton.vue"
+import SfColorPicker from "../../molecules/SfColorPicker/SfColorPicker.vue"
+import SfColor from "../../atoms/SfColor/SfColor.vue"
 import {
   mapMobileObserver,
   unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
+} from "../../../utilities/mobile-observer"
+
 export default {
   name: "SfProductCard",
   components: {
@@ -206,14 +208,14 @@ export default {
      */
     imageWidth: {
       type: [String, Number],
-      default: "100%",
+      default: 216,
     },
     /**
      * Product image height, without unit
      */
     imageHeight: {
       type: [String, Number],
-      default: "auto",
+      default: 326,
     },
     /**
      * Badge label
@@ -310,14 +312,14 @@ export default {
      * This is the icon for product added to wish list. Default visible on mobile. Visible only on hover on desktop.
      * It can be a icon name from our icons list, or array or string as SVG path(s).
      */
-    isInWishlistIcon: {
+    isOnWishlistIcon: {
       type: [String, Array],
       default: "heart_fill",
     },
     /**
      * Status of whether product is on wish list or not
      */
-    isInWishlist: {
+    isOnWishlist: {
       type: Boolean,
       default: false,
     },
@@ -347,62 +349,59 @@ export default {
     return {
       isAddingToCart: false,
       openColorPicker: false,
-    };
+    }
   },
   computed: {
     ...mapMobileObserver(),
     isSFColors() {
-      return SF_COLORS.includes(this.badgeColor.trim());
+      return SF_COLORS.includes(this.badgeColor.trim())
     },
     badgeColorClass() {
-      return this.isSFColors ? `${this.badgeColor.trim()}` : "";
+      return this.isSFColors ? `${this.badgeColor.trim()}` : ""
     },
     currentWishlistIcon() {
-      return this.isInWishlist ? this.isInWishlistIcon : this.wishlistIcon;
+      return this.isOnWishlist ? this.isOnWishlistIcon : this.wishlistIcon
     },
     showAddedToCartBadge() {
-      return !this.isAddingToCart && this.isAddedToCart;
+      return !this.isAddingToCart && this.isAddedToCart
     },
     ariaLabel() {
-      return this.isInWishlist ? "Remove from wishlist" : "Add to wishlist";
+      return this.isOnWishlist ? "Remove from wishlist" : "Add to wishlist"
     },
     wishlistIconClasses() {
-      const defaultClass = "sf-button--pure sf-product-card__wishlist-icon";
-      return `${defaultClass} ${this.isInWishlist ? "on-wishlist" : ""}`;
+      const defaultClass = "sf-button--pure sf-product-card__wishlist-icon"
+      return `${defaultClass} ${this.isOnWishlist ? "on-wishlist" : ""}`
     },
   },
   beforeDestroy() {
-    unMapMobileObserver();
+    unMapMobileObserver()
   },
   methods: {
-    toggleIsInWishlist() {
-      this.$emit("click:wishlist", !this.isInWishlist);
-    },
-    onAddToCart(event) {
-      event.preventDefault();
-      this.isAddingToCart = true;
-      setTimeout(() => {
-        this.isAddingToCart = false;
-      }, 1000);
-      this.$emit("click:add-to-cart");
-    },
     handleSelectedColor(colorIndex) {
       if (this.colors.length > 0) {
         this.colors.map((color, i) => {
           if (colorIndex === i) {
-            this.$emit("click:colors", color);
-            if (this.isMobile) {
-              this.toggleColorPicker();
-            }
+            this.$emit("click:colors", color)
           }
-        });
+        })
       }
     },
     toggleColorPicker() {
-      this.openColorPicker = !this.openColorPicker;
+      this.openColorPicker = !this.openColorPicker
+    },
+    toggleIsOnWishlist() {
+      this.$emit("click:wishlist", !this.isOnWishlist)
+    },
+    onAddToCart(event) {
+      event.preventDefault()
+      this.isAddingToCart = true
+      setTimeout(() => {
+        this.isAddingToCart = false
+      }, 1000)
+      this.$emit("click:add-to-cart")
     },
   },
-};
+}
 </script>
 <style lang="scss">
 @import "~@storefront-ui/shared/styles/components/organisms/SfProductCard.scss";

@@ -1,6 +1,11 @@
 <template>
   <div id="default">
-    <SfHeader :logo="shopLogo" :title="shopName" active-icon="account">
+    <SfHeader
+      :logo="shopLogo"
+      :title="shopName"
+      active-icon="account"
+      is-sticky
+    >
       <template #navigation>
         <SfHeaderNavigationItem
           v-for="(category, key) in shopRootCategories"
@@ -27,8 +32,8 @@
   </div>
 </template>
 <script>
-import { SfHeader, SfFooter, SfList, SfMenuItem } from "@storefront-ui/vue"
-import Home from "../../pages/home/Home.vue"
+import { SfHeader, SfFooter, SfList, SfMenuItem } from "@storefront-ui/vue";
+import Home from "../../pages/home/Home.vue";
 export default {
   name: "Default",
   components: {
@@ -61,14 +66,12 @@ export default {
           items: ["Purchase terms", "Guarantee"],
         },
       ],
-    }
+    };
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
 #default {
 }
 </style>
-
-<include-source />

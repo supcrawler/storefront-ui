@@ -51,30 +51,12 @@ export default {
       openHeader: this.open,
     };
   },
-  computed: {
-    headersAreClosed() {
-      return this.$children
-        .map((header) => header.isOpen)
-        .every((header) => header === false);
-    },
-  },
-  watch: {
-    open(newValue, oldValue) {
-      if (!newValue || newValue === oldValue) return;
-      const activeHeader = this.$children.find(
-        (accordionItem) => accordionItem.header === newValue
-      );
-      this.toggleHandler(activeHeader._uid);
-    },
-  },
   mounted() {
     this.$on("toggle", this.toggleHandler);
     this.setAsOpen();
-    this.$emit("click:open-header");
   },
   updated() {
     this.setAsOpen();
-    this.$emit("click:open-header");
   },
   methods: {
     setAsOpen() {
@@ -115,9 +97,6 @@ export default {
           return child._uid === slotId;
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
-      }
-      if (this.headersAreClosed) {
-        this.openHeader = "";
       }
     },
   },

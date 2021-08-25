@@ -32,11 +32,7 @@
                 ({{ product.reviews.length }})
               </a>
             </div>
-            <SfButton
-              class="sf-button--text"
-              data-testid="read-all-reviews"
-              @click="changeTab(2)"
-            >
+            <SfButton class="sf-button--text" @click="changeTab(2)">
               Read all reviews
             </SfButton>
           </div>
@@ -59,7 +55,7 @@
               :key="key"
               :value="size"
             >
-              {{ size }}
+              <SfProductOption :label="size"></SfProductOption>
             </SfSelectOption>
           </SfSelect>
           <div class="product__colors desktop-only">
@@ -171,9 +167,10 @@ import {
   SfAddToCart,
   SfColor,
   SfSelect,
+  SfProductOption,
   SfBreadcrumbs,
   SfNotification,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
   name: "Product",
   components: {
@@ -189,6 +186,7 @@ export default {
     SfAddToCart,
     SfColor,
     SfSelect,
+    SfProductOption,
     SfBreadcrumbs,
     SfNotification,
   },
@@ -323,33 +321,33 @@ export default {
       ],
       isOpenNotification: false,
       openTab: 1,
-    }
+    };
   },
   methods: {
     addToCart() {
-      this.isOpenNotification = true
+      this.isOpenNotification = true;
       setTimeout(() => {
-        this.isOpenNotification = false
-      }, 3000)
+        this.isOpenNotification = false;
+      }, 3000);
     },
     selectColor(colorIndex) {
       this.product.colors.map((el, i) => {
         if (colorIndex === i) {
-          el.selected = true
-          this.selectedColor = el.name
+          el.selected = true;
+          this.selectedColor = el.name;
         } else {
-          el.selected = false
+          el.selected = false;
         }
-      })
+      });
     },
     changeTab(tabNumber) {
       document
         .getElementById("tabs")
-        .scrollIntoView({ behavior: "smooth", block: "end" })
-      this.openTab = tabNumber
+        .scrollIntoView({ behavior: "smooth", block: "end" });
+      this.openTab = tabNumber;
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
@@ -547,5 +545,3 @@ export default {
   }
 }
 </style>
-
-<include-source />

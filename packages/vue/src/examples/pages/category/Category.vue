@@ -100,13 +100,11 @@
             :style="{ '--index': i }"
             :title="product.title"
             :image="product.image"
-            image-height="auto"
-            image-width="100%"
             :regular-price="product.price.regular"
             :special-price="product.price.special"
             :max-rating="product.rating.max"
             :score-rating="product.rating.score"
-            :is-in-wishlist="product.isInWishlist"
+            :is-on-wishlist="product.isOnWishlist"
             :show-add-to-cart-button="true"
             class="products__product-card"
             @click:wishlist="toggleWishlist(i)"
@@ -131,7 +129,7 @@
             :max-rating="product.rating.max"
             :reviews-count="product.reviewsCount"
             :score-rating="product.rating.score"
-            :is-in-wishlist="product.isInWishlist"
+            :is-on-wishlist="product.isOnWishlist"
             class="products__product-card-horizontal"
             @click:wishlist="toggleWishlist(i)"
           >
@@ -169,7 +167,7 @@
           :visible="5"
           @click="
             (page) => {
-              currentPage = page
+              currentPage = page;
             }
           "
         />
@@ -403,9 +401,8 @@ import {
   SfProperty,
   SfRadio,
   SfSelect,
-} from "@storefront-ui/vue"
+} from "@storefront-ui/vue";
 export default {
-  name: "Category",
   components: {
     SfHeading,
     SfButton,
@@ -496,7 +493,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 5 },
           reviewsCount: 8,
-          isInWishlist: true,
+          isOnWishlist: true,
         },
         {
           title: "Cream Beach Bag",
@@ -507,7 +504,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isInWishlist: false,
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -518,7 +515,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isInWishlist: false,
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -529,7 +526,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isInWishlist: false,
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -540,7 +537,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isInWishlist: false,
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -551,7 +548,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isInWishlist: false,
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -562,7 +559,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 6,
-          isInWishlist: false,
+          isOnWishlist: false,
         },
         {
           title: "Cream Beach Bag",
@@ -573,7 +570,7 @@ export default {
           price: { regular: "$50.00" },
           rating: { max: 5, score: 4 },
           reviewsCount: 8,
-          isInWishlist: false,
+          isOnWishlist: false,
         },
       ],
       filters: {
@@ -666,24 +663,24 @@ export default {
           },
         },
       ],
-    }
+    };
   },
   methods: {
     updateFilter() {},
     clearAllFilters() {
-      const filters = Object.keys(this.filters)
+      const filters = Object.keys(this.filters);
       filters.forEach((name) => {
-        const prop = this.filters[name]
+        const prop = this.filters[name];
         prop.forEach((value) => {
-          value.selected = false
-        })
-      })
+          value.selected = false;
+        });
+      });
     },
     toggleWishlist(index) {
-      this.products[index].isInWishlist = !this.products[index].isInWishlist
+      this.products[index].isOnWishlist = !this.products[index].isOnWishlist;
     },
   },
-}
+};
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
@@ -996,5 +993,3 @@ export default {
   }
 }
 </style>
-
-<include-source />
