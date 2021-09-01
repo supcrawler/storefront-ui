@@ -24,7 +24,6 @@
       class="sf-quantity-selector__input"
       data-testid="sf-quantity-selector input"
       @input="$options.handleInput($event, listeners, props.min, props.max)"
-      @blur="$options.handleBlur(listeners)"
     />
     <component
       :is="injections.components.SfButton"
@@ -88,9 +87,6 @@ export default {
       qty = max
     }
     return listeners.input && listeners.input(qty)
-  },
-  handleBlur(listeners) {
-    return listeners.blur
   },
 }
 </script>
