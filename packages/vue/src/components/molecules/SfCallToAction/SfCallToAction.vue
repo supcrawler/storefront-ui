@@ -21,7 +21,6 @@
         :link="link"
         class="sf-call-to-action__button"
         data-testid="cta-button"
-        @click="$emit('click')"
       >
         {{ buttonText }}
       </SfButton>
