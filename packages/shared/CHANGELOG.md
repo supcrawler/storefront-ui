@@ -31,6 +31,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * sfskeleton ([aa81f49](https://github.com/vuestorefront/storefront-ui/commit/aa81f49133deeed5042f268f5d3bb0cb347685ba))
 
 
+### Reverts
+
+* Revert "chore(release): publish" ([0b26e7e](https://github.com/vuestorefront/storefront-ui/commit/0b26e7e75940ba8bed7cc5882216f5cf73fbd78a))
+
+
 
 
 

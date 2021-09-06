@@ -153,6 +153,11 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 * w/o close btn ([73f887a](https://github.com/vuestorefront/storefront-ui/commit/73f887ae0e34a958326213fc98b6aecf41fa7c8b))
 
 
+### Reverts
+
+* Revert "chore(release): publish" ([0b26e7e](https://github.com/vuestorefront/storefront-ui/commit/0b26e7e75940ba8bed7cc5882216f5cf73fbd78a))
+
+
 
 
 
