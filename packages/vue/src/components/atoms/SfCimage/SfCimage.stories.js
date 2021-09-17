@@ -3,7 +3,7 @@ import { placeholderTypes } from "./helpers"
 import { RESIZE_TYPES } from "@cld-apis/utils"
 
 export default {
-  title: "Getting Started/Integrations/Cloudinary/Image",
+  title: "Setup/Integrations/Cloudinary/Image",
   component: SfCimage,
   decorators: [
     () => ({
