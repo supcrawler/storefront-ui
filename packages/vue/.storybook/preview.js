@@ -6,14 +6,15 @@ export const parameters = {
     storySort: {
       order: [
         "*",
-        "Getting Started",
+        "Setup",
+        "Introduction",
         "Releases",
-        ["v0.11.x - Latest Minor", "v0.10.x", "v0.9.x"],
+        "Styleguides",
         "Components",
-        ["Atoms", "Molecules", "Organisms", "Templates", "Pages"],
-        "Layouts",
+        "Examples",
+        "Pages",
+        "Templates",
         "Utilities",
-        "Contributing"
       ],
     },
   },
