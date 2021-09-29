@@ -26,10 +26,11 @@
           </SfStep>
           <SfStep name="Review">
             <SfConfirmOrder
-              :shipping-methods="shippingMethods"
               :order="getOrder"
-              :payment-methods="paymentMethods"
-              :characteristics="characteristics"
+              orderTitle="Order details"
+              :orderTitleLevel="3"
+              :propertiesNames='["Subtotal", "Shipping", "Total price"]' 
+              :tableHeaders='["Size", "Description", "Quantity", "Colour", "Amount"]'
               @click:edit="currentStep = $event"
             />
           </SfStep>
@@ -42,8 +43,9 @@
             key="order-summary"
             class="checkout__aside-order"
             :order="getOrder"
-            :shipping-methods="shippingMethods"
-            :payment-methods="paymentMethods"
+            orderTitle="Order review"
+            :orderTitleLevel="3"
+            :propertiesNames='["Products", "Subtotal", "Shipping", "Total price"]'
             :characteristics="characteristics"
           />
           <SfOrderReview
@@ -51,8 +53,9 @@
             key="order-review"
             class="checkout__aside-order"
             :order="getOrder"
-            :shipping-methods="shippingMethods"
-            :payment-methods="paymentMethods"
+            reviewTitle="Order review"
+            :reviewTitleLevel="3"
+            buttonText="Edit"
             :characteristics="characteristics"
             @click:edit="currentStep = $event"
           />
@@ -88,15 +91,7 @@ import {
   SfConfirmOrder,
   SfOrderSummary,
   SfOrderReview,
-} from "@storefront-ui/vue";
-// import {
-//   PersonalDetails,
-//   Shipping,
-//   Payment,
-//   ConfirmOrder,
-//   OrderSummary,
-//   OrderReview,
-// } from "./_internal/index.js";
+} from "@storefront-ui/vue"
 export default {
   name: "Checkout",
   components: {
@@ -156,12 +151,37 @@ export default {
       order: {
         password: "",
         createAccount: false,
-        review: {
-          subtotal: "$150.00",
-          shipping: "$9.00",
-          total: "$159.00",
+        firstName: "John",
+        lastName: "Dog",
+        email: "john,dog@gmail.com",
+        shipping: {
+          streetName: "Sezame Street",
+          apartment: "24/193A",
+          city: "Wroclaw",
+          zipCode: "53-540",
+          country: "Poland",
+          phoneNumber: "(00)560 123 456",
+          shippingMethod: {
+            isOpen: false,
+            price: "$5.99",
+            delivery: "Delivery from 3 to 7 business days",
+            label: "Pickup in the store",
+            value: "store",
+            description:
+              "Novelty! From now on you have the option of picking up an order in the selected InPack parceled. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
+          },
         },
-        products: [
+        payment: {
+          streetName: "Sezame Street",
+          apartment: "24/193A",
+          city: "Wroclaw",
+          zipCode: "53-540",
+          country: "Poland",
+          phoneNumber: "(00)560 123 456",
+          paymentMethod: "debit",
+          shippingMethod: "home",
+        },
+        orderItems: [
           {
             title: "Cream Beach Bag",
             image: "/assets/storybook/Home/productA.jpg",
@@ -279,7 +299,7 @@ export default {
           icon: "return",
         },
       ],
-    };
+    }
   },
   computed: {
     getOrder() {
@@ -288,18 +308,18 @@ export default {
         ...this.personalDetails,
         shipping: { ...this.shipping },
         payment: { ...this.payment },
-      };
+      }
     },
   },
   methods: {
     updateStep(next) {
       // prevent to move next by SfStep header
       if (next < this.currentStep) {
-        this.currentStep = next;
+        this.currentStep = next
       }
     },
   },
-};
+}
 </script>
 <style lang="scss" scoped>
 @import "~@storefront-ui/vue/styles";
