@@ -9,7 +9,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "My newsletter",
+      defaultValue: "",
       description: "Label for tab title",
     },
     tabDescription: {
@@ -17,8 +17,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue:
-        "Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.",
+      defaultValue: "",
       description: "Tab description",
     },
     formTitle: {
@@ -26,7 +25,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "Sections that interest you",
+      defaultValue: "",
       description: "Label for from title",
     },
     buttonText: {
@@ -67,5 +66,9 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 Common.args = {
+  tabTitle: "My newsletter",
+  tabDescription:
+    "Set up your newsletter and we will send you information about new products and trends from the sections you selected every week.",
+  formTitle: "Sections that interest you",
   newsletterSections: ["Woman", "Man", "Children"],
 };

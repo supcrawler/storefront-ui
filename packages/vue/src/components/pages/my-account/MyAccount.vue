@@ -12,7 +12,7 @@
     >
       <SfContentCategory title="Personal Details">
         <SfContentPage title="My profile" data-testid="my-profile">
-          <MyProfile
+          <SfMyProfile
             :account="account"
             data-testid="my-profile-tabs"
             @update:personal="account = { ...account, ...$event }"
@@ -20,25 +20,23 @@
           />
         </SfContentPage>
         <SfContentPage title="Shipping details" data-testid="shipping-details">
-          <ShippingDetails
+          <SfShippingDetails
             :account="account"
+            :countries="countries"
             data-testid="shipping-details-tabs"
             @update:shipping="account = { ...account, ...$event }"
           />
         </SfContentPage>
-        <SfContentPage title="Loyalty Card">
-          <LoyaltyCard />
-        </SfContentPage>
         <SfContentPage title="Newsletter">
-          <MyNewsletter />
+          <SfMyNewsletter :newsletter-sections="newsletterSections" />
         </SfContentPage>
       </SfContentCategory>
       <SfContentCategory title="Order details">
         <SfContentPage title="Order history">
-          <OrderHistory :account="account" />
-        </SfContentPage>
-        <SfContentPage title="My reviews">
-          <MyReviews />
+          <SfOrderHistory
+            :orders="account.orders"
+            :table-headers="tableHeaders"
+          />
         </SfContentPage>
       </SfContentCategory>
       <SfContentPage title="Log out" />
@@ -48,24 +46,21 @@
 <script>
 import { SfBreadcrumbs, SfContentPages } from "@storefront-ui/vue";
 import {
-  MyProfile,
-  ShippingDetails,
-  LoyaltyCard,
-  MyNewsletter,
-  OrderHistory,
-  MyReviews,
-} from "./_internal/index.js";
+  SfMyProfile,
+  SfShippingDetails,
+  SfMyNewsletter,
+  SfOrderHistory,
+} from "@storefront-ui/vue";
+import { countries } from "../../templates/internalData.js";
 export default {
   name: "MyAccount",
   components: {
     SfBreadcrumbs,
     SfContentPages,
-    MyProfile,
-    ShippingDetails,
-    LoyaltyCard,
-    MyNewsletter,
-    OrderHistory,
-    MyReviews,
+    SfMyProfile,
+    SfShippingDetails,
+    SfMyNewsletter,
+    SfOrderHistory,
   },
   data() {
     return {
@@ -120,6 +115,15 @@ export default {
           ["#35769", "4th Nov, 2019", "Paypal", "$12.00", "Finalised"],
         ],
       },
+      newsletterSections: ["Woman", "Man", "Children"],
+      tableHeaders: [
+        "Order ID",
+        "Payment date",
+        "Payment method",
+        "Amount",
+        "Status",
+      ],
+      countries,
     };
   },
   methods: {

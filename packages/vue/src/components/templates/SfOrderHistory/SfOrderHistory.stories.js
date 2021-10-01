@@ -29,8 +29,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue:
-        "Check the details and status of your orders in the online store. You can also cancel your order or request a return.",
+      defaultValue: "",
       description: "Tab description when there are orders",
     },
     noOrdersDescription: {
@@ -38,7 +37,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: "You currently have no order history.",
+      defaultValue: "",
       description: "Text when there are no orders",
     },
     noOrdersButtonText: {
@@ -79,6 +78,9 @@ const Template = (args, { argTypes }) => ({
 export const Common = Template.bind({});
 Common.args = {
   orders: accountData.orders,
+  orderHistoryDescription:
+    "Check the details and status of your orders in the online store. You can also cancel your order or request a return.",
+  noOrdersDescription: "You currently have no order history.",
   tableHeaders: [
     "Order ID",
     "Payment date",
