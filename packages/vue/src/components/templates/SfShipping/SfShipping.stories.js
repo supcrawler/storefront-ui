@@ -26,7 +26,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 2,
+      defaultValue: 3,
       description: "Heading number for the first header",
     },
     inputsLabels: {
@@ -75,7 +75,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 2,
+      defaultValue: 3,
       description: "Heading number for the second header",
     },
   },

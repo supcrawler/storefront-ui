@@ -6,7 +6,7 @@
     />
     <div class="detailed-cart">
       <div v-if="totalItems" class="detailed-cart__aside">
-        <SfOrderSummary
+        <SfCartOrderSummary
           :products="products"
           :shipping-methods="shippingMethods"
           :total-items="totalItems"
@@ -98,8 +98,9 @@ import {
   SfProperty,
   SfHeading,
   SfBreadcrumbs,
-  SfOrderSummary,
+  SfCartOrderSummary,
 } from "@storefront-ui/vue";
+// import { OrderSummary } from "./_internal/index.js";
 export default {
   name: "DetailedCart",
   components: {
@@ -109,7 +110,7 @@ export default {
     SfButton,
     SfHeading,
     SfProperty,
-    SfOrderSummary,
+    SfCartOrderSummary,
   },
   data() {
     return {

@@ -336,7 +336,7 @@ export default {
     },
     billingHeadingLevel: {
       type: Number,
-      default: 2,
+      default: 3,
     },
     sameAsShippingCheckboxLabel: {
       type: String,
@@ -369,7 +369,7 @@ export default {
     },
     paymentHeadingLevel: {
       type: Number,
-      default: 2,
+      default: 3,
     },
     countries: {
       type: Array,
