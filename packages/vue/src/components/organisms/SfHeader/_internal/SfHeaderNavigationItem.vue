@@ -54,11 +54,19 @@ export default {
       default: "",
     },
   },
+  data() {
+    return {
+      isMobileView: false,
+    };
+  },
   computed: {
     ...mapMobileObserver(),
     isVisibleOnMobile() {
-      return this.isMobile;
+      return this.isMobileView;
     },
+  },
+  mounted() {
+    this.isMobileView = this.isMobile;
   },
   beforeDestroy() {
     unMapMobileObserver();
