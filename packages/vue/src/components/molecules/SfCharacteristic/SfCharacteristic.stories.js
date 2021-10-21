@@ -7,14 +7,6 @@ const iconsNames = Object.keys(icons);
 export default {
   title: "Components/Molecules/Characteristic",
   component: SfCharacteristic,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "The component with icon and text used for describing product characteristics.",
-      },
-    },
-  },
   argTypes: {
     sizeIcon: {
       control: {
@@ -24,7 +16,6 @@ export default {
       table: {
         category: "Props",
       },
-      description: "One of predefined SfIcon sizes.",
     },
     colorIcon: {
       control: {
@@ -34,7 +25,6 @@ export default {
       table: {
         category: "Props",
       },
-      description: "One of predefined SfIcon colors, default is black.",
     },
     icon: {
       control: {
@@ -43,40 +33,19 @@ export default {
       },
       table: {
         category: "Props",
-        type: {
-          summary: ["string", "array"],
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Svg file iconPath",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Characteristic title",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Characteristic description ",
     },
   },
 };

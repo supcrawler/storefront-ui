@@ -53,14 +53,23 @@ export default {
   name: "SfColorPicker",
   components: { SfIcon, SfButton, SfOverlay },
   props: {
+    /**
+     * ColorPicker is open
+     */
     isOpen: {
       type: Boolean,
       default: false,
     },
+    /**
+     * Label for ColorPicker
+     */
     label: {
       type: String,
       default: "",
     },
+    /**
+     * Close button state whether show it or not
+     */
     hasClose: {
       type: Boolean,
       default: false,

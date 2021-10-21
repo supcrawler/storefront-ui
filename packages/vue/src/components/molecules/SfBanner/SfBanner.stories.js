@@ -4,14 +4,6 @@ import banner from "../../../../public/assets/storybook/SfBanner/Banner2.jpg";
 export default {
   title: "Components/Molecules/Banner",
   component: SfBanner,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "The banner component which features various text levels, a background and a button.",
-      },
-    },
-  },
   argTypes: {
     classes: {
       control: {
@@ -21,48 +13,26 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
-      description: "CSS classes to modify component styling",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Banner title",
       defaultValue: "",
     },
     subtitle: {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Banner subtitle (at the top)",
       defaultValue: "",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Text content",
       defaultValue: "",
     },
     buttonText: {
@@ -70,8 +40,6 @@ export default {
       table: {
         category: "Props",
       },
-      description:
-        "Text that will be displayed inside the button. You can replace the button  with 'call- to - action' slot ",
       defaultValue: "",
     },
     link: {
@@ -79,7 +47,6 @@ export default {
       table: {
         category: "Props",
       },
-      description: "Link to be used in call to action button if necessary",
       defaultValue: "",
     },
     background: {
@@ -89,7 +56,6 @@ export default {
       table: {
         category: "Props",
       },
-      description: "Background color in HEX (eg #FFFFFF)",
       defaultValue: "",
     },
     image: {
@@ -97,8 +63,6 @@ export default {
       table: {
         category: "Props",
       },
-      description:
-        "Background image. Influenced by $banner-background-size, $banner-background-position CSS props.",
     },
     click: {
       action: "Button clicked!",

@@ -70,14 +70,6 @@ const characteristicsData = [
 export default {
   title: "Components/Templates/OrderReview",
   component: SfOrderReview,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Component with review of the order. Can be displayed during different checkout steps.",
-      },
-    },
-  },
   argTypes: {
     reviewTitle: {
       control: "text",
@@ -92,7 +84,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 2,
+      defaultValue: 3,
       description: "Heading text size",
     },
     order: {

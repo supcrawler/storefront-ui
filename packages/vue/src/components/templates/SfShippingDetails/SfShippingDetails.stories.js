@@ -4,14 +4,6 @@ import { accountData, countries } from "../internalData.js";
 export default {
   title: "Components/Templates/ShippingDetails",
   component: SfShippingDetails,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Component for managing of shipping details. The element of the account.",
-      },
-    },
-  },
   argTypes: {
     shippingTabTitle: {
       control: "text",
@@ -47,8 +39,7 @@ export default {
         category: "Props",
       },
       defaultValue: "sf-fade",
-      description:
-        "Sets transition name. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
+      description: "Transition name",
     },
     changeAddressDescription: {
       control: "text",

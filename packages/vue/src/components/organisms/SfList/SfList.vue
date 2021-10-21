@@ -1,6 +1,6 @@
 <template>
   <ul class="sf-list">
-    <!-- @slot Slot replacing content -->
+    <!-- @slot -->
     <slot />
   </ul>
 </template>

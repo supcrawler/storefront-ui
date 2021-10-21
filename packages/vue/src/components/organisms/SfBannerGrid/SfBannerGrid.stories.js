@@ -41,13 +41,6 @@ const banners = [
 export default {
   title: "Components/Organisms/BannerGrid",
   component: SfBannerGrid,
-  parameters: {
-    docs: {
-      description: {
-        component: "Full width grid made with banners.",
-      },
-    },
-  },
   argTypes: {
     bannerGrid: {
       control: {

@@ -30,7 +30,6 @@
       ></div>
     </div>
     <div class="sf-steps__content">
-      <!-- @slot Slot to replace step's content -->
       <slot></slot>
     </div>
   </div>
@@ -68,10 +67,16 @@ export default {
     };
   },
   props: {
+    /**
+     * Current active step
+     */
     active: {
       type: Number,
       default: 0,
     },
+    /**
+     * Disable clicking on  a past step
+     */
     canGoBack: {
       type: Boolean,
       default: true,

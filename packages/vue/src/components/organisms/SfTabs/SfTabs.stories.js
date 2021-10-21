@@ -1,87 +1,31 @@
 import { SfTabs, SfButton } from "@storefront-ui/vue";
-import SfTab from "./_internal/SfTab.vue";
-
 export default {
   title: "Components/Organisms/Tabs",
-  component: SfTab,
-  parameters: {
-    docs: {
-      inlineStories: false,
-      iframeHeight: "300px",
-      description: {
-        component:
-          "Component with tab-related content.  Built from main component - SfTabs and internal component - SfTab.",
-      },
-    },
-  },
+  component: SfTabs,
   argTypes: {
     tabMaxContentHeight: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
+        category: "Props",
       },
-      description: "Max height of visible content",
     },
     tabShowText: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
+        category: "Props",
       },
-      defaultValue: "show",
-      description: "Text for button showing content",
     },
     tabHideText: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
+        category: "Props",
       },
-      defaultValue: "hide",
-      description: "Text for button hiding content",
     },
     openTab: {
       control: "number",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "number",
-        },
-        defaultValue: {
-          summary: "1",
-        },
+        category: "Props",
       },
-      description: "Which tab should be open",
-    },
-    title: {
-      control: "text",
-      table: {
-        category: "Props for SfTab component",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: "",
-      description: "Title of the tab",
     },
     "click:tab": {
       action: "Tab clicked",

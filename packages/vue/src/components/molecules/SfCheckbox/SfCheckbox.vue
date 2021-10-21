@@ -76,6 +76,9 @@ export default {
       type: String,
       default: "",
     },
+    /**
+     *  Hint/Required message value of checkbox.
+     */
     hintMessage: {
       type: String,
       default: "Required.",
@@ -84,10 +87,16 @@ export default {
       type: Boolean,
       default: false,
     },
+    /**
+     * Info/success message value of select.
+     */
     infoMessage: {
       type: String,
       default: "",
     },
+    /**
+     * Error message value of select. It will be appeared if `valid` is `true`.
+     */
     errorMessage: {
       type: String,
       default: "This field is not correct.",

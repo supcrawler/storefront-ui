@@ -1,7 +1,4 @@
-import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfContentPages, SfTabs } from "@storefront-ui/vue";
-const iconsNames = Object.keys(icons);
-
 const pages = [
   {
     title: "About us",
@@ -47,79 +44,22 @@ const pages = [
 export default {
   title: "Components/Organisms/ContentPages",
   component: SfContentPages,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "The content pages for static content. Built from main component - SfContentPages and internal components - SfContentCategory and SfContentPage.",
-      },
-    },
-  },
   argTypes: {
     title: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "string",
-        },
+        category: "Props",
         defaultValue: {
           summary: "",
         },
       },
       defaultValue: "",
-      description: "Pages title.",
     },
     active: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
+        category: "Props",
       },
-      defaultValue: "",
-      description: "Active page.",
-    },
-    icon: {
-      control: {
-        type: "select",
-        options: iconsNames,
-      },
-      table: {
-        category: "Props for SfContentPage component",
-        type: {
-          summary: ["string", "array"],
-        },
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: "",
-      description:
-        "Sets icon type. Icon SVG path(s). It can be single SVG path(string) or array of SVG paths or icon name from our icons list(such as 'added_to_cart`)",
-    },
-    title: {
-      control: "text",
-      table: {
-        category: "Props for SfContentCategory component",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: "",
-      description: "Sets category title.",
-    },
-    pages: {
-      control: "array",
-      defaultValue: pages,
-      description: "Pages data (only for testing purposes).",
     },
     "click:change": { action: "Page changed", table: { category: "Events" } },
   },

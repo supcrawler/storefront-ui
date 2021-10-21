@@ -3,14 +3,6 @@ import { SfHeader, SfLink } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Header",
   component: SfHeader,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Grouped Product component. Built from main component - SfHeader and internal components - SfHeaderNavigation and SfHeaderNavigationItem.",
-      },
-    },
-  },
   argTypes: {
     classes: {
       control: {
@@ -25,172 +17,90 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
-      description: "CSS classes to modify component styling",
     },
     logo: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: ["string", "object"],
-        },
-        defaultValue: {
-          summary: "",
-        },
+        category: "Props",
       },
-      description: "Header logo",
     },
     logoHeight: {
       control: "number",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      defaultValue: 35,
-      description: "Header logo height",
     },
     logoWidth: {
       control: "number",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      defaultValue: 34,
-      description: "Header logo width",
     },
     title: {
       control: "text",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      description: "Header title",
     },
     cartIcon: {
       control: "text",
       table: {
-        category: "Props for main component",
-        defaultValue: {
-          summary: "empty_cart",
-        },
+        category: "Props",
+        defaultValue: "empty_cart",
       },
-      defaultValue: "empty_cart",
-      description: "Header cartIcon (accepts same value as SfIcon)",
     },
     wishlistIcon: {
       control: "text",
       table: {
-        category: "Props for main component",
-        defaultValue: {
-          summary: "heart",
-        },
+        category: "Props",
+        defaultValue: "heart",
       },
-      defaultValue: "heart",
-      description: "Header wishlistIcon (accepts same value as SfIcon)",
     },
     accountIcon: {
       control: "text",
       table: {
-        category: "Props for main component",
-        defaultValue: {
-          summary: "profile",
-        },
+        category: "Props",
+        defaultValue: "profile",
       },
-      defaultValue: "profile",
-      description: "Header accountIcon (accepts same value as SfIcon)",
     },
     activeIcon: {
       control: "text",
       table: {
-        category: "Props for main component",
-        defaultValue: {
-          summary: "account",
-        },
+        category: "Props",
+        defaultValue: "",
       },
-      defaultValue: "account",
-      description: "Header activeIcon (accepts account, wishlist and cart)",
     },
     searchPlaceholder: {
       control: "text",
       table: {
-        category: "Props for main component",
-        defaultValue: {
-          summary: "Search for items",
-        },
+        category: "Props",
+        defaultValue: "Search for items",
       },
-      defaultValue: "Search for items",
-      description: "Header search placeholder",
     },
     searchValue: {
       control: "number",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      defaultValue: "",
-      description: "Header search phrase",
     },
     cartItemsQty: {
       control: "number",
       table: {
-        category: "Props for main component",
-        defaultValue: {
-          summary: 0,
-        },
+        category: "Props",
+        defaultValue: 0,
       },
-      defaultValue: 0,
-      description: "Header cart items quantity",
-    },
-    wishlistItemsQty: {
-      control: "number",
-      table: {
-        category: "Props for main component",
-        defaultValue: {
-          summary: 0,
-        },
-      },
-      defaultValue: 0,
-      description: "Header wishlist items quantity",
     },
     isSticky: {
       control: "boolean",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      defaultValue: false,
-      description: "Header sticky to top",
     },
     isNavVisible: {
       control: "boolean",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      defaultValue: false,
-      description: "Is nav slot visible on mobile view",
-    },
-    label: {
-      control: "text",
-      table: {
-        category: "Props for SfHeaderNavigationItem component",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: false,
-      description: "Label for header navigation item",
-    },
-    link: {
-      control: "text",
-      table: {
-        category: "Props for SfHeaderNavigationItem component",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: "",
-      description: "link for header navigation item",
     },
     "change:search": {
       action: "Changed search value",

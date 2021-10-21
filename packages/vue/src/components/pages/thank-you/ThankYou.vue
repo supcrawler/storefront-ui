@@ -2,19 +2,13 @@
   <div id="thank-you">
     <SfCallToAction
       class="banner"
+      title="Thank you for your order!"
       :image="{
         mobile: '/assets/storybook/ThankYou/bannerM.png',
         desktop: '/assets/storybook/ThankYou/bannerD.png',
       }"
       background="#f1f2f3"
     >
-      <template #title>
-        <SfHeading
-          class="sf-heading--left sf-heading--no-underline banner__title"
-          title="Thank you for your order!"
-          :level="1"
-        />
-      </template>
       <template #description>
         <div class="banner__order-number">
           <span>Order No.</span>
@@ -27,7 +21,7 @@
         <SfHeading
           title="Your Purchase"
           class="order__heading heading sf-heading--left"
-          :level="2"
+          :level="3"
         />
         <p class="order__paragraph paragraph">
           You have successfully placed the order. You can check status of your
@@ -37,10 +31,10 @@
         </p>
         <div class="order__contact">
           <SfHeading
-            :level="3"
+            :level="6"
             class="heading sf-heading--left sf-heading--no-underline"
             title="Primary contacts for any questions"
-          />
+          ></SfHeading>
           <div class="contact">
             <p class="contact__name">{{ address.name }}</p>
             <p class="contact__street">{{ address.street }}</p>
@@ -57,7 +51,7 @@
           <SfHeading
             title="Your Account"
             class="heading sf-heading--left"
-            :level="2"
+            :level="3"
           />
           <p class="paragraph">
             You can log to your account using e-mail and password defined
@@ -69,7 +63,7 @@
           <SfHeading
             title="What can we improve"
             class="heading sf-heading--left"
-            :level="2"
+            :level="3"
           />
           <p class="paragraph">
             Your feedback is important to us. Let us know what we could improve.
@@ -144,8 +138,8 @@ export default {
 }
 .banner {
   --call-to-action-color: var(--c-text);
-  --heading-title-font-size: var(--h2-font-size);
-  --heading-title-font-weight: var(--font-weight--semibold);
+  --call-to-action-title-font-size: var(--h2-font-size);
+  --call-to-action-title-font-weight: var(--font-weight--semibold);
   --call-to-action-text-container-width: 50%;
   @include for-desktop {
     margin: 0 0 var(--spacer-2xl) 0;
@@ -181,10 +175,9 @@ export default {
   }
   &__heading {
     --heading-title-font-weight: var(--font-weight--bold);
-    --heading-title-font-size: var(--h3-font-size);
     @include for-desktop {
       --heading-title-color: var(--c-link);
-      --heading-title-font-weight: var(--font-weight--semibold);
+      --heading-title-font-weight: var(--font-weight--swemibold);
     }
   }
   &__heading,
@@ -244,7 +237,6 @@ export default {
 }
 .additional-info {
   --heading-title-font-weight: var(--font-weight--bold);
-  --heading-title-font-size: var(--h3-font-size);
   padding: 0 var(--spacer-sm);
   @include for-desktop {
     --heading-title-color: var(--c-link);

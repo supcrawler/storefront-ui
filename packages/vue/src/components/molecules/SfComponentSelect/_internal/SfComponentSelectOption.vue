@@ -9,7 +9,7 @@
     @click="clicked"
     @keyup.space.enter="clicked"
   >
-    <!-- @slot default -->
+    <!-- @slot -->
     <slot />
   </li>
 </template>

@@ -3,14 +3,6 @@ import { SfHeading, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Heading",
   component: SfHeading,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "The heading component for titles with optional description. It's Vue 2 functional component.",
-      },
-    },
-  },
   argTypes: {
     classes: {
       control: {
@@ -25,7 +17,6 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
-      description: "CSS classes to modify component styling",
     },
     level: {
       control: {
@@ -38,29 +29,18 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 2,
-      description:
-        "Heading level from 1 to 6 (like in native heading element).",
     },
     title: {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
       },
-      description: "Heading title",
     },
     description: {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
       },
-      description: "Heading description",
     },
   },
 };
@@ -79,6 +59,7 @@ const Template = (args, { argTypes }) => ({
 
 export const Common = Template.bind({});
 Common.args = {
+  level: 3,
   title: "Share your look",
   description: "#YOURLOOK",
 };

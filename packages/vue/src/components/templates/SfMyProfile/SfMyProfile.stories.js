@@ -4,14 +4,6 @@ import { accountData } from "../internalData.js";
 export default {
   title: "Components/Templates/MyProfile",
   component: SfMyProfile,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Component with profile details, allows to change personal data and password. Part of account.",
-      },
-    },
-  },
   argTypes: {
     tabsTitles: {
       control: "object",

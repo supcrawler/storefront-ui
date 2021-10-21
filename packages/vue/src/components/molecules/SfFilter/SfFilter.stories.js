@@ -3,13 +3,6 @@ import { SfFilter } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Filter",
   component: SfFilter,
-  parameters: {
-    docs: {
-      description: {
-        component: "Filter component with color, name and counter of items.",
-      },
-    },
-  },
   decorators: [
     () => ({ template: '<div style="max-width: 22.875rem"><story/></div>' }),
   ],
@@ -18,51 +11,25 @@ export default {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Label text.",
     },
     count: {
       control: "number",
       table: {
         category: "Props",
-        type: {
-          summary: ["string", "number"],
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "The quantity.",
     },
     selected: {
       control: "boolean",
       table: {
         category: "Props",
-        defaultValue: {
-          summary: false,
-        },
       },
-      defaultValue: false,
-      description: "Sets selected state",
     },
     color: {
       control: "color",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Sets fliter color.",
     },
     change: { action: "Change color", table: { category: "Events" } },
   },

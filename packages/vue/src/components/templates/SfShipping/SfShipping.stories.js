@@ -4,14 +4,6 @@ import { countries, shippingMethodsData } from "../internalData.js";
 export default {
   title: "Components/Templates/Shipping",
   component: SfShipping,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Component with the data form for order shipment. Part of the checkout process.",
-      },
-    },
-  },
   argTypes: {
     shippingMethods: {
       control: "object",
@@ -34,7 +26,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 2,
+      defaultValue: 3,
       description: "Heading number for the first header",
     },
     inputsLabels: {
@@ -83,7 +75,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 2,
+      defaultValue: 3,
       description: "Heading number for the second header",
     },
   },

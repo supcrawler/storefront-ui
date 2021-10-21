@@ -2,13 +2,6 @@ import { SfRadio } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Radio",
   component: SfRadio,
-  parameters: {
-    docs: {
-      description: {
-        component: "Radio button component with label and description.",
-      },
-    },
-  },
   argTypes: {
     classes: {
       control: {
@@ -18,18 +11,12 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
-      description: "CSS classes to modify component styling",
+      description: "CSS classes modifiers",
     },
     selected: {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
       defaultValue: "",
       description: "Value of the selected option",
@@ -54,12 +41,6 @@ export default {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
       defaultValue: "",
       description: "Label for option",
@@ -68,15 +49,6 @@ export default {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
-      },
-      type: {
-        summary: "string",
       },
       defaultValue: "",
       description: "Option details",
@@ -85,12 +57,6 @@ export default {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
       defaultValue: "",
       description: "Additional description to the radio option to display",
@@ -110,18 +76,9 @@ export default {
       control: "boolean",
       table: {
         category: "Props",
-        type: {
-          summary: "boolean",
-        },
         defaultValue: {
           summary: false,
         },
-      },
-      defaultValue: false,
-    },
-    "v-model": {
-      table: {
-        disable: true,
       },
     },
     change: {

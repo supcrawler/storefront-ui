@@ -4,13 +4,6 @@ import { accountData } from "../internalData.js";
 export default {
   title: "Components/Templates/OrderHistory",
   component: SfOrderHistory,
-  parameters: {
-    docs: {
-      description: {
-        component: "Component with order history. Part of the account.",
-      },
-    },
-  },
   argTypes: {
     tabTitle: {
       control: "text",

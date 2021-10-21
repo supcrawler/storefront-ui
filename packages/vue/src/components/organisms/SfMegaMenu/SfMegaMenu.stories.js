@@ -59,74 +59,34 @@ const categories = [
 export default {
   title: "Components/Organisms/MegaMenu",
   component: SfMegaMenu,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "MegaMenu component for page navigation. Built from main component - SfMegaMenu and internal component - SfMegaMenuColumn.",
-      },
-    },
-  },
   argTypes: {
     title: {
       control: "text",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      defaultValue: "",
-      description: "Title of main category, displayed on mobile",
     },
     visible: {
       control: "boolean",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      defaultValue: false,
-      description: "Sets mega menu state to visible",
     },
     isAbsolute: {
       control: "boolean",
       table: {
-        category: "Props for main component",
+        category: "Props",
       },
-      defaultValue: false,
-      description: "Sets css position to absolute.",
     },
     transitionName: {
       control: "text",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: "sf-fade",
         },
       },
-      defaultValue: "sf-fade",
-      description:
-        "Sets transition name. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
-    asideTitle: {
-      control: "text",
-      table: {
-        category: "Props for main component",
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: "",
-      description: "*Depraceted. Sets title for aside column.",
-    },
-    title: {
-      control: "text",
-      table: {
-        category: "Props for SfMegaMenuColumn component",
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: "",
-      description: "Title of the column.",
-    },
-
     change: { action: "Active item changed", table: { category: "Events" } },
     close: { action: "Close button clicked", table: { category: "Events" } },
   },

@@ -79,10 +79,16 @@ export default {
     },
   },
   props: {
+    /**
+     * Number of bullets in total (active + inactive)
+     */
     total: {
       type: Number,
       default: 0,
     },
+    /**
+     * Index of the currently active bullet (0-indexed)
+     */
     current: {
       type: Number,
       default: 0,

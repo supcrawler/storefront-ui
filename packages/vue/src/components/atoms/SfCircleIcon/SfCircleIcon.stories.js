@@ -1,20 +1,10 @@
 import { icons } from "@storefront-ui/shared/icons/icons";
 import { SfCircleIcon } from "@storefront-ui/vue";
-import { sizesValues as sizes } from "@storefront-ui/shared/variables/sizes";
-
 const iconsNames = Object.keys(icons);
 
 export default {
   title: "Components/Atoms/CircleIcon",
   component: SfCircleIcon,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "The Round hover-animated component with an icon, e.g. usable for major navigation/action items. It's Vue 2 functional component.",
-      },
-    },
-  },
   argTypes: {
     classes: {
       control: {
@@ -31,7 +21,7 @@ export default {
           "color-success",
         ],
       },
-      description: "CSS classes to modify component styling",
+      description: "Modifier classes",
       table: {
         category: "CSS Modifiers",
       },
@@ -44,23 +34,13 @@ export default {
       table: {
         category: "Props",
       },
-      description:
-        "Icon SVG path(s) It can be single SVG path (string) or array of SVG paths or icon name from our icons list (such as 'added_to_cart`)",
+      description: "Icon to use",
     },
     iconSize: {
-      control: {
-        type: "select",
-        options: sizes,
-      },
+      control: "text",
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "",
-        },
       },
-      defaultValue: "",
-      description:
-        "Custom size of the icon. It can be one of our standard sizes: xxs, xs, sm, md, lg, xl, xxl, xl3, xl4, or e.g. '12px' or '1.2rem' or nothing.",
     },
     disabled: {
       control: "boolean",
@@ -68,7 +48,6 @@ export default {
       table: {
         category: "Props",
       },
-      description: "Disables button and sets proper styling.",
     },
     onClick: { action: "Circle icon clicked", table: { category: "Events" } },
   },

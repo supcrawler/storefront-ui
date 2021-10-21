@@ -1,10 +1,8 @@
 <template>
   <div class="sf-scrollable" :class="{ 'is-open': !isHidden }">
     <Simplebar ref="content" class="sf-scrollable__content" :style="style">
-      <!-- @slot Slot to replace default content -->
       <slot />
     </Simplebar>
-    <!-- @slot Slot to replace buttons showing/hiding content -->
     <slot name="view-all" v-bind="{ hasScroll, showText, hideText }">
       <SfButton
         v-show="hasScroll"
@@ -27,14 +25,23 @@ export default {
     Simplebar,
   },
   props: {
+    /*
+     * Maximum height of visible content
+     */
     maxContentHeight: {
       type: String,
       default: "",
     },
+    /*
+     * Text for button showing content
+     */
     showText: {
       type: String,
       default: "Show",
     },
+    /*
+     * Text for button hiding content
+     */
     hideText: {
       type: String,
       default: "Hide",

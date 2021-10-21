@@ -2,79 +2,37 @@ import { SfSteps } from "@storefront-ui/vue";
 export default {
   title: "Components/Molecules/Steps",
   component: SfSteps,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Stepper component increasing dynamically on click. Used to guide user through defined path.Built from main component - SfSteps and internal component - SfStep.",
-      },
-    },
-  },
   argTypes: {
     canGoBack: {
       control: "boolean",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: true,
         },
       },
-      defaultValue: true,
-      description: "Disable clicking on a past step",
+      description: "Disable clicking on  a past step",
     },
     active: {
       control: "number",
-      table: {
-        category: "Props for main component",
-        type: {
-          summary: "number",
-        },
-        defaultValue: {
-          summary: "0",
-        },
-      },
       defaultValue: 0,
-      description: "Current active step",
-    },
-    name: {
-      control: "text",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
-          summary: "",
+          summary: 0,
         },
       },
-      defaultValue: "",
-      description: "Step's name",
+      description: "Current active step",
     },
     steps: {
       control: "array",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "array",
-        },
+        category: "Props",
         defaultValue: {
           summary: "[]",
         },
       },
-      description:
-        "Steps to display (only for testing puropses). Add steps using SfStep component.",
-    },
-    name: {
-      control: "text",
-      table: {
-        category: "Props for SfStep component",
-        defaultValue: {
-          summary: "",
-        },
-      },
-      description: "Name of the step.",
-    },
-    "v-model": {
-      table: {
-        disable: true,
-      },
+      description: "Steps to display",
     },
     change: { action: "Step changed", table: { category: "Events" } },
   },

@@ -5,14 +5,6 @@ const iconsNames = Object.keys(icons);
 export default {
   title: "Components/Molecules/MenuItem",
   component: SfMenuItem,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Component with text and counter, usable for menus and listing.",
-      },
-    },
-  },
   decorators: [
     () => ({ template: '<div style="max-width: 300px"><story/></div>' }),
   ],
@@ -21,27 +13,13 @@ export default {
       control: "text",
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Menu-item label",
     },
     count: {
       control: "number",
       table: {
         category: "Props",
-        type: {
-          summary: ["string", "number"],
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
-      description: "Menu - item count of items",
     },
     icon: {
       control: {
@@ -50,23 +28,14 @@ export default {
       },
       table: {
         category: "Props",
-        type: {
-          summary: "string",
-        },
-        defaultValue: {
-          summary: "",
-        },
       },
       defaultValue: "chevron_right",
-      description: "Menu-item icon (visible on mobile)",
     },
     link: {
       control: "text",
       table: {
         category: "Props",
       },
-      defaultValue: "",
-      description: "Menu-item link (if is empty then SfMenuItem is SfButton)",
     },
   },
 };

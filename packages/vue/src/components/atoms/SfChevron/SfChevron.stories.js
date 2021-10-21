@@ -3,13 +3,6 @@ import { SfChevron, SfIcon } from "@storefront-ui/vue";
 export default {
   title: "Components/Atoms/Chevron",
   component: SfChevron,
-  parameters: {
-    docs: {
-      description: {
-        component: "The chevron component. It's Vue 2 functional component.",
-      },
-    },
-  },
   argTypes: {
     classes: {
       control: {
@@ -21,7 +14,7 @@ export default {
           "sf-chevron--right",
         ],
       },
-      description: "CSS classes to modify component styling",
+      description: "Modifier classes",
       table: {
         category: "CSS Modifiers",
       },

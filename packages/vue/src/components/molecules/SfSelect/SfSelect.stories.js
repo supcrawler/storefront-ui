@@ -12,14 +12,6 @@ const options = [
 export default {
   title: "Components/Molecules/Select",
   component: SfSelect,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Native select component. Built from main component - SfSelect and internal component - SfSelectOption.",
-      },
-    },
-  },
   argTypes: {
     classes: {
       control: {
@@ -32,15 +24,11 @@ export default {
           summary: "",
         },
       },
-      description: "CSS classes to modify component styling",
     },
     label: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "string",
-        },
+        category: "Props",
         defaultValue: {
           summary: "",
         },
@@ -50,89 +38,63 @@ export default {
     value: {
       control: "text",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: "",
         },
       },
-      defaultValue: "",
       description: "Value selected",
     },
     placeholder: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "string",
-        },
+        category: "Props",
         defaultValue: {
           summary: "",
         },
       },
-      defaultValue: "",
       description: "Placeholder",
     },
     errorMessage: {
       control: "text",
       table: {
-        category: "Props for main component",
-        type: {
-          summary: "string",
-        },
+        category: "Props",
         defaultValue: {
           summary: "This field is not correct.",
         },
       },
-      defaultValue: "This field is not correct.",
       description:
-        "Error message value of form select. It appears if `valid` is `false`.",
+        "Error message value of form select. It will be appeared if `valid` is `true`.",
     },
     required: {
       control: "boolean",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: false,
         },
       },
-      defaultValue: false,
       description: "Required field?",
     },
     disabled: {
       control: "boolean",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: false,
         },
       },
-      defaultValue: false,
       description: "Disabled status of form select",
     },
     valid: {
       control: "boolean",
       table: {
-        category: "Props for main component",
+        category: "Props",
         defaultValue: {
           summary: true,
         },
       },
-      defaultValue: true,
       description: "Validate value of form select",
-    },
-    value: {
-      control: "text",
-      table: {
-        category: "Props for SfSelectOption component",
-        type: {
-          summary: ["string", "number", "object"],
-        },
-        defaultValue: {
-          summary: "",
-        },
-      },
-      defaultValue: "",
-      description: "Content of the option.",
     },
     input: { action: "Selected", table: { category: "Events" } },
   },

@@ -13,7 +13,7 @@ export const parameters = {
         ["Atoms", "Molecules", "Organisms", "Templates", "Pages"],
         "Layouts",
         "Utilities",
-        "Contributing Guide"
+        "Contributing"
       ],
     },
   },

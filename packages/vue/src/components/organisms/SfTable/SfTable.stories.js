@@ -2,14 +2,6 @@ import { SfTable, SfButton } from "@storefront-ui/vue";
 export default {
   title: "Components/Organisms/Table",
   component: SfTable,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Table component with inner rows, headers and data. Built from main component - SfTable and internal components - SfTableData, SfTableHeader, SfTableHeading, SfTableRow.",
-      },
-    },
-  },
   argTypes: {
     classes: {
       control: {
@@ -19,7 +11,6 @@ export default {
       table: {
         category: "CSS Modifiers",
       },
-      description: "CSS classes to modify component styling",
     },
   },
 };

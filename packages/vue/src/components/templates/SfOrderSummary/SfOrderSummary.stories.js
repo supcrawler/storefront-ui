@@ -59,14 +59,6 @@ const characteristicsData = [
 export default {
   title: "Components/Templates/OrderSummary",
   component: SfOrderSummary,
-  parameters: {
-    docs: {
-      description: {
-        component:
-          "Component with summary of the order. Can be displayed at the end of checkout process.",
-      },
-    },
-  },
   argTypes: {
     orderTitle: {
       control: "text",
@@ -81,7 +73,7 @@ export default {
       table: {
         category: "Props",
       },
-      defaultValue: 2,
+      defaultValue: 3,
       description: "Heading text size",
     },
     order: {

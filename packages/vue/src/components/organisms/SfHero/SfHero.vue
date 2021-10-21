@@ -57,6 +57,9 @@ export default {
     SfBullets,
   },
   props: {
+    /**
+     * Slider options like glide.js (https://glidejs.com/docs/)
+     */
     sliderOptions: {
       type: Object,
       default: () => ({}),

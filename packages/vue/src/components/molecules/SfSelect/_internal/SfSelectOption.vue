@@ -1,6 +1,6 @@
 <template>
   <option :value="value" class="sf-select__option" tabindex="0">
-    <!-- @slot Slot to replace select options -->
+    <!-- @slot -->
     <slot />
   </option>
 </template>
