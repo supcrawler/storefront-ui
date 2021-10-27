@@ -70,11 +70,11 @@ export default {
     },
     maxlength: {
       type: [String, Number],
-      default: null,
+      default: "",
     },
     minlength: {
       type: [String, Number],
-      default: null,
+      default: "",
     },
     wrap: {
       type: String,
