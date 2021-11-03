@@ -9,7 +9,7 @@
   >
     <div class="sf-input__wrapper">
       <input
-        :id="idWithoutWhitespace"
+        :id="name"
         v-focus
         v-bind="$attrs"
         :value="value"
@@ -21,7 +21,7 @@
         v-on="listeners"
       />
       <span class="sf-input__bar"></span>
-      <label v-if="label" class="sf-input__label" :for="name">
+      <label class="sf-input__label" :for="name">
         <!-- @slot Custom input label -->
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
@@ -128,9 +128,6 @@ export default {
     },
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
-    },
-    idWithoutWhitespace() {
-      return this.name.replace(/\s/g, "");
     },
   },
   watch: {
