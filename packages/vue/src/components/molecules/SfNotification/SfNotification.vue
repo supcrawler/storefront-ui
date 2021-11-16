@@ -1,13 +1,10 @@
 <template>
   <transition name="sf-fade">
-    <div
-      :class="[{ 'display-none': !visible }, colorClass]"
-      class="sf-notification"
-    >
+    <div v-if="visible" class="sf-notification" :class="colorClass">
       <!--@slot Custom notification icon. Slot content will replace default icon.-->
       <slot name="icon" v-bind="{ icon }">
         <SfIcon
-          :class="{ 'display-none': !icon }"
+          v-if="!!icon"
           class="sf-notification__icon"
           :icon="icon"
           size="lg"
@@ -17,25 +14,20 @@
       <div>
         <!--@slot Custom title. Slot content will replace default title.-->
         <slot name="title" v-bind="{ title }">
-          <div
-            :class="{ 'display-none': !title }"
-            class="sf-notification__title smartphone-only"
-          >
+          <div v-if="title" class="sf-notification__title smartphone-only">
             {{ title }}
           </div>
         </slot>
         <!--@slot Custom message. Slot content will replace default message.-->
         <slot name="message" v-bind="{ message }">
-          <span
-            :class="{ 'display-none': !message }"
-            class="sf-notification__message"
-            >{{ message }}</span
-          >
+          <span v-if="message" class="sf-notification__message">{{
+            message
+          }}</span>
         </slot>
         <!--@slot Custom action. Slot content will replace default action.-->
         <slot name="action" v-bind="{ action, actionHandler }">
           <SfButton
-            :class="{ 'display-none': !action }"
+            v-if="action"
             class="sf-button--pure sf-notification__action"
             @click="actionHandler"
           >
@@ -44,9 +36,8 @@
         </slot>
       </div>
       <!--@slot Custom notification close icon. Slot content will replace default close icon.-->
-      <slot name="close" v-bind="{ closeHandler }">
+      <slot v-if="!persistent" name="close" v-bind="{ closeHandler }">
         <SfButton
-          :class="{ 'display-none': persistent }"
           aria-label="Close notification"
           class="sf-button--pure sf-notification__close"
           @click="closeHandler"

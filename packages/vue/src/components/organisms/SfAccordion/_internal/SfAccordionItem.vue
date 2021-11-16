@@ -28,7 +28,7 @@
       </SfButton>
     </slot>
     <SfExpand :transition="$parent.transition">
-      <div :class="{ 'display-none': !isOpen }">
+      <div v-if="isOpen">
         <div class="sf-accordion-item__content">
           <!-- @slot The slot to place the item's content -->
           <slot />

@@ -15,7 +15,7 @@
         </slot>
         <slot name="price" v-bind="{ specialPrice, regularPrice }">
           <SfPrice
-            :class="{ 'display-none': !regularPrice }"
+            v-if="regularPrice"
             :regular="regularPrice"
             :special="specialPrice"
           />
@@ -56,7 +56,7 @@
       </slot>
     </div>
     <slot name="remove" v-bind="{ removeHandler }">
-      <template :class="{ 'display-none': !hasRemove }">
+      <template v-if="hasRemove">
         <SfCircleIcon
           icon="cross"
           aria-label="Remove"
@@ -79,7 +79,7 @@
       </template>
     </slot>
     <slot name="more-actions" v-bind="{ actionsHandler }">
-      <template :class="{ 'display-none': !hasMoreActions }">
+      <template v-if="hasMoreActions">
         <SfButton
           aria-label="More actions"
           class="

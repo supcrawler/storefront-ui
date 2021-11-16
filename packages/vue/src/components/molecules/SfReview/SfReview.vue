@@ -31,10 +31,10 @@
     </slot>
     <!-- @slot Review message. Slot content will replace default <div> tag and its inner <span> and <a> tags (bind 'finalMessage' computed property, 'buttonText' computed property). -->
     <slot name="message" v-bind="{ finalMessage, buttonText }">
-      <div :class="{ 'display-none': !message }">
+      <div v-if="message">
         <p class="sf-review__message">{{ finalMessage }}</p>
         <SfButton
-          :class="{ 'display-none': !showButton }"
+          v-if="showButton"
           class="sf-button--text sf-review__read-more"
           @click="toggleMessage"
         >

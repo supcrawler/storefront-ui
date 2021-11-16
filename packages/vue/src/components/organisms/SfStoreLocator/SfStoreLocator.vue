@@ -56,11 +56,8 @@
           </LMarker>
         </LMap>
         <!-- @slot Use this slot to customise the loading indicator while the map librry loads -->
-        <slot name="map-loading">
-          <SfLoader
-            :class="{ 'display-none': mapReady }"
-            class="sf-store-locator__loader"
-          />
+        <slot v-if="!mapReady" name="map-loading">
+          <SfLoader class="sf-store-locator__loader" />
         </slot>
       </div>
     </div>

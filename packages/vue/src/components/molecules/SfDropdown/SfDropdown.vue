@@ -16,9 +16,7 @@
       >
         <!--@slot Use this slot to replace title. -->
         <slot name="title" v-bind="{ title }">
-          <div :class="{ 'display-none': !title }" class="sf-dropdown__title">
-            {{ title }}
-          </div>
+          <div v-if="title" class="sf-dropdown__title">{{ title }}</div>
         </slot>
         <!--@slot Use this slot to place content inside the dropdown.-->
         <slot />

@@ -26,18 +26,12 @@
           class="sf-checkbox__checkmark"
           :class="{ 'sf-checkbox__checkmark is-active': isChecked }"
         >
-          <SfIcon
-            :class="{ 'display-none': !isChecked }"
-            icon="check"
-            color="white"
-          />
+          <SfIcon v-if="isChecked" icon="check" color="white" />
         </span>
       </slot>
       <!-- @slot Custom label markup -->
       <slot name="label" v-bind="{ label, isChecked, disabled }">
-        <span :class="{ 'display-none': !label }" class="sf-checkbox__label">{{
-          label
-        }}</span>
+        <span v-if="label" class="sf-checkbox__label">{{ label }}</span>
       </slot>
     </label>
     <div class="sf-checkbox__message">

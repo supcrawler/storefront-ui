@@ -3,7 +3,7 @@
     <!-- @slot Slot to replace color element -->
     <slot name="color" v-bind="{ color }">
       <div
-        :class="{ 'display-none': !color }"
+        v-if="color"
         class="sf-product-option__color"
         :style="{ background: color }"
       ></div>
