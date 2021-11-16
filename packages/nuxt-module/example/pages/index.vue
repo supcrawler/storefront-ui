@@ -81,12 +81,7 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage v-if="!isMobile" :src="image.url" :alt="image.content" width="470" height="470">
-              {{
-                image.content
-              }}
-            </SfImage>
-            <SfImage v-else :src="image.url" :alt="image.content" width="150" height="150">
+            <SfImage :src="image.url" :alt="image.content" width="470">
               {{
                 image.content
               }}
@@ -109,24 +104,14 @@
             aria-label="Go to Apple Product"
             data-testid="banner-cta-button"
           >
-            <SfImage 
-              src="/assets/storybook/Home/apple.png" 
-              alt="Apple"
-              :width="134"
-              :height="44"
-            />
+            <SfImage src="/assets/storybook/Home/apple.png" alt="Apple" />
           </SfButton>
           <SfButton
             class="app-banner__button sf-banner__call-to-action"
             aria-label="Go to Google Product"
             data-testid="banner-cta-button"
           >
-            <SfImage 
-              src="/assets/storybook/Home/google.png" 
-              alt="Google"
-              :width="134"
-              :height="44"            
-            />
+            <SfImage src="/assets/storybook/Home/google.png" alt="Google" />
           </SfButton>
         </div>
       </template>
@@ -145,10 +130,6 @@ import {
   SfProductCard,
   SfImage
 } from '@storefront-ui/vue'
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../vue/src/utilities/mobile-observer";
 export default {
   name: 'Home',
   components: {
@@ -333,18 +314,12 @@ export default {
       ]
     }
   },
-  computed: {
-    ...mapMobileObserver(),
-  },
   methods: {
     toggleWishlist (index) {
       return (this.products[index].isOnWishlist =
         !this.products[index].isOnWishlist)
     }
-  },
-   beforeDestroy() {
-    unMapMobileObserver();
-  },
+  }
 }
 </script>
 <style lang="scss" scoped>

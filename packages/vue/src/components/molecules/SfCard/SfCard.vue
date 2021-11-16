@@ -1,12 +1,6 @@
 <template>
   <div class="sf-card">
-    <SfImage
-      :width="imageWidth"
-      :height="imageHeight"
-      :src="image"
-      :alt="title"
-      class="sf-card__image"
-    />
+    <SfImage :src="image" :alt="title" class="sf-card__image" />
     <!-- @slot Custom content for heading and description-->
     <slot name="details" v-bind="{ title, description, titleLevel }">
       <div class="sf-card__details">
@@ -43,14 +37,6 @@ export default {
   props: {
     image: {
       type: String,
-      default: "",
-    },
-    imageWidth: {
-      type: [String, Number],
-      default: "",
-    },
-    imageHeight: {
-      type: [String, Number],
       default: "",
     },
     title: {
