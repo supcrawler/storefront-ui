@@ -106,7 +106,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    expect(wishlistIconButton.classes("display-none")).toBe(true);
+    expect(wishlistIconButton.exists()).toBe(false);
   });
   it("has no wish list button when wishlistIcon is false (isInWishlist=true)", () => {
     const component = shallowMount(SfProductCard, {
@@ -117,7 +117,7 @@ describe("SfProductCard.vue: Wish list icon button", () => {
       },
     });
     const wishlistIconButton = component.find(wishlistIconButtonClass);
-    expect(wishlistIconButton.classes("display-none")).toBe(true);
+    expect(wishlistIconButton.exists()).toBe(false);
   });
   it("has custom slot content when slot is used", () => {
     const customSlotContentText = "Wish List";

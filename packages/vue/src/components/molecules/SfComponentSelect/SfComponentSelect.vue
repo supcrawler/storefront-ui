@@ -30,10 +30,7 @@
         v-html="html"
       ></div>
       <slot name="label">
-        <div
-          :class="{ 'display-none': !label }"
-          class="sf-component-select__label"
-        >
+        <div v-if="label" class="sf-component-select__label">
           {{ label }}
         </div>
       </slot>
@@ -74,8 +71,8 @@
     <div class="sf-component-select__error-message">
       <transition name="sf-fade">
         <!-- @slot Custom error message of form select -->
-        <slot name="error-message" v-bind="{ errorMessage }">
-          <span :class="{ 'display-none': valid }"> {{ errorMessage }} </span>
+        <slot v-if="!valid" name="error-message" v-bind="{ errorMessage }">
+          <span> {{ errorMessage }} </span>
         </slot>
       </transition>
     </div>

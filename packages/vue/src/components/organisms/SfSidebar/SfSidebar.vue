@@ -3,10 +3,10 @@
     <SfOverlay :visible="visibleOverlay" />
     <transition :name="transitionName">
       <aside
+        v-if="visible"
         ref="asideContent"
         v-focus-trap
         v-click-outside="checkPersistence"
-        :class="{ 'display-none': !visible }"
         class="sf-sidebar__aside"
       >
         <!--@slot Use this slot to place content inside the modal bar.-->
@@ -21,7 +21,7 @@
         <!--@slot Use this slot to replace close icon.-->
         <slot name="circle-icon" v-bind="{ close, button }">
           <SfCircleIcon
-            :class="{ 'display-none': !button }"
+            v-if="button"
             icon-size="12px"
             aria-label="Close sidebar"
             icon="cross"
@@ -29,14 +29,11 @@
             @click="close"
           />
         </slot>
-        <div
-          :class="{ 'display-none': !title || (!title && !hasTop) }"
-          class="sf-sidebar__top"
-        >
+        <div v-if="title || hasTop" class="sf-sidebar__top">
           <!--@slot Use this slot to replace SfHeading component.-->
           <slot name="title" v-bind="{ title, subtitle, headingLevel }">
             <SfHeading
-              :class="{ 'display-none': !title }"
+              v-if="title"
               :title="title"
               :description="subtitle"
               :level="headingLevel"
@@ -55,7 +52,7 @@
           <slot />
         </div>
         <!--@slot Use this slot to place content to sticky bottom.-->
-        <div :class="{ 'display-none': !hasBottom }" class="sf-sidebar__bottom">
+        <div v-if="hasBottom" class="sf-sidebar__bottom">
           <slot name="content-bottom" />
         </div>
       </aside>

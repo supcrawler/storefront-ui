@@ -3,7 +3,7 @@
     <!-- @slot Use this slot to replace title -->
     <slot name="title" v-bind="{ title }">
       <SfHeading
-        :class="{ 'display-none': !title }"
+        v-if="title"
         class="sf-tile__title"
         :level="3"
         :title="title"

@@ -11,22 +11,22 @@ describe("Category page", () => {
       .should("have.class", "is-open")
       .get(".sf-accordion")
       .find("button")
-      .not(".display-none")
       .last()
       .should("not.have.class", "is-open")
-      .get(selectors.accordion.headerShoes)
+      .get(".sf-accordion")
+      .find("button")
+      .last()
       .click()
       .should("have.class", "is-open")
   });
   it("test SfPagination", () => {
     cy.get(".sf-pagination")
       .find(".sf-pagination__item")
-      .not(".display-none")
       .eq(2)
       .click()
       .url()      
       .should('eq', 'http://localhost:3000/Category?page=2')
-      .wait(5000)
+      .wait(10000)
       .get(selectors.pagination.prevArrow)      
       .click()
       .url()
@@ -54,11 +54,7 @@ describe("Category page", () => {
       .click()
       .get("[data-testid='Summer fly']")
       .should("not.have.class", "is-active")
-      .should("not.have.class", "display-none")
-      .get("[data-testid='Summer fly']")
-      .find("input")
-      .check({ force: true })
-      .get("[data-testid='Summer fly']")
+      .click()
       .should("have.class", "is-active")
   });
   it("test SfColor", () => {
@@ -83,7 +79,7 @@ describe("Category page", () => {
       .click()
       .get(".sidebar-filters")
       .children()
-      .should('have.class', 'display-none')
+      .should('have.length', 0)
   });
   it("test List and grid view", () => {
     cy.get(".navbar__view-icon")

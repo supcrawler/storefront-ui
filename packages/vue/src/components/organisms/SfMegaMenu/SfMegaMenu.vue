@@ -16,10 +16,7 @@
           <!-- @slot Slot for menu column -->
           <slot />
         </div>
-        <div
-          :class="{ 'display-none': !$slots.aside }"
-          class="sf-mega-menu__aside"
-        >
+        <div v-if="$slots.aside" class="sf-mega-menu__aside">
           <!-- @slot @deprecated will be removed in 1.0.0 -->
           <SfMenuItem
             :label="asideTitle"

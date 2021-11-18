@@ -4,7 +4,7 @@
       id="login"
       :visible="openModal"
       :title="modalTitle"
-      @close="openModal = false"
+      @close="toggleModal"
     >
       <transition name="sf-fade" mode="out-in">
         <div

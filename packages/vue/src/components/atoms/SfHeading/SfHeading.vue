@@ -18,9 +18,7 @@
     <!--@slot Heading description. Slot content will replace default <div> tag-->
     <slot name="description" v-bind="{ props }">
       <div
-        :class="{
-          'display-none': !$options.hasDescription(props.description, slots),
-        }"
+        v-if="$options.hasDescription(props.description, slots)"
         class="sf-heading__description"
       >
         {{ props.description }}

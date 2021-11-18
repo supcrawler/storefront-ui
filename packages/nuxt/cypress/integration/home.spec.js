@@ -19,14 +19,12 @@ describe("Home page", () => {
       .first()
       .should("not.have.class", "glide__slide--active")
       .get(selectors.hero.ctaButton)
-      .first()
-      .click()
+      .click({ multiple: true, force: true })
       .get(selectors.hero.bullets)
-      .find("button")
-      .eq(2)
+      .eq(1)
       .click()
       .get(selectors.hero.items)
-      .eq(2)
+      .last()
       .should("have.class", "glide__slide--active")
   });
   it("test SfBannerGrid component", () => {

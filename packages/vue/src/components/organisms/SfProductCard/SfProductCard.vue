@@ -37,7 +37,7 @@
       </slot>
       <slot name="colors" v-bind="{ colors }">
         <SfColorPicker
-          :class="{ 'display-none': !colors.length }"
+          v-if="colors.length"
           class="sf-product-card__colors"
           label="Choose color"
           :is-open="!isMobile || openColorPicker"
@@ -55,27 +55,28 @@
       </slot>
       <slot name="badge" v-bind="{ badgeLabel, badgeColor }">
         <SfBadge
+          v-if="badgeLabel"
           class="sf-product-card__badge"
-          :class="[badgeColorClass, { 'display-none': !badgeLabel }]"
+          :class="badgeColorClass"
           >{{ badgeLabel }}</SfBadge
         >
       </slot>
       <SfButton
+        v-if="wishlistIcon !== false"
         :aria-label="`${ariaLabel} ${title}`"
-        :class="[wishlistIconClasses, { 'display-none': !wishlistIcon }]"
+        :class="wishlistIconClasses"
         data-testid="product-wishlist-button"
         @click="toggleIsInWishlist"
       >
         <slot name="wishlist-icon" v-bind="{ currentWishlistIcon }">
           <SfIcon
-            v-if="currentWishlistIcon !== false"
             :icon="currentWishlistIcon"
             size="22px"
             data-test="sf-wishlist-icon"
           />
         </slot>
       </SfButton>
-      <template :class="{ 'display-none': !showAddToCartButton }">
+      <template v-if="showAddToCartButton">
         <slot
           name="add-to-cart"
           v-bind="{
@@ -137,7 +138,7 @@
     </slot>
     <slot name="price" v-bind="{ specialPrice, regularPrice }">
       <SfPrice
-        :class="{ 'display-none': !regularPrice }"
+        v-if="regularPrice"
         class="sf-product-card__price"
         :regular="regularPrice"
         :special="specialPrice"
@@ -145,17 +146,16 @@
     </slot>
     <slot name="reviews" v-bind="{ maxRating, scoreRating }">
       <div
-        :class="{ 'display-none': !scoreRating }"
+        v-if="typeof scoreRating === 'number'"
         class="sf-product-card__reviews"
       >
         <SfRating
-          v-if="typeof scoreRating === 'number'"
           class="sf-product-card__rating"
           :max="maxRating"
           :score="scoreRating"
         />
         <SfButton
-          :class="{ 'display-none': !reviewsCount }"
+          v-if="reviewsCount"
           :aria-label="`Read ${reviewsCount} reviews about ${title}`"
           class="sf-button--pure sf-product-card__reviews-count"
           data-testid="product-review-button"

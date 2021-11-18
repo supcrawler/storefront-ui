@@ -52,7 +52,7 @@
           >
             <div class="sf-header__icons">
               <SfButton
-                :class="{ 'display-none': !accountIcon }"
+                v-if="accountIcon"
                 class="sf-button--pure sf-header__action"
                 data-testid="accountIcon"
                 aria-label="Account"
@@ -67,7 +67,7 @@
                 />
               </SfButton>
               <SfButton
-                :class="{ 'display-none': !wishlistIcon }"
+                v-if="wishlistIcon"
                 class="sf-button--pure sf-header__action"
                 data-testid="wishlistIcon"
                 aria-label="Wishlist"
@@ -85,7 +85,7 @@
                 />
               </SfButton>
               <SfButton
-                :class="{ 'display-none': !cartIcon }"
+                v-if="cartIcon"
                 class="sf-button--pure sf-header__action"
                 data-testid="cartIcon"
                 aria-label="Cart"
