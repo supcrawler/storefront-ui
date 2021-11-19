@@ -184,8 +184,6 @@
                       :src="`/assets/storybook/checkout/${item.value}.png`"
                       :alt="item.value"
                       class="payment-image"
-                      :width="50"
-                      :height="30"
                       :lazy="false"
                     />
                   </template>

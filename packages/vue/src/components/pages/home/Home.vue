@@ -88,22 +88,9 @@
             :key="colKey"
             class="instagram-grid__col"
           >
-            <SfImage
-              v-if="!isMobile"
-              :src="image.url"
-              :alt="image.content"
-              :width="470"
-              :height="470"
-              >{{ image.content }}</SfImage
-            >
-            <SfImage
-              v-else
-              :src="image.url"
-              :alt="image.content"
-              :width="150"
-              :height="150"
-              >{{ image.content }}</SfImage
-            >
+            <SfImage :src="image.url" :alt="image.content" width="470">{{
+              image.content
+            }}</SfImage>
           </div>
         </div>
       </div>
@@ -126,24 +113,14 @@
             aria-label="Go to Apple Product"
             data-testid="banner-cta-button"
           >
-            <SfImage
-              src="/assets/storybook/Home/apple.png"
-              alt="Apple"
-              :width="134"
-              :height="44"
-            />
+            <SfImage src="/assets/storybook/Home/apple.png" alt="Apple" />
           </SfButton>
           <SfButton
             class="app-banner__button sf-banner__call-to-action"
             aria-label="Go to Google Product"
             data-testid="banner-cta-button"
           >
-            <SfImage
-              src="/assets/storybook/Home/google.png"
-              alt="Google"
-              :width="134"
-              :height="44"
-            />
+            <SfImage src="/assets/storybook/Home/google.png" alt="Google" />
           </SfButton>
         </div>
       </template>
@@ -163,10 +140,6 @@ import {
   SfImage,
   SfHeading,
 } from "@storefront-ui/vue";
-import {
-  mapMobileObserver,
-  unMapMobileObserver,
-} from "../../../utilities/mobile-observer";
 export default {
   name: "Home",
   components: {
@@ -351,12 +324,6 @@ export default {
         ],
       ],
     };
-  },
-  computed: {
-    ...mapMobileObserver(),
-  },
-  beforeDestroy() {
-    unMapMobileObserver();
   },
   methods: {
     toggleWishlist(index) {
