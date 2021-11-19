@@ -140,11 +140,6 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfRadio },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      selectedValue: "",
-    };
-  },
   template: `
   <SfRadio
     :class="classes"
@@ -155,7 +150,7 @@ const Template = (args, { argTypes }) => ({
     :value="value"
     :disabled="disabled"
     :required="required"
-    v-model="selectedValue"
+    v-model="selected"
     @change="change"
     @input="input"
   />`,
@@ -169,12 +164,17 @@ Common.args = {
     "Novelty! From now on you have the option of picking up an order in the selected InPack parceler. Just remember that in the case of orders paid on delivery, only the card payment will be accepted.",
   name: "Shipping",
   value: "store",
-  disabled: false,
+};
+
+export const Selected = Template.bind({});
+Selected.args = {
+  ...Common.args,
+  selected: "store",
 };
 
 export const TransparentSelected = Template.bind({});
 TransparentSelected.args = {
-  ...Common.args,
+  ...Selected.args,
   classes: "sf-radio--transparent",
 };
 

@@ -52,7 +52,7 @@
           >
             <slot />
           </ul>
-          <slot name="cancel" v-bind="{ cancelLabel, closeHandler }">
+          <slot name="cancel">
             <SfButton
               ref="cancel"
               class="
@@ -62,7 +62,7 @@
               "
               @click="closeHandler"
             >
-              {{ cancelLabel }}
+              Cancel
             </SfButton>
           </slot>
         </div>
@@ -131,10 +131,6 @@ export default {
     persistent: {
       type: Boolean,
       default: false,
-    },
-    cancelLabel: {
-      type: String,
-      default: "Cancel",
     },
   },
   data() {
@@ -260,7 +256,6 @@ export default {
     },
     closeHandler() {
       this.open = false;
-      this.$emit("click:close");
     },
   },
 };

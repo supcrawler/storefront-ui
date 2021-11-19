@@ -81,7 +81,7 @@ export default {
   props: {
     total: {
       type: Number,
-      default: 3,
+      default: 0,
     },
     current: {
       type: Number,
@@ -93,6 +93,9 @@ export default {
   },
   inactiveLeft(total, current) {
     return total - (total - 1 - current) - 1;
+  },
+  go(listeners, index) {
+    listeners.click && listeners.click(index);
   },
 };
 </script>

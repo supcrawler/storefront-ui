@@ -227,34 +227,6 @@ export default {
       defaultValue: 1,
       description: "Selected quantity",
     },
-    minQty: {
-      control: "number",
-      table: {
-        category: "Props",
-        type: {
-          summary: "number",
-        },
-        defaultValue: {
-          summary: "null",
-        },
-      },
-      defaultValue: null,
-      description: "Minimum quantity value",
-    },
-    maxQty: {
-      control: "number",
-      table: {
-        category: "Props",
-        type: {
-          summary: "number",
-        },
-        defaultValue: {
-          summary: "null",
-        },
-      },
-      defaultValue: null,
-      description: "Maximum quantity value",
-    },
     link: {
       control: "text",
       table: {
@@ -338,8 +310,6 @@ const Template = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
-    :minQty="minQty"
-    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :hasMoreActions="hasMoreActions"
@@ -378,8 +348,6 @@ export const UseActionsSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
-    :minQty="minQty"
-    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -404,8 +372,6 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
-    :minQty="minQty"
-    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -430,8 +396,6 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
-    :minQty="minQty"
-    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -456,8 +420,6 @@ export const UseInputSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
-    :minQty="minQty"
-    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -482,8 +444,6 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
-    :minQty="minQty"
-    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"
@@ -508,8 +468,6 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :image-height="imageHeight"
     :title="title"
     :link="link"
-    :minQty="minQty"
-    :maxQty="maxQty"
     :regular-price="regularPrice"
     :special-price="specialPrice"
     :special-price="specialPrice"

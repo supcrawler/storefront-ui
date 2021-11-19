@@ -16,7 +16,20 @@ export default {
   },
   computed: {
     classFromProps() {
-      return `sf-skeleton--${this.type}`;
+      switch (this.type) {
+        case "paragraph":
+          return "sf-skeleton--paragraph";
+        case "image":
+          return "sf-skeleton--image";
+        case "button":
+          return "sf-skeleton--button";
+        case "input":
+          return "sf-skeleton--input";
+        case "avatar":
+          return "sf-skeleton--avatar";
+        default:
+          return "sf-skeleton--paragraph";
+      }
     },
   },
 };
