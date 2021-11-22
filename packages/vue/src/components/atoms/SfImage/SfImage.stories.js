@@ -128,16 +128,16 @@ Common.args = {
 export const WithSrcOnly = Template.bind({});
 WithSrcOnly.args = {
   ...Common.args,
-  width: 216,
-  height: 326,
+  width: "",
+  height: "",
   srcsets: [],
 };
 
 export const WithBreakpoints = Template.bind({});
 WithBreakpoints.args = {
   ...Common.args,
-  width: 216,
-  height: 326,
+  width: "",
+  height: "",
 };
 
 export const WithResolutions = Template.bind({});
