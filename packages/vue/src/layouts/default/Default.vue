@@ -5,9 +5,9 @@
         <SfHeaderNavigationItem
           v-for="(category, key) in shopRootCategories"
           :key="key"
-          :link="`/${category}`"
-          :label="category"
-        />
+        >
+          <a href="">{{ category }}</a>
+        </SfHeaderNavigationItem>
       </template>
     </SfHeader>
     <Home />
