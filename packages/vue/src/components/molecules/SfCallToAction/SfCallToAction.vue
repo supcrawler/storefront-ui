@@ -52,7 +52,7 @@ export default {
     },
     link: {
       type: String,
-      default: null,
+      default: "",
     },
     description: {
       type: String,
