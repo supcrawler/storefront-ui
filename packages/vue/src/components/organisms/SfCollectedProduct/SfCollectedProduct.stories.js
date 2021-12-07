@@ -297,21 +297,14 @@ export default {
       },
       description: "Remove button visibility",
     },
-    input: {
-      action: "input event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits input event when quantity selector value is changed",
-    },
+    input: { action: "Quantity changed", table: { category: "Events" } },
     "click:remove": {
-      action: "click:remove event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits click:remove event when close button is clickecd",
+      action: "Remove product clicked",
+      table: { category: "Events" },
     },
     "click:actions": {
-      action: "click:actions event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description:
-        "Emits input event when actions button in mobile mode is clicked",
+      action: "More actions button clicked",
+      table: { category: "Events" },
     },
   },
 };
@@ -319,22 +312,11 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfCollectedProduct },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      quantity: this.qty,
-    };
-  },
-  methods: {
-    inputHandler(quantityValue) {
-      this.quantity = quantityValue;
-      this.input(this.quantity);
-    },
-  },
   template: `
   <SfCollectedProduct
-    :qty="quantity"
+    :qty="qty"
     :class="classes"
-    @input="inputHandler"
+    @input="qty = $event"
     @click:remove="this['click:remove']"
     @click:actions="this['click:actions']"
     :image="image"
@@ -375,8 +357,8 @@ export const UseActionsSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="quantity"
-    @input="inputHandler"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -401,8 +383,8 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="quantity"
-    @input="inputHandler"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -427,8 +409,8 @@ export const UseImageSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="quantity"
-    @input="inputHandler"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -453,8 +435,8 @@ export const UseInputSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="quantity"
-    @input="inputHandler"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -479,8 +461,8 @@ export const UseTitleSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="quantity"
-    @input="inputHandler"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -505,8 +487,8 @@ export const UsePriceSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="quantity"
-    @input="inputHandler"
+    :qty="qty"
+    @input="qty = $event"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"

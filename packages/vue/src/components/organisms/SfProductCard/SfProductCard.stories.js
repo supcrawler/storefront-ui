@@ -307,39 +307,16 @@ export default {
       description: "*deprecated. Link element tag. Use slot to replace content",
     },
     "click:addToCart": {
-      action: "click:add-to-cart event emitted",
-      table: {
-        category: "Events",
-        type: { summary: null },
-      },
-      description:
-        "Emits click:add-to-cart event when add to cart button is clicked",
+      action: "Add-to-cart clicked",
+      table: { category: "Events" },
     },
     "click:wishlist": {
-      action: "click:wishlist event emitted",
-      table: {
-        category: "Events",
-        type: { summary: null },
-      },
-      description:
-        "Emits click:wishlist event when add to wishlist button is clicked",
+      action: "Wishlist clicked",
+      table: { category: "Events" },
     },
-    "click:reviews": {
-      action: "click:reviews event emitted",
-      table: {
-        category: "Events",
-        type: { summary: null },
-      },
-      description:
-        "Emits click:reviews event when reviews count button is clicked",
-    },
-    "click:colors": {
-      action: "click:colors event emitted",
-      table: {
-        category: "Events",
-        type: { summary: null },
-      },
-      description: "Emits click:colors event when color is chosen",
+    handleClick: {
+      action: "Card clicked",
+      table: { category: "Events" },
     },
   },
 };
@@ -370,7 +347,7 @@ const Template = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:reviews="this['click:reviews']"
+    @click="handleClick"
   />`,
 });
 
@@ -387,6 +364,17 @@ Common.args = {
 export const WithColorPicker = (args, { argTypes }) => ({
   components: { SfProductCard },
   props: Object.keys(argTypes),
+  methods: {
+    handleSelectedColor(color) {
+      this.colors.map((el) => {
+        if (el.label === color.label) {
+          el.selected = !el.selected;
+        } else {
+          el.selected = false;
+        }
+      });
+    },
+  },
   template: `
   <SfProductCard
     :image="image"
@@ -411,8 +399,7 @@ export const WithColorPicker = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:colors="this['click:colors']"
-    @click:reviews="this['click:reviews']"
+    @click:colors="handleSelectedColor"
   />`,
 });
 WithColorPicker.args = {
@@ -508,7 +495,7 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:reviews="this['click:reviews']"
+    @click="handleClick"
   >
     <template #image="{ image, title }">
       <div :style="{ height: '111px', display: 'flex', alignItems: 'center', justifyContent: 'center'}">CUSTOM IMAGE</div>
@@ -543,7 +530,7 @@ export const UseAddToCart = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:reviews="this['click:reviews']"
+    @click="handleClick"
   >
     <template #add-to-cart="{ isAddedToCart, showAddedToCartBadge, isAddingToCart }">
       CUSTOM ADD TO CART
@@ -578,7 +565,6 @@ export const UseColorsSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:reviews="this['click:reviews']"
   >
     <template #colors="{ colors }">
       <div style="margin-top: var(--spacer-sm);">CUSTOM COLORS</div>
@@ -613,7 +599,7 @@ export const UseTitleSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:reviews="this['click:reviews']"
+    @click="handleClick"
   >
     <template #title">
       CUSTOM TITLE
@@ -648,7 +634,7 @@ export const UseWishlistIconSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:reviews="this['click:reviews']"
+    @click="handleClick"
   >
     <template #wishlist-icon">
       CUSTOM WISHLIST ICON
@@ -683,7 +669,7 @@ export const UsePriceSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:reviews="this['click:reviews']"
+    @click="handleClick"
   >
     <template #price">
       CUSTOM PRICE
@@ -718,7 +704,7 @@ export const UseReviewsSlot = (args, { argTypes }) => ({
     :is-added-to-cart="isAddedToCart"
     @click:add-to-cart="this['click:addToCart']"
     @click:wishlist="this['click:wishlist']"
-    @click:reviews="this['click:reviews']"
+    @click="handleClick"
   >
     <template #reviews">
       CUSTOM REVIEWS

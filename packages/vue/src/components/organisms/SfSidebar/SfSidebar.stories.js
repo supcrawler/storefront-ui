@@ -165,11 +165,7 @@ export default {
       defaultValue: true,
       description: "The overlay's visibility",
     },
-    close: {
-      action: "close event emitted",
-      table: { category: "Events", type: { summary: null } },
-      description: "Emits close event when close button or overlay is clicked",
-    },
+    close: { action: "Close sidebar clicked", table: { category: "Events" } },
   },
 };
 
