@@ -32,35 +32,6 @@ export default {
         component: "Section for content with sliding property.",
       },
     },
-    argTypes: {
-      static: {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
-        },
-        description: "Use this slot to place static content",
-      },
-      close: {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
-        },
-        description: " Use this slot to replace close button",
-      },
-      sliding: {
-        table: {
-          category: "Slots",
-          type: {
-            summary: null,
-          },
-        },
-        description: "Use this slot to place sliding content",
-      },
-    },
   },
   decorators: [
     () => ({

@@ -297,14 +297,101 @@ export default {
       },
       description: "Remove button visibility",
     },
-    input: { action: "Quantity changed", table: { category: "Events" } },
+    input: {
+      action: "input event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits input event when quantity selector value is changed",
+    },
     "click:remove": {
-      action: "Remove product clicked",
-      table: { category: "Events" },
+      action: "click:remove event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description: "Emits click:remove event when close button is clickecd",
     },
     "click:actions": {
-      action: "More actions button clicked",
-      table: { category: "Events" },
+      action: "click:actions event emitted",
+      table: { category: "Events", type: { summary: null } },
+      description:
+        "Emits input event when actions button in mobile mode is clicked",
+    },
+    "title*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `title` for `SfCollectedProduct` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace title element",
+    },
+    "image*": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot `image` for `SfCollectedProduct` component. Due to name conflict in storybook docs, slot name has been changed to the name with asterisk. Use this slot to replace image element",
+    },
+    actions: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom actions",
+    },
+    configuration: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom configuration",
+    },
+    price: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom price element",
+    },
+    input: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom input element",
+    },
+    remove: {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass custom remove button",
+    },
+    "more-actions": {
+      table: {
+        category: "Slots",
+        type: {
+          summary: null,
+        },
+      },
+      description:
+        "Named slot for `SfCollectedProduct` component. Use this slot to pass other custom actions",
     },
   },
 };
@@ -312,11 +399,22 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfCollectedProduct },
   props: Object.keys(argTypes),
+  data() {
+    return {
+      quantity: this.qty,
+    };
+  },
+  methods: {
+    inputHandler(quantityValue) {
+      this.quantity = quantityValue;
+      this.input(this.quantity);
+    },
+  },
   template: `
   <SfCollectedProduct
-    :qty="qty"
+    :qty="quantity"
     :class="classes"
-    @input="qty = $event"
+    @input="inputHandler"
     @click:remove="this['click:remove']"
     @click:actions="this['click:actions']"
     :image="image"
@@ -357,8 +455,8 @@ export const UseActionsSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="qty"
-    @input="qty = $event"
+    :qty="quantity"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -383,8 +481,8 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="qty"
-    @input="qty = $event"
+    :qty="quantity"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -409,8 +507,8 @@ export const UseImageSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="qty"
-    @input="qty = $event"
+    :qty="quantity"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -435,8 +533,8 @@ export const UseInputSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="qty"
-    @input="qty = $event"
+    :qty="quantity"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -461,8 +559,8 @@ export const UseTitleSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="qty"
-    @input="qty = $event"
+    :qty="quantity"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"
@@ -487,8 +585,8 @@ export const UsePriceSlot = (args, { argTypes }) => ({
   props: Object.keys(argTypes),
   template: `
   <SfCollectedProduct
-    :qty="qty"
-    @input="qty = $event"
+    :qty="quantity"
+    @input="inputHandler"
     :image="image"
     :image-width="imageWidth"
     :image-height="imageHeight"

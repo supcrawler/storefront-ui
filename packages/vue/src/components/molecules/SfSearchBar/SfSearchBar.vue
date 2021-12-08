@@ -9,6 +9,7 @@
       :placeholder="placeholder"
       v-on="listeners"
     />
+    <!-- @slot -->
     <slot name="icon">
       <SfButton
         class="sf-search-bar__button sf-button--pure"
