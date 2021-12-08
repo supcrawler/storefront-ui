@@ -1,5 +1,6 @@
 <template>
   <div class="sf-accordion" :class="{ 'has-chevron': showChevron }">
+    <!--@slot default slot to setup SfAccordionItem elements -->
     <slot />
   </div>
 </template>
@@ -93,7 +94,6 @@ export default {
           if (child._uid === slotId) {
             child.isOpen = !child.isOpen;
             this.openHeader = child.header;
-            this.$emit("click:open", this.openHeader);
           } else {
             child.isOpen = false;
           }
@@ -103,7 +103,6 @@ export default {
           return child._uid === slotId;
         });
         clickedHeader.isOpen = !clickedHeader.isOpen;
-        this.$emit("click:open", clickedHeader.isOpen);
       }
       if (this.headersAreClosed) {
         this.openHeader = "";
