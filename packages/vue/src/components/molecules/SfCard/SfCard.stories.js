@@ -65,12 +65,8 @@ export default {
     },
     link: {
       control: "text",
-      defaultValue: undefined,
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "null",
-        },
       },
       description: "Card link",
     },

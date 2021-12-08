@@ -188,14 +188,11 @@ export default {
     },
     link: {
       control: "text",
-      defaultValue: undefined,
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "null",
-        },
       },
       description: "Link to be used in call to action button if necessary",
+      defaultValue: "",
     },
     background: {
       control: {

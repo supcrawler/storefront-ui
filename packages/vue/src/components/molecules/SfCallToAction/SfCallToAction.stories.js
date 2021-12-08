@@ -114,13 +114,10 @@ export default {
     },
     link: {
       control: "text",
-      defaultValue: undefined,
       table: {
         category: "Props",
-        defaultValue: {
-          summary: "null",
-        },
       },
+      defaultValue: "",
       description:
         "CallToAction link. If it's filled in, changes button tag on a tag.",
     },

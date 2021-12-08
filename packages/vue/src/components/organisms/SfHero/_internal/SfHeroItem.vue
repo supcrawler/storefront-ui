@@ -66,7 +66,7 @@ export default {
     },
     link: {
       type: String,
-      default: null,
+      default: "",
     },
   },
   data() {

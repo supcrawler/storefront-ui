@@ -169,7 +169,7 @@ export default {
     },
     link: {
       type: [String, Object],
-      default: null,
+      default: "",
     },
     /**
      * Link element tag
