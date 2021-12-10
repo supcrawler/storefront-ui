@@ -98,7 +98,6 @@
         >
           <SfCircleIcon
             class="sf-product-card__add-button"
-            :class="{ 'has-colors': colors.length }"
             :aria-label="`Add to Cart ${title}`"
             :has-badge="showAddedToCartBadge"
             :disabled="addToCartDisabled"
