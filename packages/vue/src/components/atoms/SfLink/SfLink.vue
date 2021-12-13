@@ -17,7 +17,7 @@ export default {
   props: {
     link: {
       type: [String, Object],
-      required: true
+      default: "",
     },
   },
   computed: {
