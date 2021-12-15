@@ -73,11 +73,11 @@ export default {
       default: "",
     },
     imageWidth: {
-      type: Number,
+      type: [String, Number],
       default: 328,
     },
     imageHeight: {
-      type: Number,
+      type: [String, Number],
       default: 448,
     },
     imagePlaceholder: {
