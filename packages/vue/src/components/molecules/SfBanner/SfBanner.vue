@@ -38,7 +38,6 @@
         </SfButton>
       </slot>
     </component>
-    <slot name="img-tag" />
   </section>
 </template>
 <script>
