@@ -44,8 +44,6 @@
   </span>
 </template>
 <script>
-import imagePlaceholder from "@storefront-ui/shared/images/product_placeholder.svg";
-
 export default {
   name: "SfImage",
   props: {
@@ -75,7 +73,7 @@ export default {
     },
     placeholder: {
       type: String,
-      default: imagePlaceholder,
+      default: "",
     },
     loading: {
       type: String,

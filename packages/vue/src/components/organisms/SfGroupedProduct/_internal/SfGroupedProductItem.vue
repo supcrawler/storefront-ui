@@ -6,6 +6,7 @@
         v-bind="{
           image,
           title,
+          imagePlaceholder,
           imagePictureBreakpoint,
         }"
       >
@@ -14,6 +15,7 @@
           :alt="title"
           :width="imageWidth"
           :height="imageHeight"
+          :placeholder="imagePlaceholder"
           :image-picture-breakpoint="imagePictureBreakpoint"
           class="sf-grouped-product-item__image"
         />
@@ -77,6 +79,10 @@ export default {
     imageHeight: {
       type: [String, Number],
       default: 448,
+    },
+    imagePlaceholder: {
+      type: String,
+      default: "",
     },
     imagePictureBreakpoint: {
       type: Number,
