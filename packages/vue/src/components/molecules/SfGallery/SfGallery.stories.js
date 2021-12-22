@@ -35,7 +35,6 @@ export default {
           "Gallery with one main and few side pictures that user can browse through.",
       },
     },
-    layout: "fullscreen",
   },
   argTypes: {
     images: {

@@ -34,7 +34,6 @@ export const params = (StoryComponent) => {
     storysource: {
       disable: true,
     },
-    layout: "fullscreen",
   };
 
   return storyParams;
