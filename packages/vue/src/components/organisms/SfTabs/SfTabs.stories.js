@@ -80,7 +80,6 @@ export default {
           "Component with tab-related content.  Built from main component - SfTabs and internal component - SfTab.",
       },
     },
-    layout: "fullscreen",
   },
   argTypes: {
     tabMaxContentHeight: {

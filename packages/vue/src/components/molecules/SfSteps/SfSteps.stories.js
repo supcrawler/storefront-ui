@@ -54,7 +54,6 @@ export default {
           "Stepper component increasing dynamically on click. Used to guide user through defined path.Built from main component - SfSteps and internal component - SfStep.",
       },
     },
-    layout: "fullscreen",
   },
   argTypes: {
     canGoBack: {
