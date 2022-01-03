@@ -17,7 +17,7 @@ export default {
   props: {
     link: {
       type: [String, Object],
-      required: true,
+      default: "",
     },
   },
   computed: {
@@ -30,9 +30,7 @@ export default {
       return this.isExternal || !this.$router;
     },
     urlTag() {
-      return this.isNativeLinkTag
-        ? { href: this.link }
-        : { to: this.link || "" };
+      return this.isNativeLinkTag ? { href: this.link } : { to: this.link };
     },
     linkComponentTag() {
       const routerLink = this.$nuxt ? "nuxt-link" : "router-link";
