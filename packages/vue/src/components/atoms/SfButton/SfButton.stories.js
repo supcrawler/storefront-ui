@@ -95,16 +95,6 @@ export default {
       description:
         "Equivalent of native button disabled attribute, allows focus for better accessibility",
     },
-    type: {
-      control: "select",
-      defaultValue: "button",
-      options: ["button", "reset", "submit"],
-      table: {
-        category: "Props",
-      },
-      description:
-        "Type of button, which controls the behaviour when it is activated.",
-    },
     link: {
       control: "text",
       defaultValue: undefined,
@@ -147,7 +137,6 @@ const Template = (args, { argTypes }) => ({
   <SfButton
     :class="classes"
     :disabled="disabled" 
-    :type="type"
     @click="click"
     :link="link">
       {{content}}
@@ -163,12 +152,6 @@ Primary.args = {
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
-  ...Primary.args,
-};
-
-export const Submit = Template.bind({});
-Submit.args = {
-  type: "submit",
   ...Primary.args,
 };
 
