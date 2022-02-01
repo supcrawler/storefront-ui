@@ -150,14 +150,14 @@
                   </slot>
                 </div>
                 <div class="shipping__actions">
-                  <SfButton class="sf-button--pure" @click="deleteAddress(key)">
-                    <SfIcon
-                      icon="cross"
-                      color="gray"
-                      size="14px"
-                      class="smartphone-only"
-                    />
-                  </SfButton>
+                  <SfIcon
+                    icon="cross"
+                    color="gray"
+                    size="14px"
+                    role="button"
+                    class="smartphone-only"
+                    @click="deleteAddress(key)"
+                  />
                   <SfButton
                     v-if="changeButtonText"
                     data-testid="change-address"
