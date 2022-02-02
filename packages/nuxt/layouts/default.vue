@@ -21,7 +21,7 @@
         <SfHeaderNavigationItem
             v-for="(item, i) in navigation"
             :key="`sf-header-navigation-item-${i}`"
-            :link="item.link"
+            :link="`/${item.name}`"
             :label="item.name"
           />
       </template>
