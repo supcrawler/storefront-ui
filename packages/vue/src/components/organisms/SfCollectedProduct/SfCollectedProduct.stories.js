@@ -30,14 +30,6 @@ export default {
         value: "var(--c-light)",
         control: "text",
       },
-      "collected-product-image-width": {
-        value: "",
-        control: "text",
-      },
-      "collected-product-image-height": {
-        value: "",
-        control: "text",
-      },
       "collected-product-main-margin": {
         value: "0 0 0 var(--spacer-sm)",
         control: "text",

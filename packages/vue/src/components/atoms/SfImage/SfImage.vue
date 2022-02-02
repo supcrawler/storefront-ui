@@ -1,5 +1,9 @@
 <template>
-  <span class="sf-image--wrapper" data-testid="image-wrapper">
+  <span
+    class="sf-image--wrapper"
+    :style="imageStyle"
+    data-testid="image-wrapper"
+  >
     <component
       :is="imageComponentTag"
       :loading="loading"
@@ -10,14 +14,19 @@
       @load="onLoad"
       v-on="$listeners"
     />
-    <img
-      :class="{ 'display-none': isPlaceholderVisible }"
-      class="sf-image--placeholder"
-      :src="placeholder"
-      alt="Placeholder"
-      :width="width"
-      :height="height"
-    />
+    <slot
+      name="placeholder"
+      v-bind="{ isPlaceholderVisible, placeholder, width, height }"
+    >
+      <img
+        :class="{ 'display-none': isPlaceholderVisible }"
+        class="sf-image--placeholder"
+        :src="placeholder"
+        alt="Placeholder"
+        :width="width"
+        :height="height"
+      />
+    </slot>
     <span
       :class="{ 'display-none': !$slots.default }"
       class="sf-image--overlay"
@@ -128,6 +137,21 @@ export default {
       } else {
         return "sf-image";
       }
+    },
+    imageStyle() {
+      const sizeHandler = (size) => {
+        return size === null ? null : `${size}px`;
+      };
+      return {
+        "--image-width":
+          typeof this.width === "string"
+            ? this.formatDimension(this.width)
+            : sizeHandler(this.width),
+        "--image-height":
+          typeof this.height === "string"
+            ? this.formatDimension(this.height)
+            : sizeHandler(this.height),
+      };
     },
     imageComponentTag() {
       return !this.$nuxt ? "img" : this.imageTag;
