@@ -275,19 +275,9 @@ export default {
       description: "Link to product",
     },
     "v-model": {
-      control: "number",
       table: {
-        type: {
-          summary: "number",
-        },
-        category: "v-model",
-        defaultValue: {
-          summary: 1,
-        },
+        disabled: true,
       },
-      defaultValue: 1,
-      description:
-        "v-model in SfGroupedProductItem accepts `qty` prop and emits native events",
     },
     input: {
       action: "input event emitted",

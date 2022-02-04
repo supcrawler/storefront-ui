@@ -112,18 +112,9 @@ export default {
         "Modal transition effect. Could be one of [the default ones](https://docs.storefrontui.io/?path=/docs/utilities-transitions-docs--page).",
     },
     "v-model": {
-      control: "boolean",
       table: {
-        type: {
-          summary: "boolean",
-        },
-        category: "v-model",
-        defaultValue: {
-          summary: false,
-        },
+        disable: true,
       },
-      defaultValue: false,
-      description: "v-model accepts `visible` prop and emits `close` event",
     },
     close: {
       action: "close event emitted",

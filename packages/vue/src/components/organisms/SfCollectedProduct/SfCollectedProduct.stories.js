@@ -255,18 +255,9 @@ export default {
       description: "Link to product",
     },
     "v-model": {
-      control: "number",
       table: {
-        type: {
-          summary: "number",
-        },
-        category: "v-model",
-        defaultValue: {
-          summary: 1,
-        },
+        disable: true,
       },
-      defaultValue: 1,
-      description: "v-model accepts `qty` prop and emits native events",
     },
     hasMoreActions: {
       control: "boolean",
