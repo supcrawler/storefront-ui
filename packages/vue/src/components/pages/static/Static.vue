@@ -57,8 +57,8 @@ export default {
     return {
       activePage: "About us",
       breadcrumbs: [
-        { text: "Home", link: "/home" },
-        { text: "Help", link: "/help" },
+        { text: "Home", route: { link: "#" } },
+        { text: "Help", route: { link: "#" } },
       ],
       pages: [
         {

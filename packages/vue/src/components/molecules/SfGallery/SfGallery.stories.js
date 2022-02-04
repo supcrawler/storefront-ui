@@ -156,15 +156,6 @@ export default {
       table: { category: "Events", type: { summary: null } },
       description: "Emits click:stage event when main image is clicked.",
     },
-    "big-image": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace main image element",
-    },
     thumbs: {
       table: {
         category: "Slots",
@@ -173,15 +164,6 @@ export default {
         },
       },
       description: "Use this slot to replace gallery thumbs buttons",
-    },
-    "outside-zoom": {
-      table: {
-        category: "Slots",
-        type: {
-          summary: null,
-        },
-      },
-      description: "Use this slot to replace outside zoom image",
     },
   },
 };
@@ -219,7 +201,6 @@ Common.args = {
         url: "assets/storybook/SfGallery/productA.png",
       },
       alt: "Product A",
-      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -232,7 +213,6 @@ Common.args = {
         url: "assets/storybook/SfGallery/productB.jpg",
       },
       alt: "Product B",
-      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -245,7 +225,6 @@ Common.args = {
         url: "assets/storybook/SfGallery/productA.png",
       },
       alt: "Product A",
-      placeholder: "https://via.placeholder.com/422x664",
     },
     {
       desktop: {
@@ -258,7 +237,6 @@ Common.args = {
         url: "assets/storybook/SfGallery/productB.jpg",
       },
       alt: "Product B",
-      placeholder: "https://via.placeholder.com/422x664",
     },
   ],
   current: 1,

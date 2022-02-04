@@ -673,11 +673,15 @@ export default {
       breadcrumbs: [
         {
           text: "Home",
-          link: "#",
+          route: {
+            link: "#",
+          },
         },
         {
           text: "Women",
-          link: "#",
+          route: {
+            link: "#",
+          },
         },
       ],
     };

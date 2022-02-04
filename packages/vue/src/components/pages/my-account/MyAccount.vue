@@ -65,11 +65,15 @@ export default {
       breadcrumbs: [
         {
           text: "Home",
-          link: "#",
+          route: {
+            link: "#",
+          },
         },
         {
           text: "My Account",
-          link: "#",
+          route: {
+            link: "#",
+          },
         },
       ],
       account: {

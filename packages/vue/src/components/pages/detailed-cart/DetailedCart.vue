@@ -118,11 +118,15 @@ export default {
       breadcrumbs: [
         {
           text: "Home",
-          link: "#",
+          route: {
+            link: "#",
+          },
         },
         {
           text: "Cart",
-          link: "#",
+          route: {
+            link: "#",
+          },
         },
       ],
       products: [

@@ -1,4 +1,5 @@
 import { SfMegaMenu, SfList, SfMenuItem, SfBanner } from "@storefront-ui/vue";
+import "./SfMegaMenu.stories.scss";
 
 const categories = [
   {
@@ -256,7 +257,8 @@ const Template = (args, { argTypes }) => ({
   template: `
   <SfMegaMenu 
   :visible="true" 
-  title="Man"  
+  title="Man"
+  class="sb-mega-menu"
 >
   <SfMegaMenuColumn 
     v-for="(category, key) in categories" 
@@ -269,8 +271,8 @@ const Template = (args, { argTypes }) => ({
       </SfListItem>
     </SfList>
   </SfMegaMenuColumn>
-  <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile" style="flex: 0 0 43.125rem;">
-    <div class="smartphone-only" style="display: flex; flex-direction: column; padding: var(--spacer-base);">
+  <SfMegaMenuColumn title="Featured" class="sf-mega-menu-column--pined-content-on-mobile sf-mega-menu-column--hide-header-on-mobile sb-mega-menu__featured">
+    <div class="sb-mega-menu__banners">
       <template v-for="(category, key) in categories" >
         <SfBanner
           v-for="(banner, key) in category.banners"
@@ -278,19 +280,7 @@ const Template = (args, { argTypes }) => ({
           :title="banner.title"
           :subtitle="banner.subtitle"
           :image="banner.pictures"
-          style="margin: 0 0 var(--spacer-sm) 0;"
-        />
-      </template>
-    </div>
-    <div class="desktop-only" style="display: flex; flex-direction: row; padding: 0;">
-      <template v-for="(category, key) in categories" >
-        <SfBanner
-          v-for="(banner, key) in category.banners"
-          :key="key"
-          :title="banner.title"
-          :subtitle="banner.subtitle"
-          :image="banner.pictures"
-          style="margin: 0 var(--spacer-sm) 0 0;"
+          class="sb-mega-menu__banner"
         />
       </template>
     </div>
@@ -332,30 +322,16 @@ export const UseAsideSlot = (args, { argTypes }) => ({
       :title="category.title"
     />
     <template #aside v-for="(category, key) in categories" >
-      <div class="smartphone-only" style="display: flex; flex-direction: column; padding: var(--spacer-base);">
-      <template v-for="(category, key) in categories" >
+      <div class="sb-mega-menu__banners">
         <SfBanner
-          v-for="(banner, key) in category.banners"
-          :key="key"
-          :title="banner.title"
-          :subtitle="banner.subtitle"
-          :image="banner.pictures"
-          style="margin: 0 0 var(--spacer-sm) 0;"
+            v-for="(banner, key) in category.banners"
+            :key="key"
+            :title="banner.title"
+            :subtitle="banner.subtitle"
+            :image="banner.pictures"
+            class="sb-mega-menu__banner"
         />
-      </template>
-    </div>
-    <div class="desktop-only" style="display: flex; flex-direction: row; padding: 0;">
-      <template v-for="(category, key) in categories" >
-        <SfBanner
-          v-for="(banner, key) in category.banners"
-          :key="key"
-          :title="banner.title"
-          :subtitle="banner.subtitle"
-          :image="banner.pictures"
-          style="margin: 0 var(--spacer-sm) 0 0;"
-        />
-      </template>
-    </div>
+      </div>
     </template>
   </SfMegaMenu>`,
 });
