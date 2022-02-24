@@ -231,14 +231,9 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfCheckbox },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      checked: this.selected,
-    };
-  },
   template: `
   <SfCheckbox 
-    v-model="checked"
+    v-model="selected"
     :name="name"      
     :label="label"
     :hintMessage="hintMessage"
@@ -297,11 +292,6 @@ Disabled.args = {
 export const UseCheckmarkSlot = (args, { argTypes }) => ({
   components: { SfCheckbox },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      checked: this.selected,
-    };
-  },
   template: `
   <SfCheckbox 
     v-model="checked"
@@ -321,20 +311,15 @@ export const UseCheckmarkSlot = (args, { argTypes }) => ({
 });
 UseCheckmarkSlot.args = {
   ...Common.args,
-  selected: true,
+  checked: true,
 };
 
 export const UseErrorMessageSlot = (args, { argTypes }) => ({
   components: { SfCheckbox },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      checked: this.selected,
-    };
-  },
   template: `
   <SfCheckbox 
-    v-model="checked"
+    v-model="selected"
     :name="name"      
     :label="label"
     :hint-message="hintMessage"

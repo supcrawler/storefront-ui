@@ -6,11 +6,11 @@
       'has-text': !!value,
       invalid: !valid,
     }"
-    :data-testid="nameWithoutWhitespace"
+    :data-testid="name"
   >
     <div class="sf-input__wrapper">
       <input
-        :id="nameWithoutWhitespace"
+        :id="idWithoutWhitespace"
         v-focus
         v-bind="$attrs"
         :value="value"
@@ -25,7 +25,7 @@
       <label
         :class="{ 'display-none': !label }"
         class="sf-input__label will-change"
-        :for="nameWithoutWhitespace"
+        :for="name"
       >
         <slot name="label" v-bind="{ label }">{{ label }}</slot>
       </label>
@@ -153,7 +153,7 @@ export default {
     isPassword() {
       return this.type === "password" && this.hasShowPassword;
     },
-    nameWithoutWhitespace() {
+    idWithoutWhitespace() {
       return this.name.replace(/\s/g, "");
     },
   },

@@ -48,8 +48,6 @@ module.exports = function (moduleOptions) {
       })
     }
 
-    // https://github.com/zloirock/core-js/issues/743
-    this.options.build.babel.exclude = [/\bcore-js\b/, /\bwebpack\/buildin\b/]
     this.options.build.transpile.push(packageName)
   }
 

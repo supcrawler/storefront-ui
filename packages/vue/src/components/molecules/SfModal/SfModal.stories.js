@@ -17,7 +17,6 @@ export default {
       "modal-border": { value: "", control: "text" },
       "modal-max-height": { value: "", control: "text" },
       "modal-background": { value: "var(--c-white)", control: "text" },
-      "modal-content-height": { value: "", control: "text" },
       "modal-content-padding": {
         value: "var(--spacer-base) var(--spacer-sm)",
         control: "text",

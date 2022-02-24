@@ -125,7 +125,7 @@ export default {
       description: "Author of the review",
     },
     date: {
-      control: "text",
+      control: "date",
       table: {
         category: "Props",
         defaultValue: {

@@ -109,12 +109,7 @@ export default {
 const Template = (args, { argTypes }) => ({
   components: { SfAddToCart },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      quantity: this.qty,
-    };
-  },
-  template: `<SfAddToCart v-model="quantity" :disabled="disabled"  @click="click" @input="input" />`,
+  template: `<SfAddToCart v-model="qty" :disabled="disabled"  @click="click" @input="input" />`,
 });
 
 export const Common = Template.bind({});
@@ -126,20 +121,15 @@ Disabled.args = { disabled: true };
 export const WithAddToCartSlot = (args, { argTypes }) => ({
   components: { SfAddToCart },
   props: Object.keys(argTypes),
-  data() {
-    return {
-      quantity: this.qty,
-    };
-  },
   template: `
   <SfAddToCart 
     :disabled="disabled"
     @click="click"
     @input="input"
-    :qty="quantity"
+    :qty="qty"
   >
-    <template #quantity-select-input="{quantity}">
-      <select v-model="quantity">
+    <template #quantity-select-input="{qty}">
+      <select v-model="qty">
         <option value="1">1</option>
         <option value="5">5</option>
         <option value="25">25</option>
