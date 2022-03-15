@@ -52,32 +52,10 @@
       <slot name="colors" v-bind="{ colors }">
         <SfColorPicker
           :class="{ 'display-none': !colors.length }"
-          class="sf-product-card__colors smartphone-only"
+          class="sf-product-card__colors"
           label="Choose color"
-          :is-open="openColorPicker"
+          :is-open="!isMobile || openColorPicker"
           @click:toggle="toggleColorPicker"
-        >
-          <SfColor
-            v-for="(color, i) in colors"
-            :key="color.value"
-            :color="color.color"
-            :selected="color.selected"
-            class="sf-product-card__color"
-            :class="{ 'display-none': i > 3 && showBadge }"
-            @click="handleSelectedColor(i)"
-          />
-          <SfBadge
-            v-if="showBadge"
-            class="sf-product-card__colors-badge color-secondary"
-          >
-            {{ `+${colors.length - 4}` }}
-          </SfBadge>
-        </SfColorPicker>
-        <SfColorPicker
-          :class="{ 'display-none': !colors.length }"
-          class="sf-product-card__colors desktop-only"
-          label="Choose color"
-          :is-open="true"
         >
           <SfColor
             v-for="(color, i) in colors"
@@ -222,6 +200,10 @@ import SfBadge from "../../atoms/SfBadge/SfBadge.vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 import SfColorPicker from "../../molecules/SfColorPicker/SfColorPicker.vue";
 import SfColor from "../../atoms/SfColor/SfColor.vue";
+import {
+  mapMobileObserver,
+  unMapMobileObserver,
+} from "../../../utilities/mobile-observer";
 export default {
   name: "SfProductCard",
   components: {
@@ -336,6 +318,7 @@ export default {
     };
   },
   computed: {
+    ...mapMobileObserver(),
     isSFColors() {
       return SF_COLORS.includes(this.badgeColor.trim());
     },
@@ -359,6 +342,9 @@ export default {
       return this.colors.length > 5;
     },
   },
+  beforeDestroy() {
+    unMapMobileObserver();
+  },
   methods: {
     toggleIsInWishlist() {
       this.$emit("click:wishlist", !this.isInWishlist);
@@ -376,7 +362,9 @@ export default {
         this.colors.map((color, i) => {
           if (colorIndex === i) {
             this.$emit("click:colors", color);
-            this.openColorPicker = false;
+            if (this.isMobile) {
+              this.toggleColorPicker();
+            }
           }
         });
       }

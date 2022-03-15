@@ -50,6 +50,7 @@ import SfScrollable from "./src/components/molecules/SfScrollable/SfScrollable.v
 import SfSearchBar from "./src/components/molecules/SfSearchBar/SfSearchBar.vue";
 import SfSection from "./src/components/molecules/SfSection/SfSection.vue";
 import SfSelect from "./src/components/molecules/SfSelect/SfSelect.vue";
+import SfSlidingSection from "./src/components/molecules/SfSlidingSection/SfSlidingSection.vue";
 import SfSteps from "./src/components/molecules/SfSteps/SfSteps.vue";
 import SfSticky from "./src/components/molecules/SfSticky/SfSticky.vue";
 import SfTile from "./src/components/molecules/SfTile/SfTile.vue";
@@ -135,6 +136,7 @@ export {
   SfSearchBar,
   SfSection,
   SfSelect,
+  SfSlidingSection,
   SfSteps,
   SfSticky,
   SfTile,
@@ -166,5 +168,5 @@ export {
   SfPayment,
   SfPersonalDetails,
   SfShipping,
-  SfShippingDetails
+  SfShippingDetails,
 };
