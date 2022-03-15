@@ -1,8 +1,8 @@
 <template>
   <div class="sf-scrollable" :class="{ 'is-open': !isHidden }">
-    <div ref="content" class="sf-scrollable__content" :style="style">
+    <Simplebar ref="content" class="sf-scrollable__content" :style="style">
       <slot />
-    </div>
+    </Simplebar>
     <slot name="view-all" v-bind="{ hasScroll, showText, hideText }">
       <SfButton
         v-show="hasScroll"
@@ -16,11 +16,13 @@
   </div>
 </template>
 <script>
+import Simplebar from "simplebar-vue";
 import SfButton from "../../atoms/SfButton/SfButton.vue";
 export default {
   name: "SfScrollable",
   components: {
     SfButton,
+    Simplebar,
   },
   props: {
     maxContentHeight: {
@@ -40,6 +42,7 @@ export default {
     return {
       isHidden: true,
       hasScroll: false,
+      contentEl: undefined,
     };
   },
   computed: {
@@ -49,6 +52,23 @@ export default {
           ? this.maxContentHeight
           : undefined,
       };
+    },
+  },
+  mounted() {
+    this.$nextTick(() => {
+      this.contentEl =
+        this.$refs.content.$el.querySelector(".simplebar-content");
+      if (typeof MutationObserver === "undefined" || !this.contentEl) return;
+      const observer = new MutationObserver(this.sizeCalc);
+      this.sizeCalc();
+      observer.observe(this.contentEl, { childList: true });
+    });
+  },
+  methods: {
+    sizeCalc() {
+      const containerHeight = this.$refs.content.$el.offsetHeight;
+      const contentHeight = this.contentEl.offsetHeight;
+      this.hasScroll = contentHeight > containerHeight;
     },
   },
 };
