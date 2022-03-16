@@ -160,6 +160,7 @@
           help: ['Customer service', 'Size guide', 'Contact us'],
           paymentsDelivery: ['Purchase terms', 'Guarantee'],
           social: ['facebook', 'pinterest', 'twitter', 'youtube'],
+          isMobile: false,
           desktopMin: 1024
         }
       }
