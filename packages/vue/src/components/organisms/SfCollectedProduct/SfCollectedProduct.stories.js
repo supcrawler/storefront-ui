@@ -418,6 +418,7 @@ const Template = (args, { argTypes }) => ({
   methods: {
     inputHandler(quantityValue) {
       this.quantity = quantityValue;
+      this.input(this.quantity);
     },
   },
   template: `
@@ -471,6 +472,7 @@ export const UseActionsSlot = (args, { argTypes }) => ({
   methods: {
     inputHandler(quantityValue) {
       this.quantity = quantityValue;
+      this.input(this.quantity);
     },
   },
   template: `
@@ -485,6 +487,7 @@ export const UseActionsSlot = (args, { argTypes }) => ({
     :minQty="minQty"
     :maxQty="maxQty"
     :regular-price="regularPrice"
+    :special-price="specialPrice"
     :special-price="specialPrice"
     :hasMoreActions="hasMoreActions"
   >
@@ -506,6 +509,7 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
   methods: {
     inputHandler(quantityValue) {
       this.quantity = quantityValue;
+      this.input(this.quantity);
     },
   },
   template: `
@@ -520,6 +524,7 @@ export const UseConfigurationSlot = (args, { argTypes }) => ({
     :minQty="minQty"
     :maxQty="maxQty"
     :regular-price="regularPrice"
+    :special-price="specialPrice"
     :special-price="specialPrice"
     :hasMoreActions="hasMoreActions"
   >
@@ -541,6 +546,7 @@ export const UseImageSlot = (args, { argTypes }) => ({
   methods: {
     inputHandler(quantityValue) {
       this.quantity = quantityValue;
+      this.input(this.quantity);
     },
   },
   template: `
@@ -555,6 +561,7 @@ export const UseImageSlot = (args, { argTypes }) => ({
     :minQty="minQty"
     :maxQty="maxQty"
     :regular-price="regularPrice"
+    :special-price="specialPrice"
     :special-price="specialPrice"
     :hasMoreActions="hasMoreActions"
   >
@@ -576,6 +583,7 @@ export const UseInputSlot = (args, { argTypes }) => ({
   methods: {
     inputHandler(quantityValue) {
       this.quantity = quantityValue;
+      this.input(this.quantity);
     },
   },
   template: `
@@ -611,6 +619,7 @@ export const UseTitleSlot = (args, { argTypes }) => ({
   methods: {
     inputHandler(quantityValue) {
       this.quantity = quantityValue;
+      this.input(this.quantity);
     },
   },
   template: `
@@ -646,6 +655,7 @@ export const UsePriceSlot = (args, { argTypes }) => ({
   methods: {
     inputHandler(quantityValue) {
       this.quantity = quantityValue;
+      this.input(this.quantity);
     },
   },
   template: `
