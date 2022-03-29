@@ -223,7 +223,7 @@ export const WithDefaultSlot = (args, { argTypes }) => ({
   <SfButton
     :class="classes"
     :disabled="disabled"
-    @click="click"
+    @click="onClick"
     :link="link">
     <template>
       <div v-html="content"/>
