@@ -4,7 +4,7 @@
       :visible="isCartSidebarOpen"
       title="My Cart"
       class="sf-sidebar--right sf-sidebar--icon"
-      @close="$emit('closeSidebar')"
+      @close="() => {}"
     >
       <template #content-top>
         <SfProperty
